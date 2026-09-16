@@ -1,0 +1,37 @@
+% !TEX root = ../../../main.tex
+\section{Upper and lower sums}
+\label{sec:analysis-i:upper-and-lower-sums}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 958--985.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+\label{template:sec:filehooks}
+
+\index{file hooks|(}
+If you create many documents using the \TL classes, it's easier to
+store your customizations in a separate file instead of copying them into the
+preamble of each document.  The \TL classes provide three file hooks:
+\docfilehook{tufte-common-local.tex}{common}, \docfilehook{tufte-book-local.tex}{book}, and
+\docfilehook{tufte-handout-local.tex}{handout}.
+
+\begin{description}
+  \item[\docfilehook{tufte-common-local.tex}{common}]
+    If this file exists, it will be loaded by all of the \TL document
+    classes just prior to any document-class-specific code.  If your
+    customizations or code should be included in both the book and handout
+    classes, use this file hook.
+  \item[\docfilehook{tufte-book-local.tex}{book}] 
+    If this file exists, it will be loaded after all of the common and
+    book-specific code has been read.  If your customizations apply only to the
+    book class, use this file hook.
+  \item[\docfilehook{tufte-common-handout.tex}{handout}] 
+    If this file exists, it will be loaded after all of the common and
+    handout-specific code has been read.  If your customizations apply only to
+    the handout class, use this file hook.
+\end{description}
+
+\index{file hooks|)}
+
+\lipsum[1]
+\par\endgroup
+% END TUFTE PLACEHOLDER

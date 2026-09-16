@@ -1,0 +1,32 @@
+% !TEX root = ../../../main.tex
+\section{Maximum (extreme value theorem)}
+\label{sec:analysis-i:extreme-value-theorem}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 743--764.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+\newthought{Occasionally} \LaTeX{} will generate an error message:\label{template:err:too-many-floats}
+\begin{docspec}
+  Error: Too many unprocessed floats
+\end{docspec}
+\LaTeX{} tries to place floats in the best position on the page.  Until it's
+finished composing the page, however, it won't know where those positions are.
+If you have a lot of floats on a page (including sidenotes, margin notes,
+figures, tables, etc.), \LaTeX{} may run out of ``slots'' to keep track of them
+and will generate the above error.
+
+\LaTeX{} initially allocates 18 slots for storing floats.  To work around this
+limitation, the \TL document classes provide a \doccmddef{morefloats} command
+that will reserve more slots.
+
+The first time \doccmd{morefloats} is called, it allocates an additional 34
+slots.  The second time \doccmd{morefloats} is called, it allocates another 26
+slots.
+
+The \doccmd{morefloats} command may only be used two times.  Calling it a
+third time will generate an error message.  (This is because we can't safely
+allocate many more floats or \LaTeX{} will run out of memory.)
+
+\lipsum[6]
+\par\endgroup
+% END TUFTE PLACEHOLDER

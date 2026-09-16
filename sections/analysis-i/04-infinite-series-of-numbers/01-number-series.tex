@@ -1,0 +1,48 @@
+% !TEX root = ../../../main.tex
+\section{Number series}
+\label{sec:analysis-i:number-series}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 640--677.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+\label{template:sec:figures-and-tables}
+Images and graphics play an integral role in Tufte's work.
+In addition to the standard \docenvdef{figure} and \docenvdef{tabular} environments,
+this style provides special figure and table environments for full-width
+floats.
+
+Full page--width figures and tables may be placed in \docenvdef{figure*} or
+\docenvdef{table*} environments.  To place figures or tables in the margin,
+use the \docenvdef{marginfigure} or \docenvdef{margintable} environments as follows
+(see figure~\ref{template:fig:marginfig}):
+
+\begin{marginfigure}%
+  \includegraphics[width=\linewidth]{template/helix}
+  \caption[Helix in the margin.]{This is a margin figure.  The helix is defined by 
+    $x = \cos(2\pi z)$, $y = \sin(2\pi z)$, and $z = [0, 2.7]$.  The figure was
+    drawn using Asymptote (\protect\url{http://asymptote.sf.net/}).}
+  \label{template:fig:marginfig}
+\end{marginfigure}
+
+\begin{docspec}
+\textbackslash begin\{marginfigure\}\\
+  \qquad\textbackslash includegraphics\{helix\}\\
+  \qquad\textbackslash caption\{This is a margin figure.\}\\
+  \qquad\textbackslash label\{fig:marginfig\}\\
+\textbackslash end\{marginfigure\}\\
+\end{docspec}
+
+The \docenv{marginfigure} and \docenv{margintable} environments accept an optional parameter \docopt{offset} that adjusts the vertical position of the figure or table.  See the ``\nameref{template:sec:sidenotes}'' section above for examples.  The specifications are:
+\begin{docspec}
+  \textbackslash{begin\{marginfigure\}[\docopt{offset}]}\\
+  \qquad\ldots\\
+  \textbackslash{end\{marginfigure\}}\\
+  \mbox{}\\
+  \textbackslash{begin\{margintable\}[\docopt{offset}]}\\
+  \qquad\ldots\\
+  \textbackslash{end\{margintable\}}\\
+\end{docspec}
+
+\lipsum[4]
+\par\endgroup
+% END TUFTE PLACEHOLDER

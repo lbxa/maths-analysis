@@ -1,0 +1,29 @@
+% !TEX root = ../../../main.tex
+\section{Intermediate value theorem}
+\label{sec:analysis-i:intermediate-value-theorem}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 765--783.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+If, after using the \doccmd{morefloats} command twice, you continue to get the
+\texttt{Too many unprocessed floats} error, there are a couple things you can
+do.
+
+The \doccmddef{FloatBarrier} command will immediately process all the floats
+before typesetting more material.  Since \doccmd{FloatBarrier} will start a new
+paragraph, you should place this command at the beginning or end of a
+paragraph.
+
+The \doccmddef{clearpage} command will also process the floats before
+continuing, but instead of starting a new paragraph, it will start a new page.
+
+You can also try moving your floats around a bit: move a figure or table to the
+next page or reduce the number of sidenotes.  (Each sidenote actually uses
+\emph{two} slots.)
+
+After the floats have placed, \LaTeX{} will mark those slots as unused so they
+are available for the next page to be composed.
+
+\lipsum[7]
+\par\endgroup
+% END TUFTE PLACEHOLDER

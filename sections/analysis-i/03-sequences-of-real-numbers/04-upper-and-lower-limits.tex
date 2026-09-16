@@ -1,0 +1,30 @@
+% !TEX root = ../../../main.tex
+\section{Upper and lower limits (lim sup and lim inf)}
+\label{sec:analysis-i:upper-and-lower-limits}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 603--622.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+While both the \docopt{number} and \docopt{offset} arguments are optional, they
+must be provided in order.  To adjust the vertical position of the sidenote
+while leaving the sidenote number alone, use the following syntax:
+\begin{docspec}
+  \doccmd{sidenote}[][\docopt{offset}]\{\docarg{Sidenote text.}\}
+\end{docspec}
+The empty brackets tell the \Verb|\sidenote| command to use the default
+sidenote number.
+
+If you \emph{only} want to change the sidenote number, however, you may
+completely omit the \docopt{offset} argument:
+\begin{docspec}
+  \doccmd{sidenote}[\docopt{number}]\{\docarg{Sidenote text.}\}
+\end{docspec}
+
+The \doccmddef{marginnote} command has a similar \docarg{offset} argument:
+\begin{docspec}
+  \doccmd{marginnote}[\docopt{offset}]\{\docarg{Margin note text.}\}
+\end{docspec}
+
+\lipsum[6]
+\par\endgroup
+% END TUFTE PLACEHOLDER

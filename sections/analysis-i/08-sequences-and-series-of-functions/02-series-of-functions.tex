@@ -1,0 +1,38 @@
+% !TEX root = ../../../main.tex
+\section{Series of functions}
+\label{sec:analysis-i:series-of-functions}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 1051--1076.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+Each of the document class options takes one of five justification types:
+\begin{description}
+  \item[\docclsopt{justified}] Fully justifies the text (sets it flush left and
+    right).
+  \item[\docclsopt{raggedleft}] Sets the text ragged left, regardless of which
+    page it falls on.
+  \item[\docclsopt{raggedright}] Sets the text ragged right, regardless of
+    which page it falls on.
+  \item[\doccls{raggedouter}] Sets the text ragged left if it falls on the
+    left-hand (verso) page of the spread and otherwise sets it ragged right.
+    This is useful in conjunction with the \docclsopt{symmetric} document class
+    option.
+  \item[\docclsopt{auto}] If the \docclsopt{justified} document class option
+    was specified, then set the text fully justified; otherwise the text is set
+    ragged right.  This is the default justification option if one is not
+    explicitly specified.
+\end{description}
+
+\noindent For example, 
+\begin{fullwidth}
+\begin{docspec}
+  \doccmdnoindex{documentclass}[symmetric,justified,marginals=raggedouter]\{tufte-book\}
+\end{docspec}
+\end{fullwidth}
+will set the body text of the document to be fully justified and all of the
+margin material (sidenotes, margin notes, captions, and citations) to be flush
+against the body text with ragged outer edges.
+
+\lipsum[2]
+\par\endgroup
+% END TUFTE PLACEHOLDER

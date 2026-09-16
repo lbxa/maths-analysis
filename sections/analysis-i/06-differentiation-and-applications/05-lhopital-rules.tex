@@ -1,0 +1,37 @@
+% !TEX root = ../../../main.tex
+\section{L'H\^opital's rules}
+\label{sec:analysis-i:lhopital-rules}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 908--934.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+The \docclsoptdef{bidi} option loads the \docpkg{bidi} package which is used with
+\tXeLaTeX\ to typeset bi-directional text.  Since the \docpkg{bidi}
+package needs to be loaded before the sidenotes and cite commands are defined,
+it can't be loaded in the document preamble.
+
+The \docclsoptdef{debug} option causes the \TL classes to output debug
+information to the log file which is useful in troubleshooting bugs.  It will
+also cause the graphics to be replaced by outlines.
+
+The \docclsoptdef{nofonts} option prevents the \TL classes from
+automatically loading the Palatino and Helvetica typefaces.  You should use
+this option if you wish to load your own fonts.  If you're using \tXeLaTeX, this
+option is implied (\ie, the Palatino and Helvetica fonts aren't loaded if you
+use \tXeLaTeX).  
+
+The \docclsoptdef{nols} option inhibits the letterspacing code.  The \TL\
+classes try to load the appropriate letterspacing package (either pdf\TeX's
+\docpkg{letterspace} package or the \docpkg{soul} package).  If you're using
+\tXeLaTeX\ with \docpkg{fontenc}, however, you should configure your own
+letterspacing.  
+
+The \docclsoptdef{notitlepage} option causes \doccmd{maketitle} to generate a title
+block instead of a title page.  The \doccls{book} class defaults to a title
+page and the \doccls{handout} class defaults to the title block.  There is an
+analogous \docclsoptdef{titlepage} option that forces \doccmd{maketitle} to
+generate a full title page instead of the title block.
+
+\lipsum[3]
+\par\endgroup
+% END TUFTE PLACEHOLDER

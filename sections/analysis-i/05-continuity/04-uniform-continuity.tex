@@ -1,0 +1,39 @@
+% !TEX root = ../../../main.tex
+\section{Uniform continuity}
+\label{sec:analysis-i:uniform-continuity}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 784--813.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+You may notice that the captions are sometimes misaligned.
+Due to the way \LaTeX's float mechanism works, we can't know for sure where it
+decided to put a float. Therefore, the \TL document classes provide commands to
+override the caption position.
+
+\paragraph{Vertical alignment} To override the vertical alignment, use the
+\doccmd{setfloatalignment} command inside the float environment.  For
+example:
+
+\begin{fullwidth}
+\begin{docspec}
+  \textbackslash begin\{figure\}[btp]\\
+  \qquad \textbackslash includegraphics\{sinewave\}\\
+  \qquad \textbackslash caption\{This is an example of a sine wave.\}\\
+  \qquad \textbackslash label\{fig:sinewave\}\\
+  \qquad \hlred{\textbackslash setfloatalignment\{b\}\% forces caption to be bottom-aligned}\\
+  \textbackslash end\{figure\}
+\end{docspec}
+\end{fullwidth}
+
+\noindent The syntax of the \doccmddef{setfloatalignment} command is:
+
+\begin{docspec}
+  \doccmd{setfloatalignment}\{\docopt{pos}\}
+\end{docspec}
+
+\noindent where \docopt{pos} can be either \texttt{b} for bottom-aligned
+captions, or \texttt{t} for top-aligned captions.
+
+\lipsum[1]
+\par\endgroup
+% END TUFTE PLACEHOLDER

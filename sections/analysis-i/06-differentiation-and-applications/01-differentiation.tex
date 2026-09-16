@@ -1,0 +1,32 @@
+% !TEX root = ../../../main.tex
+\section{Differentiation}
+\label{sec:analysis-i:differentiation}
+
+% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 814--836.
+\begingroup\sloppy
+% Replace this entire specimen block with reviewed course notes.
+\paragraph{Horizontal alignment}\label{template:par:overriding-horizontal}
+To override the horizontal alignment, use either the \doccmd{forceversofloat}
+or the \doccmd{forcerectofloat} command inside of the float environment.  For
+example:
+
+\begin{fullwidth}
+\begin{docspec}
+  \textbackslash begin\{figure\}[btp]\\
+  \qquad \textbackslash includegraphics\{sinewave\}\\
+  \qquad \textbackslash caption\{This is an example of a sine wave.\}\\
+  \qquad \textbackslash label\{fig:sinewave\}\\
+  \qquad \hlred{\textbackslash forceversofloat\% forces caption to be set to the left of the float}\\
+  \textbackslash end\{figure\}
+\end{docspec}
+\end{fullwidth}
+
+The \doccmddef{forceversofloat} command causes the algorithm to assume the
+float has been placed on a verso page---that is, a page on the left side of a
+two-page spread.  Conversely, the \doccmddef{forcerectofloat} command causes
+the algorithm to assume the float has been placed on a recto page---that is, a
+page on the right side of a two-page spread.
+
+\lipsum[6]
+\par\endgroup
+% END TUFTE PLACEHOLDER

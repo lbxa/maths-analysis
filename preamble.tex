@@ -1,0 +1,81 @@
+% Shared packages and typography for the book and homework handouts.
+\usepackage[T1]{fontenc}
+% Give titletoc a separate part number before nameref wraps \@part.
+\usepackage{etoolbox}
+\makeatletter
+\@ifclassloaded{tufte-book}{%
+  \patchcmd{\@part}
+    {\thepart\hspace{1em}}
+    {\protect\numberline{\thepart}}
+    {}
+    {\PackageError{analysis-notes}{Could not format part contents labels}
+      {Check the book class definition of \string\@part.}}
+}{}
+\makeatother
+\usepackage{nameref}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+% Packages used by the temporary Tufte specimen content.
+\usepackage{fancyvrb,xspace,units,multicol,makeidx}
+\fvset{fontsize=\small}
+\usepackage{url}
+\usepackage{lipsum} % Remove after all placeholder prose has been replaced.
+\usepackage[backend=biber,natbib=true,style=numeric]{biblatex}
+\addbibresource{bibliography.bib}
+
+% Preserve the template's full citations in the margin.
+\usepackage{xargs}
+\renewcommandx{\cite}[3][1={0pt},2={}]{\sidenote[][#1]{\fullcite[#2]{#3}}}
+
+\graphicspath{{figures/}}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\setcounter{secnumdepth}{1}
+
+% Retain the borrowed title/contents design only for the book.
+% Adapted from Kevin Godby's Tufte-LaTeX title/contents example:
+% https://groups.google.com/forum/#!topic/tufte-latex/ujdzrktC1BQ
+\makeatletter
+\@ifclassloaded{tufte-book}{%
+  \makeindex
+  \setcounter{tocdepth}{0} % Parts and chapters only.
+  % Title-only chapter headings; retain counters for sections and references.
+  \titleformat{\chapter}[block]
+    {\relax\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\begin{fullwidth}}{}}
+    {}
+    {0pt}
+    {\huge\rmfamily\itshape}
+    [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]
+  \renewcommand{\maketitlepage}{%
+    \begingroup
+    \setlength{\parindent}{0pt}
+    {\fontsize{24}{24}\selectfont\textit{\@author}\par}
+    \vspace{1.75in}
+    \begin{fullwidth}
+      \raggedright
+      {\fontsize{36}{44}\selectfont\@title\par}
+    \end{fullwidth}
+    \vspace{0.5in}
+    {\fontsize{14}{14}\selectfont\textsf{\smallcaps{\@date}}\par}
+    \vfill
+    {\fontsize{14}{14}\selectfont\textit{\@publisher}\par}
+    \thispagestyle{empty}
+    \endgroup
+  }
+  \titlecontents{part}
+    [0pt]
+    {\addvspace{0.75\baselineskip}\normalfont\normalsize}
+    {\allcaps{Part~\thecontentslabel}\quad\allcaps}
+    {\allcaps}
+    {}
+    [\vspace{0.5\baselineskip}]
+  % Hide chapter numbers in the contents as well.
+  \titlecontents{chapter}
+    [4em]
+    {\normalfont\normalsize}
+    {\textit}
+    {\textit}
+    {\qquad\thecontentspage}
+    [\vspace{0.5\baselineskip}]
+}{}
+\makeatother
