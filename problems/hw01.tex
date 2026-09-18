@@ -1,6 +1,6 @@
 % !TEX program = pdflatex
-% Standalone handout: compile from the repository root with make problems.
-\documentclass[nohyper,nobib]{tufte-handout}
+% Handout: compile from the repository root with make problems.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
 \input{preamble}
 \input{macros}
 
@@ -14,14 +14,92 @@
 \section{Sets and foundations}
 \label{sec:hw01:sets-and-foundations}
 
-% Placeholder exercise and solution; replace with reviewed problem content.
 \begin{exercise}
-  \label{ex:hw01:placeholder}
-  \lipsum[1]
+\label{ex:hw01:de-morgan}
+Let $\{A_\gamma \mid \gamma \in \Gamma\}$ be a collection of sets. Prove De Morgan's laws
+\[
+    \left(\bigcup_{\gamma\in\Gamma} A_\gamma\right)^c
+    = \bigcap_{\gamma\in\Gamma} A_\gamma^c,
+    \qquad
+    \left(\bigcap_{\gamma\in\Gamma} A_\gamma\right)^c
+    = \bigcup_{\gamma\in\Gamma} A_\gamma^c.
+\]
 \end{exercise}
 
 \begin{proof}[Solution]
   \lipsum[2]
 \end{proof}
+
+\begin{exercise}
+\label{ex:hw01:power-set}
+List all the elements in the set $\mathcal{P}(\mathcal{P}(\varnothing))$ and verify the cardinality formula.
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:prime-roots}
+Let $p=2,3,5,\ldots$ be a prime. Prove that $\sqrt{p}$ is irrational. Can this result be extended to $p^{\frac{1}{k}}$ for any integer $k\geq 2$?
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:interval-to-reals}
+Obtain a bijective map from $(0,1)$ to $\mathbb{R}$.
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:open-to-closed-interval}
+Obtain a bijective map from $(0,1)$ to $[0,1]$.
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:transcendental-cardinality}
+Let $\aleph_0$ and $\aleph$ denote the cardinalities of $\mathbb{N}$ and $\mathbb{R}$ respectively. Recall that the Continuum Hypothesis (CH) states that there is no cardinality between $\aleph_0$ and $\aleph$. Use CH to prove that the set of transcendental numbers, $\mathbb{T}$, has the same cardinality $\aleph$ as that of $\mathbb{R}$.
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:linear-independence}
+Let $\tau$ be a transcendental number whose existence is proven already. Show that for any $n\in\mathbb{N}$, the numbers
+\[
+    \tau,\ldots,\tau^n
+\]
+are linearly independent over the field $\mathbb{Q}$. That is, if there are $r_1,\ldots,r_n\in\mathbb{Q}$ such that
+\[
+    r_1\tau+\cdots+r_n\tau^n=0,
+\]
+then $r_1=\cdots=r_n=0$.
+
+(In the language of Linear Algebra, this result indicates that the set $\mathbb{R}$ viewed as a vector space over $\mathbb{Q}$ is infinitely dimensional.)
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:square-cardinality}
+Show that
+\[
+    |(0,1)\times(0,1)|=|(0,1)|=\aleph.
+\]
+(Hint: Represent the interval $(0,1)$ in decimal-digit form:
+\[
+    x\in(0,1),\quad x=0.x_1x_2\cdots,\quad
+    x_i\in\{1,\ldots,9\},\quad i=1,2,\ldots.
+\]
+Then define a map from $(0,1)\times(0,1)$ to $(0,1)$ by
+\[
+    (x,y)=(0.x_1x_2\cdots,0.y_1y_2\cdots)
+    \mapsto (0.x_1y_1x_2y_2\ldots)=z\in(0,1).
+\]
+Show that this map is bijective.)
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:irrational-roots}
+Show that if $a>0$ is irrational, so is the $k$th root of $a$, $a^{\frac{1}{k}}$, for any $k\in\mathbb{N}$.
+\end{exercise}
+
+\begin{exercise}
+\label{ex:hw01:countable-union}
+Let $A_n$ be a set such that $|A_n|=\aleph_0$ for $n=1,2,\ldots$. Prove $|A|=\aleph_0$ where
+\[
+    A=\bigcup_{n=1}^{\infty} A_n.
+\]
+\end{exercise}
 
 \end{document}
