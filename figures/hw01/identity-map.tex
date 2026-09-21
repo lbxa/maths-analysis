@@ -1,0 +1,13 @@
+% !TEX root = ../../problems/hw01.tex
+\begin{tikzpicture}[x=2.9cm,y=2.9cm,>=Stealth,font=\footnotesize]
+  \draw[->] (-0.12,0) -- (1.14,0) node[right] {$x$};
+  \draw[->] (0,-0.12) -- (0,1.14) node[above] {$y$};
+  \draw[thick] (0,0) -- (1,1);
+  \draw[densely dotted,black!50] (1,0) -- (1,1) -- (0,1);
+  \draw[fill=white] (0,0) circle[radius=1.8pt];
+  \draw[fill=white] (1,1) circle[radius=1.8pt];
+  \node[below left] at (0,0) {$0$};
+  \node[below] at (1,0) {$1$};
+  \node[left] at (0,1) {$1$};
+  \node[above left] at (0.65,0.65) {$y=x$};
+\end{tikzpicture}

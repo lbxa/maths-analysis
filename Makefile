@@ -1,8 +1,9 @@
 LATEXMK ?= latexmk
 LATEXMK_FLAGS ?= -pdf -interaction=nonstopmode -halt-on-error -file-line-error -synctex=1
 HOMEWORK := $(wildcard problems/hw*.tex)
+HW ?= hw01
 
-.PHONY: all book problems check watch clean
+.PHONY: all book problems check watch watch-problems clean
 
 all: book
 
@@ -18,6 +19,9 @@ check: book problems
 
 watch:
 	$(LATEXMK) $(LATEXMK_FLAGS) -pvc -view=none -outdir=build main.tex
+
+watch-problems: problems/$(HW).tex
+	$(LATEXMK) $(LATEXMK_FLAGS) -pvc -view=none -outdir=build/problems "$<"
 
 clean:
 	$(LATEXMK) -C -outdir=build main.tex

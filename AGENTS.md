@@ -19,13 +19,14 @@ Install LaTeX with pdfLaTeX, Tufte-LaTeX, biblatex, Biber, and latexmk. Run from
 - `make problems`: build every `problems/hw*.tex` into `build/problems/`.
 - `make check`: compile the book and homework handouts.
 - `make watch`: rebuild the book when included sources change; stop with Ctrl-C.
+- `make watch-problems`: watch `hw01`; use `HW=hw02` to select another handout. Stop with Ctrl-C.
 - `make clean`: remove generated PDFs and auxiliary files through latexmk.
 
 On Overleaf, select `main.tex` and pdfLaTeX.
 
 ## Style & Contribution Conventions
 
-Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific.
+Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific. Use black and gray for diagrams by default; reserve colour for a specific highlight or distinction.
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 

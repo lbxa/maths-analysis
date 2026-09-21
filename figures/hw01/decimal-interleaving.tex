@@ -1,0 +1,20 @@
+% !TEX root = ../../problems/hw01.tex
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,font=\small]
+  \node[anchor=east] at (-0.75,1.25) {$x=0.$};
+  \node[anchor=east] at (-0.75,0) {$F(x,y)=0.$};
+  \node[anchor=east] at (-0.75,-1.25) {$y=0.$};
+  \foreach \index in {1,2,3,4} {
+    \pgfmathsetmacro{\oddpos}{3.0*(\index-1)}
+    \pgfmathsetmacro{\evenpos}{\oddpos+1.5}
+    \node[text=black] (x\index) at (\oddpos,1.25) {$x_{\index}$};
+    \node[text=black] (y\index) at (\evenpos,-1.25) {$y_{\index}$};
+    \node[fill=black!6,minimum width=0.65cm,minimum height=0.5cm]
+      (odd\index) at (\oddpos,0) {$x_{\index}$};
+    \node[fill=black!12,minimum width=0.65cm,minimum height=0.5cm]
+      (even\index) at (\evenpos,0) {$y_{\index}$};
+    \draw[->,black!65] (x\index.south) -- (odd\index.north);
+    \draw[->,black!65] (y\index.north) -- (even\index.south);
+  }
+  \foreach \height in {-1.25,0,1.25}
+    \node at (12.0,\height) {$\cdots$};
+\end{tikzpicture}

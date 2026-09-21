@@ -55,6 +55,14 @@ Preserve the established Tufte layout: italic chapter titles, chapter-level
 contents, and margin notes. Changes to typography or the `nohyper` setting
 need a PDF check.
 
+## Preview while editing
+
+Run `make watch` for the book or `make watch-problems HW=hw01` for a homework
+handout. Replace `hw01` with the file's basename, without `.tex`; Homework 01 is
+the default. Open `build/main.pdf` or `build/problems/hw01.pdf` in your PDF
+viewer. Changes to the selected document and its included files trigger a
+rebuild. Stop with Ctrl-C.
+
 ## Validate the change
 
 Run from the repository root:

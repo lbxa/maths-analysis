@@ -1,0 +1,25 @@
+% !TEX root = ../../problems/hw01.tex
+% Editable reconstruction of the finite-set mapping sketches in IMG_8998.
+\begin{tikzpicture}[x=0.9cm,y=0.9cm,>=Stealth,font=\small]
+  \foreach \panel/\captiontext in {0/{Bijection},3.8/{Bijection},7.6/{Not a bijection}} {
+    \begin{scope}[shift={(\panel,0)}]
+      \draw[black!55] (0,0) ellipse[x radius=0.4,y radius=1.05];
+      \draw[black!55] (2.1,0) ellipse[x radius=0.4,y radius=1.05];
+      \node at (0,1.35) {$A$};
+      \node at (2.1,1.35) {$B$};
+      \foreach \y in {-0.65,0,0.65} {
+        \fill (0,\y) circle[radius=1.5pt];
+        \fill (2.1,\y) circle[radius=1.5pt];
+      }
+      \node[font=\footnotesize] at (1.05,-1.4) {\captiontext};
+    \end{scope}
+  }
+  \foreach \y in {-0.65,0,0.65}
+    \draw[->,shorten <=3pt,shorten >=3pt] (0,\y) -- (2.1,\y);
+  \draw[->,shorten <=3pt,shorten >=3pt] (3.8,0.65) -- (5.9,-0.65);
+  \draw[->,shorten <=3pt,shorten >=3pt] (3.8,0) -- (5.9,0.65);
+  \draw[->,shorten <=3pt,shorten >=3pt] (3.8,-0.65) -- (5.9,0);
+  \draw[->,shorten <=3pt,shorten >=3pt] (7.6,0.65) -- (9.7,0.65);
+  \draw[->,shorten <=3pt,shorten >=3pt] (7.6,0) -- (9.7,0.65);
+  \draw[->,shorten <=3pt,shorten >=3pt] (7.6,-0.65) -- (9.7,-0.65);
+\end{tikzpicture}

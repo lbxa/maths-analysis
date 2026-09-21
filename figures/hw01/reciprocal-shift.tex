@@ -1,0 +1,20 @@
+% !TEX root = ../../problems/hw01.tex
+\begin{tikzpicture}[x=0.92cm,y=1cm,>=Stealth,font=\small]
+  \node[anchor=east] at (-0.35,1.2) {$x$};
+  \node[anchor=east] at (-0.35,0) {$f(x)$};
+  \foreach \pos/\source/\target in {
+    0.2/{\frac12}/{0},
+    1.55/{\frac13}/{1},
+    2.9/{\frac14}/{\frac12},
+    4.25/{\frac15}/{\frac13},
+    5.6/{\frac16}/{\frac14},
+    8.4/{\frac1n}/{\frac1{n-2}}} {
+    \node at (\pos,1.2) {$\source$};
+    \node at (\pos,0) {$\target$};
+    \draw[->] (\pos,0.86) -- (\pos,0.35);
+  }
+  \node at (7,1.2) {$\cdots$};
+  \node at (7,0) {$\cdots$};
+  \node at (9.55,1.2) {$\cdots$};
+  \node at (9.55,0) {$\cdots$};
+\end{tikzpicture}

@@ -1,7 +1,15 @@
-# Generated documents and auxiliary files; source figures stay tracked.
-/build/
-/main.pdf
-/problems/hw*.pdf
+# Generated build directories at any depth.
+build/
+
+# Compiled documents at any depth; retain source figures.
+*.pdf
+*.dvi
+*.xdv
+*.ps
+!/figures/**/*.pdf
+!/figures/**/*.ps
+
+# LaTeX, bibliography, index, and glossary output at any depth.
 *.aux
 *.bbl
 *.bcf
@@ -13,10 +21,32 @@
 *.ind
 *.lof
 *.log
+*.lol
 *.lot
+*.loa
+*.loe
 *.out
 *.run.xml
-*.synctex.gz
 *.toc
-*.xdv
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.nlg
+*.nlo
+*.nls
+*.nav
+*.snm
+*.vrb
+
+# SyncTeX output, including files written during compilation.
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+
+# macOS metadata.
 .DS_Store

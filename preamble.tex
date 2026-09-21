@@ -15,6 +15,8 @@
 \usepackage{nameref}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
 \usepackage{booktabs}
 % Packages used by the temporary Tufte specimen content.
 \usepackage{fancyvrb,xspace,units,multicol,makeidx}
@@ -31,6 +33,16 @@
 \graphicspath{{figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \setcounter{secnumdepth}{1}
+
+% Use a full stop after caption numbers in homework handouts.
+\makeatletter
+\@ifclassloaded{tufte-handout}{%
+  \patchcmd{\@caption}{\endcsname:}{\endcsname.}
+    {}
+    {\PackageError{analysis-notes}{Could not format caption punctuation}
+      {Check the Tufte caption definition.}}
+}{}
+\makeatother
 
 % Retain the borrowed title/contents design only for the book.
 % Adapted from Kevin Godby's Tufte-LaTeX title/contents example:
