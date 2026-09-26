@@ -1,0 +1,78 @@
+% !TEX root = ../hw02.tex
+\leavevmode
+\begin{enumerate}
+  \item \textit{Boundedness.}
+    For $k\geq2$, each of the $k-1$ factors $2,3,\ldots,k$
+    is at least $2$, so
+    \[
+      k!=1\cdot2\cdots k\geq2^{k-1}.
+    \]
+    Consequently, for $n\geq2$,
+    \[
+      \begin{aligned}
+        2\leq x_n
+          &=2+\sum_{k=2}^n\frac1{k!}\\
+          &\leq2+\sum_{k=2}^n\frac1{2^{k-1}}\\
+          &=2+\frac{\tfrac12(1-(\tfrac12)^{n-1})}{1-\tfrac12}
+          =3-2^{1-n}<3.
+      \end{aligned}
+    \]
+    Since $x_1=2$, it follows that $2\leq x_n<3$ for every
+    $n\geq1$. Thus $S$ is bounded.
+
+  \item \textit{Infimum and supremum.}
+    We take the infimum and supremum in $\R$. Since $x_1=2$
+    and all terms are at least $2$, we have $a=\inf S=2$.
+    Moreover, $x_{n+1}-x_n=1/(n+1)!>0$, so $(x_n)$ is strictly
+    increasing. Since part (a) gives an
+    upper bound, the monotone convergence theorem implies that
+    $x_n\to L$ for some $L\in\R$.\sidenote{\textit{Monotone convergence theorem.}
+      Every increasing real sequence that is bounded above converges.}
+    Each $x_n\leq L$. If $u<L$, convergence gives a term $x_n>u$,
+    so $u$ is not an upper bound. Therefore $b=\sup S=L$.
+
+    All derivatives of $\exp(x)$ are continuous and equal to
+    $\exp(x)$, so their values at $0$ are $1$.
+    Taylor's theorem at $0$, evaluated at $1$, therefore
+    gives\sidenote{\textit{Taylor remainder.} For a function with
+      $n+1$ continuous derivatives on $[0,1]$, its degree-$n$
+      expansion about $0$, evaluated at $1$, has remainder
+      $f^{(n+1)}(\xi)/(n+1)!$ for some $\xi\in(0,1)$.}
+    \[
+      e=\sum_{k=0}^n\frac1{k!}
+        +\frac{\exp(\xi_n)}{(n+1)!},\qquad 0<\xi_n<1.
+    \]
+    The remainder satisfies
+    \[
+      0<e-x_n\leq\frac{e}{(n+1)!}\longrightarrow0.
+    \]
+    Hence $L=e$, and
+    \[
+      a=2,\qquad b=e=\sum_{k=0}^{\infty}\frac1{k!}.
+    \]
+
+  \item \textit{Rationality.}
+    We have $a=2\in\Q$, but $b=e\notin\Q$. To prove the latter,
+    suppose that $e=p/q$ with $p,q\in\N$. Choose an integer
+    $N\geq\max\{q,2\}$. Then
+    \[
+      R=N!\left(e-\sum_{k=0}^N\frac1{k!}\right)
+    \]
+    is an integer because both $N!e=N!p/q$ and every $N!/k!$ with
+    $0\leq k\leq N$ are integers. On the other hand,
+    \[
+      \begin{aligned}
+        0<R
+          &=\sum_{j=1}^{\infty}
+            \frac1{(N+1)(N+2)\cdots(N+j)}\\
+          &\leq\sum_{j=1}^{\infty}\frac1{(N+1)^j}
+          =\frac1N\leq\frac12<1.
+      \end{aligned}
+    \]
+    This contradicts $R\in\Z$. Thus $e$ is irrational.
+
+    In particular, $S$ has no supremum in the ordered field $\Q$.
+    Indeed, any rational upper bound $u$ must satisfy $u>e$.
+    By the density of $\Q$ in $\R$, there is a rational $v$
+    with $e<v<u$, and $v$ is a smaller upper bound for $S$.
+\end{enumerate}

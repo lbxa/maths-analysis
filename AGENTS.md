@@ -16,6 +16,7 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 Install LaTeX with pdfLaTeX, Tufte-LaTeX, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
+- `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
 - `make problems`: build every `problems/hw*.tex` into `build/problems/`.
 - `make check`: compile the book and homework handouts.
 - `make watch`: rebuild the book when included sources change; stop with Ctrl-C.
@@ -28,11 +29,21 @@ On Overleaf, select `main.tex` and pdfLaTeX.
 
 Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific. Use black and gray for diagrams by default; reserve colour for a specific highlight or distinction.
 
+Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
+
+Every figure or diagram must have a caption, a stable label, and an explicit in-text reference near the passage it illustrates. Use `Figure~\ref{fig:...}` rather than hard-coded figure numbers. A caption alone does not count as an in-text reference.
+
+Use explicit physical radii for circular point markers, e.g. `circle[radius=1.6pt]`, so unequal TikZ `x` and `y` coordinate units do not flatten them into ellipses.
+
+Use the shared styles in `figures/interval-styles.tex` for interval diagrams so line weights, endpoint diameters, arrowheads, fonts, and row spacing match. Open and closed endpoints differ by fill only. Represent unbounded intervals with arrows, never a point at infinity; use ellipses to continue a sequence rather than inventing a final interval. Label schematic drawings explicitly and do not show excluded limit points as included endpoints.
+
+For function plots, show labeled axes with arrowheads and mark the relevant intercepts. Plot the stated function rather than an arbitrary schematic rescaling, and use arrowheads on continued curve branches. Check label clearance at the final margin size.
+
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 
 ## Validation Guidelines
 
-Run `make check` after edits. Inspect affected PDFs for margin collisions, equation overflow, contents numbering, and missing references or citations. Review mathematical correctness separately. No test suite, coverage threshold, formatter, or CI is configured.
+Run `make check` after edits. Inspect affected PDFs for margin collisions, equation overflow, contents numbering, and missing references or citations. Verify that every figure in an edited document is referenced in the body text and that all figure numbers resolve. Read each proof without its margin notes to check that no essential reasoning is missing from the body. Review mathematical correctness separately. No test suite, coverage threshold, formatter, or CI is configured.
 
 ## Commits & Pull Requests
 

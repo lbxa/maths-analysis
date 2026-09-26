@@ -1,0 +1,52 @@
+% !TEX root = ../hw02.tex
+\leavevmode
+\begin{enumerate}
+  \item \textit{Monotonicity and a lower bound.}
+    Using $1+2+\cdots+n=n(n+1)/2$, we obtain
+    \[
+      x_n=\frac1{n^2}\sum_{k=1}^n k
+        =\frac{n(n+1)}{2n^2}
+        =\frac12+\frac1{2n}.
+    \]
+    Hence, for every $n\geq1$,
+    \[
+      x_{n+1}-x_n
+        =\frac1{2(n+1)}-\frac1{2n}
+        =-\frac1{2n(n+1)}<0.
+    \]
+    Thus $(x_n)$ is strictly decreasing. Since $1/(2n)>0$,
+    we also have $x_n>1/2$ for every $n\geq1$, so the sequence
+    is bounded below by $1/2$.
+
+  \item \textit{The Cauchy property.}
+    Let $\varepsilon>0$. By the Archimedean property, choose
+    $N\in\N$ such that $N>1/\varepsilon$. For all $m,n\geq N$,
+    the triangle inequality gives
+    \[
+      \begin{aligned}
+        |x_n-x_m|
+          &=\left|\frac1{2n}-\frac1{2m}\right|\\
+          &\leq\frac1{2n}+\frac1{2m}
+          \leq\frac1N<\varepsilon.
+      \end{aligned}
+    \]
+    Therefore $(x_n)$ is Cauchy.
+
+  \item \textit{The limit.}
+    Since $1/(2n)\to0$ as $n\to\infty$,
+    \[
+      \lim_{n\to\infty}x_n
+        =\lim_{n\to\infty}\left(\frac12+\frac1{2n}\right)
+        =\frac12.
+    \]
+
+  \item \textit{Infimum and supremum.}
+    Part (a) shows that $1/2$ is a lower bound for $S$.
+    If $c>1/2$, choose $n>1/(2(c-1/2))$. Then
+    \[
+      x_n=\frac12+\frac1{2n}<c,
+    \]
+    so $c$ is not a lower bound. Thus $\inf S=1/2$.
+    Since $(x_n)$ is decreasing and $x_1=1\in S$, its maximum
+    is $1$, and therefore $\sup S=1$.
+\end{enumerate}

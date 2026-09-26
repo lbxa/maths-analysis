@@ -1,0 +1,14 @@
+% !TEX root = ../../problems/hw02.tex
+% (0,1/n), n = 1,2,3,..., drawn on the same horizontal scale.
+\begin{tikzpicture}[interval diagram]
+  \foreach \n/\endpoint in {1/1,2/{\tfrac12},3/{\tfrac13}} {
+    \coordinate (left) at (0,{1-\n});
+    \coordinate (right) at ({3.6/\n},{1-\n});
+    \draw (left) -- (right);
+    \node[interval open] at (left) {};
+    \node[interval open] at (right) {};
+    \node[interval label,above=3pt] at (right) {$\endpoint$};
+  }
+  \node[interval label,above=3pt] at (0,0) {$0$};
+  \node at (1.8,-2.9) {$\vdots$};
+\end{tikzpicture}

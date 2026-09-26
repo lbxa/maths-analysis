@@ -3,12 +3,15 @@ LATEXMK_FLAGS ?= -pdf -interaction=nonstopmode -halt-on-error -file-line-error -
 HOMEWORK := $(wildcard problems/hw*.tex)
 HW ?= hw01
 
-.PHONY: all book problems check watch watch-problems clean
+.PHONY: all book problem problems check watch watch-problems clean
 
 all: book
 
 book:
 	$(LATEXMK) $(LATEXMK_FLAGS) -outdir=build main.tex
+
+problem: problems/$(HW).tex
+	$(LATEXMK) $(LATEXMK_FLAGS) -outdir=build/problems "$<"
 
 problems:
 	@set -e; for source in $(HOMEWORK); do \

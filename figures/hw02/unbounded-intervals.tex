@@ -1,0 +1,12 @@
+% !TEX root = ../../problems/hw02.tex
+% [n,infinity), n = 1,2,3,...; infinity is a direction, not an endpoint.
+\begin{tikzpicture}[interval diagram]
+  \foreach \n in {1,2,3} {
+    \coordinate (left) at ({0.7*(\n-1)},{1-\n});
+    \draw[->] (left) -- (3.6,{1-\n});
+    \node[interval closed] at (left) {};
+    \node[interval label,above=3pt] at (left) {$\n$};
+  }
+  \node[interval label,above=3pt] at (3.6,0) {$+\infty$};
+  \node at (1.8,-2.9) {$\vdots$};
+\end{tikzpicture}

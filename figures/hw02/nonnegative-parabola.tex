@@ -1,0 +1,13 @@
+% !TEX root = ../../problems/hw02.tex
+% IMG_9094: y = (x - 2)^2, with axes and intercepts made explicit.
+\begin{tikzpicture}[x=0.6cm,y=0.38cm,>=Stealth,font=\footnotesize]
+  \draw[<->,black!65] (-1.05,0) -- (5,0) node[right] {$x$};
+  \draw[<->,black!65] (0,-0.85) -- (0,7) node[above] {$y$};
+  \draw[<->,line width=0.65pt,domain=-0.55:4.55,samples=100,smooth]
+    plot (\x,{(\x-2)^2});
+  \fill (0,4) circle[radius=1.6pt];
+  \fill (2,0) circle[radius=1.6pt];
+  \node[below left,inner sep=2pt] at (0,0) {$0$};
+  \node[left=3pt] at (0,4) {$4$};
+  \node[below=3pt] at (2,0) {$2$};
+\end{tikzpicture}

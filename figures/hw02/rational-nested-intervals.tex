@@ -1,0 +1,15 @@
+% !TEX root = ../../problems/hw02.tex
+% Schematic [a_n,b_n] intersect Q; the irrational limit is never included.
+\begin{tikzpicture}[interval diagram]
+  \draw[densely dashed,black!45] (1.8,0.55) -- (1.8,-2.4);
+  \node[interval label,above=3pt] at (1.8,0.55) {$\sqrt2$};
+  \foreach \n/\left/\right in {1/0/3.6,2/0.6/3,3/1.2/2.4} {
+    \draw (\left,{1-\n}) -- (\right,{1-\n});
+    \node[interval closed] at (\left,{1-\n}) {};
+    \node[interval closed] at (\right,{1-\n}) {};
+    \node[interval open] at (1.8,{1-\n}) {};
+    \node[interval label,above=3pt] at (\left,{1-\n}) {$a_\n$};
+    \node[interval label,above=3pt] at (\right,{1-\n}) {$b_\n$};
+  }
+  \node at (1.8,-2.9) {$\vdots$};
+\end{tikzpicture}

@@ -1,0 +1,36 @@
+% !TEX root = ../hw02.tex
+Let
+\[
+  I_n=\left(0,\frac1n\right),\qquad n\geq1.
+\]
+Each $I_n$ is a nonempty bounded interval because it contains $1/(2n)$
+and is contained in $(0,1)$. Since $1/(n+1)<1/n$,
+\[
+  I_{n+1}=\left(0,\frac1{n+1}\right)
+    \subset I_n.
+\]
+Thus the intervals are nested, as shown in
+Figure~\ref{fig:hw02:open-intervals}.
+\begin{marginfigure}
+  \centering
+  \input{figures/hw02/open-intervals}
+  \caption{The nested intervals $I_n=(0,1/n)$ exclude $0$.}
+  \label{fig:hw02:open-intervals}
+\end{marginfigure}
+
+To prove that their intersection is empty, let $x\in\R$.
+If $x\leq0$, then $x\notin I_1$. If $x>0$, the Archimedean
+property gives a positive integer $n>1/x$.\sidenote{\textit{Archimedean property.}
+  For every $M\in\R$, there is a positive integer $n>M$.}
+Then $1/n<x$ and $x\notin I_n$.
+Hence every real number is excluded from at least one interval,
+and therefore
+\[
+  \bigcap_{n=1}^{\infty}I_n=\varnothing.
+\]
+
+The nested interval property guarantees a nonempty intersection
+for nested nonempty bounded closed intervals in $\R$. Here the
+missing hypothesis is \emph{closedness}. Every finite intersection
+is nonempty, but the only point common to all the closures
+$[0,1/n]$ is $0$, which is excluded from every $I_n$.

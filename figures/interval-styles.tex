@@ -1,0 +1,15 @@
+% Shared physical dimensions for interval and number-line diagrams.
+\tikzset{
+  interval diagram/.style={
+    x=1cm,y=6mm,font=\footnotesize,
+    color=black,line width=0.5pt,line cap=round,line join=round,
+    >={Stealth[length=4pt,width=3pt]}
+  },
+  interval endpoint/.style={
+    circle,draw=black,line width=0.5pt,
+    minimum size=4pt,inner sep=0pt,outer sep=0pt
+  },
+  interval open/.style={interval endpoint,fill=white},
+  interval closed/.style={interval endpoint,fill=black},
+  interval label/.style={inner sep=1pt}
+}

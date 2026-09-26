@@ -91,17 +91,20 @@ managed by the build.
 | Command | Purpose |
 | --- | --- |
 | `make` or `make book` | Build the book. |
+| `make problem HW=hw02` | Build only Homework 02 into `build/problems/hw02.pdf`; omit `HW` for Homework 01. |
 | `make problems` | Build each `problems/hw*.tex` into `build/problems/`. |
 | `make check` | Build the book and all homework handouts. |
 | `make watch` | Rebuild the book when sources change; stop with Ctrl-C. |
 | `make watch-problems` | Watch Homework 01; use `HW=hw02` for another handout. |
 | `make clean` | Remove generated PDFs and auxiliary build files. |
 
-To work on a single homework, run `make watch-problems HW=hw01` and open
-`build/problems/hw01.pdf` in your PDF viewer. The watcher rebuilds when the
-handout or its included sources change. Use the filename without `.tex` for
-`HW`; omit it to select `hw01`. Stop either watcher with Ctrl-C. The watch
-commands do not launch a PDF viewer automatically.
+To build a single homework, run `make problem HW=hw02` and open
+`build/problems/hw02.pdf` in your PDF viewer. For continuous rebuilding, run
+`make watch-problems HW=hw02`; the watcher rebuilds when the handout or its
+included sources change. Both commands use the filename without `.tex` for
+`HW`; omit it to select `hw01`. New `problems/hwNN.tex` files work with these
+commands automatically and are included by `make problems`. Stop either
+watcher with Ctrl-C. The watch commands do not launch a PDF viewer automatically.
 
 For Overleaf, upload the repository sources, select `main.tex` as the main
 document, and use pdfLaTeX. Local builds should always run from the repository

@@ -1,0 +1,161 @@
+% !TEX program = pdflatex
+% Compile this handout from the repository root with make problem HW=hw02.
+% Questions transcribed verbatim from Math Analysis I Assignment 2.pdf.
+% Original wording, including "seqeunce" and "continuous fraction", is retained.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+\input{preamble}
+\input{macros}
+\input{figures/interval-styles}
+\allowdisplaybreaks[1]
+
+% Photo order (duplicate/earlier shots are not repeated):
+% Q1: 9069 (=9067), 9070 (includes 9068), 9071, 9072, 9073 top.
+% Q2: 9073 lower portion, 9074.
+% Q3: 9075, 9076, 9077, 9079.
+% Q4: 9080, 9081, 9082, 9083, 9084.
+% Q5: 9085, 9086, 9087, 9088.
+% Q6: 9090, 9091, 9092, 9093, 9094, 9095, 9096, 9097.
+
+% Match the assignment's question and subpart numbering.
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\title{Homework 02}
+\author{Lucas Barbosa, \texttt{lc6424}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{exercise}
+  \label{ex:hw02:nested-bounded-intervals}
+  Give an example of a sequence of nested nonempty bounded intervals
+  $\{I_n\}$ in $\R$ such that $I_{n+1}\subset I_n$ for each
+  $n=1,2,\ldots$ but
+  \[
+    \bigcap_{n=1}^{\infty} I_n=\varnothing.
+  \]
+  Explain what goes ``wrong''.
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/01-nested-bounded-intervals}
+\end{proof}
+
+\clearpage
+
+\begin{exercise}
+  \label{ex:hw02:nested-closed-intervals}
+  Give an example of a sequence of nested nonempty closed intervals
+  $\{I_n\}$ in $\R$ such that $I_{n+1}\subset I_n$ for each
+  $n=1,2,\ldots$ but
+  \[
+    \bigcap_{n=1}^{\infty} I_n=\varnothing.
+  \]
+  Explain what goes ``wrong''.
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/02-nested-closed-intervals}
+\end{proof}
+
+\clearpage
+
+\begin{exercise}
+  \label{ex:hw02:nested-rational-intervals}
+  Give an example of a sequence of nested nonempty bounded closed intervals
+  $\{I_n\}$ in $\Q$ such that $I_{n+1}\subset I_n$ for each
+  $n=1,2,\ldots$ but
+  \[
+    \bigcap_{n=1}^{\infty} I_n=\varnothing.
+  \]
+  Explain what goes ``wrong''.
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/03-nested-rational-intervals}
+\end{proof}
+
+\clearpage
+
+\begin{exercise}
+  \label{ex:hw02:decreasing-sequence}
+  Consider the seqeunce
+  \[
+    x_n=\frac{1}{n^2}+\frac{2}{n^2}+\cdots+\frac{n}{n^2},
+    \quad n=1,2,\ldots.
+  \]
+  \begin{enumerate}
+    \item Show that it is monotone decreasing and bounded below.
+    \item Show that it is Cauchy.
+    \item Obtain the limit of $\{x_n\}$.
+    \item Let $S=\{x_1,x_2,\ldots,x_n,\ldots\}$.
+      Obtain both $\inf S$ and $\sup S$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/04-decreasing-sequence}
+\end{proof}
+
+\clearpage
+
+\begin{exercise}
+  \label{ex:hw02:factorial-sequence}
+  Consider the sequence
+  \[
+    x_n=\sum_{k=0}^{n}\frac{1}{k!},\quad n=1,2,\ldots,
+  \]
+  in $\Q$ and define $S=\{x_1,x_2,\ldots,x_n,\ldots\}$ which is a subset of $\Q$.
+  \begin{enumerate}
+    \item Show that $S$ is a bounded set.
+    \item Find $a=\inf S$ and $b=\sup S$.
+    \item Is it true that $a$ and $b$ both lie in $\Q$?
+      Explain why and why not.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/05-factorial-sequence}
+\end{proof}
+
+\clearpage
+
+\begin{exercise}
+  \label{ex:hw02:newton-iteration}
+  In class, we discussed the iteration process
+  \[
+    x_{n+1}=a+\frac{1}{x_n},\quad n=0,1,2,\ldots,
+    \quad a\geq 1,\quad x_0>0,
+  \]
+  whose limit gives us the continuous fraction
+  \[
+    b=a+\frac{1}{a+\frac{1}{a+\frac{1}{a+\cdots}}}.
+  \]
+  That is, $b$ is a fixed point of the function
+  \[
+    f(x)=a+\frac{1}{x},\quad x>0,
+  \]
+  which is realized as a root of the function $F(x)=x-f(x)$ $(x>0)$.
+  \begin{enumerate}
+    \item Show that the iterative algorithm
+      \[
+        x_{n+1}=\frac{ax_n^2+2x_n}{1+x_n^2},
+        \quad n=0,1,2,\ldots,\quad x_0>0,
+      \]
+      arises from Newton's method that may be used to approach $b$ of our problem.
+    \item Assume that $\{x_n\}$ in (a) converges.
+      Verify that the limit is indeed the continuous fraction $b$ defined above.
+    \item Take $a=\frac{3}{2}$. Prove $0<x_n\leq 2$ for $n=1,2,\ldots$.
+    \item Prove that $\{x_n\}_{n=1,2,\ldots}$ increases for any $x_0\ne 2$
+      and is constant when $x_0=2$.
+    \item Show that $\{x_n\}$ converges to $2$ with any initial state $x_0$
+      (thereby establishing the ``global convergence'' of the algorithm).
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+  \input{problems/hw02/06-newton-iteration}
+\end{proof}
+
+\end{document}

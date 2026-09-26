@@ -1,0 +1,118 @@
+% !TEX root = ../hw02.tex
+\leavevmode
+\begin{enumerate}
+  \item \textit{Newton's method.}
+    For $x>0$, let
+    \[
+      F(x)=x-a-\frac1x,\qquad F'(x)=1+\frac1{x^2}>0.
+    \]
+    Newton's method for $F(x)=0$ is therefore
+    \[
+      \begin{aligned}
+        x_{n+1}
+          &=x_n-\frac{F(x_n)}{F'(x_n)}\\
+          &=x_n-\frac{x_n-a-1/x_n}{1+1/x_n^2}\\
+          &=\frac{x_n(1+x_n^2)-(x_n^3-ax_n^2-x_n)}{1+x_n^2}\\
+          &=\frac{ax_n^2+2x_n}{1+x_n^2},
+      \end{aligned}
+    \]
+    which is the stated iteration. If $x_n>0$, then the numerator
+    and denominator are positive. Since $x_0>0$, induction shows
+    that every iterate is positive and the algorithm is well defined.
+
+  \item \textit{Identification of the limit.}
+    Suppose $x_n\to L$. Positivity implies $L\geq0$; we first
+    rule out $L=0$. If $L=0$, there is an $N$ such that
+    $0<x_n<1$ for all $n\geq N$. For these indices,
+    \[
+      \frac{x_{n+1}}{x_n}
+        =\frac{ax_n+2}{1+x_n^2}>1.
+    \]
+    The tail is then increasing and satisfies $x_n\geq x_N>0$,
+    contradicting $x_n\to0$. Hence $L>0$.
+
+    Passing to the limit in the recurrence gives
+    \[
+      L=\frac{aL^2+2L}{1+L^2}.
+    \]
+    Thus $L(L^2-aL-1)=0$. Since $L>0$, we obtain
+    \[
+      L^2-aL-1=0,\qquad
+      L=\frac{a+\sqrt{a^2+4}}2.
+    \]
+    This is the unique positive solution of $L=a+1/L$.
+    The continued fraction $b$ is a positive fixed point of
+    $f(x)=a+1/x$, so uniqueness implies $L=b$.
+
+  \item \textit{Bounds when $a=3/2$.}
+    For the remaining parts, set $a=3/2$ and write
+    \[
+      g(x)=\frac{\tfrac32x^2+2x}{1+x^2},\qquad x>0.
+    \]
+    We have $g(x)>0$ and
+    \[
+      2-g(x)
+        =\frac{2(1+x^2)-\tfrac32x^2-2x}{1+x^2}
+        =\frac{(x-2)^2}{2(1+x^2)}\geq0.
+    \]
+    The nonnegativity of the numerator is illustrated in
+    Figure~\ref{fig:hw02:nonnegative-parabola}.
+    \begin{marginfigure}
+      \centering
+      \input{figures/hw02/nonnegative-parabola}
+      \caption{The numerator $(x-2)^2$ is nonnegative,
+        with equality only at $x=2$.}
+      \label{fig:hw02:nonnegative-parabola}
+    \end{marginfigure}
+    Therefore $0<g(x)\leq2$ for every $x>0$, with $g(x)=2$
+    if and only if $x=2$. Applying this to $x_n>0$ proves
+    \[
+      0<x_n\leq2\qquad\text{for every }n\geq1,
+    \]
+    regardless of whether $x_0\leq2$.
+
+    % Keep the monotonicity proof and its margin plot on the same page.
+    \newpage
+
+  \item \textit{Monotonicity.}
+    If $x_0=2$, then $g(2)=2$, so induction gives $x_n=2$
+    for all $n\geq0$.
+
+    Now suppose $x_0\ne2$. The equality condition in part (c)
+    gives $0<x_1<2$. Repeatedly applying the same condition yields
+    $0<x_n<2$ for every $n\geq1$. For these indices,
+    \[
+      \begin{aligned}
+        x_{n+1}-x_n
+          &=\frac{\tfrac32x_n^2+2x_n-x_n(1+x_n^2)}{1+x_n^2}\\
+          &=\frac{x_n(-2x_n^2+3x_n+2)}{2(1+x_n^2)}\\
+          &=\frac{x_n(2-x_n)(2x_n+1)}{2(1+x_n^2)}>0.
+      \end{aligned}
+    \]
+    Every factor in the last expression is positive. Equivalently,
+    the quadratic $-2x^2+3x+2=(2-x)(2x+1)$ is positive on
+    $(-1/2,2)$, as shown in Figure~\ref{fig:hw02:concave-parabola}.
+    \begin{marginfigure}
+      \centering
+      \input{figures/hw02/concave-parabola}
+      \caption{The quadratic $-2x^2+3x+2$ is positive between
+        its roots $-1/2$ and $2$.}
+      \label{fig:hw02:concave-parabola}
+    \end{marginfigure}
+    Thus $(x_n)_{n\geq1}$ is strictly increasing when $x_0\ne2$.
+    The restriction $n\geq1$ is necessary because if $x_0>2$, the first
+    iterate is below $2$ and hence below $x_0$.
+
+  \item \textit{Global convergence.}
+    If $x_0=2$, the sequence is constant and converges to $2$.
+    If $x_0>0$ and $x_0\ne2$, parts (c) and (d) show that
+    $(x_n)_{n\geq1}$ is increasing and bounded above by $2$.
+    The monotone convergence theorem therefore gives a limit.
+    By part (b), with $a=3/2$, this limit is
+    \[
+      \frac{\tfrac32+\sqrt{(\tfrac32)^2+4}}2
+        =\frac{\tfrac32+\tfrac52}2=2.
+    \]
+    Adding the initial term does not affect convergence, so
+    $x_n\to2$ for every allowed initial state $x_0>0$.
+\end{enumerate}
