@@ -1,0 +1,38 @@
+% !TEX root = ../hw01.tex
+We use Euclid's lemma, which states that if a prime divides a
+product of integers, it divides at least one factor. Applying this
+repeatedly shows that $p\mid a^k$ implies $p\mid a$ for every
+positive integer $k$.
+
+\textit{The square root.}
+Suppose, for a contradiction, that $\sqrt p\in\Q$. Write
+\[
+  \sqrt p=\frac ab,
+  \qquad a,b\in\Z,\quad b>0,\quad\gcd(a,b)=1.
+\]
+Squaring gives $a^2=pb^2$, so $p\mid a^2$.
+Euclid's lemma gives $p\mid a$, and we can write $a=pm$
+for some $m\in\Z$. Substituting and cancelling one factor of $p$ gives
+\[
+  p^2m^2=pb^2
+  \quad\Longrightarrow\quad
+  pm^2=b^2.
+\]
+Hence $p\mid b^2$, so Euclid's lemma also gives $p\mid b$.
+The prime $p>1$ therefore divides both $a$ and $b$,
+contradicting $\gcd(a,b)=1$. Thus $\sqrt p$ is irrational.
+
+\textit{The general $k$th root.}
+Let $k\ge2$ and suppose that $p^{1/k}=a/b$ in lowest terms,
+with $a,b\in\Z$ and $b>0$. Raising both sides to the $k$th
+power gives $a^k=pb^k$. Thus $p\mid a^k$, and Euclid's lemma
+gives $p\mid a$. Writing $a=pm$, we obtain
+\[
+  p^km^k=pb^k
+  \quad\Longrightarrow\quad
+  p^{k-1}m^k=b^k.
+\]
+Since $k-1\ge1$, this shows that $p\mid b^k$, so $p\mid b$.
+Again, $p$ divides both $a$ and $b$, contradicting that the
+fraction is in lowest terms. Therefore $p^{1/k}$ is irrational
+for every integer $k\ge2$.

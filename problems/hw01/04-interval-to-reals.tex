@@ -1,0 +1,67 @@
+% !TEX root = ../hw01.tex
+A map from $A$ to $B$ is a bijection if it is both one-to-one
+and onto. This means that every element of $B$ is the image of
+exactly one element of $A$.
+Figure~\ref{fig:hw01:bijections} contrasts bijections with a map
+that fails both conditions.
+
+\begin{figure}[h]
+  \centering
+  \input{figures/hw01/bijections}
+  \caption{The first two maps are bijections. The third map is neither
+    one-to-one nor onto. Crossing arrows do not prevent a map from
+    being bijective.}
+  \label{fig:hw01:bijections}
+\end{figure}
+
+The tangent function is a bijection from
+$(-\pi/2,\pi/2)$ onto $\R$. To use it on $(0,1)$, we first
+multiply the input by $\pi$ and then subtract $\pi/2$.
+These steps give the composition
+\[
+  (0,1)\xrightarrow{\,\times\pi\,}(0,\pi)
+    \xrightarrow{\,-\pi/2\,}
+    \left(-\frac\pi2,\frac\pi2\right)
+    \xrightarrow{\,\tan\,}\R.
+\]
+We can therefore define
+\[
+  f(x)=\tan\left(\pi x-\frac\pi2\right),
+    \qquad 0<x<1.
+\]
+For $0<x<1$, the angle $\pi x-\pi/2$ lies strictly between
+$-\pi/2$ and $\pi/2$, so $f(x)$ is defined and real.
+We verify bijectivity by giving its inverse. For $y\in\R$, put
+\[
+  g(y)=\frac12+\frac{\arctan y}{\pi}.
+\]
+Here $\arctan y$ is the unique angle in $(-\pi/2,\pi/2)$
+whose tangent is $y$. Thus $0<g(y)<1$, and
+\[
+  f(g(y))=\tan(\arctan y)=y.
+\]
+This proves that $f$ is onto. Conversely, for $x\in(0,1)$,
+the angle lies in the principal interval, so
+\[
+  g(f(x))=\frac12+
+    \frac{\arctan(\tan(\pi x-\pi/2))}{\pi}=x.
+\]
+If $f(x_1)=f(x_2)$, applying $g$ gives $x_1=x_2$.
+Therefore $f$ is also one-to-one and hence is a bijection.
+\clearpage
+
+Figure~\ref{fig:hw01:tangent-overview} shows the central branch of
+$y=\tan t$ in blue and the transformed graph alongside it.
+The horizontal change $x=t/\pi+1/2$ compresses that branch by a
+factor of $1/\pi$ and shifts it to the right by $1/2$.
+Its domain becomes $(0,1)$, while its range remains all of $\R$.
+
+\begin{figure*}[h]
+  \centering
+  \input{figures/hw01/tangent-overview}
+  \caption{The left panel highlights the central tangent branch on
+    $(-\pi/2,\pi/2)$. The right panel shows this branch after the
+    change of input. The vertical asymptotes now occur at $x=0$
+    and $x=1$. The horizontal axes use different scales.}
+  \label{fig:hw01:tangent-overview}
+\end{figure*}

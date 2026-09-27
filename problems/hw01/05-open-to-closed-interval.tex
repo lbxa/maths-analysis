@@ -1,0 +1,65 @@
+% !TEX root = ../hw01.tex
+The identity $f(x)=x$ maps $(0,1)$ to itself, but it misses the
+endpoints of $[0,1]$, as shown in Figure~\ref{fig:hw01:identity-map}.
+We can make room for them by moving a countable sequence of points.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/hw01/identity-map}
+  \caption{The identity on $(0,1)$ misses the target values $0$ and $1$.
+    Both endpoints of the graph are excluded.}
+  \label{fig:hw01:identity-map}
+\end{marginfigure}
+
+First assign
+\[
+  f\left(\frac12\right)=0,
+  \qquad f\left(\frac13\right)=1.
+\]
+The values $1/2$ and $1/3$ must now be supplied by other inputs.
+We use $1/4$ and $1/5$ for these values, and then continue shifting
+the reciprocals to fill the resulting gaps. This gives
+\[
+  f\left(\frac14\right)=\frac12,\quad
+  f\left(\frac15\right)=\frac13,\quad
+  f\left(\frac16\right)=\frac14,\quad\ldots
+\]
+Figure~\ref{fig:hw01:reciprocal-shift} illustrates this shift.
+We leave all other points fixed. Define a map $f$ from $(0,1)$
+to $[0,1]$ by
+\[
+  f(x)=
+  \begin{cases}
+    0, & x=\frac12,\\[2pt]
+    1, & x=\frac13,\\[2pt]
+    \dfrac1{n-2}, & x=\frac1n,\quad n\in\N,\ n\ge4,\\[4pt]
+    x, & \text{otherwise}.
+  \end{cases}
+\]
+
+\begin{figure}[h]
+  \centering
+  \input{figures/hw01/reciprocal-shift}
+  \caption{The reciprocal sequence is shifted to accommodate both
+    endpoints. Every point outside this sequence remains fixed.}
+  \label{fig:hw01:reciprocal-shift}
+\end{figure}
+
+To check bijectivity, put
+\[
+  S=\left\{\frac1n\mid n\in\N,\ n\ge2\right\}.
+\]
+The cases in the definition are disjoint and cover $(0,1)$.
+Every output lies in $[0,1]$, so the function is well-defined.
+
+Among the inputs in $S$, only $1/2$ maps to $0$, and only $1/3$
+maps to $1$. For each integer $m\ge2$, solving $1/(n-2)=1/m$
+gives the unique input $1/(m+2)$. Thus $f$ maps $S$ bijectively
+onto $S\cup\{0,1\}$.
+
+On $(0,1)\setminus S$, the map is the identity, with image
+$(0,1)\setminus S$. This image is disjoint from $S\cup\{0,1\}$,
+so no fixed point can give a second preimage for a value already
+supplied by the reciprocal sequence. Together the two images
+cover $[0,1]$. Every target value therefore has exactly one
+preimage, proving that $f$ is a bijection.
