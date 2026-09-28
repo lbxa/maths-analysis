@@ -43,11 +43,19 @@ Always maintain the **Homework placement map** in [README.md](README.md#homework
 - Keep handout-specific layout in the handout entry file, or use `\handoutonly{...}` for a layout hint inside a shared solution. Keep appendix-only page breaks in the appendix chapter. Leave `problems/template.tex` unchanged unless the user explicitly requests a template change.
 - Before finishing any homework or book-structure change, verify that every map row agrees with the main-text and appendix inputs, ordering, and labels, and that every appendix solution follows the complete shared problem statement. Run `make check`, check for duplicate labels or destinations, verify links in both directions, and inspect both the book and affected handouts.
 
+## Editorial Principles
+
+Preserve the author's style and the course's flow of topics when turning lecture notes into publishable text. Capture all supplied mathematical content, including examples and questions. Improve clarity and organization without expanding the notes into an unrelated textbook; add only the supporting explanation needed for a coherent foundation.
+
+Use shared mathematical environments and styles so the same kind of content has consistent typography wherever it appears. Reusing an exercise in an appendix must preserve its identity and presentation as an exercise.
+
 ## Style & Contribution Conventions
 
 Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific. Use black and gray for diagrams by default; reserve colour for a specific highlight or distinction.
 
 Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
+
+Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.
 
 Every figure or diagram must have a caption, a stable label, and an explicit in-text reference near the passage it illustrates. Use `Figure~\ref{fig:...}` rather than hard-coded figure numbers. A caption alone does not count as an in-text reference.
 
@@ -58,6 +66,8 @@ Use the shared styles in `figures/interval-styles.tex` for interval diagrams so 
 For function plots, show labeled axes with arrowheads and mark the relevant intercepts. Plot the stated function rather than an arbitrary schematic rescaling, and use arrowheads on continued curve branches. Check label clearance at the final margin size.
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
+
+Use bracketed numeric citations such as `[1]` in the text and a properly formatted bibliography after the main content and before the appendices. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
 
 ## Validation Guidelines
 
