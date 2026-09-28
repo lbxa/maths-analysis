@@ -1,0 +1,107 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC02, IMG_9118--IMG_9119.
+\section{Convergence and iteration}
+\label{sec:analysis-i:convergence-preview}
+
+\newthought{A sequence may approach a number that its terms never reach.}
+This is why a field containing all the rational numbers can still be
+missing limits. We now make the meaning of ``approach'' precise.
+
+\begin{definition}
+  A sequence $(x_n)$ of real numbers \emph{converges} to $L\in\R$ if,
+  for every $\varepsilon>0$, there exists $N\in\N$ such that
+  \[
+    n\geq N\quad\Longrightarrow\quad |x_n-L|<\varepsilon.
+  \]
+  We write $x_n\to L$ or $\lim_{n\to\infty}x_n=L$.
+\end{definition}
+The index $N$ may depend on $\varepsilon$. After that index, every term
+lies in the $\varepsilon$-neighborhood $(L-\varepsilon,L+\varepsilon)$.
+For convergence \emph{in $\Q$}, the limit must belong to $\Q$ as well.
+The rational partial sums defining $e$ converge in $\R$, but not in $\Q$.
+\marginnote{The absolute value $|x|$ is $x$ for $x\geq0$ and $-x$ otherwise.
+It measures distance from zero. Its elementary inequalities are proved in
+Section~\ref{sec:analysis-i:elementary-functions}.}
+
+We will use two elementary consequences of this definition. Limits are
+unique, since if $L\ne M$, the disjoint neighborhoods of radius
+$|L-M|/3$ cannot both contain all sufficiently late terms. Also, if
+$x_n\leq y_n$, $x_n\to x$, and $y_n\to y$, then $x\leq y$.
+Otherwise neighborhoods of radius $(x-y)/3$ contradict $x_n\leq y_n$.
+
+\subsection{Newton's idea}
+Suppose we want to solve $f(x)=0$. At a current approximation $x_n$ with
+$f'(x_n)\ne0$, replace the graph by its tangent line
+\[
+  y=f(x_n)+f'(x_n)(x-x_n).
+\]
+Its horizontal intercept supplies the next approximation,
+\begin{equation}
+  x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.
+  \label{eq:analysis-i:newton}
+\end{equation}
+Figure~\ref{fig:newton-square-root} illustrates one step. This is a
+motivation from calculus; a general convergence theorem for Newton's
+method is not being assumed.
+\begin{marginfigure}
+  \centering
+  \input{figures/foundations/newton-square-root}
+  \caption[One Newton step for a square root.]{For $f(x)=x^2-2$, the tangent at $x_0=2$ meets the axis at
+    $x_1=3/2$. The parabola is shown for $x\geq0$.}
+  \label{fig:newton-square-root}
+\end{marginfigure}
+
+For $f(x)=x^2-a$, where $a>0$, equation~\eqref{eq:analysis-i:newton} becomes
+\[
+  x_{n+1}=\frac12\left(x_n+\frac{a}{x_n}\right).
+\]
+A positive limit $L$, if it exists, must satisfy $L^2=a$. A fixed-point
+calculation alone does not establish that such a limit exists.
+
+Here is a convergence argument using two results proved later in this
+chapter. Let $r=\sqrt a>0$, whose existence follows from
+Theorem~\ref{thm:analysis-i:positive-roots}, and start with $x_0>0$.
+Every iterate is positive, and
+\[
+  x_{n+1}-r=\frac{(x_n-r)^2}{2x_n}\geq0.
+\]
+Thus $x_n\geq r$ for $n\geq1$, and then
+$x_{n+1}-x_n=(a-x_n^2)/(2x_n)\leq0$.
+Monotone convergence gives a limit $L\geq r>0$. Passing to the limit in
+$2x_nx_{n+1}=x_n^2+a$ gives $L^2=a$, hence $L=r$ by uniqueness of the
+positive root. If $a$ and $x_0$ are rational, every iterate is rational;
+for prime $a$, the limit is irrational.
+
+\subsection{What kind of limit can a recurrence produce?}
+The lecture also considered
+\[
+  x_{n+1}=a+\frac{1}{x_n},\qquad a\in\N,\quad x_0>0.
+\]
+If this sequence converges, its limit is positive because $x_n>a$ for
+$n\geq1$. The limit therefore satisfies
+\[
+  L^2-aL-1=0,\qquad L=\frac{a+\sqrt{a^2+4}}{2}.
+\]
+It is algebraic and irrational. Indeed, the rational root theorem would
+force a rational root of this monic polynomial to be an integer dividing
+$1$, and neither $1$ nor $-1$ is a root for $a\geq1$.
+Repeated substitution also suggests a continued fraction. This example
+identifies a possible limit; it does not by itself prove convergence.
+
+Limits of rational sequences need not be algebraic. The factorial partial
+sums approach $e$. Another lecture example is Euler's identity
+\[
+  \sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6},
+\]
+stated here without proof~\cite{Waldschmidt2017}.
+The number $\pi^2/6$ is transcendental, since a nonzero rational polynomial
+vanishing there would, after substituting $X^2/6$, give a nonzero rational
+polynomial vanishing at $\pi$.
+
+\subsection{Exercise on Newton's method}
+We now apply Newton's method to the fixed-point equation for the continued
+fraction above. As in the square-root example, the convergence argument
+uses the monotone convergence theorem proved in
+Section~\ref{sec:analysis-i:completeness-equivalences}.
+
+\input{problems/hw02/06-newton-iteration/problem}

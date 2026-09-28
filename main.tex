@@ -1,7 +1,7 @@
 % !TEX program = pdflatex
 % Compile from the repository root with make book.
-% Keep nohyper: the inherited parts/contents layout needs separate review
-% before enabling hyperlinks. nobib lets biblatex manage citations.
+% Keep nohyper to defer hyperlinks until after the custom contents setup.
+% nobib lets biblatex manage citations.
 \documentclass[nohyper,nobib,nofonts]{tufte-book}
 
 \input{preamble}
@@ -10,7 +10,7 @@
 \title{Introduction to Mathematical Analysis}
 \author{Lucas Barbosa}
 \date{Class notes}
-\publisher{Analysis I and II}
+\publisher{XYZ Maths}
 
 \begin{document}
 
@@ -28,12 +28,13 @@
 % Enable this input when Analysis II begins.
 % \input{sections/analysis-ii/part}
 
+% References follow the course content and precede the appendices.
+\printbibliography[heading=bibintoc]
+
 \appendix
 \input{sections/appendices/part}
 
 \backmatter
-% Temporary specimen references and index; replace with course sources.
-\printbibliography[heading=bibintoc]
 \printindex
 
 \end{document}

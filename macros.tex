@@ -5,6 +5,36 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+% Keep submission-specific layout hints out of shared book exercises.
+\makeatletter
+\newcommand{\handoutonly}[1]{\@ifclassloaded{tufte-handout}{#1}{}}
+% The handouts print solutions immediately; only the book needs these links.
+\newcommand{\solutionlink}[1]{%
+  \@ifclassloaded{tufte-book}{%
+    \leavevmode\marginnote{\hyperref[sol:#1]{Solution on page~\pageref*{sol:#1}.}}%
+  }{}%
+}
+\makeatother
+
+% Select the original exercise number for the next appendix restatement.
+\newcommand{\restatedexercisekey}{}
+\newcommand{\solutionheading}[1]{%
+  \renewcommand{\restatedexercisekey}{#1}%
+}
+
+% Reuse the exercise's theorem styling and original number. Register only
+% the solution anchor, not a second exercise label or solution margin link.
+\newenvironment{restatedproblem}{%
+  \let\restatedproblemlabel\label
+  \renewenvironment{exercise}{%
+    \begin{restatedexercise}%
+    \phantomsection
+    \restatedproblemlabel{sol:\restatedexercisekey}%
+  }{\end{restatedexercise}}%
+  \renewcommand{\label}[1]{}%
+  \renewcommand{\solutionlink}[1]{}%
+}{\par}
+
 % Publication month and year used on the copyright page.
 \newcommand{\monthyear}{%
   \ifcase\month\or January\or February\or March\or April\or May\or June\or
@@ -22,6 +52,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
+\newtheorem*{restatedexercise}{Exercise~\ref{ex:\restatedexercisekey}}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 

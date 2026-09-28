@@ -14,11 +14,21 @@ include a source or counterexample when useful.
 Create a focused branch in your fork or checkout, such as `notes/supremum`.
 Keep unrelated topics in separate pull requests to make review easier.
 
+## Share portable editor settings
+
+Commit portable team settings, such as the LaTeX Workshop formatter choice,
+in `.vscode/settings.json`. Keep machine-specific executable paths and personal
+preferences in your editor's User `settings.json`, outside the repository.
+Leave machine-specific keys out of the shared file because workspace settings
+override User settings. Do not ignore `.vscode/settings.json` or the entire
+`.vscode` folder. See the [customisation guide](CUSTOMISATION.md) for setup
+examples and checks before committing. Add reusable setup instructions there.
+
 ## Edit the right files
 
 - Write notes in the smallest relevant file under `sections/analysis-i/`.
   For example, supremum belongs in
-  `sections/analysis-i/01-sets-and-foundations/02-supremum.tex`.
+  `sections/analysis-i/01-sets-and-foundations/06-supremum.tex`.
 - Replace the complete `TUFTE PLACEHOLDER` block for a topic with course
   content, including its temporary grouping and `\sloppy` wrapper. Retain
   attribution for any specimen material you keep or adapt.
@@ -47,13 +57,33 @@ Use the existing `definition`, `theorem`, `lemma`, `proposition`, `corollary`,
 as `\R` and `\N`. Refer to labels with `\ref` or `\eqref` instead of typing
 result numbers, and use stable bibliography keys with `\cite`.
 
+Use `\marginnote{...}` for secondary observations in the book and homework
+handouts. Notes sit beside the relevant passage without numeric markers in
+either the margin or the main text. Place the command at that passage and
+use `\marginnote[<offset>]{...}` only when needed to avoid a collision.
+Do not use numbered `\sidenote` or `\footnote` commands for these notes.
+
+Add source metadata to `bibliography.bib`. Citations use bracketed numbers
+in the main text, for example `theory~\cite{Waldschmidt2017}.` Use
+`\cite[32]{Bringhurst2005}` for a page reference and comma-separated keys
+for multiple sources. Do not wrap citations in sidenotes or use Tufte's
+old vertical-offset arguments. The bibliography after the course chapters
+and before the appendices lists cited sources in order of first citation. Run `make book` (or
+`make watch`) so latexmk runs Biber and the required LaTeX passes; a single
+pdfLaTeX pass can leave bold citation keys instead of resolved numbers.
+The shared LaTeX Workshop recipe also runs latexmk; its PDF is `main.pdf`
+beside the book source. See [CUSTOMISATION.md](CUSTOMISATION.md) for details.
+
 State assumptions precisely, define symbols before using them, and check each
 proof step. Clearly identify unfinished arguments. Write explanations in your
 own words and credit source texts, lectures, and reused figures.
 
 Preserve the established Tufte layout: italic chapter titles, chapter-level
-contents, and margin notes. Changes to typography or the `nohyper` setting
-need a PDF check.
+contents, and margin notes. Keep the class's `nohyper` option and the late
+`hyperref` load in `preamble.tex`; that ordering preserves the custom contents
+while enabling citation and bibliography links. The caption-font patch after
+that load keeps captions at the same size as margin notes. Changes need a PDF
+check.
 
 ## Preview while editing
 

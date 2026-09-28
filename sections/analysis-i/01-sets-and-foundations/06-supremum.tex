@@ -1,0 +1,64 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC02, IMG_9121--IMG_9122; LEC03, IMG_9126.
+\section{Supremum and completeness}
+\label{sec:analysis-i:supremum}
+
+\begin{definition}
+  A number $u$ is an \emph{upper bound} of $S\subseteq\R$ if $s\leq u$
+  for all $s\in S$. The \emph{supremum}, or least upper bound, is an upper
+  bound $L$ such that $L\leq u$ for every upper bound $u$. We write
+  $L=\sup S$. Lower bounds and the \emph{infimum} $\inf S$ are defined
+  with the inequalities reversed.
+\end{definition}
+If a supremum belongs to $S$, it is the maximum of $S$. Membership is not
+required for a supremum. For example, $(0,1)$ has supremum $1$, but no
+maximum. Also, whenever the infimum exists,
+$\inf S=-\sup\{-s:s\in S\}$.
+
+We take the following completeness property as part of the description of
+the real numbers.
+
+\begin{quote}
+  \textbf{Least upper bound property (LUBP).} Every nonempty subset of
+  $\R$ that is bounded above has a supremum in $\R$.
+\end{quote}
+For a nonempty bounded-above set $S$, the assertion $L=\sup S$ is equivalent
+to the following two requirements. First, every $s\in S$ satisfies $s\leq L$.
+Second, for every $\varepsilon>0$, there is an $s\in S$ with
+$L-\varepsilon<s$. The second requirement says that every number below
+$L$ fails to be an upper bound.
+\index{supremum}\index{completeness}
+
+The rational field does not have this property. The set
+\[
+  S=\{q\in\Q:q\geq0,\ q^2<2\}
+\]
+is nonempty and bounded above, but has no rational supremum. Its supremum
+in $\R$ is $\sqrt{2}$; the gap argument in
+Section~\ref{sec:analysis-i:rational-gaps} excludes a rational boundary.
+
+\subsection{Six forms of completeness}
+The following properties express completeness through order, sequences,
+or intervals. A sequence is \emph{bounded} if all its terms lie between
+two fixed numbers. It is \emph{monotone} if it is nondecreasing or
+nonincreasing. A \emph{subsequence} $(x_{n_k})$ uses strictly increasing
+indices $n_1<n_2<\cdots$.
+
+\begin{description}
+  \item[LUBP] Every nonempty set bounded above has a least upper bound.
+  \item[MCT] Every bounded monotone sequence converges.
+  \item[NIP] Every nested sequence of nonempty closed bounded intervals
+    $I_1\supseteq I_2\supseteq\cdots$ has nonempty intersection.
+  \item[BWT] Every bounded sequence has a convergent subsequence
+    (the Bolzano--Weierstrass theorem).
+  \item[CC] Every Cauchy sequence converges. Here $(x_n)$ is \emph{Cauchy}
+    when, for every $\varepsilon>0$, there is an $N$ such that
+    $|x_n-x_m|<\varepsilon$ whenever $m,n\geq N$.
+  \item[DC] Whenever the field is partitioned into nonempty sets $A,B$
+    with $a<b$ for every $a\in A$, $b\in B$, there is a boundary $c$
+    satisfying $a\leq c\leq b$ for all such $a,b$.
+\end{description}
+The last statement is the \emph{Dedekind cut property}. Since $c$ belongs
+to one side of the partition, it is either the greatest element of $A$
+or the least element of $B$. This is the precise sense in which there is
+no gap at the cut.

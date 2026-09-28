@@ -1,0 +1,9 @@
+\begin{tikzpicture}[interval diagram,x=8mm]
+  \foreach \a/\b/\row/\name in {0/4/0/I_1,0/2/-1/I_2,1/2/-2/I_3,1/1.5/-3/I_4} {
+    \node[left] at (-0.3,\row) {$\name$};
+    \draw (\a,\row) -- (\b,\row);
+    \node[interval closed] at (\a,\row) {};
+    \node[interval closed] at (\b,\row) {};
+  }
+  \node at (1.25,-4) {$\vdots$};
+\end{tikzpicture}

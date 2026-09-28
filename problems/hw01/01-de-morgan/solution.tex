@@ -1,0 +1,91 @@
+% !TEX root = ../../hw01.tex
+% Homework 01, Exercise 1. Shared solution.
+
+% Transcribed from IMG_8995 and the left page of IMG_8996.
+\begin{proof}[Solution]
+Fix a set $S$ such that $A_\gamma\subseteq S$ for every
+$\gamma\in\Gamma$. All complements in this proof are taken
+relative to $S$, so
+\[
+  A_\gamma^c=S\setminus A_\gamma.
+\]
+Suppose first that $\Gamma$ is nonempty. We prove each identity
+by showing both inclusions.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/hw01/de-morgan}
+  \caption[De Morgan's laws.]{The upper shaded region lies outside both sets.
+    In the lower panel, only the overlap is excluded. All complements
+    are taken within the rectangle $S$.}
+  \label{fig:hw01:de-morgan}
+\end{marginfigure}
+
+\textit{The complement of the union.}
+Suppose that
+\[
+  x\in\left(\bigcup_{\gamma\in\Gamma}A_\gamma\right)^c.
+\]
+Then $x\in S$ and $x$ does not belong to the union.
+If $x$ belonged to any $A_\gamma$, it would belong to the union.
+Therefore $x\notin A_\gamma$ for every $\gamma\in\Gamma$.
+Since $x\in S$, this gives $x\in A_\gamma^c$ for every $\gamma$,
+and hence
+\[
+  x\in\bigcap_{\gamma\in\Gamma}A_\gamma^c.
+\]
+
+Conversely, suppose that
+\[
+  x\in\bigcap_{\gamma\in\Gamma}A_\gamma^c.
+\]
+Then $x\in S$ and $x\notin A_\gamma$ for every $\gamma\in\Gamma$.
+Thus no member of the family contains $x$, so $x$ does not belong
+to their union. Consequently,
+\[
+  x\in\left(\bigcup_{\gamma\in\Gamma}A_\gamma\right)^c.
+\]
+Both inclusions hold, proving the first equality.
+
+\handoutonly{\clearpage}
+
+\textit{The complement of the intersection.}
+Suppose that
+\[
+  x\in\left(\bigcap_{\gamma\in\Gamma}A_\gamma\right)^c.
+\]
+Then $x\in S$ and $x$ does not belong to the intersection.
+There must be an index $\gamma_0\in\Gamma$ for which
+$x\notin A_{\gamma_0}$. Otherwise, $x$ would belong to every
+$A_\gamma$ and therefore to their intersection.
+Thus $x\in A_{\gamma_0}^c$, which gives
+\[
+  x\in\bigcup_{\gamma\in\Gamma}A_\gamma^c.
+\]
+
+Conversely, suppose that
+\[
+  x\in\bigcup_{\gamma\in\Gamma}A_\gamma^c.
+\]
+Then $x\in A_{\gamma_0}^c$ for at least one index $\gamma_0$.
+Hence $x\in S$ and $x\notin A_{\gamma_0}$.
+Since $x$ fails to belong to this member of the family, it cannot
+belong to the intersection. Thus
+\[
+  x\in\left(\bigcap_{\gamma\in\Gamma}A_\gamma\right)^c.
+\]
+Both inclusions hold, proving the second equality.
+
+If $\Gamma$ is empty, we use the relative conventions
+\[
+  \begin{aligned}
+    \bigcup_{\gamma\in\varnothing}A_\gamma&=\varnothing,\\
+    \bigcap_{\gamma\in\varnothing}A_\gamma&=S.
+  \end{aligned}
+\]
+Both identities then follow from $\varnothing^c=S$ and $S^c=\varnothing$.
+
+Figure~\ref{fig:hw01:de-morgan} illustrates the difference for two sets.
+An element outside their intersection may still belong to one
+of the sets. It simply cannot belong to both.
+\end{proof}

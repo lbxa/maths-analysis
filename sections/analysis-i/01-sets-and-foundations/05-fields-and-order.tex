@@ -1,0 +1,63 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC02, IMG_9119--IMG_9121.
+\section{Fields and order}
+\label{sec:analysis-i:fields-and-order}
+
+Before asking which limits exist, we separate the algebra from the order.
+A set acquires additional structure when operations are specified.
+A \emph{group} is a set with an associative operation, an identity, and an
+inverse for each element. It is \emph{abelian} when the operation commutes.
+
+\begin{definition}
+  A \emph{field} $K$ has two distinct elements $0$ and $1$, and operations
+  of addition and multiplication, such that $(K,+)$ and $(K\setminus\{0\},\cdot)$
+  are abelian groups and multiplication distributes over addition.
+\end{definition}
+These are structures on sets, rather than a literal containment chain of
+``sets inside groups inside fields.'' The examples $\Q$ and $\R$ have their
+usual arithmetic operations.
+
+The \emph{characteristic} of a field is the least positive integer $n$ such
+that $n\cdot1=0$, if there is one, and is zero otherwise. Here $n\cdot1$
+means adding $1$ to itself $n$ times.
+
+\begin{proposition}
+  Every field of characteristic zero contains a unique smallest subfield,
+  canonically isomorphic to $\Q$.
+\end{proposition}
+\begin{proof}
+  Send an integer $m$ to $m\cdot1$, with the usual interpretation for
+  zero and negative integers. Characteristic zero makes this map injective.
+  For $m\in\Z$ and $n\in\N$, define
+  \[
+    \iota(m/n)=(m\cdot1)(n\cdot1)^{-1}.
+  \]
+  The denominator is nonzero. If $m/n=p/q$, then $mq=np$, and the same
+  equality holds after mapping the integers into $K$. Multiplying by the
+  inverses of the denominators shows that the definition is independent
+  of the fraction chosen. The reverse argument shows injectivity.
+  The usual common-denominator and product calculations show that $\iota$
+  preserves addition and multiplication, so its image is a subfield.
+  Any subfield of $K$ contains $1$, its integer multiples, their negatives,
+  and the inverses of its nonzero elements. It therefore contains every
+  $\iota(m/n)$, proving minimality and uniqueness.
+\end{proof}
+
+\subsection{Ordering the arithmetic}
+A partial order is a reflexive, antisymmetric, transitive relation $\leq$.
+It is a \emph{total order} if any two elements are comparable.
+For example, coordinatewise order on $\Q^2$ is partial, but not total;
+$(0,1)$ and $(1,0)$ are incomparable. The usual order on $\Q$ is total.
+
+\begin{definition}
+  An \emph{ordered field} is a field with a total order satisfying
+  \[
+    a<b\ \Longrightarrow\ a+c<b+c,
+    \qquad
+    a<b,\ c>0\ \Longrightarrow\ ac<bc.
+  \]
+\end{definition}
+Every nonzero square is positive, so $1>0$. Consequently every positive
+integer multiple of $1$ is positive, and an ordered field has characteristic
+zero. It therefore contains the rational subfield just constructed.
+The additional property distinguishing $\R$ from $\Q$ is completeness.

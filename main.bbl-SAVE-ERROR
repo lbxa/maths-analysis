@@ -1,0 +1,224 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Waldschmidt2017}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6a84f7197e99af207127c6dceb68c352}{%
+           family={Waldschmidt},
+           familyi={W\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Mahidol University}%
+      }
+      \strng{namehash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{fullhash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{fullhashraw}{6a84f7197e99af207127c6dceb68c352}
+      \strng{bibnamehash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{authorbibnamehash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{authornamehash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{authorfullhash}{6a84f7197e99af207127c6dceb68c352}
+      \strng{authorfullhashraw}{6a84f7197e99af207127c6dceb68c352}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{31}
+      \field{month}{1}
+      \field{title}{Transcendental Number Theory: Recent Results and Open Problems}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/TNTOpenPbsVI.pdf
+      \endverb
+      \verb{url}
+      \verb https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/TNTOpenPbsVI.pdf
+      \endverb
+    \endentry
+    \entry{deGoursac2016}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=f4707bcee7b4f3ab7553bc6900323930}{%
+           family={Goursac},
+           familyi={G\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=434fdec23519dc7c571484a0e4e3c03e}{%
+           family={Sportiello},
+           familyi={S\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ac879689efbdc34691325b5b91fa465e}{%
+           family={Tanasa},
+           familyi={T\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{fullhash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{fullhashraw}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{bibnamehash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{authorbibnamehash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{authornamehash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{authorfullhash}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \strng{authorfullhashraw}{d3a8102e6f1e70a466a9fcc0ea94e4d9}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{Annales Henri Poincaré}
+      \field{title}{The {Jacobian} Conjecture, a Reduction of the Degree to the Quadratic Case}
+      \field{volume}{17}
+      \field{year}{2016}
+      \field{pages}{3237\bibrangedash 3254}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s00023-016-0490-9
+      \endverb
+      \verb{eprint}
+      \verb 1411.6558
+      \endverb
+    \endentry
+    \entry{Bringhurst2005}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=26e95fb42484f0ba33bccaf28955982e}{%
+           family={Bringhurst},
+           familyi={B\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Hartley \& Marks}%
+      }
+      \strng{namehash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{fullhash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{fullhashraw}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{bibnamehash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{authorbibnamehash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{authornamehash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{authorfullhash}{26e95fb42484f0ba33bccaf28955982e}
+      \strng{authorfullhashraw}{26e95fb42484f0ba33bccaf28955982e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3.1 ed.}
+      \field{isbn}{0-88179-205-5}
+      \field{title}{The Elements of Typography}
+      \field{year}{2005}
+    \endentry
+    \entry{Tufte2006}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=41187f886abb9d98f33e5b3f52276d12}{%
+           family={Tufte},
+           familyi={T\bibinitperiod},
+           given={Edward\bibnamedelima R.},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cheshire, Connecticut}%
+      }
+      \list{publisher}{1}{%
+        {Graphics Press, {LLC}}%
+      }
+      \strng{namehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{fullhash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{fullhashraw}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{bibnamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorbibnamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authornamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorfullhash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorfullhashraw}{41187f886abb9d98f33e5b3f52276d12}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{0-9613921-7-7}
+      \field{month}{5}
+      \field{title}{Beautiful Evidence}
+      \field{year}{2006}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Tufte1990}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=41187f886abb9d98f33e5b3f52276d12}{%
+           family={Tufte},
+           familyi={T\bibinitperiod},
+           given={Edward\bibnamedelima R.},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cheshire, Connecticut}%
+      }
+      \list{publisher}{1}{%
+        {Graphics Press}%
+      }
+      \strng{namehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{fullhash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{fullhashraw}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{bibnamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorbibnamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authornamehash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorfullhash}{41187f886abb9d98f33e5b3f52276d12}
+      \strng{authorfullhashraw}{41187f886abb9d98f33e5b3f52276d12}
+      \field{extraname}{2}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-9613921-1-8}
+      \field{title}{Envisioning Information}
+      \field{year}{1990}
+    \endentry
+    \entry{pkg-geometry}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ba0263921088645dd1bd8d289413f57d}{%
+           family={Umeki},
+           familyi={U\bibinitperiod},
+           given={Hideo},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{fullhash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{fullhashraw}{ba0263921088645dd1bd8d289413f57d}
+      \strng{bibnamehash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{authorbibnamehash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{authornamehash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{authorfullhash}{ba0263921088645dd1bd8d289413f57d}
+      \strng{authorfullhashraw}{ba0263921088645dd1bd8d289413f57d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://ctan.org/pkg/geometry}}
+      \field{month}{12}
+      \field{title}{The \texttt{geometry} package}
+      \field{year}{2008}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

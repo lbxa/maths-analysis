@@ -1,0 +1,11 @@
+% Reuse the physical line weights, arrowheads, and fonts of interval diagrams.
+\tikzset{
+  analysis diagram/.style={interval diagram,y=1cm},
+  analysis guide/.style={draw=gray,densely dashed},
+  analysis curve/.style={draw=black,line width=0.7pt},
+  analysis label/.style={inner sep=1.5pt},
+  analysis property/.style={
+    draw=black,rounded corners=2pt,fill=white,
+    minimum width=15mm,minimum height=8mm,inner sep=3pt
+  }
+}

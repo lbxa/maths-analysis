@@ -12,6 +12,7 @@
       {Check the book class definition of \string\@part.}}
 }{}
 \makeatother
+
 \usepackage{nameref}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx}
@@ -23,12 +24,9 @@
 \fvset{fontsize=\small}
 \usepackage{url}
 \usepackage{lipsum} % Remove after all placeholder prose has been replaced.
-\usepackage[backend=biber,natbib=true,style=numeric]{biblatex}
+% Bracketed citations in the text; bibliography numbered by first citation.
+\usepackage[backend=biber,natbib=true,style=numeric,sorting=none]{biblatex}
 \addbibresource{bibliography.bib}
-
-% Preserve the template's full citations in the margin.
-\usepackage{xargs}
-\renewcommandx{\cite}[3][1={0pt},2={}]{\sidenote[][#1]{\fullcite[#2]{#3}}}
 
 \graphicspath{{figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
@@ -50,6 +48,11 @@
 \makeatletter
 \@ifclassloaded{tufte-book}{%
   \makeindex
+  % Leave room for two-digit appendix figure numbers such as C.13.
+  \patchcmd{\@tufte@lof@line}{\@tempdima 2.0em}{\@tempdima 3.0em}
+    {}
+    {\PackageError{analysis-notes}{Could not widen list-of-figures numbers}
+      {Check the Tufte list-of-figures definition.}}
   \setcounter{tocdepth}{0} % Parts and chapters only.
   % Title-only chapter headings; retain counters for sections and references.
   \titleformat{\chapter}[block]
@@ -89,5 +92,22 @@
     {\textit}
     {\qquad\thecontentspage}
     [\vspace{0.5\baselineskip}]
+}{}
+\makeatother
+
+% Enable book links after the Tufte contents customizations. The class's
+% nohyper option prevents earlier loading; keep sidenotes unlinked.
+\makeatletter
+\@ifclassloaded{tufte-book}{%
+  \usepackage[hidelinks,hyperfootnotes=false,bookmarksdepth=0]{hyperref}
+  % Hyperref resets captions to normalsize; restore the Tufte margin font
+  % while retaining its caption anchors and links. Caption paragraphs
+  % must not inherit the first-line indent from the margin justification.
+  \patchcmd{\@caption}{\normalsize}
+    {\@tufte@caption@font\@tufte@caption@justification
+      \setlength{\parindent}{0pt}}
+    {}
+    {\PackageError{analysis-notes}{Could not restore the caption font}
+      {Check the hyperref caption definition.}}
 }{}
 \makeatother

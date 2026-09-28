@@ -1,0 +1,77 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC03, IMG_9133--IMG_9134; Week 3 topic summary.
+\section{Polynomial functions and absolute value}
+\label{sec:analysis-i:elementary-functions}
+
+A \emph{polynomial function} has the form
+\[
+  p(x)=a_0+a_1x+\cdots+a_nx^n,\qquad a_0,\ldots,a_n\in\R.
+\]
+If $a_n\ne0$, its degree is $n$. It is defined for every $x\in\R$.
+A \emph{rational function} is a quotient $p(x)/q(x)$ of polynomials,
+with $q$ not the zero polynomial. Its domain excludes the zeros of $q$.
+For example, the expression $(x^2-1)/(x-1)$ equals $x+1$ on its domain,
+but the original quotient is undefined at $x=1$.
+
+\subsection{Absolute value and distance}
+The absolute value function is
+\[
+  |x|=\begin{cases}
+    x,&x\geq0,\\
+    -x,&x<0.
+  \end{cases}
+\]
+It satisfies $|x|\geq0$, with equality exactly when $x=0$, and
+$-|x|\leq x\leq|x|$. Figure~\ref{fig:absolute-value} shows its graph.
+\begin{marginfigure}[3\baselineskip]
+  \centering
+  \input{figures/foundations/absolute-value}
+  \caption[The absolute value function.]{The graph of $y=|x|$. The distance between $x$ and $y$ on the
+    real line is $|x-y|$.}
+  \label{fig:absolute-value}
+\end{marginfigure}
+
+\begin{proposition}
+  For real $x,y$,
+  \[
+    |xy|=|x|\,|y|,\qquad |x+y|\leq|x|+|y|.
+  \]
+\end{proposition}
+\begin{proof}
+  If either factor is zero, the product identity is immediate.
+  Otherwise, writing each factor as its sign times its positive absolute
+  value shows that the absolute value of the product is $|x|\,|y|$.
+  For the second assertion, add the inequalities
+  $-|x|\leq x\leq|x|$ and $-|y|\leq y\leq|y|$ to obtain
+  \[
+    -(|x|+|y|)\leq x+y\leq |x|+|y|.
+  \]
+  The definition of absolute value now gives the triangle inequality.
+\end{proof}
+Applying the triangle inequality to $x=(x-y)+y$, and then interchanging
+$x$ and $y$, also gives the useful reverse triangle inequality
+$\bigl||x|-|y|\bigr|\leq|x-y|$.
+
+\subsection{Positive and negative parts}
+Define two nonnegative quantities
+\[
+  x^+=\max\{x,0\}=\frac{|x|+x}{2},\qquad
+  x^-=\max\{-x,0\}=\frac{|x|-x}{2}.
+\]
+Checking separately $x\geq0$ and $x<0$ gives
+\[
+  x=x^+-x^-,\qquad |x|=x^++x^-,\qquad x^+x^-=0.
+\]
+The negative part records the \emph{magnitude} of the negative contribution,
+so it is nonnegative. For a real-valued function $f$, apply these formulas
+pointwise to obtain $f=f^+-f^-$ and $|f|=f^++f^-$.
+Figure~\ref{fig:positive-negative-parts} replaces the lecture's freehand
+sketch with a specific example.
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/foundations/positive-negative-parts}
+  \caption[Positive and negative parts of a function.]{Positive and negative parts of the illustrative function
+    $f(x)=x(1-x)$. The part below the axis is reflected upward in $f^-$;
+    in $f^+$ it is replaced by zero. All three panels use the same scale.}
+  \label{fig:positive-negative-parts}
+\end{figure*}

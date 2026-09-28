@@ -1,0 +1,137 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC03, IMG_9131--IMG_9133.
+\section{Denseness, closure, and completion}
+\label{sec:analysis-i:denseness}
+
+\subsection{Upper and lower limits}
+Before returning to sets, recall that $x_n\to L$ means that all sufficiently
+late terms lie within every prescribed distance of $L$. For a bounded
+sequence, two useful quantities summarize its tails,
+\[
+  \alpha_n=\inf\{x_k:k\geq n\},\qquad
+  \beta_n=\sup\{x_k:k\geq n\}.
+\]
+The sequence $(\alpha_n)$ is nondecreasing, and $(\beta_n)$ is nonincreasing.
+Both are bounded, so their limits exist. Define
+\[
+  \liminf_{n\to\infty}x_n=\lim_{n\to\infty}\alpha_n,
+  \qquad
+  \limsup_{n\to\infty}x_n=\lim_{n\to\infty}\beta_n.
+\]
+These are also written $\underline{\lim}\,x_n$ and $\overline{\lim}\,x_n$.
+If $x_n\to L$, then for every $\varepsilon>0$, all sufficiently late tails
+lie in $[L-\varepsilon,L+\varepsilon]$. Their infima and suprema do too,
+which proves that both limits equal $L$. Conversely, if both equal $L$,
+the inequalities $\alpha_n\leq x_n\leq\beta_n$ force $x_n\to L$.
+This is the bounded-sequence version; more general upper and lower limits
+will be studied with sequences later in the course.
+
+\subsection{Which points can a set approach?}
+\begin{definition}
+  The \emph{closure} of $E\subseteq\R$ is
+  \[
+    \overline E=\{x\in\R:(x-\varepsilon,x+\varepsilon)\cap E
+      \ne\varnothing\text{ for every }\varepsilon>0\}.
+  \]
+\end{definition}
+A point of $E$ already belongs to its closure. A point $x$ is an
+\emph{accumulation point} if every such neighborhood contains a point of
+$E$ different from $x$. This extra condition distinguishes accumulation
+points from general closure points.
+
+Figure~\ref{fig:closure-neighborhoods} compares these possibilities for
+$E=(0,2)\cup\{3\}$. Every neighborhood of $0$ meets the interval, even
+though $0\notin E$. A neighborhood of $3$ with radius less than $1$
+meets $E$ only at $3$. At $5/2$, any radius less than $1/2$ misses $E$
+entirely. The word \emph{every} in the definition is decisive.
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/foundations/closure-neighborhoods}
+  \caption[Closure and shrinking neighborhoods.]{Schematic Venn views on
+    a number line. The solid interval and filled point form $E$; its open
+    endpoints are excluded. Dashed ellipses depict two shrinking
+    $\varepsilon$-neighborhoods. The darker overlap in (a) persists as
+    $\varepsilon$ decreases. Set membership is read on the axis; the
+    ellipses add no points off the real line.}
+  \label{fig:closure-neighborhoods}
+\end{figure*}
+
+\begin{proposition}
+  A point $x$ belongs to $\overline E$ if and only if there is a sequence
+  $(a_n)$ in $E$ converging to $x$.
+\end{proposition}
+\begin{proof}
+  If $x\in\overline E$, choose $a_n\in E$ with $|a_n-x|<1/n$.
+  The Archimedean property then gives $a_n\to x$. Conversely, if
+  $a_n\to x$, every neighborhood of $x$ contains all sufficiently late
+  $a_n$, and therefore meets $E$.
+\end{proof}
+For $a<b$, we have $\overline{(a,b)}=[a,b]$. Interior points already lie
+in the interval, and every neighborhood of either endpoint meets it.
+If $x<a$ or $x>b$, a neighborhood of radius less than its distance to the
+nearest endpoint misses the interval. Thus no other point enters the closure.
+
+\subsection{Rationals occur in every interval}
+\begin{definition}
+  A set $E\subseteq\R$ is \emph{dense in $\R$} if $\overline E=\R$.
+  Equivalently, every nonempty open interval contains a point of $E$.
+\end{definition}
+For the equivalence, apply the neighborhood condition at the midpoint of
+an open interval with radius half its length; in the other direction,
+every neighborhood is itself an open interval.
+
+\begin{theorem}
+  \label{thm:analysis-i:rational-density}
+  The rational numbers are dense in the real numbers.
+\end{theorem}
+\begin{proof}
+  Given $x\in\R$ and $\varepsilon>0$, choose $N\in\N$ with
+  $1/N<\varepsilon$. Set $m=\lfloor Nx\rfloor$. The definition of the
+  floor gives $m\leq Nx<m+1$, and hence
+  \[
+    0\leq x-\frac{m}{N}<\frac{1}{N}<\varepsilon.
+  \]
+  Thus the rational number $m/N$ lies in the prescribed neighborhood
+  of $x$. Every real number belongs to the closure of $\Q$.
+\end{proof}
+The grid in Figure~\ref{fig:rational-grid} makes the estimate visible.
+\begin{marginfigure}
+  \centering
+  \input{figures/foundations/rational-grid}
+  \caption[Approximating a real number on a rational grid.]{Schematic rational grid with spacing $1/N$. The floor chooses
+    the left endpoint of the cell containing $x$.}
+  \label{fig:rational-grid}
+\end{marginfigure}
+In particular, choosing $m_n=\lfloor nx\rfloor$ gives an explicit rational
+sequence $m_n/n\to x$.
+
+\subsection{Closure is relative to an ambient space}
+Closure and completion answer related but different questions. Closure
+adds points already present in a specified ambient space. Thus
+$\overline{\Q}^{\,\R}=\R$, whereas $\overline{\Q}^{\,\Q}=\Q$.
+A \emph{metric completion} instead embeds a metric space into a complete
+one in which it is dense. For the usual distance $|x-y|$, $\R$ is a
+completion of $\Q$.
+
+More generally, $\overline E\subseteq\R$ is a completion of $E$ with its
+usual distance. To check completeness, a Cauchy sequence $(y_n)$ in
+$\overline E$ converges in $\R$ to some $y$. Given $\varepsilon>0$, choose
+$n$ with $|y_n-y|<\varepsilon/2$, then choose $a\in E$ with
+$|a-y_n|<\varepsilon/2$. The triangle inequality gives $|a-y|<\varepsilon$,
+so $y\in\overline E$. Also, by the definition of closure, $E$ is dense
+in $\overline E$. This explains why closing $(a,b)$ to $[a,b]$ also
+completes that interval, while keeping the two notions distinct.
+
+\subsection{Exercises on the missing limits in $\Q$}
+The floor function and rational density let us build nested rational
+intervals around a point missing from $\Q$. This complements the real
+interval examples in Section~\ref{sec:analysis-i:completeness-equivalences}.
+
+\input{problems/hw02/03-nested-rational-intervals/problem}
+
+The factorial partial sums give a second form of the same obstruction,
+a bounded set of rationals with no rational supremum. The appendix solution
+also records the homework's Taylor-remainder argument for identifying
+the limit with $e$; Taylor's theorem is treated later in the course.
+
+\input{problems/hw02/05-factorial-sequence/problem}

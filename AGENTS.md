@@ -5,10 +5,11 @@
 Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 - `main.tex` assembles the book; `preamble.tex` holds packages and layout; `macros.tex` defines shared notation and theorem environments.
-- `sections/analysis-i/part.tex` orders nine chapter directories. Each numbered directory contains `chapter.tex` and one numbered `.tex` file per topic, e.g. `01-sets-and-foundations/02-supremum.tex`.
+- `sections/analysis-i/part.tex` orders nine chapter directories. Each numbered directory contains `chapter.tex` and one numbered `.tex` file per topic, e.g. `01-sets-and-foundations/06-supremum.tex`.
 - `sections/analysis-ii/part.tex` is reserved and excluded from the book until needed.
-- `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation and prerequisite results.
+- `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, prerequisite results, and the solutions chapter.
 - `problems/hwNN.tex` are standalone homework handouts using the shared preamble and macros.
+- `problems/hwNN/NN-topic/problem.tex` holds a shared exercise statement; the adjacent `solution.tex` holds its solution. Do not add an `exercises/` subdirectory.
 - `figures/` holds diagrams; `figures/template/` and `bibliography.bib` contain specimen assets and references. `build/` contains ignored generated output.
 
 ## Build & Development Commands
@@ -24,6 +25,23 @@ Install LaTeX with pdfLaTeX, Tufte-LaTeX, biblatex, Biber, and latexmk. Run from
 - `make clean`: remove generated PDFs and auxiliary files through latexmk.
 
 On Overleaf, select `main.tex` and pdfLaTeX.
+
+## Shared and Local Editor Settings
+
+Keep portable team settings, including the LaTeX Workshop formatter choice, in the version-controlled `.vscode/settings.json`. Do not ignore this file or the entire `.vscode` folder. Put machine-specific executable paths and personal preferences in the editor's User `settings.json`, outside the repository, and preserve existing settings when editing it. Leave machine-specific keys out of the shared file because workspace settings override User settings. Review shared settings for machine-specific paths before committing. Document reusable setup instructions in [CUSTOMISATION.md](CUSTOMISATION.md), with contributor guidance in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Homework Reuse and Placement Map
+
+Always maintain the **Homework placement map** in [README.md](README.md#homework-placement-map). Treat it as the authoritative record of which homework questions are already used in the book.
+
+- Keep one row for every homework question, including unused and deferred questions. Record the original homework/question number, both shared source files, assessed topic, book chapter and section/subsection, appendix order, stable exercise/solution label key, and inclusion status.
+- Update the map in the same change whenever an exercise is added, embedded, moved, removed, or relabelled, or when its containing chapter or section is reorganized. Explain deferred placements and record their intended destination when known.
+- Keep each question in `problems/hwNN/NN-topic/problem.tex` and its solution in the adjacent `solution.tex`. The handout inputs both files in that order. The main book chapters input only `problem.tex`; the appendix repeats the shared `problem.tex` before its `solution.tex` so each entry is self-contained. Do not copy statement, solution, or figure source into another file.
+- Include each problem once in the main text and each problem/solution pair once in `sections/appendices/exercise-solutions.tex`, in the same order as the book's exercises. Use `\solutionheading{hwNN:topic}` to select the original exercise number, then input `problem.tex` inside `restatedproblem`, followed by `solution.tex`. The restatement must use the main text's bold, inline exercise label, with its number linked back to the original, rather than a separate section heading. The scoped `restatedproblem` environment suppresses duplicate exercise numbering, labels, and solution margin links. Preserve the handout's original question order and numbering; let the book use its own exercise numbering.
+- Keep `\label{ex:hwNN:topic}` and `\solutionlink{hwNN:topic}` in each problem. The latter creates an unnumbered, clickable margin link to `sol:hwNN:topic` in the appendix and is suppressed in handouts. Later mentions must cross-reference the existing exercise instead of including it again.
+- Place exercises by the content they assess and check prerequisites. Explain any deliberate forward use of a later result in the surrounding book text.
+- Keep handout-specific layout in the handout entry file, or use `\handoutonly{...}` for a layout hint inside a shared solution. Keep appendix-only page breaks in the appendix chapter. Leave `problems/template.tex` unchanged unless the user explicitly requests a template change.
+- Before finishing any homework or book-structure change, verify that every map row agrees with the main-text and appendix inputs, ordering, and labels, and that every appendix solution follows the complete shared problem statement. Run `make check`, check for duplicate labels or destinations, verify links in both directions, and inspect both the book and affected handouts.
 
 ## Style & Contribution Conventions
 

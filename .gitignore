@@ -1,6 +1,9 @@
 # Generated build directories at any depth.
 build/
 
+# Local lecture images and converted copies.
+/images/
+
 # Compiled documents at any depth; retain source figures.
 *.pdf
 *.dvi

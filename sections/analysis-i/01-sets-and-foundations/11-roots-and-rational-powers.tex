@@ -1,0 +1,107 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC03, IMG_9135--IMG_9138.
+% Keep the section heading with its opening discussion after the wide figure.
+\clearpage
+\section{Roots and rational powers}
+\label{sec:analysis-i:roots-and-powers}
+
+\newthought{An inverse function needs a bijection.} In the lecture's
+notation, $\R_+=[0,\infty)$ includes zero. For $n\in\N$, we will prove
+that $x\mapsto x^n$ is a bijection from $\R_+$ to itself. Only after that
+proof can we define $x^{1/n}$ as its inverse.
+
+\subsection{A difference of powers}
+The finite geometric identity
+\[
+  1+r+\cdots+r^{n-1}=\frac{1-r^n}{1-r}\qquad(r\ne1)
+\]
+follows by multiplying the sum by $1-r$ and cancelling consecutive terms.
+For $0\leq a<b$, substitute $r=a/b$ and multiply by $(b-a)b^{n-1}$.
+This gives
+\begin{equation}
+  b^n-a^n=(b-a)\sum_{j=0}^{n-1}b^{n-1-j}a^j.
+  \label{eq:analysis-i:power-difference}
+\end{equation}
+The sum is positive and has $n$ terms, each at most $b^{n-1}$. Consequently,
+\begin{equation}
+  0<b^n-a^n\leq n(b-a)b^{n-1}.
+  \label{eq:analysis-i:power-bound}
+\end{equation}
+In particular, the power map is strictly increasing on $[0,\infty)$,
+and hence injective. The upper bound controls how much the power changes
+when the input moves a short distance.
+
+\subsection{Completeness supplies every root}
+\begin{theorem}
+  \label{thm:analysis-i:positive-roots}
+  For every $n\in\N$ and every $y\geq0$, there is a unique $x\geq0$
+  such that $x^n=y$.
+\end{theorem}
+\begin{proof}
+  Uniqueness follows from strict monotonicity. If $y=0$, take $x=0$.
+  Suppose henceforth that $y>0$, and put
+  \[
+    S=\{t\geq0:t^n<y\}.
+  \]
+  The set contains zero and also a positive element, for example
+  $t=\min\{1/2,y/2\}$, since $t^n\leq t<y$.
+  It is bounded above by $1+y$, because
+  $(1+y)^n\geq1+y>y$ and the power map is increasing.
+  LUBP therefore gives $x=\sup S>0$.
+
+  Suppose first that $x^n<y$. Choose $h>0$ so small that
+  \[
+    h<1,\qquad h<\frac{y-x^n}{n(x+1)^{n-1}}.
+  \]
+  Using equation~\eqref{eq:analysis-i:power-bound} with $a=x$ and $b=x+h$
+  gives
+  \[
+    (x+h)^n-x^n\leq nh(x+h)^{n-1}
+      \leq nh(x+1)^{n-1}<y-x^n.
+  \]
+  Hence $x+h\in S$, contradicting that $x$ is an upper bound.
+
+  Suppose instead that $x^n>y$. Choose $h>0$ with
+  \[
+    h<x,\qquad h<\frac{x^n-y}{nx^{n-1}}.
+  \]
+  Now equation~\eqref{eq:analysis-i:power-bound} with $a=x-h$ and $b=x$
+  yields $x^n-(x-h)^n\leq nhx^{n-1}<x^n-y$, so $(x-h)^n>y$.
+  Every $t\in S$ must then satisfy $t<x-h$, by strict monotonicity.
+  Thus $x-h$ is an upper bound of $S$ smaller than its least upper bound,
+  again a contradiction. The only remaining possibility is $x^n=y$.
+\end{proof}
+We may now define $y^{1/n}$ to be this unique nonnegative root.\marginnote{This
+proof uses completeness and an algebraic estimate. It does not require
+continuity or the intermediate value theorem, which come later in the
+course. The two perturbations rule out being below and above $y$.} The inverse
+is strictly increasing too. Indeed, if $u<v$ but $u^{1/n}\geq v^{1/n}$,
+taking $n$th powers contradicts $u<v$.
+
+The existence of these roots lets us ask when they can be rational.
+\input{problems/hw01/09-irrational-roots/problem}
+
+\subsection{A rational exponent must be well defined}
+For $x\geq0$ and $m,n\in\N$, define
+\[
+  x^{m/n}=(x^m)^{1/n}.
+\]
+This agrees with $(x^{1/n})^m$, since its $n$th power is $x^m$ and it is
+nonnegative. We must also check that choosing a different representation
+of the fraction gives the same number.
+
+\begin{proposition}
+  If $m/n=p/q$ for positive integers $m,n,p,q$, then
+  $(x^m)^{1/n}=(x^p)^{1/q}$ for every $x\geq0$.
+\end{proposition}
+\begin{proof}
+  Let $u=(x^m)^{1/n}$ and $v=(x^p)^{1/q}$. Then
+  \[
+    u^{nq}=x^{mq}=x^{pn}=v^{nq},
+  \]
+  because $mq=pn$. Both $u$ and $v$ are nonnegative, and the $(nq)$th
+  power map is injective there. Therefore $u=v$.
+\end{proof}
+Thus positive rational powers have a consistent meaning. At zero they
+equal zero; for $x>0$, negative rational powers can subsequently be defined
+by reciprocals. Real exponents require a further limiting construction.

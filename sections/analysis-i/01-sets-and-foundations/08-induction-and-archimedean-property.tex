@@ -1,0 +1,65 @@
+% !TEX root = ../../../main.tex
+% Sources: LEC01, IMG_9110; LEC03, IMG_9128--IMG_9130.
+\section{Induction and the Archimedean property}
+\label{sec:analysis-i:mathematical-induction}
+\label{sec:analysis-i:archimedean}
+
+\subsection{The natural-number tools}
+Mathematical induction proves a statement $P(n)$ for every $n\in\N$ by
+proving $P(1)$ and proving that $P(n)$ implies $P(n+1)$.
+For example, $2^n>n$ holds at $n=1$. If it holds at $n$, then
+$2^{n+1}>2n\geq n+1$, which establishes the next case. The same estimate
+also follows from the binomial expansion of $(1+1)^n$.
+
+We also use the \emph{well-ordering principle}, that every nonempty subset
+of $\N$ has a least element. This is equivalent to induction. To see the
+direction needed here, a subset with no least element cannot contain $1$;
+if it contains none of $1,\ldots,n$, it cannot contain $n+1$ either, since
+that would be its least element. Induction would make the subset empty.
+
+\subsection{Small steps eventually pass any bound}
+\begin{theorem}[Archimedean property]
+  \label{thm:analysis-i:archimedean}
+  For every $\varepsilon>0$ and every $M\in\R$, there is an $n\in\N$
+  such that $n\varepsilon>M$.
+\end{theorem}
+\begin{proof}
+  Suppose $S=\{n\varepsilon:n\in\N\}$ were bounded above. By LUBP,
+  it would have a supremum $L$. Since $L-\varepsilon<L$, there would be
+  an $m\in\N$ with $m\varepsilon>L-\varepsilon$. It would follow that
+  $(m+1)\varepsilon>L$, contradicting that $L$ bounds $S$. Thus $S$ is
+  unbounded above, which proves the assertion.
+\end{proof}
+This proof uses only LUBP, so it supplies the Archimedean hypothesis used
+in the preceding completeness chain. Taking the step size to be $1$ shows
+that $\N$ is unbounded in $\R$. In particular, given $\delta>0$, choose
+$N>1/\delta$; then $1/n<\delta$ for all $n\geq N$, proving $1/n\to0$.
+
+\subsection{The integer part}
+\begin{proposition}
+  For every $x\in\R$, there is a unique $m\in\Z$ such that
+  \[
+    m\leq x<m+1.
+  \]
+  This integer is the \emph{floor} or \emph{integer part} of $x$, denoted
+  by $\lfloor x\rfloor$.
+\end{proposition}
+\begin{proof}
+  First suppose $x\geq0$. By the Archimedean property, the set of natural
+  numbers greater than $x$ is nonempty. Let $n$ be its least member.
+  Then $n-1\leq x<n$, so $m=n-1$ has the required property. For a general
+  real $x$, choose $k\in\N$ with $x+k\geq0$. The first case gives an
+  integer $r$ with $r\leq x+k<r+1$, and $m=r-k$ works.
+  Finally, two distinct integers differ by at least one, so they cannot
+  both satisfy the displayed inequalities. This proves uniqueness.
+\end{proof}
+The lecture writes the integer part as $[x]$; we use $\lfloor x\rfloor$
+to distinguish it from an interval. For example, $\lfloor\pi\rfloor=3$,
+whereas $\lfloor-\pi\rfloor=-4$. The floor is not truncation toward zero.
+
+\subsection{Exercise on bounds and convergence}
+An explicit sequence connects the definitions of Cauchy convergence,
+infimum, and supremum. The Archimedean property supplies the indices
+needed in its estimates.
+
+\input{problems/hw02/04-decreasing-sequence/problem}

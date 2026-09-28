@@ -1,0 +1,19 @@
+\begin{tikzpicture}[analysis diagram,x=14mm,y=7mm]
+  \draw[->] (-0.15,0) -- (2.8,0) node[right] {$x$};
+  \draw[->] (0,-2.5) -- (0,4.2) node[above] {$y$};
+  \draw[analysis curve,->,domain=0:2.4,samples=60]
+    plot (\x,{\x*\x-2});
+  \draw[gray,domain=1:2.5] plot (\x,{4*\x-6});
+  \draw[analysis guide] (2,0) -- (2,2);
+  \fill (2,2) circle[radius=1.6pt];
+  \fill (1.414214,0) circle[radius=1.6pt];
+  \fill (1.5,0) circle[radius=1.6pt];
+  \fill (0,-2) circle[radius=1.6pt];
+  \node[left] at (0,-2) {$-2$};
+  \node[below left,analysis label] at (0,0) {$0$};
+  \node[above left,analysis label] at (1.414214,0) {$\sqrt2$};
+  \node[below,analysis label] at (1.7,-0.2) {$\tfrac32$};
+  \draw[gray] (1.5,-0.1) -- (1.7,-0.35);
+  \node[below,analysis label] at (2,0) {$2$};
+  \node[left,analysis label] at (1.9,2.9) {$x^2-2$};
+\end{tikzpicture}

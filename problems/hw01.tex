@@ -18,153 +18,46 @@
 We use $\N=\{1,2,3,\ldots\}$. A set is countable if it is finite
 or countably infinite.
 
-\begin{exercise}
-\label{ex:hw01:de-morgan}
-Let $\{A_\gamma \mid \gamma \in \Gamma\}$ be a collection of sets. Prove De Morgan's laws
-\[
-    \begin{aligned}
-      \left(\bigcup_{\gamma\in\Gamma} A_\gamma\right)^c
-        &= \bigcap_{\gamma\in\Gamma} A_\gamma^c,\\
-      \left(\bigcap_{\gamma\in\Gamma} A_\gamma\right)^c
-        &= \bigcup_{\gamma\in\Gamma} A_\gamma^c.
-    \end{aligned}
-\]
-\end{exercise}
-
-
-% Transcribed from IMG_8995 and the left page of IMG_8996.
-\begin{proof}[Solution]
-  \input{problems/hw01/01-de-morgan}
-\end{proof}
+\input{problems/hw01/01-de-morgan/problem}
+\input{problems/hw01/01-de-morgan/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:power-set}
-List all the elements in the set $\mathcal{P}(\mathcal{P}(\varnothing))$ and verify the cardinality formula.
-\end{exercise}
-
-% Transcribed from the right page of IMG_8996.
-\begin{proof}[Solution]
-  \input{problems/hw01/02-power-set}
-\end{proof}
-
-\begin{exercise}
-\label{ex:hw01:prime-roots}
-Let $p=2,3,5,\ldots$ be a prime. Prove that $\sqrt{p}$ is irrational. Can this result be extended to $p^{\frac{1}{k}}$ for any integer $k\geq 2$?
-\end{exercise}
-
-% Transcribed from IMG_8997 and the upper left page of IMG_8998.
-\begin{proof}[Solution]
-  \input{problems/hw01/03-prime-roots}
-\end{proof}
+\input{problems/hw01/02-power-set/problem}
+\input{problems/hw01/02-power-set/solution}
+\input{problems/hw01/03-prime-roots/problem}
+\input{problems/hw01/03-prime-roots/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:interval-to-reals}
-Obtain a bijective map from $(0,1)$ to $\mathbb{R}$.
-\end{exercise}
-
-% Transcribed from the lower left and upper right pages of IMG_8998.
-\begin{proof}[Solution]
-  \input{problems/hw01/04-interval-to-reals}
-\end{proof}
+\input{problems/hw01/04-interval-to-reals/problem}
+\input{problems/hw01/04-interval-to-reals/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:open-to-closed-interval}
-Obtain a bijective map from $(0,1)$ to $[0,1]$.
-\end{exercise}
-
-% Transcribed from the lower right page of IMG_8998 and left page of IMG_8999.
-\begin{proof}[Solution]
-  \input{problems/hw01/05-open-to-closed-interval}
-\end{proof}
+\input{problems/hw01/05-open-to-closed-interval/problem}
+\input{problems/hw01/05-open-to-closed-interval/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:transcendental-cardinality}
-Let $\aleph_0$ and $\aleph$ denote the cardinalities of $\mathbb{N}$ and $\mathbb{R}$ respectively. Recall that the Continuum Hypothesis (CH) states that there is no cardinality between $\aleph_0$ and $\aleph$. Use CH to prove that the set of transcendental numbers, $\mathbb{T}$, has the same cardinality $\aleph$ as that of $\mathbb{R}$.
-\end{exercise}
-
-% Completed from the argument on the right page of IMG_8999.
-\begin{proof}[Solution]
-  \input{problems/hw01/06-transcendental-cardinality}
-\end{proof}
+\input{problems/hw01/06-transcendental-cardinality/problem}
+\input{problems/hw01/06-transcendental-cardinality/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:linear-independence}
-Let $\tau$ be a transcendental number whose existence is proven already. Show that for any $n\in\mathbb{N}$, the numbers
-\[
-    \tau,\ldots,\tau^n
-\]
-are linearly independent over the field $\mathbb{Q}$.
-
-That is, if there are $r_1,\ldots,r_n\in\mathbb{Q}$ such that
-\[
-    r_1\tau+\cdots+r_n\tau^n=0,
-\]
-then $r_1=\cdots=r_n=0$.
-
-(In the language of Linear Algebra, this result indicates that the set $\mathbb{R}$ viewed as a vector space over $\mathbb{Q}$ is infinitely dimensional.)
-\end{exercise}
-
-\begin{proof}[Solution]
-  \input{problems/hw01/07-linear-independence}
-\end{proof}
+\input{problems/hw01/07-linear-independence/problem}
+\input{problems/hw01/07-linear-independence/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:square-cardinality}
-Show that
-\[
-    |(0,1)\times(0,1)|=|(0,1)|=\aleph.
-\]
-(\textit{Corrected hint.} For each number in $(0,1)$, choose the decimal
-expansion that is not eventually all $9$s. We can then write
-\[
-    x\in(0,1),\quad x=0.x_1x_2\cdots,\quad
-    x_i\in\{0,\ldots,9\},\quad i=1,2,\ldots.
-\]
-Then define a map from $(0,1)\times(0,1)$ to $(0,1)$ by
-\[
-    (x,y)=(0.x_1x_2\cdots,0.y_1y_2\cdots)
-    \mapsto (0.x_1y_1x_2y_2\ldots)=z\in(0,1).
-\]
-Show that this map is injective, then use injections in both directions.)
-\end{exercise}
-
-\begin{proof}[Solution]
-  \input{problems/hw01/08-square-cardinality}
-\end{proof}
-
-\begin{exercise}
-\label{ex:hw01:irrational-roots}
-Show that if $a>0$ is irrational, so is the $k$th root of $a$, $a^{\frac{1}{k}}$, for any $k\in\mathbb{N}$.
-\end{exercise}
-
-\begin{proof}[Solution]
-  \input{problems/hw01/09-irrational-roots}
-\end{proof}
+\input{problems/hw01/08-square-cardinality/problem}
+\input{problems/hw01/08-square-cardinality/solution}
+\input{problems/hw01/09-irrational-roots/problem}
+\input{problems/hw01/09-irrational-roots/solution}
 
 \clearpage
 
-\begin{exercise}
-\label{ex:hw01:countable-union}
-Let $A_n$ be a set such that $|A_n|=\aleph_0$ for $n=1,2,\ldots$. Prove $|A|=\aleph_0$ where
-\[
-    A=\bigcup_{n=1}^{\infty} A_n.
-\]
-\end{exercise}
-
-\begin{proof}[Solution]
-  \input{problems/hw01/10-countable-union}
-\end{proof}
+\input{problems/hw01/10-countable-union/problem}
+\input{problems/hw01/10-countable-union/solution}
 
 \end{document}

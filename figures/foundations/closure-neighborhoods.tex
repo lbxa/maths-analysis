@@ -1,0 +1,63 @@
+% The ellipses are schematic set outlines; membership is read on the axis.
+\begin{tikzpicture}[analysis diagram]
+  \node at (6.8,2.1)
+    {$E=(0,2)\cup\{3\},\qquad
+      U_\varepsilon(x)=(x-\varepsilon,x+\varepsilon),\qquad
+      0<\varepsilon_2<\varepsilon_1$};
+
+  \foreach \shift/\testx/\smallradius/\panel in
+    {0/0/0.4/1,5.3/3/0.3/2,10.6/2.5/0.3/3} {
+    \begin{scope}[xshift=\shift cm]
+      % The shaded lobe represents (0,2); the separate filled dot is {3}.
+      \fill[gray!15] (1,0) ellipse[x radius=1cm,y radius=0.55cm];
+      \begin{scope}
+        \clip (1,0) ellipse[x radius=1cm,y radius=0.55cm];
+        \fill[gray!40] (\testx,0)
+          ellipse[x radius=\smallradius cm,y radius=0.4cm];
+      \end{scope}
+      \draw[gray] (1,0) ellipse[x radius=1cm,y radius=0.55cm];
+      \node[analysis label] at (1.2,0.28) {$(0,2)$};
+
+      % Two open neighborhoods with the same center and decreasing radius.
+      \draw[dashed] (\testx,0)
+        ellipse[x radius=0.8cm,y radius=0.85cm];
+      \draw[densely dashed] (\testx,0)
+        ellipse[x radius=\smallradius cm,y radius=0.4cm];
+      \node[above=2pt,analysis label] at (\testx,0.85)
+        {$\varepsilon_1$};
+      \node[above=1pt,analysis label,fill=white] at (\testx,0.4)
+        {$\varepsilon_2$};
+
+      \draw[<->] (-0.95,0) -- (3.95,0);
+      \draw[line width=1.2pt] (0,0) -- (2,0);
+      \node[interval open] at (0,0) {};
+      \node[interval open] at (2,0) {};
+      \node[interval closed] at (3,0) {};
+      \node[below=2pt,interval label] at (0,0) {$0$};
+      \node[below=2pt,interval label] at (2,0) {$2$};
+      \node[below=2pt,interval label] at (3,0) {$3$};
+
+      \ifnum\panel=1
+        \node at (1.5,1.5) {\textit{(a) Boundary point}, $x=0$};
+        \node at (1.5,-1.18) {$0\in\overline E\setminus E$};
+        \node[anchor=north,align=center,text width=4.5cm] at (1.5,-1.5)
+          {Every $\varepsilon>0$ still reaches $E$.\\
+           An accumulation point.};
+      \else\ifnum\panel=2
+        \node at (1.5,1.5) {\textit{(b) Isolated point}, $x=3$};
+        \node at (1.5,-1.18) {$3\in E\subseteq\overline E$};
+        \node[anchor=north,align=center,text width=4.5cm] at (1.5,-1.5)
+          {Only $x$ remains when $\varepsilon<1$.\\
+           Closure, but no accumulation.};
+      \else
+        \node at (1.5,1.5) {\textit{(c) Outside}, $x=\tfrac52$};
+        \draw (2.5,-0.08) -- (2.5,0.08);
+        \node[below=2pt,interval label] at (2.5,0) {$x$};
+        \node at (1.5,-1.18) {$\tfrac52\notin\overline E$};
+        \node[anchor=north,align=center,text width=4.5cm] at (1.5,-1.5)
+          {A radius $\varepsilon<1/2$ misses $E$.\\
+           One such radius excludes $x$.};
+      \fi\fi
+    \end{scope}
+  }
+\end{tikzpicture}

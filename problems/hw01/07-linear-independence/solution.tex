@@ -1,0 +1,33 @@
+% !TEX root = ../../hw01.tex
+% Homework 01, Exercise 7. Shared solution.
+
+\begin{proof}[Solution]
+Suppose that
+\[
+  r_1\tau+\cdots+r_n\tau^n=0,
+  \qquad r_1,\ldots,r_n\in\Q.
+\]
+We want to show that every coefficient is zero. Suppose, for a
+contradiction, that at least one $r_j\ne0$.
+
+Write $r_j=a_j/b_j$, where $a_j\in\Z$ and $b_j\in\N$.
+Put $D=b_1\cdots b_n>0$. We multiply through by $D$ to clear
+all the denominators and obtain
+\[
+  (Dr_1)\tau+\cdots+(Dr_n)\tau^n=0.
+\]
+Each $Dr_j$ is an integer, and at least one is nonzero since
+$D\ne0$. Therefore
+\[
+  P(X)=(Dr_1)X+\cdots+(Dr_n)X^n
+\]
+is a nonzero polynomial with integer coefficients satisfying
+$P(\tau)=0$. This would make $\tau$ algebraic, contradicting
+the assumption that it is transcendental.
+
+Thus $r_1=\cdots=r_n=0$. Since $n$ was arbitrary, the numbers
+$\tau,\ldots,\tau^n$ are linearly independent over $\Q$ for every
+$n\in\N$.
+\marginnote{Including a constant term does not change the argument.
+  Thus $1,\tau,\ldots,\tau^n$ are also linearly independent over $\Q$.}
+\end{proof}

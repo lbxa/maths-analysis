@@ -1,0 +1,14 @@
+\begin{tikzpicture}[analysis diagram]
+  \node[analysis property] (lub) at (0,0) {LUBP};
+  \node[analysis property] (mct) at (2.4,0) {MCT};
+  \node[analysis property] (nip) at (4.8,0) {NIP};
+  \node[analysis property] (bwt) at (7.2,0) {BWT};
+  \node[analysis property] (cc) at (9.6,0) {CC};
+  \node[analysis property] (dc) at (12,0) {DC};
+  \draw[->] (lub) -- (mct);
+  \draw[->] (mct) -- (nip);
+  \draw[->] (nip) -- (bwt);
+  \draw[->] (bwt) -- (cc);
+  \draw[->] (cc) -- (dc);
+  \draw[->] (dc.south) -- (12,-0.9) -- (0,-0.9) -- (lub.south);
+\end{tikzpicture}
