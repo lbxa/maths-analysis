@@ -1,0 +1,41 @@
+% A finite real grid and its exact image under F(x,y)=(x+y^2,y).
+\begin{tikzpicture}[analysis diagram,x=0.9cm,y=0.9cm]
+  \begin{scope}
+    \foreach \x in {-0.5,0,0.5} {
+      \draw[gray,line width=0.5pt] (\x,-1) -- (\x,1);
+    }
+    \foreach \y in {-1,-0.5,0,0.5,1} {
+      \draw[gray,line width=0.5pt] (-0.5,\y) -- (0.5,\y);
+    }
+    \draw[->] (-1,0) -- (1.15,0) node[right] {$x$};
+    \draw[->] (0,-1.25) -- (0,1.35) node[above] {$y$};
+    \fill (0,0) circle[radius=1.6pt];
+    \node[analysis label,below left] at (0,0) {$0$};
+    \fill (0,1) circle[radius=1.6pt];
+    \node[analysis label,above left] at (0,1) {$(0,1)$};
+    \node at (0,-1.7) {Original grid};
+  \end{scope}
+
+  \draw[->] (1.5,0.5) -- (3.65,0.5)
+    node[midway,above] {$F$};
+  \draw[->] (3.65,-0.5) -- (1.5,-0.5)
+    node[midway,below] {$G=F^{-1}$};
+
+  \begin{scope}[xshift=4.6cm]
+    \foreach \x in {-0.5,0,0.5} {
+      \draw[gray,line width=0.5pt,domain=-1:1,samples=41,variable=\t]
+        plot ({\x+\t*\t},{\t});
+    }
+    \foreach \y in {-1,-0.5,0,0.5,1} {
+      \draw[gray,line width=0.5pt]
+        ({-0.5+\y*\y},\y) -- ({0.5+\y*\y},\y);
+    }
+    \draw[->] (-0.9,0) -- (1.95,0) node[right] {$u$};
+    \draw[->] (0,-1.25) -- (0,1.35) node[above] {$v$};
+    \fill (0,0) circle[radius=1.6pt];
+    \node[analysis label,below left] at (0,0) {$0$};
+    \fill (1,1) circle[radius=1.6pt];
+    \node[analysis label,above] at (1,1) {$(1,1)$};
+    \node at (0.5,-1.7) {Image under $F$};
+  \end{scope}
+\end{tikzpicture}

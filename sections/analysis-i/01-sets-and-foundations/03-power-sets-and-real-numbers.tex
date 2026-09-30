@@ -126,16 +126,61 @@ term gives $\ell+1/10$, which is transcendental
 as well. These stronger results belong to transcendental number theory~\cite{Waldschmidt2017}.
 The earlier proof established only the irrationality of $e$.
 
-\newthought{Questions from the lecture.} What can we say about $\pi+e$ or
-$\pi/e$? Knowing that the individual numbers are transcendental does not
-by itself determine whether their sum or quotient is irrational.
+\subsection{The Jacobian conjecture}
+\label{sec:analysis-i:jacobian-conjecture}
+Another lecture question concerns polynomial maps. A map
+$F=(F_1,\ldots,F_d):\C^d\to\C^d$ is \emph{polynomial} when each
+coordinate $F_i$ is a polynomial in $z_1,\ldots,z_d$. Its
+\emph{Jacobian matrix} is the matrix of first derivatives,
+\[
+  \mathrm DF(z)=
+  \left(\frac{\partial F_i}{\partial z_j}(z)\right)_{1\leq i,j\leq d}.
+\]
 
-\newthought{A connection with algebra.} Another lecture question concerned
-the Jacobian conjecture, whose classical formulation asks whether a
-polynomial map $F:\C^d\to\C^d$ with nonzero constant Jacobian determinant
-must have a polynomial inverse~\cite{deGoursac2016}.
-The classical question illustrates the passage from local differential
-information to global algebraic structure. None of the arguments here
+\begin{conjecture}[Jacobian]
+  If a polynomial map $F:\C^d\to\C^d$ satisfies
+  $\det\mathrm DF(z)=c$ for every $z\in\C^d$, where $c\ne0$ is
+  constant, then it has a polynomial inverse. That is, there is a
+  polynomial map $G:\C^d\to\C^d$ such that
+  \[
+    G\circ F=F\circ G=\operatorname{id}_{\C^d}.
+  \]
+\end{conjecture}
+This is the classical formulation~\cite{deGoursac2016}.
+
+The determinant condition makes the linear approximation invertible at
+every point. The inverse function theorem, a result from later differential
+calculus, gives $F$ an inverse on a neighborhood of each point.
+The conjecture asks for one inverse on all of $\C^d$, with polynomial
+coordinates.
+
+Figure~\ref{fig:jacobian-shear} illustrates a simple case,
+$F(x,y)=(x+y^2,y)$, on the real plane inside $\C^2$. Here
+\[
+  \mathrm DF(x,y)=\begin{pmatrix}1&2y\\0&1\end{pmatrix},
+  \qquad \det\mathrm DF(x,y)=1.
+\]
+The inverse $G(u,v)=(u-v^2,v)$ keeps the second coordinate and undoes
+the horizontal shift. This verifies the conjecture for this map; the
+general problem remains open~\cite{deGoursac2016}.
+\begin{figure}[htbp]
+  \centering
+  \input{figures/foundations/jacobian-shear}
+  \caption[A polynomial shear and its inverse.]{A real slice of the
+    polynomial shear $F(x,y)=(x+y^2,y)$. Horizontal grid segments stay
+    horizontal; vertical ones become parabolic arcs. The inverse
+    subtracts $v^2$ from the first coordinate. This example has a
+    global polynomial inverse.}
+  \label{fig:jacobian-shear}
+\end{figure}
+
+\newthought{Motivation.} Earlier we studied injectivity
+and surjectivity; a global inverse requires both. The Jacobian determinant
+tests behavior near each point, so the conjecture connects those global
+questions with local differential calculus. Requiring the inverse to be
+polynomial adds an algebraic constraint. It illustrates why the precise
+hypotheses of a theorem matter, just as existence by counting does not
+identify a particular transcendental number. None of the arguments here
 depends on its resolution.
 
 \subsection{Exercises on transcendence}
