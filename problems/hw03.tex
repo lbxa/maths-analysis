@@ -1,0 +1,48 @@
+% !TEX program = pdflatex
+% Compile from the repository root with make problem HW=hw03.
+% Based on problems/template.tex; the template is unchanged.
+% Source: HW3 Intro to Math Analysis I (1).pdf, pages 1--2.
+% MA-GY-6213, Homework No. 3, due Friday 10/2/2026.
+% Eight questions; no solutions were supplied with the assignment.
+% The source's Week 3 topic summary is metadata, not additional exercises.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+\input{preamble}
+\input{macros}
+
+% Preserve the original question numbers independently of book numbering.
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\title{Homework 03}
+\author{Lucas Barbosa, \texttt{lc6424}}
+\date{Due Friday, October 2, 2026}
+
+\begin{document}
+\maketitle
+
+\input{problems/hw03/01-dedekind-infimum/problem}
+\input{problems/hw03/01-dedekind-infimum/solution}
+
+\input{problems/hw03/02-cubic-dedekind-cut/problem}
+\input{problems/hw03/02-cubic-dedekind-cut/solution}
+
+\input{problems/hw03/03-oscillating-sequence/problem}
+\input{problems/hw03/03-oscillating-sequence/solution}
+
+\clearpage
+\input{problems/hw03/04-fibonacci-ratios/problem}
+\input{problems/hw03/04-fibonacci-ratios/solution}
+
+\input{problems/hw03/05-rational-interval-cover/problem}
+\input{problems/hw03/05-rational-interval-cover/solution}
+
+\clearpage
+\input{problems/hw03/06-rational-exponent-laws/problem}
+\input{problems/hw03/06-rational-exponent-laws/solution}
+
+\input{problems/hw03/07-reverse-triangle-inequality/problem}
+\input{problems/hw03/07-reverse-triangle-inequality/solution}
+
+\input{problems/hw03/08-odd-roots/problem}
+\input{problems/hw03/08-odd-roots/solution}
+
+\end{document}

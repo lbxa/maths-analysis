@@ -1,0 +1,61 @@
+% !TEX root = ../../hw03.tex
+% Homework 03, question 1. Author's proof, with consistency corrections.
+\begin{proof}[Solution]
+  Let $S\subseteq\R$ be nonempty and bounded below, and let $A$ be the
+  set of all lower bounds of $S$,
+  \[
+    A=\{a\in\R\mid\forall s\in S,\quad a\leq s\}.
+  \]
+  Since $S$ is bounded below, $A$ is nonempty. Take $B=\R\setminus A$,
+  so that $A\cup B=\R$ and $A\cap B=\varnothing$. More formally,
+  \[
+    B=\{b\in\R\mid\exists s\in S,\quad s<b\}.
+  \]
+  Choose $s_0\in S$. Then $s_0+1\in B$, so $B$ is also nonempty.
+
+  To use the Dedekind cut property (DC), we need to prove that $a<b$
+  for every $a\in A$ and $b\in B$. Fix such $a$ and $b$. Since $b$ is
+  not a lower bound of $S$, there exists some $s\in S$ such that $s<b$.
+  Since $a$ is a lower bound of $S$, we also have $a\leq s$. Combining
+  these inequalities gives
+  \[
+    a\leq s<b,
+  \]
+  so $a<b$. DC therefore supplies a boundary $c\in\R$ satisfying
+  \[
+    \forall a\in A,\ \forall b\in B,\quad a\leq c\leq b.
+  \]
+
+  To prove that $c$ is the greatest lower bound, we must prove that it
+  is itself a lower bound and that it is greater than or equal to every
+  other lower bound, which belongs to $A$,
+  \[
+    \forall a\in A,\quad a\leq c.
+  \]
+
+  The latter follows from the definition of $A$ and the cut inequality
+  $a\leq c$. To prove the former, fix any $s\in S$. We need to show that
+  \[
+    c\leq s.
+  \]
+
+  For every $\varepsilon>0$, we have $s+\varepsilon\in B$, since
+  $s<s+\varepsilon$. The cut inequality therefore gives
+  \[
+    c\leq s+\varepsilon.
+  \]
+  Suppose for a contradiction that $c>s$, and take
+  $\varepsilon=(c-s)/2>0$. Then
+  \begin{alignat*}{2}
+    &          & c  &\leq s+\dfrac{c-s}{2}, \\
+    &\iff\quad & 2c &\leq 2s+c-s, \\
+    &\iff\quad & c  &\leq s.
+  \end{alignat*}
+  This contradicts $c>s$. Hence $c\leq s$ for every $s\in S$, so $c$
+  is a lower bound of $S$ and therefore
+  \[
+    c=\inf S.
+  \]
+  If $d$ is another greatest lower bound, then $c\leq d$ and $d\leq c$,
+  so $c=d$. Thus the greatest lower bound is unique.
+\end{proof}

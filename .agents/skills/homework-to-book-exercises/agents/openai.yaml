@@ -1,0 +1,4 @@
+interface:
+  display_name: "Homework to Book Exercises"
+  short_description: "Import Analysis homework into shared book exercises"
+  default_prompt: "Use $homework-to-book-exercises to import this supplied assignment into the Mathematical Analysis book, solutions appendix, and standalone homework handout."

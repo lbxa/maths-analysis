@@ -53,6 +53,12 @@ Use shared mathematical environments and styles so the same kind of content has 
 
 Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific. Use black and gray for diagrams by default; reserve colour for a specific highlight or distinction.
 
+Format section cross-references throughout the book as `\S~\ref{sec:...}`, producing a section sign followed by the linked section number, for example § 1.2. Use `\S\S` for plural section references. Keep the nonbreaking space between the sign and number, use stable labels rather than hard-coded numbers, and apply this convention in body text, margin notes, and captions. Do not write `Section~\ref{...}` or substitute a section title for the numbered reference.
+
+- In displayed equations, use `\quad` to separate leading quantifiers from their statements.
+- In set-builder notation, use `\mid` and rely on LaTeX's automatic spacing.
+- Add `\,` only when a small extra gap improves readability; do not add it automatically to every set.
+
 Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
 
 Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.

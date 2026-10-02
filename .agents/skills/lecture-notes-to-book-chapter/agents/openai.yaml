@@ -1,0 +1,3 @@
+interface:
+  display_name: "Lecture Notes to Book Chapter"
+  short_description: "Turn Analysis lecture notes into faithful book chapters"

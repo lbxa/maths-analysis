@@ -52,10 +52,17 @@ should describe the subject and remain stable when files move:
 \label{sec:analysis-i:supremum}
 ```
 
-Use the existing `definition`, `theorem`, `lemma`, `proposition`, `corollary`,
+Use the existing `definition`, `property`, `theorem`, `lemma`, `proposition`, `corollary`,
 `example`, `exercise`, `remark`, and `proof` environments. Reuse notation such
 as `\R` and `\N`. Refer to labels with `\ref` or `\eqref` instead of typing
 result numbers, and use stable bibliography keys with `\cite`.
+
+Write section references as `\S~\ref{sec:...}` (for example, § 1.2), with
+a nonbreaking space and a linked number. Use `\S\S` for plural references.
+
+Use `property` for a formally stated property, with an optional descriptive
+title and a stable `thm:` label. It uses upright text and the shared
+section-based result counter; LUBP in the supremum section is an example.
 
 Use `\marginnote{...}` for secondary observations in the book and homework
 handouts. Notes sit beside the relevant passage without numeric markers in
