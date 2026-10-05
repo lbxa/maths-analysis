@@ -54,11 +54,19 @@ should describe the subject and remain stable when files move:
 
 Use the existing `definition`, `property`, `theorem`, `lemma`, `proposition`, `corollary`,
 `example`, `exercise`, `remark`, and `proof` environments. Reuse notation such
-as `\R` and `\N`. Refer to labels with `\ref` or `\eqref` instead of typing
-result numbers, and use stable bibliography keys with `\cite`.
+as `\R` and `\N`. Refer to labels with `\autoref` instead of typing result
+names or numbers, and use stable bibliography keys with `\cite`.
 
-Write section references as `\S~\ref{sec:...}` (for example, § 1.2), with
-a nonbreaking space and a linked number. Use `\S\S` for plural references.
+The shared convention gives full, capitalised names such as `Figure 1.1`,
+`Table 1.1`, `Theorem 1.2.3`, and `Exercise 1.2.4`. Equations render as
+`Equation (1.2)` and sections as `§ 1.2`. Write only `\autoref{fig:...}`,
+`\autoref{thm:...}`, `\autoref{eq:...}`, or `\autoref{sec:...}`; the command
+supplies the name and nonbreaking space and links the complete reference.
+For ranges, use `\autoref{sec:first}--\autoref{sec:last}`. Use `\autoref*`
+only for an intentionally unlinked reference. Page numbers still use
+`\pageref`; solution navigation retains its descriptive `\hyperref` links.
+Define new numbered result environments with `\newsharedtheorem` so their
+automatic names stay distinct while sharing the existing theorem counter.
 
 Use `property` for a formally stated property, with an optional descriptive
 title and a stable `thm:` label. It uses upright text and the shared

@@ -1,34 +1,41 @@
 % !TEX root = ../../../main.tex
+% Retained Taylor-remainder identification from Homework 02, Question 5.
 \section{Taylor's theorem}
 \label{sec:analysis-i:taylor-theorem}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 853--878.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:sec:typography}
+The following statement records the tool needed for the exponential
+interpretation of the factorial series. Its proof will be developed with
+the differentiation lectures.
 
-\label{template:sec:typefaces}\index{typefaces}
-If the Palatino, \textsf{Helvetica}, and \texttt{Bera Mono} typefaces are installed, this style
-will use them automatically.  Otherwise, we'll fall back on the Computer Modern
-typefaces.
+\begin{theorem}[Taylor's theorem with Lagrange remainder]
+  Suppose $f$ has $n+1$ continuous derivatives on an interval containing
+  the segment between $a$ and $x$, where $n\geq0$ and $x\ne a$.
+  There is a point $\xi$ strictly between $a$ and $x$ such that
+  \[
+    f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k
+      +\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
+  \]
+\end{theorem}
 
-\label{template:sec:letterspacing}
-This document class includes two new commands and some improvements on
-existing commands for letterspacing.
+\subsection{The factorial series and the exponential function}
+\autoref{ex:hw02:factorial-sequence} identified the supremum of the
+factorial partial sums using their series definition of $e$.
+Once the exponential function is available, Taylor's theorem gives
+another identification of the same limit.
 
-When setting strings of \allcaps{ALL CAPS} or \smallcaps{small caps}, the
-letter\-spacing---that is, the spacing between the letters---should be
-increased slightly~\cite[32]{Bringhurst2005}. The \doccmddef{allcaps} command has proper letterspacing for
-strings of \allcaps{FULL CAPITAL LETTERS}, and the \doccmddef{smallcaps} command
-has letterspacing for \smallcaps{small capital letters}.  These commands
-will also automatically convert the case of the text to upper- or
-lowercase, respectively.
-
-The \doccmddef{textsc} command has also been redefined to include
-letterspacing.  The case of the \doccmd{textsc} argument is left as is,
-however.  This allows one to use both uppercase and lowercase letters:
-\textsc{The Initial Letters Of The Words In This Sentence Are Capitalized.}
-
-\lipsum[1]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+The exponential function has value $1$ at zero, and each derivative
+equals the same continuous function. Apply Taylor's theorem about $0$
+and evaluate at $1$ to obtain
+\[
+  \exp(1)=\sum_{k=0}^{n}\frac1{k!}
+    +\frac{\exp(\xi_n)}{(n+1)!},\qquad 0<\xi_n<1.
+\]
+Since $\exp$ is increasing, the remainder satisfies
+\[
+  0<\exp(1)-\sum_{k=0}^{n}\frac1{k!}
+    \leq\frac{\exp(1)}{(n+1)!}\longrightarrow0.
+\]
+The factorials tend to infinity, for example because $(n+1)!\geq2^n$.
+Thus $\exp(1)=\sum_{k=0}^{\infty}1/k!=e$. This later calculus argument
+is independent of the elementary construction of the series limit in
+\autoref{sec:analysis-i:denseness}.

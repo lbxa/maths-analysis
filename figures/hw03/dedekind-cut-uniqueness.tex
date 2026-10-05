@@ -1,0 +1,20 @@
+% Hypothetical allowed regions if c < d were both partition boundaries.
+% The closed endpoints indicate inclusive bounds, not an actual partition.
+\begin{tikzpicture}[interval diagram]
+  \node[interval label,above=5pt] at (0.3,0) {$B$};
+  \draw[<-] (0,0) -- (1,0);
+  \node[interval closed] at (1,0) {};
+  \node[interval label,below=5pt] at (1,0) {$c$};
+
+  \node[interval label,above=5pt] at (3.7,0) {$A$};
+  \draw[->] (3,0) -- (4,0);
+  \node[interval closed] at (3,0) {};
+  \node[interval label,below=5pt] at (3,0) {$d$};
+
+  \draw[gray,densely dashed] (1.1,0) -- (2.9,0);
+  \node[interval closed] at (2,0) {};
+  \node[interval label,above=9pt] at (2,0) {$a=\dfrac{c+d}{2}$};
+
+  \draw[<->] (1,-1.6) -- (3,-1.6)
+    node[midway,below=5pt,interval label] {gap $(c,d)$};
+\end{tikzpicture}

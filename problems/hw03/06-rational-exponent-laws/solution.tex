@@ -1,3 +1,57 @@
 % !TEX root = ../../hw03.tex
-% Homework 03, question 6. No solution supplied yet.
-\noindent\emph{Awaiting solution.}
+% Homework 03, question 6.
+\begin{proof}[Solution]
+  We use $\R_+=[0,\infty)$ and positive rational exponents. The
+  nonnegative $n$th root exists and is unique for every positive
+  integer $n$.
+
+  For part (a), put $u=x^{1/n}$ and $v=y^{1/n}$. Both are nonnegative,
+  and the integer power laws give
+  \[
+    (uv)^n=u^nv^n=xy.
+  \]
+  Thus $uv$ is the nonnegative $n$th root of $xy$. Uniqueness gives
+  \[
+    (xy)^{1/n}=x^{1/n}y^{1/n}.
+  \]
+
+  For part (b), put $w=(x^{1/n})^m$. This number is nonnegative, and
+  \[
+    w^n=(x^{1/n})^{mn}=\bigl((x^{1/n})^n\bigr)^m=x^m.
+  \]
+  Hence $w$ is the nonnegative $n$th root of $x^m$. Again by
+  uniqueness,
+  \[
+    x^{m/n}=(x^m)^{1/n}=(x^{1/n})^m.
+  \]
+
+  For part (c), write $r=m/n$ and $s=p/q$, where $m,n,p,q$ are
+  positive integers. We use the fact that rational powers are
+  independent of the fraction used to represent the exponent.
+  First let $u=(x^r)^s$. By definition, $u\geq0$ and
+  $u^q=(x^r)^p$. Taking integer powers gives
+  \[
+    u^{nq}=\bigl((x^r)^p\bigr)^n
+      =\bigl((x^r)^n\bigr)^p=x^{mp}.
+  \]
+  Since $rs=mp/(nq)$, the number $x^{rs}$ is also the nonnegative
+  $(nq)$th root of $x^{mp}$. Therefore
+  \[
+    (x^r)^s=x^{rs}.
+  \]
+
+  For the sum law, let $v=x^rx^s$. This is nonnegative, and
+  \begin{align*}
+    v^{nq}
+      &=(x^r)^{nq}(x^s)^{nq} \\
+      &=\bigl((x^r)^n\bigr)^q\bigl((x^s)^q\bigr)^n \\
+      &=x^{mq}x^{pn}=x^{mq+pn}.
+  \end{align*}
+  But $r+s=(mq+pn)/(nq)$, so $x^{r+s}$ is the nonnegative $(nq)$th
+  root of the same number. Uniqueness therefore gives
+  \[
+    x^{r+s}=x^rx^s.
+  \]
+  These arguments include $x=0$, since all exponents are positive
+  and we never divide by $x$.
+\end{proof}

@@ -1,0 +1,37 @@
+% A golden rectangle and its recursive square subdivision.
+% The black curve is a logarithmic golden spiral, not circular arcs.
+% Geometry reference: https://doi.org/10.1155/2019/3149602
+\begin{tikzpicture}[interval diagram,x=28mm,y=28mm]
+  \pgfmathsetmacro{\goldenratio}{(1+sqrt(5))/2}
+  \pgfmathsetmacro{\shrink}{1/\goldenratio}
+  \pgfmathsetmacro{\eyex}{\goldenratio/(1+\shrink^2)}
+  \pgfmathsetmacro{\eyey}{\shrink^2/(1+\shrink^2)}
+
+  % A clockwise quarter-turn and contraction reproduce the next square.
+  \foreach \step in {0,...,5} {
+    \pgfmathsetmacro{\factor}{\shrink^\step}
+    \pgfmathsetmacro{\turn}{-90*\step}
+    \begin{scope}[
+      shift={(\eyex,\eyey)},rotate=\turn,scale=\factor,
+      shift={(-\eyex,-\eyey)}
+    ]
+      \draw[black!35] (0,0) rectangle (1,1);
+    \end{scope}
+  }
+  \draw[black!55] (0,0) rectangle (\goldenratio,1);
+
+  % Contract continuously while turning clockwise around the same centre.
+  \draw[domain=0:630,samples=220,variable=\angle]
+    plot (
+      {\eyex+\shrink^(\angle/90)*
+        (-\eyex*cos(\angle)-\eyey*sin(\angle))},
+      {\eyey+\shrink^(\angle/90)*
+        (\eyex*sin(\angle)-\eyey*cos(\angle))}
+    );
+
+  % Only label the two largest squares; leave the inner turns uncluttered.
+  \node[interval label] at (0.43,0.39) {$1$};
+  \node[interval label] at (1.3,0.68) {$\varphi^{-1}$};
+  \node[above=6pt,interval label] at (\goldenratio/2,1) {$\varphi$};
+  \node[left=6pt,interval label] at (0,0.5) {$1$};
+\end{tikzpicture}

@@ -3,18 +3,16 @@
 \section{The completeness proof chain}
 \label{sec:analysis-i:completeness-equivalences}
 
-An ordered field is \emph{Archimedean} if, for every $\varepsilon>0$ and
-every $M$, there is $n\in\N$ with $n\varepsilon>M$. In such a field,
-$1/n\to0$ and $2^{-n}\to0$. For the latter, use $2^n\geq n+1$ and the
-former limit. The proof in \S~\ref{sec:analysis-i:archimedean} derives
-the Archimedean property directly from LUBP, independently of the chain
-below. Thus this hypothesis holds for $\R$.
+The preceding section derives the Archimedean property directly from
+LUBP and proves $1/n\to0$ and $2^{-n}\to0$. Thus $\R$ has the
+Archimedean hypothesis needed for the shrinking intervals in this chain.
+In any Archimedean ordered field the same estimates hold.
 
 \begin{theorem}
   In an Archimedean ordered field, the six completeness properties in
-  \S~\ref{sec:analysis-i:supremum} are equivalent.
+  \autoref{sec:analysis-i:supremum} are equivalent.
 \end{theorem}
-We follow the lecture's cycle in Figure~\ref{fig:completeness-cycle}.
+We follow the lecture's cycle in \autoref{fig:completeness-cycle}.
 The final implication closes the argument at the beginning of week three.
 The Archimedean hypothesis ensures that the bisection lengths used below
 actually tend to zero.
@@ -29,7 +27,7 @@ actually tend to zero.
 \subsection{LUBP implies MCT}
 \begin{proof}
   Let $(x_n)$ be nondecreasing and bounded above, and set
-  $L=\sup\{x_n:n\in\N\}$. For $\varepsilon>0$, the number
+  $L=\sup\{x_n\mid n\in\N\}$. For $\varepsilon>0$, the number
   $L-\varepsilon$ is not an upper bound. There is therefore an $N$ with
   $x_N>L-\varepsilon$. For $n\geq N$, monotonicity gives
   \[
@@ -74,7 +72,7 @@ $b_n-a_n\to0$, then $a=b$ and the intersection is a singleton.
   \]
   Thus $(x_{n_k})$ is a convergent subsequence.
 \end{proof}
-Figure~\ref{fig:nested-bisection} shows a possible sequence of choices.
+\autoref{fig:nested-bisection} shows a possible sequence of choices.
 \begin{marginfigure}
   \centering
   \input{figures/foundations/nested-bisection}
@@ -158,8 +156,9 @@ without passing through the least upper bound property.
 
 \subsection{Exercises on the nested interval hypotheses}
 Closedness and boundedness each do work in the nested interval property.
-The following examples isolate these hypotheses. Their proofs use the
-Archimedean property, derived from LUBP in the next section.
+The following examples isolate these hypotheses. The Archimedean property
+from \autoref{thm:analysis-i:archimedean} supplies the indices needed
+to exclude any fixed point from the intersection.
 
 \input{problems/hw02/01-nested-bounded-intervals/problem}
 \input{problems/hw02/02-nested-closed-intervals/problem}

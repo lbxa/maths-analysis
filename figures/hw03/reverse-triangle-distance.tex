@@ -1,0 +1,27 @@
+% Original folding analogy for the reverse triangle inequality.
+% Background on absolute value as distance from zero and geometric inequalities:
+% https://danaernst.com/IntroToProofViaIBL/sec_AxiomsRealNumbers.html
+% Both rows use the same scale; the illustrated case is y < 0 < x < |y|.
+\begin{tikzpicture}[interval diagram,x=7.5mm,y=1cm]
+  \draw[<->,gray!60] (-2.45,0) -- (2.45,0);
+  \foreach \position/\name in {-2/y,0/0,1/x} {
+    \node[interval closed] at (\position,0) {};
+    \node[interval label,below=5pt] at (\position,0) {$\name$};
+  }
+  \draw[<->] (-2,0.65) -- (1,0.65)
+    node[midway,above=5pt,interval label] {$|x-y|$};
+
+  % Move the negative point onto the positive half-line without crossing
+  % either distance arrow. Keep the annotation in the open part of the bend.
+  \draw[->,gray] (-2,-0.55)
+    .. controls (-2,-2.2) and (2,-1.2) .. (2,-3.0);
+  \node[interval label,anchor=west] at (-2.35,-2.25) {fold at $0$};
+
+  \draw[->,gray!60] (0,-3.5) -- (2.45,-3.5);
+  \foreach \position/\name in {0/0,1/{|x|},2/{|y|}} {
+    \node[interval closed] at (\position,-3.5) {};
+    \node[interval label,below=5pt] at (\position,-3.5) {$\name$};
+  }
+  \draw[<->] (1,-4.35) -- (2,-4.35)
+    node[midway,below=5pt,interval label] {$\bigl||x|-|y|\bigr|$};
+\end{tikzpicture}

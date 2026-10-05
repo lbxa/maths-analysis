@@ -1,0 +1,149 @@
+% !TEX root = ../../main.tex
+% Adapted from the author's linear-algebra book on October 3, 2026.
+% Editorial clarification: assigning each input an output defines a function;
+% injectivity additionally requires that distinct inputs have distinct outputs.
+\section{Injective, surjective, and bijective maps}
+\label{sec:appendix:map-properties}
+
+\subsection{Functions, domains, and codomains}
+
+Let \(f:A\to B\) be a function, also called a map. The set \(A\) is its
+\emph{domain}, and \(B\) is its \emph{codomain}. Every element of \(A\)
+has exactly one output in \(B\). This requirement alone does not say
+whether every element of \(B\) is reached or whether two different
+inputs can have the same output.
+
+The \emph{image} of \(f\) consists of the outputs that are actually reached,
+\[
+  f(A)=\{f(a)\mid a\in A\}\subseteq B.
+\]
+If \(b=f(a)\), we call \(a\) a \emph{preimage} of \(b\). An element of
+the codomain may have no preimage, one preimage, or several preimages.
+The domain and codomain are part of the function, so they must be specified
+when deciding whether a map has any of the following properties.
+\index{function}\index{image of a function}\index{preimage}
+
+\subsection{Surjectivity}
+
+The map \(f\) is \emph{surjective}, or \emph{onto}, if every element
+of the codomain is the output of at least one input. Equivalently,
+\[
+  \forall b\in B\quad \exists a\in A\quad f(a)=b.
+\]
+In terms of the image, this says \(f(A)=B\).
+Different inputs may have the same output. In the middle panel of
+\autoref{fig:recall:map-properties}, every codomain element receives
+an arrow, and two inputs share an output.
+\index{surjective map}
+
+\subsection{Injectivity}
+
+The map \(f\) is \emph{injective}, or \emph{one-to-one}, if distinct
+inputs have distinct outputs. Equivalently, for any \(a_1,a_2\in A\),
+\[
+  f(a_1)=f(a_2)\quad\Longrightarrow\quad a_1=a_2.
+\]
+\marginnote{As a mnemonic, think of the \emph{in} in \emph{injective}
+  as a reminder to check the \emph{inputs}. Different inputs must
+  remain distinguishable through their outputs.}
+Each codomain element has at most one input mapping to it. Some
+codomain elements may have no such input, as the left panel of
+\autoref{fig:recall:map-properties} shows.
+\index{injective map}
+
+\subsection{Bijectivity}
+
+The map \(f\) is \emph{bijective} if it is both injective and surjective.
+Every codomain element then has exactly one input mapping to it.
+This gives a one-to-one correspondence between the entire domain
+and codomain, as in the right panel of
+\autoref{fig:recall:map-properties}. Bijectivity imposes both
+conditions, so it is stronger than either condition alone.
+For a bijection, the \emph{inverse function} \(f^{-1}:B\to A\) sends
+each \(b\in B\) to its unique preimage. Thus
+\[
+  f^{-1}(f(a))=a\quad(a\in A),\qquad
+  f(f^{-1}(b))=b\quad(b\in B).
+\]
+\index{bijective map}\index{inverse function}
+
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/assumed-knowledge/map-properties}
+  \caption[Injective, surjective, and bijective maps.]{Three maps between
+    finite sets. Each dot is an element. The left map is injective and leaves
+    an output unused. The middle map is surjective, but two inputs share an
+    output. The right map is bijective and reaches every output exactly
+    once. The ellipses enclose the elements of each set.}
+  \label{fig:recall:map-properties}
+\end{figure*}
+
+\subsection{Examples in Euclidean spaces}
+
+The same definitions apply to maps between spaces such as \(\R^2\)
+and \(\R^3\). The domain and codomain are part of each example.
+
+\paragraph{An injective inclusion of a plane.}
+Consider
+\[
+  Z:\R^2\to\R^3,\qquad Z(x,y)=(x,y,0).
+\]
+Different pairs retain their distinct first two coordinates, so \(Z\)
+is injective. Its image is the \(xy\)-plane. It is not surjective onto
+\(\R^3\), since an output with a nonzero third coordinate is never reached.
+\autoref{fig:recall:plane-inclusion} shows a pair and its image in that
+plane.
+If we instead took the codomain to be the \(xy\)-plane itself, the same
+assignment would be bijective. This is why the codomain matters.
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/assumed-knowledge/map-plane-inclusion}
+  \caption[Including a plane in three-dimensional space.]{Schematic
+    inclusion \(Z:\R^2\to\R^3\). The shaded region
+    depicts part of the \(xy\)-plane, which continues beyond the drawing.
+    The marked input maps to a point in this plane. Distinct input
+    coordinates remain distinct after inclusion.}
+  \label{fig:recall:plane-inclusion}
+\end{figure}
+
+\paragraph{A surjective coordinate projection.}
+Consider
+\[
+  U:\R^3\to\R^2,\qquad U(x,y,z)=(y,z).
+\]
+Every pair \((y,z)\) is attained, for instance from \((0,y,z)\), so
+\(U\) is surjective. It is not injective, since changing \(x\) leaves
+the output unchanged. \autoref{fig:recall:coordinate-projection}
+shows inputs differing in the \(x\)-direction sharing an output.
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/assumed-knowledge/map-coordinate-projection}
+  \caption[Forgetting one coordinate.]{Schematic projection
+    \(U:\R^3\to\R^2\). The marked inputs
+    lie on a line parallel to the \(x\)-axis and have the same \(y,z\)
+    coordinates. They map to the same pair. Every pair in the codomain
+    is attained.}
+  \label{fig:recall:coordinate-projection}
+\end{figure}
+
+\paragraph{A bijective coordinate swap.}
+Consider
+\[
+  B:\R^2\to\R^2,\qquad B(x,y)=(y,x).
+\]
+Each output \((a,b)\) has exactly one preimage, namely \((b,a)\).
+Thus \(B\) is bijective. Swapping coordinates again recovers the
+original input. \autoref{fig:recall:coordinate-swap} shows the
+reflection across the line \(x=y\).
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/assumed-knowledge/map-coordinate-swap}
+  \caption[Swapping two coordinates.]{Schematic coordinate swap in
+    \(\R^2\). The dashed diagonal
+    in each coordinate system is \(x=y\). The marked point and its
+    image have exchanged coordinates. Each output has exactly one input.}
+  \label{fig:recall:coordinate-swap}
+\end{figure}

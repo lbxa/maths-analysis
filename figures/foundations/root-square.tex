@@ -1,0 +1,10 @@
+% Equal units preserve the square's geometry at its printed size.
+\begin{tikzpicture}[analysis diagram]
+  \fill[black!10] (0,0) rectangle (2.2,2.2);
+  \draw (0,0) rectangle (2.2,2.2);
+  \node[analysis label] at (1.1,1.1) {$A=s^2$};
+  \node[analysis label,below=6pt] at (1.1,0) {$s$};
+  \node[analysis label,left=6pt] at (0,1.1) {$s$};
+  \node[analysis label,below left=5pt] at (0,0) {$(0,0)$};
+  \node[analysis label,above right=5pt] at (2.2,2.2) {$(s,s)$};
+\end{tikzpicture}

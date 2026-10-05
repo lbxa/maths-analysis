@@ -5,35 +5,19 @@
 \label{sec:analysis-i:archimedean}
 
 \subsection{The natural-number tools}
-Mathematical induction proves a statement $P(n)$ for every $n\in\N$ by
-proving $P(1)$ and proving that $P(n)$ implies $P(n+1)$.
-For example, $2^n>n$ holds at $n=1$. If it holds at $n$, then
-$2^{n+1}>2n\geq n+1$, which establishes the next case. The same estimate
-also follows from the binomial expansion of $(1+1)^n$.
-
-We also use the \emph{well-ordering principle}, that every nonempty subset
-of $\N$ has a least element. This is equivalent to induction. To see the
-direction needed here, a subset with no least element cannot contain $1$;
-if it contains none of $1,\ldots,n$, it cannot contain $n+1$ either, since
-that would be its least element. Induction would make the subset empty.
+Induction and the well-ordering principle were introduced in
+\autoref{sec:analysis-i:sets-and-countable-sets}, before their use in
+enumeration. We now combine them with completeness. Induction controls
+each finite stage of an argument, while the Archimedean property lets us
+choose a stage beyond any prescribed real bound.
 
 \subsection{Small steps eventually pass any bound}
-\begin{theorem}[Archimedean property]
-  \label{thm:analysis-i:archimedean}
-  For every $\varepsilon>0$ and every $M\in\R$, there is an $n\in\N$
-  such that $n\varepsilon>M$.
-\end{theorem}
-\begin{proof}
-  Suppose $S=\{n\varepsilon:n\in\N\}$ were bounded above. By LUBP,
-  it would have a supremum $L$. Since $L-\varepsilon<L$, there would be
-  an $m\in\N$ with $m\varepsilon>L-\varepsilon$. It would follow that
-  $(m+1)\varepsilon>L$, contradicting that $L$ bounds $S$. Thus $S$ is
-  unbounded above, which proves the assertion.
-\end{proof}
-This proof uses only LUBP, so it supplies the Archimedean hypothesis used
-in the preceding completeness chain. Taking the step size to be $1$ shows
-that $\N$ is unbounded in $\R$. In particular, given $\delta>0$, choose
-$N>1/\delta$; then $1/n<\delta$ for all $n\geq N$, proving $1/n\to0$.
+\autoref{thm:analysis-i:archimedean} was proved directly from LUBP
+in \autoref{sec:analysis-i:supremum}. Taking the step size to be $1$
+shows that $\N$ is unbounded in $\R$. Given $\delta>0$, we can therefore
+choose $N>1/\delta$. For every $n\geq N$, we have $1/n<\delta$, which
+is the estimate behind $1/n\to0$. The same estimate will give rational
+approximations with arbitrarily small error in the next section.
 
 \subsection{The integer part}
 \begin{proposition}

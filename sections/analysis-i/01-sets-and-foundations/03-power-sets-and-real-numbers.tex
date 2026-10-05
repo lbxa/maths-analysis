@@ -22,7 +22,7 @@ Cantor's theorem extends the strict increase in size to every set.
 \begin{proof}
   Let $\varphi:X\to\mathcal P(X)$ be any map, and form
   \[
-    D=\{x\in X:x\notin\varphi(x)\}.
+    D=\{x\in X\mid x\notin\varphi(x)\}.
   \]
   If $D=\varphi(d)$ for some $d\in X$, then the definition gives
   $d\in D$ if and only if $d\notin D$. This is impossible, so $D$ is
@@ -32,7 +32,33 @@ Cantor's theorem extends the strict increase in size to every set.
 The map $x\mapsto\{x\}$ is injective, so the theorem is expressed as
 $|X|<|\mathcal P(X)|$. In particular, $\mathcal P(\N)$ is uncountable.
 
+\begin{theorem}[Cantor--Bernstein]
+  If there are injections $A\to B$ and $B\to A$, then there is a
+  bijection $A\to B$.
+\end{theorem}
+We use this set-theoretic theorem for cardinality comparisons. Its proof
+is not needed for the subsequent analysis.
+
 \subsection{Digits as subsets}
+For these counting arguments, we use the usual positional representation
+of real numbers as background. We state precisely the representation facts
+needed before using them.
+\begin{theorem}[Positional representation]
+  \label{thm:analysis-i:positional-representation}
+  Let $b\geq2$ be an integer. Every digit string with digits in
+  $\{0,\ldots,b-1\}$ represents a number in $[0,1]$, and every number
+  in $[0,1]$ has such a representation. Two distinct strings represent
+  the same number only when a terminating expansion is replaced by one
+  ending in repeated digits $b-1$. In $[0,1)$, choosing the expansion
+  that is not eventually all $b-1$ makes the digits unique.
+  The tail after position $j$ is at most $b^{-j}$, attained by taking
+  every later digit to be $b-1$.
+\end{theorem}
+The endpoint $1$ is represented by $0.(b-1)(b-1)\ldots$.
+We justify these familiar representation facts from completeness in
+\autoref{sec:analysis-i:denseness}. Their statement is enough for the
+digit constructions in this section.
+
 Decimal notation is a sum of place values. For example,
 \[
   \pi=3+\frac{1}{10}+\frac{4}{10^2}+\frac{1}{10^3}+\cdots.
@@ -44,7 +70,6 @@ More generally, a base-$b$ expansion of a number in $[0,1]$ has the form
 \]
 Successively subdividing an interval into $b$ equal parts supplies these
 digits; the remaining interval has length $b^{-n}$ after $n$ steps.
-The nested interval property below justifies the limiting description.
 
 In base two, a digit string records a subset of $\N$ through the positions
 of its ones. There is a small ambiguity, such as
@@ -63,10 +88,6 @@ The Cantor--Bernstein theorem now gives
 \[
   |[0,1]|=|\mathcal P(\N)|=2^{\aleph_0}.
 \]
-Here we use the set-theoretic Cantor--Bernstein theorem in its usual form,
-that injections each way imply a bijection; its proof is not needed for
-the subsequent analysis.
-
 The function $x\mapsto\tfrac12(1+x/(1+|x|))$ injects $\R$ into $(0,1)$.
 To see injectivity, $x/(1+|x|)$ is strictly increasing on each side of zero
 by cross multiplication, and has the sign of $x$. Together with the
@@ -80,19 +101,36 @@ $\mathfrak c$. The identity $|\R|=2^{\aleph_0}$ does not assume that hypothesis.
 
 \subsection{Exercises on the cardinality of intervals}
 The next constructions compare intervals, the real line, and a square.
-Here $\aleph$ denotes $|\R|=\mathfrak c$. The first construction uses the
-familiar tangent function and its inverse.
+Here $\aleph$ denotes $|\R|=\mathfrak c$. For the first construction,
+recall the elementary trigonometric fact that $\tan$ maps
+$(-\pi/2,\pi/2)$ bijectively onto $\R$, with inverse $\arctan$.
+For the second, shifting a countable list of distinct points can make
+room for new target values, as the even-integer example suggested.
+For the square, use the unique decimal expansions from
+\autoref{thm:analysis-i:positional-representation} and injections in
+both directions. None of these exercises requires a continuity proof.
 
 \input{problems/hw01/04-interval-to-reals/problem}
 \input{problems/hw01/05-open-to-closed-interval/problem}
 \input{problems/hw01/08-square-cardinality/problem}
 
 \subsection{Algebraic and transcendental numbers}
+A polynomial is a finite sum $a_0+a_1X+\cdots+a_mX^m$.
+If $a_m\ne0$, its degree is $m$.
 A real number is \emph{algebraic} if it is a root of a nonzero polynomial
 with rational coefficients. It is \emph{transcendental} otherwise.
 For instance, $\sqrt{2}$ is algebraic because it satisfies $x^2-2=0$.
 Rational numbers are algebraic as well, since $p/q$ satisfies $qx-p=0$.
+Clearing denominators shows that rational and integer coefficients give
+the same notion of algebraicity.
 \index{algebraic number}\index{transcendental number}
+
+The elementary root bound follows from the identity
+$X^j-r^j=(X-r)(X^{j-1}+X^{j-2}r+\cdots+r^{j-1})$ for $j\geq1$.
+If $p(r)=0$, apply this identity to $p(X)-p(r)$ to factor
+$p(X)=(X-r)q(X)$, where $q$ has degree one less.
+Induction then shows that a nonzero degree-$m$ polynomial has at most
+$m$ distinct real roots.
 
 \begin{proposition}
   The set $\mathcal A$ of real algebraic numbers is countably infinite.
@@ -124,11 +162,31 @@ particular one. The lecture also named $e$, $\pi$, and the Liouville number
 Their transcendence is stated here without proof. Including the $n=0$
 term gives $\ell+1/10$, which is transcendental
 as well. These stronger results belong to transcendental number theory~\cite{Waldschmidt2017}.
-The earlier proof established only the irrationality of $e$.
+The elementary factorial argument in \autoref{sec:analysis-i:denseness}
+will establish only the irrationality of $e$.
+
+\subsection{Exercises on transcendence}
+The first exercise asks for the cardinality conclusion under CH, although
+the argument above establishes it without that additional hypothesis.
+The second applies the definition of transcendence to linear independence.
+
+\input{problems/hw01/06-transcendental-cardinality/problem}
+\input{problems/hw01/07-linear-independence/problem}
+
+One further algebraic fact will be useful for the recurrences that follow.
+Recall Euclid's lemma, that a prime dividing a product of integers divides
+at least one factor. In particular, coprime integers have coprime powers.
+If a rational number $u/v$ in lowest terms is a root of a monic integer
+polynomial, multiplying its equation by $v^m$ shows that $v$ divides $u^m$.
+Since $u$ and $v$ are coprime, $v=1$. Thus such a rational root is an
+integer, and its equation shows that it divides the constant term.
+This is the monic case of the rational root theorem.
 
 \subsection{The Jacobian conjecture}
 \label{sec:analysis-i:jacobian-conjecture}
-Another lecture question concerns polynomial maps. A map
+This optional lecture excursion connects bijections with later calculus.
+It supplies no prerequisite for the exercises above or the completeness
+arguments that follow. A map
 $F=(F_1,\ldots,F_d):\C^d\to\C^d$ is \emph{polynomial} when each
 coordinate $F_i$ is a polynomial in $z_1,\ldots,z_d$. Its
 \emph{Jacobian matrix} is the matrix of first derivatives,
@@ -154,7 +212,7 @@ calculus, gives $F$ an inverse on a neighborhood of each point.
 The conjecture asks for one inverse on all of $\C^d$, with polynomial
 coordinates.
 
-Figure~\ref{fig:jacobian-shear} illustrates a simple case,
+\autoref{fig:jacobian-shear} illustrates a simple case,
 $F(x,y)=(x+y^2,y)$, on the real plane inside $\C^2$. Here
 \[
   \mathrm DF(x,y)=\begin{pmatrix}1&2y\\0&1\end{pmatrix},
@@ -182,11 +240,3 @@ polynomial adds an algebraic constraint. It illustrates why the precise
 hypotheses of a theorem matter, just as existence by counting does not
 identify a particular transcendental number. None of the arguments here
 depends on its resolution.
-
-\subsection{Exercises on transcendence}
-The first exercise asks for the cardinality conclusion under CH, although
-the argument above establishes it without that additional hypothesis.
-The second applies the definition of transcendence to linear independence.
-
-\input{problems/hw01/06-transcendental-cardinality/problem}
-\input{problems/hw01/07-linear-independence/problem}

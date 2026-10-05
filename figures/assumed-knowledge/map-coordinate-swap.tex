@@ -1,0 +1,23 @@
+% Schematic coordinate swap R^2 -> R^2, (x,y) -> (y,x).
+\begin{tikzpicture}[
+  x=1mm,y=1mm,font=\footnotesize,line width=0.45pt,
+  every node/.style={inner sep=2pt},
+  axis/.style={-{Latex[length=1.6mm,width=1.1mm]}},
+  map arrow/.style={line width=0.35pt,-{Latex[length=1.6mm,width=1.1mm]},
+    shorten <=2.5pt,shorten >=2.5pt}
+]
+  \node at (10,29) {\(\R^2\)};
+  \node at (68,29) {\(\R^2\)};
+  \foreach \origin in {0,56} {
+    \begin{scope}[xshift=\origin mm]
+      \draw[axis] (0,0) -- (24,0) node[right=4pt] {\(x\)};
+      \draw[axis] (0,0) -- (0,22) node[above=4pt] {\(y\)};
+      \draw[gray,dashed] (0,0) -- (20,20);
+    \end{scope}
+  }
+  \draw[gray] (0,0) -- (16,8);
+  \draw[gray] (56,0) -- (64,16);
+  \fill (16,8) circle[radius=1.6pt];
+  \fill (64,16) circle[radius=1.6pt];
+  \draw[map arrow] (16,8) .. controls (32,18) and (48,18) .. (64,16);
+\end{tikzpicture}

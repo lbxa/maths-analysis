@@ -6,7 +6,7 @@
 \newthought{Counting is only one part of the story.} The rational numbers
 are closed under the usual arithmetic operations, with division by zero
 excluded. Yet even a simple geometric construction leads outside $\Q$.
-The right triangle in Figure~\ref{fig:unit-triangle} has legs of length one,
+The right triangle in \autoref{fig:unit-triangle} has legs of length one,
 so its hypotenuse has square equal to two.
 \begin{marginfigure}
   \centering
@@ -26,16 +26,15 @@ so its hypotenuse has square equal to two.
 \end{proof}
 
 The same divisibility argument extends to other primes and higher roots.
-Existence of positive roots is established in
-Theorem~\ref{thm:analysis-i:positive-roots}.
-\input{problems/hw01/03-prime-roots/problem}
+We take up that exercise in \autoref{sec:analysis-i:roots-and-powers},
+after establishing existence of the roots themselves.
 
 \subsection{A gap in the rational line}
 We can describe the location of $\sqrt{2}$ without naming a rational number
 at that location. Partition $\Q$ into
 \begin{align*}
-  L&=\{q\in\Q:q\leq0\text{ or }q^2<2\},\\
-  U&=\{q\in\Q:q>0\text{ and }q^2>2\}.
+  L&=\{q\in\Q\mid q\leq0\text{ or }q^2<2\},\\
+  U&=\{q\in\Q\mid q>0\text{ and }q^2>2\}.
 \end{align*}
 Both sets are nonempty, every rational belongs to one of them, and every
 element of $L$ is less than every element of $U$. There is no rational
@@ -50,62 +49,14 @@ $(c+h)^2=c^2+2ch+h^2$.
 This is the idea behind a \emph{Dedekind cut}. Completing the rational line
 means supplying its missing boundaries. An equivalent approach supplies
 limits of rational Cauchy sequences. We will formulate both versions of
-completeness in \S~\ref{sec:analysis-i:supremum}.
+completeness in \autoref{sec:analysis-i:supremum}.
 \marginnote{The condition $q\leq0$ in $L$ is necessary. The sets defined only
 by $q^2<2$ and $q^2>2$ would put large negative rationals on the wrong side.}
 
-\subsection{The irrationality of $e$}
-Another way to leave $\Q$ is to take a limit of rational numbers. Set
-\[
-  s_n=\sum_{k=0}^{n}\frac{1}{k!}.
-\]
-These partial sums increase. For $k\geq2$, the bound $k!\geq2^{k-1}$ gives
-\[
-  s_n\leq 2+\sum_{k=2}^{n}\frac{1}{2^{k-1}}<3.
-\]
-The monotone convergence theorem, proved in
-\S~\ref{sec:analysis-i:completeness-equivalences}, therefore supplies
-a real limit, which we denote by
-\[
-  e=\sum_{k=0}^{\infty}\frac{1}{k!}.
-\]
-The alternative formula $e=\lim_{n\to\infty}(1+1/n)^n$ was also noted
-in the lecture. Its equivalence with the series formula is deferred;
-the series definition is enough for the present proof.\marginnote{The useful
-step is to replace a factorial tail by a geometric tail. Multiplication by
-$n!$ makes the initial part an integer while the remaining part is positive
-and small.}
-
-\begin{proposition}
-  The number $e$ is irrational.\marginnote[-30pt]{What can we say about
-    $\pi+e$ or $\pi/e$? Their irrationality is still unknown~\cite{WeissteinPi}.
-    Knowing that $\pi$ and $e$ are individually transcendental does not
-    settle either question.
-
-    These questions matter because other proofs and theorems may require
-    rationality or irrationality as a hypothesis. For example, irrationality
-    of $\pi/e$ would imply that $a\pi+be=0$ with $a,b\in\Q$ forces
-    $a=b=0$. Irrationality of $\pi+e$ would rule out $\pi+e=q$ for every
-    $q\in\Q$. Such results exclude exact rational relations and supply
-    hypotheses for later arguments. Until proved, any argument depending
-    on these exclusions remains conditional.}
-\end{proposition}
-\begin{proof}
-  Suppose $e=p/q$ for integers $p,q$ with $q>0$, and choose
-  $n\geq\max\{q,2\}$. Both $n!e$ and $\sum_{k=0}^{n}n!/k!$ are integers.
-  Their difference is
-  \[
-    R_n=n!\sum_{k=n+1}^{\infty}\frac{1}{k!}
-       =\sum_{j=1}^{\infty}
-         \frac{1}{(n+1)(n+2)\cdots(n+j)}.
-  \]
-  All terms are positive, and replacing each denominator factor by $n+1$
-  gives
-  \[
-    0<R_n<\sum_{j=1}^{\infty}\frac{1}{(n+1)^j}
-          =\frac{1}{n}<1.
-  \]
-  The comparison is strict because the terms with $j\geq2$ are strictly
-  smaller. Thus an integer lies strictly between zero and one, a
-  contradiction.
-\end{proof}
+\subsection{Limits can reveal further gaps}
+The lecture also introduced $e$ as an irrational number obtained from
+rational factorial partial sums. This is a different source of a gap from
+the geometric example above. Its construction and irrationality proof
+appear in \autoref{sec:analysis-i:denseness}, where monotone convergence
+and geometric-tail estimates are available. For now it motivates the
+question of which limits a number system contains.

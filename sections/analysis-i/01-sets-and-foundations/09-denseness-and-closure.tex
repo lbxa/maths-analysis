@@ -1,33 +1,129 @@
 % !TEX root = ../../../main.tex
-% Sources: LEC03, IMG_9131--IMG_9133.
+% Sources: LEC03, IMG_9131--IMG_9133; e argument from LEC01, IMG_9111--IMG_9114.
+% Geometric estimates and the positional-representation proof bridge prerequisites.
 \section{Denseness, closure, and completion}
 \label{sec:analysis-i:denseness}
 
 \subsection{Upper and lower limits}
 Before returning to sets, recall that $x_n\to L$ means that all sufficiently
-late terms lie within every prescribed distance of $L$. For a bounded
-sequence, two useful quantities summarize its tails,
+late terms lie within every prescribed distance of $L$.
+\begin{definition}
+  A \emph{subsequence} of $(x_n)$ is a sequence $(x_{n_k})$ with
+  $n_1<n_2<\cdots$. A real number $\ell$ is a \emph{limit point of the
+  sequence} if some subsequence converges to $\ell$.
+\end{definition}
+We form a subsequence by keeping infinitely many terms in their original
+order. The index $k$ counts the selected terms, while $n_k$ records their
+positions in the original sequence. Since $n_k\geq k$, those positions
+go to infinity as $k$ does. Thus a subsequence samples arbitrarily late
+terms, rather than repeatedly choosing an early term.
+
+If $x_n\to L$, every subsequence also converges to $L$. Indeed, once
+all terms with $n\geq N$ lie within $\varepsilon$ of $L$, the selected
+terms with $k\geq N$ do too, because $n_k\geq k\geq N$.
+A convergent subsequence describes the behaviour of its selected terms.
+Establishing a limit for the whole sequence requires controlling every
+sufficiently late term.
+
+A sequence may have several limit points even though the whole sequence
+does not converge. For a bounded sequence, two useful quantities summarize
+what remains after its first $n-1$ terms are discarded,
 \[
-  \alpha_n=\inf\{x_k:k\geq n\},\qquad
-  \beta_n=\sup\{x_k:k\geq n\}.
+  \alpha_n=\inf\{x_k\mid k\geq n\},\qquad
+  \beta_n=\sup\{x_k\mid k\geq n\}.
 \]
 The sequence $(\alpha_n)$ is nondecreasing, and $(\beta_n)$ is nonincreasing.
-Both are bounded, so their limits exist. Define
+Removing a term from a tail cannot lower its infimum or raise its supremum.
+Both sequences are bounded, so their limits exist. Write
 \[
-  \liminf_{n\to\infty}x_n=\lim_{n\to\infty}\alpha_n,
+  \ell_-=\liminf_{n\to\infty}x_n=\lim_{n\to\infty}\alpha_n,
   \qquad
-  \limsup_{n\to\infty}x_n=\lim_{n\to\infty}\beta_n.
+  \ell_+=\limsup_{n\to\infty}x_n=\lim_{n\to\infty}\beta_n.
 \]
 These are also written $\underline{\lim}\,x_n$ and $\overline{\lim}\,x_n$.
+The intervals $I_n=[\alpha_n,\beta_n]$ are nested, and $I_n$ contains
+every term $x_k$ with $k\geq n$. Their endpoints approach $\ell_-$ and
+$\ell_+$. Discarding finitely many initial terms changes neither limit.
+
+\autoref{fig:tail-bounds-and-limit-points} shows this for
+$x_n=(-1)^n(1+1/n)$. Choosing $n_k=2k-1$ keeps the odd terms, while
+choosing $n_k=2k$ keeps the even terms. Taking $k\to\infty$ gives
+\[
+  x_{2k-1}=-1-\frac{1}{2k-1}\longrightarrow-1,\qquad
+  x_{2k}=1+\frac{1}{2k}\longrightarrow1.
+\]
+The original sequence cannot converge, since its two subsequences would
+then have to share the same limit. These are the only limit points,
+since $|x_n|\to1$ forces
+every subsequence limit $\ell$ to satisfy $|\ell|=1$.
+The tail intervals shrink towards $[-1,1]$, but the numbers strictly
+between $-1$ and $1$ are not limit points of this sequence.
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/foundations/tail-bounds-and-limit-points}
+  \caption[Tail bounds and extreme limit points.]{Terms and tail bounds
+    for $x_n=(-1)^n(1+1/n)$. The first twelve terms are shown on the left.
+    On the right, $I_n=[\alpha_n,\beta_n]$ contains the entire $n$th tail,
+    including terms beyond those plotted. Its endpoints approach the two
+    limit points $-1$ and $1$. The limiting interval bounds the limit
+    points; it need not consist entirely of them.}
+  \label{fig:tail-bounds-and-limit-points}
+\end{figure*}
+
+The tail infima and suprema need not be terms of the original sequence.
+To show that their limits are limit points of $(x_n)$, we must select
+actual terms approaching them. The following argument makes that
+connection explicit for every bounded real sequence
+\cite{Rodriguez2020Limsup}.
+\begin{proposition}
+  \label{thm:analysis-i:extreme-limit-points}
+  The numbers $\ell_-$ and $\ell_+$ are respectively the smallest and
+  largest limit points of a bounded real sequence $(x_n)$. Every limit
+  point $\ell$ therefore satisfies $\ell_-\leq\ell\leq\ell_+$.
+\end{proposition}
+\begin{proof}
+  Suppose $x_{n_k}\to\ell$. For each fixed $n$, all sufficiently late
+  subsequence indices satisfy $n_k\geq n$. Thus
+  $\alpha_n\leq x_{n_k}\leq\beta_n$. Taking limits first in $k$ and then
+  in $n$ gives $\ell_-\leq\ell\leq\ell_+$.
+
+  To reach the upper endpoint, set $n_0=0$. At step $k$, discard the
+  terms through index $n_{k-1}$. The supremum of the remaining tail
+  is $\beta_{n_{k-1}+1}$, so we can choose an actual term with
+  $n_k>n_{k-1}$ and
+  \[
+    \beta_{n_{k-1}+1}-\frac1k<x_{n_k}\leq\beta_{n_{k-1}+1}.
+  \]
+  The indices increase, so both bounds tend to $\ell_+$. The squeeze
+  theorem gives $x_{n_k}\to\ell_+$. Choosing increasing indices in the
+  same way, with terms between the corresponding tail infimum and that
+  infimum plus $1/k$, gives a subsequence converging to $\ell_-$.
+  Hence both endpoints are limit points.
+\end{proof}
+
+For a bounded real sequence, showing that $L$ is its only limit point
+is enough to establish $x_n\to L$. By
+\autoref{thm:analysis-i:extreme-limit-points}, both $\ell_-$ and $\ell_+$
+are limit points, so they must then equal $L$. Every original term
+satisfies $\alpha_n\leq x_n\leq\beta_n$, and the squeeze theorem gives
+$x_n\to L$. This is how information about subsequences controls the
+whole sequence.
+
+Equivalently, convergence occurs precisely when the two extreme limit
+points agree.
 If $x_n\to L$, then for every $\varepsilon>0$, all sufficiently late tails
 lie in $[L-\varepsilon,L+\varepsilon]$. Their infima and suprema do too,
-which proves that both limits equal $L$. Conversely, if both equal $L$,
-the inequalities $\alpha_n\leq x_n\leq\beta_n$ force $x_n\to L$.
+which proves that both limits equal $L$. The converse is the squeeze
+argument just given.
 This is the bounded-sequence version; more general upper and lower limits
 will be studied with sequences later in the course.
 
-The next exercise uses the usual elementary values of the sine function.
-Here a limit point of a sequence means the limit of a subsequence.
+The next exercise uses the elementary identities
+\[
+  \sin0=0,\qquad \sin\frac{2\pi}{3}=\frac{\sqrt3}{2},\qquad
+  \sin\frac{4\pi}{3}=-\frac{\sqrt3}{2},
+\]
+together with $\sin(t+2\pi k)=\sin t$ for integers $k$.
 
 \input{problems/hw03/03-oscillating-sequence/problem}
 
@@ -35,7 +131,7 @@ Here a limit point of a sequence means the limit of a subsequence.
 \begin{definition}
   The \emph{closure} of $E\subseteq\R$ is
   \[
-    \overline E=\{x\in\R:(x-\varepsilon,x+\varepsilon)\cap E
+    \overline E=\{x\in\R\mid (x-\varepsilon,x+\varepsilon)\cap E
       \ne\varnothing\text{ for every }\varepsilon>0\}.
   \]
 \end{definition}
@@ -44,7 +140,7 @@ A point of $E$ already belongs to its closure. A point $x$ is an
 $E$ different from $x$. This extra condition distinguishes accumulation
 points from general closure points.
 
-Figure~\ref{fig:closure-neighborhoods} compares these possibilities for
+\autoref{fig:closure-neighborhoods} compares these possibilities for
 $E=(0,2)\cup\{3\}$. Every neighborhood of $0$ meets the interval, even
 though $0\notin E$. A neighborhood of $3$ with radius less than $1$
 meets $E$ only at $3$. At $5/2$, any radius less than $1/2$ misses $E$
@@ -99,7 +195,7 @@ every neighborhood is itself an open interval.
   Thus the rational number $m/N$ lies in the prescribed neighborhood
   of $x$. Every real number belongs to the closure of $\Q$.
 \end{proof}
-The grid in Figure~\ref{fig:rational-grid} makes the estimate visible.
+The grid in \autoref{fig:rational-grid} makes the estimate visible.
 \begin{marginfigure}
   \centering
   \input{figures/foundations/rational-grid}
@@ -114,6 +210,13 @@ sequence $m_n/n\to x$.
 Closure and completion answer related but different questions. Closure
 adds points already present in a specified ambient space. Thus
 $\overline{\Q}^{\,\R}=\R$, whereas $\overline{\Q}^{\,\Q}=\Q$.
+A subset $E$ of an ambient space $X\subseteq\R$ is \emph{closed in $X$}
+if it contains every point of its closure taken in $X$. Neighborhoods
+in $X$ are intersections $(x-\varepsilon,x+\varepsilon)\cap X$.
+For example, $[a,b]\cap\Q$ is closed in $\Q$. A rational point outside
+it has a neighborhood missing $[a,b]$, while its real limit points
+outside $\Q$ are not points of the ambient space.
+
 A \emph{metric completion} instead embeds a metric space into a complete
 one in which it is dense. For the usual distance $|x-y|$, $\R$ is a
 completion of $\Q$.
@@ -130,22 +233,121 @@ completes that interval, while keeping the two notions distinct.
 \subsection{Exercises on the missing limits in $\Q$}
 The floor function and rational density let us build nested rational
 intervals around a point missing from $\Q$. This complements the real
-interval examples in \S~\ref{sec:analysis-i:completeness-equivalences}.
+interval examples in \autoref{sec:analysis-i:completeness-equivalences}.
 
 \input{problems/hw02/03-nested-rational-intervals/problem}
 
-The factorial partial sums give a second form of the same obstruction,
-a bounded set of rationals with no rational supremum. The appendix solution
-also records the homework's Taylor-remainder argument for identifying
-the limit with $e$; Taylor's theorem is treated later in the course.
+\subsection{Geometric sums and factorial limits}
+We need a simple estimate before the next two exercises.
+Multiplying a finite geometric sum by $1-r$ and cancelling consecutive
+terms gives
+\[
+  \sum_{k=0}^{N}r^k=\frac{1-r^{N+1}}{1-r}\qquad(r\ne1).
+\]
+For $0\leq r<1$, we have $r^N\to0$. If $r>0$, put $c=1/r-1>0$.
+Induction gives $(1+c)^N\geq1+Nc$, and the Archimedean property shows
+that $r^N\leq1/(1+Nc)\to0$. The case $r=0$ is immediate.
+Taking limits in the finite identity gives
+\begin{equation}
+  \sum_{k=0}^{\infty}r^k=\frac1{1-r}\qquad(0\leq r<1).
+  \label{eq:analysis-i:geometric-sum}
+\end{equation}
+Here, and in the series below, an infinite sum means the limit of its
+finite partial sums. These particular sums need no general series theory.
+
+\subsection{Completeness justifies positional notation}
+We can now justify the representation facts used for cardinality in
+\autoref{sec:analysis-i:power-sets}.
+\begin{proof}[Proof of \autoref{thm:analysis-i:positional-representation}]
+  For digits $a_k\in\{0,\ldots,b-1\}$, the partial sums
+  $s_n=\sum_{k=1}^{n}a_k/b^k$ increase and satisfy
+  $0\leq s_n\leq1-b^{-n}<1$ by the finite geometric identity.
+  Monotone convergence supplies a limit in $[0,1]$.
+
+  Conversely, let $0\leq x<1$, put $m_0=0$, and set
+  $m_n=\lfloor b^nx\rfloor$. The floor inequalities give
+  $bm_{n-1}\leq m_n\leq bm_{n-1}+b-1$.
+  Thus $a_n=m_n-bm_{n-1}$ is an allowed digit, and telescoping gives
+  \[
+    \sum_{k=1}^{n}\frac{a_k}{b^k}=\frac{m_n}{b^n},\qquad
+    0\leq x-\frac{m_n}{b^n}<b^{-n}\longrightarrow0.
+  \]
+  This constructs an expansion of $x$. Its digits cannot be eventually
+  all $b-1$. If all digits after position $N$ were $b-1$, the geometric
+  tail would give $x=(m_N+1)/b^N$, contrary to $b^Nx<m_N+1$.
+  The endpoint $x=1$ is represented by taking every digit to be $b-1$.
+
+  Finally, suppose two strings first differ at position $j$, with the
+  first having the larger digit. Its advantage there is at least $b^{-j}$.
+  The largest possible opposing tail is
+  \[
+    \sum_{k>j}\frac{b-1}{b^k}=b^{-j}.
+  \]
+  Equal values therefore require a digit difference of exactly one,
+  followed by all zeros in the first string and all $b-1$ in the second.
+  These are precisely the two forms of a terminating expansion.
+  Excluding eventual strings of $b-1$ gives uniqueness in $[0,1)$.
+\end{proof}
+
+\subsection{The irrationality of $e$}
+Set $s_n=\sum_{k=0}^{n}1/k!$. These partial sums increase.
+For $k\geq2$, the bound $k!\geq2^{k-1}$ gives
+\[
+  s_n\leq2+\sum_{k=2}^{n}\frac1{2^{k-1}}<3.
+\]
+The monotone convergence theorem therefore supplies a real limit, denoted by
+\[
+  e=\sum_{k=0}^{\infty}\frac1{k!}.
+\]
+The alternative formula $e=\lim_{n\to\infty}(1+1/n)^n$ was also noted
+in the lecture. Its equivalence with the series formula is deferred;
+the series definition is enough for the present argument.
+
+\begin{proposition}
+  \label{thm:analysis-i:e-irrational}
+  The number $e$ is irrational.\marginnote[-30pt]{What can we say about
+    $\pi+e$ or $\pi/e$? Their irrationality is still unknown~\cite{WeissteinPi}.
+    Knowing that $\pi$ and $e$ are individually transcendental does not
+    settle either question.
+
+    These questions matter because other proofs and theorems may require
+    rationality or irrationality as a hypothesis. For example, irrationality
+    of $\pi/e$ would imply that $a\pi+be=0$ with $a,b\in\Q$ forces
+    $a=b=0$. Irrationality of $\pi+e$ would rule out $\pi+e=q$ for every
+    $q\in\Q$. Such results exclude exact rational relations and supply
+    hypotheses for later arguments. Until proved, any argument depending
+    on these exclusions remains conditional.}
+\end{proposition}
+\begin{proof}
+  Suppose $e=p/q$ for integers $p,q$ with $q>0$, and choose
+  $n\geq\max\{q,2\}$. Both $n!e$ and $\sum_{k=0}^{n}n!/k!$ are integers.
+  Their difference is
+  \[
+    R_n=n!\sum_{k=n+1}^{\infty}\frac1{k!}
+       =\sum_{j=1}^{\infty}
+         \frac1{(n+1)(n+2)\cdots(n+j)}.
+  \]
+  All terms are positive, and replacing each denominator factor by $n+1$
+  gives, by \autoref{eq:analysis-i:geometric-sum},
+  \[
+    0<R_n<\sum_{j=1}^{\infty}\frac1{(n+1)^j}
+          =\frac1n<1.
+  \]
+  The comparison is strict because the terms with $j\geq2$ are strictly
+  smaller. Thus an integer lies strictly between zero and one, a
+  contradiction.
+\end{proof}
+The factorial partial sums therefore give a bounded set of rationals
+with an irrational real supremum. The next exercise asks for its bounds
+and for the distinction between taking the supremum in $\R$ and in $\Q$.
 
 \input{problems/hw02/05-factorial-sequence/problem}
 
 \subsection{Exercise on small interval covers}
-The next question compares rational density with interval covers of small
-total length. The geometric-series estimate previews
-\S~\ref{sec:analysis-i:number-series}. Small covering length and metric
-incompleteness describe different properties; completeness must be checked
-using Cauchy sequences and their limits.
+The next question combines countable enumeration, rational density, and
+\autoref{eq:analysis-i:geometric-sum} to construct interval covers
+of small total length. Small covering length and metric incompleteness
+describe different properties; completeness must be checked using Cauchy
+sequences and their limits.
 
 \input{problems/hw03/05-rational-interval-cover/problem}

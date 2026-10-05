@@ -1,8 +1,8 @@
 # Third-party notices
 
 This project is licensed under the [Apache License, Version 2.0](LICENSE).
-The following notices identify the borrowed Tufte-LaTeX material and its
-source credits.
+The following notices identify the borrowed Tufte-LaTeX material and
+formula-sheet layout inspiration, with their source credits.
 
 ## Tufte-LaTeX specimen material
 
@@ -43,3 +43,12 @@ replaced as students write the notes.
 Keep the source credits and this license with any retained or adapted specimen
 material. The Tufte-LaTeX classes themselves are supplied by the contributor's
 LaTeX installation rather than copied into this repository.
+
+## Formula-sheet layout inspiration
+
+The supplied landscape cheat-sheet example credits Dave Richeson,
+Dickinson College, and [divisbyzero.com](https://divisbyzero.com).
+Its compact, grouped, multicolumn layout inspired the portrait two-column
+appendix in `sections/appendices/formula-sheet.tex`. The analysis formulas
+and local book styling were written for these notes; the supplied physics
+content is not included.

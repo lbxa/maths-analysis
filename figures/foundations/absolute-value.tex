@@ -1,8 +1,8 @@
 \begin{tikzpicture}[analysis diagram,x=9mm,y=9mm]
-  \draw[->] (-2.2,0) -- (2.3,0) node[right] {$x$};
-  \draw[->] (0,-0.35) -- (0,2.4) node[above] {$y$};
+  \draw[->] (-2.2,0) -- (2.3,0) node[right=4pt,analysis label] {$x$};
+  \draw[->] (0,-0.35) -- (0,2.4) node[above=4pt,analysis label] {$y$};
   \draw[analysis curve,<->] (-2,2) -- (0,0) -- (2,2);
   \fill (0,0) circle[radius=1.6pt];
-  \node[below left,analysis label] at (0,0) {$0$};
-  \node[right,analysis label] at (1.2,1.2) {$|x|$};
+  \node[below left=4pt,analysis label] at (0,0) {$0$};
+  \node[right=5pt,analysis label] at (1.2,1.2) {$|x|$};
 \end{tikzpicture}

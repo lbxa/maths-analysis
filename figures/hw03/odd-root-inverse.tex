@@ -1,0 +1,24 @@
+% Actual cubic and cube-root graphs with equal horizontal and vertical units.
+\begin{tikzpicture}[
+  x=0.8cm,y=0.8cm,font=\footnotesize,line width=0.5pt,
+  every node/.style={inner sep=0pt},
+  >={Stealth[length=4pt,width=3pt]}
+]
+  \draw[gray!60,dashed] (-2,-2) -- (2,2);
+  \draw[->] (-2.15,0) -- (2.2,0) node[right=4pt] {$x$};
+  \draw[->] (0,-2.15) -- (0,2.2) node[above=4pt] {$y$};
+  \draw[<->,domain=-1.25:1.25,samples=81,smooth,variable=\t]
+    plot ({\t},{\t*\t*\t});
+  \draw[<->,gray!70,domain=-1.25:1.25,samples=81,smooth,variable=\t]
+    plot ({\t*\t*\t},{\t});
+  \fill (0,0) circle[radius=1.3pt];
+  \node[below right=5pt] at (0,0) {$0$};
+
+  % Keep curve names in a separate legend, clear of every plotted stroke.
+  \draw (-2,-2.7) -- (-1.25,-2.7)
+    node[right=4pt] {$y=x^3$};
+  \draw[gray!70] (-2,-3.35) -- (-1.25,-3.35)
+    node[right=4pt,text=black] {$y=x^{1/3}$};
+  \draw[gray!60,dashed] (-2,-4) -- (-1.25,-4)
+    node[right=4pt,text=black] {$y=x$};
+\end{tikzpicture}

@@ -1,0 +1,152 @@
+% !TEX root = ../../main.tex
+% Layout inspiration: Dave Richeson's LaTeX cheat sheet,
+% divisbyzero.com, Dickinson College, as credited in the supplied example.
+% Adapted to the book's portrait pages with two columns and analysis formulas.
+\begingroup
+\titlespacing*{\chapter}{0pt}{0pt}{14pt}
+\chapter{Formula sheet}
+\label{ch:appendix:formula-sheet}
+
+\small
+\setlength{\parindent}{0pt}
+\setlength{\columnsep}{24pt}
+\setlength{\multicolsep}{8pt}
+\setlength{\abovedisplayskip}{5pt plus 2pt minus 1pt}
+\setlength{\belowdisplayskip}{5pt plus 2pt minus 1pt}
+\setlength{\abovedisplayshortskip}{3pt plus 1pt}
+\setlength{\belowdisplayshortskip}{5pt plus 2pt minus 1pt}
+\titlespacing*{\section}{0pt}{0pt}{9pt}
+\newcommand{\formulagroup}[1]{%
+  \par\addvspace{9pt}\noindent\textbf{#1}\par\nobreak\smallskip
+}
+% Side limits keep the reference sums compact without reducing the font.
+\newcommand{\sheetsum}{\sum\nolimits}
+
+\begin{fullwidth}
+  Throughout, limits are taken as the index tends to infinity and $N$ is
+  a positive integer.
+
+  \begin{multicols}{2}
+    \raggedcolumns
+    \section{Sequences}
+    \label{sec:appendix:formula-sheet-sequences}
+
+    \formulagroup{Convergence}
+    The condition $x_n\to L$ means that for every $\varepsilon>0$ there
+    exists $N\in\N$ such that
+    \[
+      \forall n\geq N\quad |x_n-L|<\varepsilon.
+    \]
+
+    \formulagroup{Limit laws}
+    If $x_n\to L$, $y_n\to M$, and $a,b\in\R$, then
+    \[
+      \begin{aligned}
+        ax_n+by_n&\longrightarrow aL+bM,\\
+        x_ny_n&\longrightarrow LM,\\
+        \frac{x_n}{y_n}&\longrightarrow\frac{L}{M}
+          \quad(M\ne0).
+      \end{aligned}
+    \]
+
+    \formulagroup{Squeeze theorem}
+    If $u_n\leq x_n\leq v_n$ eventually, then
+    \[
+      u_n\to L,\quad v_n\to L
+      \quad\Longrightarrow\quad x_n\to L.
+    \]
+
+    \formulagroup{Bounded monotone sequences}
+    If $(x_n)$ is bounded and monotone, then
+    \[
+      \lim x_n=
+      \begin{cases}
+        \sup_{n\geq1}x_n & \text{if nondecreasing},\\
+        \inf_{n\geq1}x_n & \text{if nonincreasing}.
+      \end{cases}
+    \]
+
+    \formulagroup{Cauchy criterion}
+    A real sequence converges if and only if for every $\varepsilon>0$
+    there exists $N\in\N$ such that
+    \[
+      \forall m,n\geq N\quad |x_m-x_n|<\varepsilon.
+    \]
+
+    \formulagroup{Subsequences and limit points}
+    A subsequence has indices $n_1<n_2<\cdots$.
+    If $x_n\to L$, then $x_{n_k}\to L$.
+    A limit point is the limit of some subsequence.
+
+    \formulagroup{Upper and lower limits}
+    For a bounded real sequence,
+    \[
+      \begin{aligned}
+        \liminf x_n&=\lim_{n\to\infty}\inf\{x_k\mid k\geq n\},\\
+        \limsup x_n&=\lim_{n\to\infty}\sup\{x_k\mid k\geq n\}.
+      \end{aligned}
+    \]
+    These are the least and greatest subsequence limits.
+    \[
+      x_n\to L\quad\Longleftrightarrow\quad
+      \liminf x_n=\limsup x_n=L.
+    \]
+
+    \columnbreak
+    \section{Series}
+    \label{sec:appendix:formula-sheet-series}
+
+    \formulagroup{Partial sums and convergence}
+    \[
+      S_N=\sheetsum_{n=1}^{N}a_n,\qquad
+      \sheetsum_{n=1}^{\infty}a_n=S\ \Longleftrightarrow\ S_N\to S.
+    \]
+    Convergence requires $a_n\to0$. The converse fails.
+
+    \formulagroup{Finite geometric sum}
+    For $r\ne1$,
+    \[
+      \sheetsum_{k=0}^{N}ar^k=a\frac{1-r^{N+1}}{1-r}.
+    \]
+    When $r=1$, the sum is $a(N+1)$.
+
+    \formulagroup{Geometric series and remainder}
+    If $|r|<1$, then
+    \[
+      \begin{aligned}
+        \sheetsum_{k=0}^{\infty}ar^k&=\frac{a}{1-r},\\
+        \sheetsum_{k=N+1}^{\infty}ar^k&=\frac{ar^{N+1}}{1-r}.
+      \end{aligned}
+    \]
+
+    \formulagroup{Telescoping sums}
+    \[
+      \sheetsum_{n=1}^{N}(b_n-b_{n+1})=b_1-b_{N+1}.
+    \]
+    If $b_n\to B$, it follows that
+    \[
+      \sheetsum_{n=1}^{\infty}(b_n-b_{n+1})=b_1-B.
+    \]
+
+    \formulagroup{Arithmetic sums}
+    For a progression with first term $a$ and difference $d$,
+    \[
+      \sheetsum_{k=1}^{N}\bigl(a+(k-1)d\bigr)
+      =\frac{N}{2}\bigl(2a+(N-1)d\bigr).
+    \]
+    \[
+      \begin{aligned}
+        \sheetsum_{k=1}^{N}k&=\frac{N(N+1)}{2},\\
+        \sheetsum_{k=1}^{N}k^2&=\frac{N(N+1)(2N+1)}{6},\\
+        \sheetsum_{k=1}^{N}k^3&=\left(\frac{N(N+1)}{2}\right)^2.
+      \end{aligned}
+    \]
+
+    \formulagroup{Two familiar series}
+    \[
+      \sheetsum_{n=0}^{\infty}\frac{1}{n!}=e,\qquad
+      \sheetsum_{n=1}^{\infty}\frac{1}{n(n+1)}=1.
+    \]
+  \end{multicols}
+\end{fullwidth}
+\endgroup

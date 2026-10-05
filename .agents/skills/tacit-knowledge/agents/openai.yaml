@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tacit Knowledge"
+  short_description: "Record book decisions in chapter changelogs"
+  default_prompt: "Use $tacit-knowledge to record durable mathematical and editorial decisions in the relevant chapter README changelog, or the root README for book-wide decisions."

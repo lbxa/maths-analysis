@@ -13,7 +13,7 @@
 If a supremum belongs to $S$, it is the maximum of $S$. Membership is not
 required for a supremum. For example, $(0,1)$ has supremum $1$, but no
 maximum. Also, whenever the infimum exists,
-$\inf S=-\sup\{-s:s\in S\}$.
+$\inf S=-\sup\{-s\mid s\in S\}$.
 
 We take the following completeness property as part of the description of
 the real numbers.
@@ -32,11 +32,36 @@ $L$ fails to be an upper bound.
 
 The rational field does not have this property. The set
 \[
-  S=\{q\in\Q:q\geq0,\ q^2<2\}
+  S=\{q\in\Q\mid q\geq0,\ q^2<2\}
 \]
 is nonempty and bounded above, but has no rational supremum. Its supremum
 in $\R$ is $\sqrt{2}$; the gap argument in
-\S~\ref{sec:analysis-i:rational-gaps} excludes a rational boundary.
+\autoref{sec:analysis-i:rational-gaps} excludes a rational boundary.
+
+\subsection{An immediate consequence of LUBP}
+An ordered field is \emph{Archimedean} if, for every $\varepsilon>0$ and
+every $M$, there is an $n\in\N$ with $n\varepsilon>M$.
+We establish this property before using it to shrink intervals.
+
+\begin{theorem}[Archimedean property]
+  \label{thm:analysis-i:archimedean}
+  For every $\varepsilon>0$ and every $M\in\R$, there is an $n\in\N$
+  such that $n\varepsilon>M$.
+\end{theorem}
+\begin{proof}
+  Fix $\varepsilon>0$. Suppose $S=\{n\varepsilon\mid n\in\N\}$
+  were bounded above. By LUBP, it would have a supremum $L$.
+  Since $L-\varepsilon<L$, there would be an $m\in\N$ with
+  $m\varepsilon>L-\varepsilon$. It would follow that
+  $(m+1)\varepsilon>L$, contradicting that $L$ bounds $S$.
+  Thus $S$ is unbounded above, which proves the assertion.
+\end{proof}
+In particular, $\N$ is unbounded in $\R$. Given $\delta>0$, choose
+$N>1/\delta$. Then $1/n<\delta$ for every $n\geq N$, so $1/n\to0$.
+Induction gives $2^n\geq n+1$, and hence $2^{-n}\to0$ as well.
+For an integer $b\geq2$, the bound $0\leq b^{-n}\leq2^{-n}$ also gives
+$b^{-n}\to0$.
+These consequences require no later equivalence of completeness properties.
 
 \subsection{Six forms of completeness}
 The following properties express completeness through order, sequences,

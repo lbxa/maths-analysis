@@ -1,0 +1,51 @@
+% Adapted from the author's linear-algebra book as a full-width comparison.
+\begin{tikzpicture}[
+  x=1mm,y=1mm,font=\footnotesize,line width=0.45pt,
+  every node/.style={inner sep=2pt},
+  map arrow/.style={line width=0.35pt,-{Latex[length=1.6mm,width=1.1mm]},
+    shorten <=2.5pt,shorten >=2.5pt}
+]
+  \foreach \origin/\paneltitle in {
+    0/{Injective, not surjective},
+    52/{Surjective, not injective},
+    104/{Bijective}
+  } {
+    \begin{scope}[xshift=\origin mm]
+      \node at (21.5,28) {\paneltitle};
+      \draw[fill=black!5] (9,0) ellipse[x radius=7mm,y radius=17mm];
+      \draw[fill=black!5] (34,0) ellipse[x radius=7mm,y radius=17mm];
+      \node at (9,22) {\(A\)};
+      \node at (34,22) {\(B\)};
+    \end{scope}
+  }
+  \begin{scope}
+    \foreach \y in {9,0,-9} {
+      \fill (9,\y) circle[radius=1.6pt];
+    }
+    \foreach \y in {9,3,-3,-9} {
+      \fill (34,\y) circle[radius=1.6pt];
+    }
+    \draw[map arrow] (9,9) -- (34,9);
+    \draw[map arrow] (9,0) -- (34,3);
+    \draw[map arrow] (9,-9) -- (34,-3);
+  \end{scope}
+  \begin{scope}[xshift=52mm]
+    \foreach \y in {9,3,-3,-9} {
+      \fill (9,\y) circle[radius=1.6pt];
+    }
+    \foreach \y in {9,0,-9} {
+      \fill (34,\y) circle[radius=1.6pt];
+    }
+    \draw[map arrow] (9,9) -- (34,9);
+    \draw[map arrow] (9,3) -- (34,0);
+    \draw[map arrow] (9,-3) -- (34,0);
+    \draw[map arrow] (9,-9) -- (34,-9);
+  \end{scope}
+  \begin{scope}[xshift=104mm]
+    \foreach \y in {9,0,-9} {
+      \fill (9,\y) circle[radius=1.6pt];
+      \fill (34,\y) circle[radius=1.6pt];
+      \draw[map arrow] (9,\y) -- (34,\y);
+    }
+  \end{scope}
+\end{tikzpicture}

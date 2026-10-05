@@ -1,3 +1,119 @@
 % !TEX root = ../../hw03.tex
-% Homework 03, question 4. No solution supplied yet.
-\noindent\emph{Awaiting solution.}
+% Homework 03, question 4.
+\begin{proof}[Solution]
+  For part (a), the initial values and the recurrence show by induction
+  that $F_n\geq0$ for every $n\geq0$, and $F_n\geq1$ for every
+  $n\geq1$. For $n\geq1$, the recurrence gives
+  \[
+    F_{n+1}-F_n=F_{n-1}\geq0.
+  \]
+  Together with $F_1\geq F_0$, this proves that the sequence is
+  nondecreasing. It is strictly increasing from $F_2$ onward, since
+  $F_{n-1}>0$ when $n\geq2$. The only repeated adjacent values are
+  $F_1=F_2=1$.
+
+  % This proof could be much clearer
+  % For part (b), we have $F_{n+1}\geq F_n+1$ whenever $n\geq2$.
+  % Starting from $F_2=1$, induction therefore gives
+  % \[
+  %   \forall n\geq2,\quad F_n\geq n-1.
+  % \]
+  % Given any real number $M$, the Archimedean property supplies an
+  % integer $n\geq2$ with $n-1>M$. Then $F_n>M$, so the sequence is
+  % unbounded above.
+
+  For part (b), suppose $(F_n)$ is bounded above. Since it is nondecreasing,
+  the monotone convergence theorem gives $F_n\to L$ as $n\to\infty$.
+  The shifted sequences $F_{n-1}$ and $F_{n-2}$ also tend to $L$, so the
+  recurrence and the limit laws give
+  \begin{align*}
+    F_n&=F_{n-1}+F_{n-2} \\
+       &\implies L=2L \\
+       &\iff L=0.
+  \end{align*}
+  But $F_n\geq1$ for every $n\geq1$, so taking limits gives $L\geq1$.
+  This contradicts $L=0$. Therefore the sequence is unbounded above.
+
+  For part (c), the ratios are well defined because their denominators
+  are positive. We have $r_2=1$. For $n\geq3$, substitute the recurrence
+  into the numerator and split the fraction to obtain
+  \begin{align*}
+    r_n&=\frac{F_n}{F_{n-1}}\\
+       &=\frac{F_{n-1}+F_{n-2}}{F_{n-1}}\\
+       &=\frac{F_{n-1}}{F_{n-1}}+\frac{F_{n-2}}{F_{n-1}}\\
+       &=1+\frac{F_{n-2}}{F_{n-1}}.
+  \end{align*}
+  By part (a), we have $0<F_{n-2}\leq F_{n-1}$. Dividing by the
+  positive number $F_{n-1}$ gives
+  \[
+    0<\frac{F_{n-2}}{F_{n-1}}\leq1.
+  \]
+  Adding $1$ now gives $1<r_n\leq2$.
+  Including $r_2$, we conclude that
+  \[
+    \forall n\geq2,\quad 1\leq r_n\leq2.
+  \]
+  Thus the ratio sequence is bounded.
+
+  For part (d), assume that $r_n\to L$. The bounds above give
+  $1\leq L\leq2$, so $L$ is nonzero.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw03/golden-ratio-fixed-point}
+    \caption[The golden ratio as a fixed point.]{The positive intersection
+      satisfies $\varphi=1+1/\varphi$. Dotted guides locate both coordinates
+      at $\varphi\approx1.618$. The axes use equal units.}
+    \label{fig:hw03:golden-ratio-fixed-point}
+  \end{marginfigure}
+  To express $r_n$ in terms of $r_{n-1}$, recall from part (c) that,
+  for $n\geq3$,
+  \[
+    r_n=\frac{F_n}{F_{n-1}}=1+\frac{F_{n-2}}{F_{n-1}}.
+  \]
+  The preceding ratio is $r_{n-1}=F_{n-1}/F_{n-2}$. Since both
+  Fibonacci terms are positive, we can take its reciprocal to obtain
+  \[
+    \frac{1}{r_{n-1}}
+      =\frac{1}{F_{n-1}/F_{n-2}}
+      =\frac{F_{n-2}}{F_{n-1}}.
+  \]
+  Substituting this into the expression for $r_n$ gives the recurrence
+  \[
+    r_n=1+\frac{1}{r_{n-1}},\qquad n\geq3.
+  \]
+  The shifted sequence $r_{n-1}$ also tends to $L$. Since $L\neq0$,
+  the limit laws give
+  \[
+    L=1+\frac{1}{L}.
+  \]
+  Geometrically, $(L,L)$ lies on both $y=x$ and $y=1+1/x$, as shown
+  in \autoref{fig:hw03:golden-ratio-fixed-point}.
+  Multiplying by $L$ and bringing all terms to one side gives
+  \[
+    L^2=L+1,\qquad L^2-L-1=0.
+  \]
+  The two roots are $(1+\sqrt{5})/2$ and $(1-\sqrt{5})/2$.
+  The second is negative and cannot satisfy $L\geq1$. Therefore the
+  assumed limit is the golden ratio
+  \[
+    L=\frac{1+\sqrt{5}}{2}=\varphi\approx1.6180339887.
+  \]
+\end{proof}
+
+The identity $\varphi-1=1/\varphi$ also has a geometric interpretation.
+\begin{marginfigure}
+  \centering
+  \input{figures/hw03/golden-rectangle-spiral}
+  \caption[The golden rectangle and golden spiral.]{A golden rectangle
+    subdivides into squares with side lengths
+    $1,\varphi^{-1},\varphi^{-2},\ldots$. The golden spiral passes through
+    successive corners. Each quarter-turn inward shrinks the distance
+    from its centre by $1/\varphi$. The subdivision continues indefinitely.}
+  \label{fig:hw03:golden-rectangle-spiral}
+\end{marginfigure}
+A rectangle with side lengths $1$ and $\varphi$ leaves a smaller,
+rotated copy of itself when a unit square is removed. Repeating this
+step gives the squares in \autoref{fig:hw03:golden-rectangle-spiral}.
+The golden spiral winds through their corners, shrinking its distance
+from the centre by $1/\varphi$ with each
+quarter-turn~\cite{Duan2019GoldenSpirals}.

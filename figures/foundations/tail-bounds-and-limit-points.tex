@@ -1,0 +1,42 @@
+% Exact sequence terms and tail intervals, not a schematic rescaling.
+\begin{tikzpicture}[analysis diagram]
+  \begin{scope}[x=4mm,y=8mm]
+    \node at (6.5,2.7) {\textit{(a) Sequence terms}};
+    \node at (6.5,2.2) {$x_n=(-1)^n(1+1/n)$};
+    \draw[analysis guide] (0,1) -- (12.8,1);
+    \draw[analysis guide] (0,-1) -- (12.8,-1);
+    \draw[->] (0,-2.3) -- (0,1.9) node[above=5pt] {$x_n$};
+    \draw[->] (0,0) -- (13.4,0) node[right=5pt] {$n$};
+    \node[left=5pt] at (0,1) {$1$};
+    \node[left=5pt] at (0,-1) {$-1$};
+    \node[below left=5pt] at (0,0) {$0$};
+    \foreach \n in {4,8,12} {
+      \draw (\n,0.07) -- (\n,-0.07);
+      \node[below=5pt] at (\n,-0.07) {$\n$};
+    }
+    \foreach \n in {1,...,12} {
+      \fill (\n,{(-1)^\n*(1+1/\n)}) circle[radius=1.6pt];
+    }
+  \end{scope}
+
+  \begin{scope}[xshift=10.7cm,x=12mm,y=8mm]
+    \node at (-0.25,2.7) {\textit{(b) Bounds on successive tails}};
+    \foreach \n/\lower/\upper/\row/\leftlabel/\rightlabel in {
+      1/-2/1.5/1.4/{-2}/{3/2},
+      3/{-4/3}/1.25/0.35/{-4/3}/{5/4},
+      9/{-10/9}/1.1/-0.7/{-10/9}/{11/10}} {
+      \node[anchor=east,interval label] at (-2.6,\row) {$I_{\n}$};
+      \draw (\lower,\row) -- (\upper,\row);
+      \node[interval closed] at (\lower,\row) {};
+      \node[interval closed] at (\upper,\row) {};
+      \node[above=5pt,interval label] at (\lower,\row) {$\leftlabel$};
+      \node[above=5pt,interval label] at (\upper,\row) {$\rightlabel$};
+    }
+    \node[anchor=east,interval label] at (-2.6,-1.9) {$\bigcap_n I_n$};
+    \draw[gray] (-1,-1.9) -- (1,-1.9);
+    \node[interval closed] at (-1,-1.9) {};
+    \node[interval closed] at (1,-1.9) {};
+    \node[below=5pt,interval label] at (-1,-1.9) {$\ell_-=-1$};
+    \node[below=5pt,interval label] at (1,-1.9) {$\ell_+=1$};
+  \end{scope}
+\end{tikzpicture}

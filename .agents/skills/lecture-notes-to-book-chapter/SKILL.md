@@ -68,7 +68,7 @@ its margin notes to confirm that the reasoning is complete.
 - Redraw supplied diagrams in TikZ, preserving their mathematical meaning.
   Use black and gray unless colour conveys a specific distinction. Give every
   figure a caption, stable `fig:` label, and nearby body reference using
-  `Figure~\ref{fig:...}`. Match caption size to margin text and inspect at the
+  `\autoref{fig:...}`. Match caption size to margin text and inspect at the
   final printed size.
 - For interval diagrams, use
   [interval-styles.tex](../../../figures/interval-styles.tex). Use physical

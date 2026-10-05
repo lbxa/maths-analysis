@@ -5,6 +5,20 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+% One convention for named, linked cross-references in every document.
+\renewcommand*{\figureautorefname}{Figure}
+\renewcommand*{\tableautorefname}{Table}
+\renewcommand*{\partautorefname}{Part}
+\renewcommand*{\chapterautorefname}{Chapter}
+\renewcommand*{\appendixautorefname}{Appendix}
+\renewcommand*{\sectionautorefname}{\S}
+\renewcommand*{\subsectionautorefname}{\S}
+\renewcommand*{\subsubsectionautorefname}{\S}
+\renewcommand*{\theoremautorefname}{Theorem}
+% Hyperref appends ~, the reference number, and \null to the name.
+% Consume that number here to retain the usual equation parentheses.
+\def\equationautorefname~#1\null{Equation~(#1)\null}
+
 % Keep submission-specific layout hints out of shared book exercises.
 \makeatletter
 \newcommand{\handoutonly}[1]{\@ifclassloaded{tufte-handout}{#1}{}}
@@ -43,20 +57,29 @@
 }
 
 % One shared counter makes results unambiguous within each section.
+% Alias counters let autoref identify the kind of result, not just its number.
+\newcommand{\newsharedtheorem}[2]{%
+  \newaliascnt{#1}{theorem}%
+  \newtheorem{#1}[#1]{#2}%
+  \aliascntresetthe{#1}%
+  % Follow later changes to the theorem format, including handout numbering.
+  \expandafter\renewcommand\csname the#1\endcsname{\thetheorem}%
+  \expandafter\providecommand\csname #1autorefname\endcsname{#2}%
+}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+\newsharedtheorem{lemma}{Lemma}
+\newsharedtheorem{proposition}{Proposition}
+\newsharedtheorem{corollary}{Corollary}
 \newtheorem*{conjecture}{Conjecture}
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{property}[theorem]{Property}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{exercise}[theorem]{Exercise}
-\newtheorem*{restatedexercise}{Exercise~\ref{ex:\restatedexercisekey}}
+\newsharedtheorem{definition}{Definition}
+\newsharedtheorem{property}{Property}
+\newsharedtheorem{example}{Example}
+\newsharedtheorem{exercise}{Exercise}
+\newtheorem*{restatedexercise}{\autoref{ex:\restatedexercisekey}}
 \theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newsharedtheorem{remark}{Remark}
 
 % BEGIN TUFTE PLACEHOLDER HELPERS
 % Adapted from the supplied Tufte-LaTeX sample (Apache-2.0).

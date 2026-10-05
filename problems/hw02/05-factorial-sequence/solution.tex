@@ -37,22 +37,8 @@
     Each $x_n\leq L$. If $u<L$, convergence gives a term $x_n>u$,
     so $u$ is not an upper bound. Therefore $b=\sup S=L$.
 
-    All derivatives of $\exp(x)$ are continuous and equal to
-    $\exp(x)$, so their values at $0$ are $1$.
-    Taylor's theorem at $0$, evaluated at $1$, therefore
-    gives\marginnote{\textit{Taylor remainder.} For a function with
-      $n+1$ continuous derivatives on $[0,1]$, its degree-$n$
-      expansion about $0$, evaluated at $1$, has remainder
-      $f^{(n+1)}(\xi)/(n+1)!$ for some $\xi\in(0,1)$.}
-    \[
-      e=\sum_{k=0}^n\frac1{k!}
-        +\frac{\exp(\xi_n)}{(n+1)!},\qquad 0<\xi_n<1.
-    \]
-    The remainder satisfies
-    \[
-      0<e-x_n\leq\frac{e}{(n+1)!}\longrightarrow0.
-    \]
-    Hence $L=e$, and
+    The factorial-series definition of $e$ is the limit of these
+    same partial sums. Thus $L=e$, and
     \[
       a=2,\qquad b=e=\sum_{k=0}^{\infty}\frac1{k!}.
     \]

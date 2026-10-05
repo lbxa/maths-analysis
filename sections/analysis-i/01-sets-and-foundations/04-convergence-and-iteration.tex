@@ -7,6 +7,47 @@
 This is why a field containing all the rational numbers can still be
 missing limits. We now make the meaning of ``approach'' precise.
 
+\subsection{Distance and the triangle inequality}
+For a real number $x$, define
+\begin{marginfigure}
+  \centering
+  \input{figures/foundations/absolute-value}
+  \caption[The absolute value function.]{The graph of $y=|x|$ consists
+    of the ray $y=-x$ for $x\leq0$ and the ray $y=x$ for $x\geq0$.
+    Its vertex is the origin.}
+  \label{fig:absolute-value}
+\end{marginfigure}
+\[
+  |x|=\begin{cases}
+    x,&x\geq0,\\
+    -x,&x<0.
+  \end{cases}
+\]
+\autoref{fig:absolute-value} shows the graph of $y=|x|$.
+It measures distance from zero, so $|x-y|$ measures distance between
+$x$ and $y$. We have $|x|\geq0$, with equality exactly when $x=0$,
+and $-|x|\leq x\leq|x|$.
+
+\begin{proposition}
+  \label{thm:analysis-i:absolute-value-inequalities}
+  For real $x,y$,
+  \[
+    |xy|=|x|\,|y|,\qquad |x+y|\leq|x|+|y|.
+  \]
+\end{proposition}
+\begin{proof}
+  If either factor is zero, the product identity is immediate.
+  Otherwise, writing each factor as its sign times its positive absolute
+  value shows that the absolute value of the product is $|x|\,|y|$.
+  For the second assertion, add the inequalities
+  $-|x|\leq x\leq|x|$ and $-|y|\leq y\leq|y|$ to obtain
+  \[
+    -(|x|+|y|)\leq x+y\leq |x|+|y|.
+  \]
+  The definition of absolute value now gives the triangle inequality.
+\end{proof}
+
+\subsection{Convergence and its elementary rules}
 \begin{definition}
   A sequence $(x_n)$ of real numbers \emph{converges} to $L\in\R$ if,
   for every $\varepsilon>0$, there exists $N\in\N$ such that
@@ -18,10 +59,7 @@ missing limits. We now make the meaning of ``approach'' precise.
 The index $N$ may depend on $\varepsilon$. After that index, every term
 lies in the $\varepsilon$-neighborhood $(L-\varepsilon,L+\varepsilon)$.
 For convergence \emph{in $\Q$}, the limit must belong to $\Q$ as well.
-The rational partial sums defining $e$ converge in $\R$, but not in $\Q$.
-\marginnote{The absolute value $|x|$ is $x$ for $x\geq0$ and $-x$ otherwise.
-It measures distance from zero. Its elementary inequalities are proved in
-\S~\ref{sec:analysis-i:elementary-functions}.}
+We will later construct rational sequences with irrational real limits.
 
 We will use two elementary consequences of this definition. Limits are
 unique, since if $L\ne M$, the disjoint neighborhoods of radius
@@ -29,7 +67,56 @@ $|L-M|/3$ cannot both contain all sufficiently late terms. Also, if
 $x_n\leq y_n$, $x_n\to x$, and $y_n\to y$, then $x\leq y$.
 Otherwise neighborhoods of radius $(x-y)/3$ contradict $x_n\leq y_n$.
 
+We also need the basic rules for calculating a limit.
+\begin{proposition}
+  \label{thm:analysis-i:limit-laws}
+  If $x_n\to L$ and $y_n\to M$, then
+  \[
+    x_n+y_n\to L+M,\qquad x_ny_n\to LM.
+  \]
+  If $M\ne0$, then $y_n\ne0$ for all sufficiently large $n$, and
+  $x_n/y_n\to L/M$ on that tail.
+\end{proposition}
+\begin{proof}
+  For the sum, the triangle inequality bounds the error by
+  $|x_n-L|+|y_n-M|$. Make each term smaller than $\varepsilon/2$.
+  For the product, convergence gives $|x_n|\leq|L|+1$ on a tail, and
+  \[
+    |x_ny_n-LM|
+      \leq (|L|+1)|y_n-M|+|M|\,|x_n-L|.
+  \]
+  On a sufficiently late tail, the two errors are smaller than
+  $\varepsilon/(2(|L|+1))$ and $\varepsilon/(2(|M|+1))$, respectively.
+  The displayed bound is then smaller than $\varepsilon$.
+
+  If $M\ne0$, choose a tail with $|y_n-M|<|M|/2$.
+  The triangle inequality gives $|y_n|>|M|/2>0$ there. Hence
+  \[
+    \left|\frac1{y_n}-\frac1M\right|
+      =\frac{|y_n-M|}{|y_n|\,|M|}
+      \leq\frac{2|y_n-M|}{|M|^2}\longrightarrow0.
+  \]
+  Apply the product rule to $x_n$ and $1/y_n$ to obtain the quotient rule.
+\end{proof}
+Changing or discarding finitely many terms does not affect a limit.
+In particular, $x_{n+1}\to L$ whenever $x_n\to L$.
+We will also use the \emph{squeeze principle}. If
+$u_n\leq v_n\leq w_n$ and $u_n,w_n\to L$, then $v_n\to L$,
+because sufficiently late $u_n$ and $w_n$ both lie between
+$L-\varepsilon$ and $L+\varepsilon$.
+
 \subsection{Newton's idea}
+For the calculus motivation here, $f'(x)$ denotes the limiting slope
+$\lim_{h\to0}(f(x+h)-f(x))/h$. The two slopes needed in our examples
+follow from the identities
+\[
+  \frac{(x+h)^2-x^2}{h}=2x+h,\qquad
+  \frac{1/(x+h)-1/x}{h}=-\frac1{x(x+h)}.
+\]
+Thus $(x^2)'=2x$ and $(1/x)'=-1/x^2$ for $x\ne0$.
+These identities supply the tangent lines we use without requiring a
+general differentiation theory.
+
 Suppose we want to solve $f(x)=0$. At a current approximation $x_n$ with
 $f'(x_n)\ne0$, replace the graph by its tangent line
 \[
@@ -40,7 +127,7 @@ Its horizontal intercept supplies the next approximation,
   x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}.
   \label{eq:analysis-i:newton}
 \end{equation}
-Figure~\ref{fig:newton-square-root} illustrates one step. This is a
+\autoref{fig:newton-square-root} illustrates one step. This is a
 motivation from calculus; a general convergence theorem for Newton's
 method is not being assumed.
 \begin{marginfigure}
@@ -51,26 +138,15 @@ method is not being assumed.
   \label{fig:newton-square-root}
 \end{marginfigure}
 
-For $f(x)=x^2-a$, where $a>0$, equation~\eqref{eq:analysis-i:newton} becomes
+For $f(x)=x^2-a$, where $a>0$, \autoref{eq:analysis-i:newton} becomes
 \[
   x_{n+1}=\frac12\left(x_n+\frac{a}{x_n}\right).
 \]
-A positive limit $L$, if it exists, must satisfy $L^2=a$. A fixed-point
-calculation alone does not establish that such a limit exists.
-
-Here is a convergence argument using two results proved later in this
-chapter. Let $r=\sqrt a>0$, whose existence follows from
-Theorem~\ref{thm:analysis-i:positive-roots}, and start with $x_0>0$.
-Every iterate is positive, and
-\[
-  x_{n+1}-r=\frac{(x_n-r)^2}{2x_n}\geq0.
-\]
-Thus $x_n\geq r$ for $n\geq1$, and then
-$x_{n+1}-x_n=(a-x_n^2)/(2x_n)\leq0$.
-Monotone convergence gives a limit $L\geq r>0$. Passing to the limit in
-$2x_nx_{n+1}=x_n^2+a$ gives $L^2=a$, hence $L=r$ by uniqueness of the
-positive root. If $a$ and $x_0$ are rational, every iterate is rational;
-for prime $a$, the limit is irrational.
+A positive limit $L$, if it exists, must satisfy $L^2=a$ by the limit
+laws. A fixed-point calculation alone does not establish that such a
+limit exists. We return to its convergence proof and the iteration
+exercises in \autoref{sec:analysis-i:roots-and-powers}, after proving
+monotone convergence and constructing the required roots.
 
 \subsection{What kind of limit can a recurrence produce?}
 The lecture also considered
@@ -89,7 +165,8 @@ Repeated substitution also suggests a continued fraction. This example
 identifies a possible limit; it does not by itself prove convergence.
 
 Limits of rational sequences need not be algebraic. The factorial partial
-sums approach $e$. Another lecture example is Euler's identity
+sums will give $e$ in \autoref{sec:analysis-i:denseness}.
+Another lecture example is Euler's identity
 \[
   \sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6},
 \]
@@ -97,18 +174,3 @@ stated here without proof~\cite{Waldschmidt2017}.
 The number $\pi^2/6$ is transcendental, since a nonzero rational polynomial
 vanishing there would, after substituting $X^2/6$, give a nonzero rational
 polynomial vanishing at $\pi$.
-
-\subsection{Exercise on Newton's method}
-We now apply Newton's method to the fixed-point equation for the continued
-fraction above. As in the square-root example, the convergence argument
-uses the monotone convergence theorem proved in
-\S~\ref{sec:analysis-i:completeness-equivalences}.
-
-\input{problems/hw02/06-newton-iteration/problem}
-
-\subsection{Exercise on Fibonacci ratios}
-The next recurrence connects an integer sequence with bounded ratios.
-As in the continued-fraction example, the last part asks for a possible
-limit under the assumption that the ratios converge.
-
-\input{problems/hw03/04-fibonacci-ratios/problem}

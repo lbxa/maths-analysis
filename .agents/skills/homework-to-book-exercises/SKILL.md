@@ -92,7 +92,7 @@ Reserve unnumbered `\marginnote{...}` for optional reminders, visual guides,
 and secondary observations; check that the proof stands alone without them.
 
 Author diagrams in TikZ with black and gray as the default. Every figure needs
-a caption, stable `fig:` label, and nearby `Figure~\ref{fig:...}` body reference.
+a caption, stable `fig:` label, and nearby `\autoref{fig:...}` body reference.
 Use [interval-styles.tex](../../../figures/interval-styles.tex) for interval
 diagrams and load it in each entry point that needs it, as `hw02.tex` does.
 Use explicit physical point radii, arrows for unbounded intervals, and ellipses

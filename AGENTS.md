@@ -7,14 +7,14 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 - `main.tex` assembles the book; `preamble.tex` holds packages and layout; `macros.tex` defines shared notation and theorem environments.
 - `sections/analysis-i/part.tex` orders nine chapter directories. Each numbered directory contains `chapter.tex` and one numbered `.tex` file per topic, e.g. `01-sets-and-foundations/06-supremum.tex`.
 - `sections/analysis-ii/part.tex` is reserved and excluded from the book until needed.
-- `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, prerequisite results, and the solutions chapter.
+- `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, assumed knowledge, and the solutions chapter.
 - `problems/hwNN.tex` are standalone homework handouts using the shared preamble and macros.
 - `problems/hwNN/NN-topic/problem.tex` holds a shared exercise statement; the adjacent `solution.tex` holds its solution. Do not add an `exercises/` subdirectory.
 - `figures/` holds diagrams; `figures/template/` and `bibliography.bib` contain specimen assets and references. `build/` contains ignored generated output.
 
 ## Build & Development Commands
 
-Install LaTeX with pdfLaTeX, Tufte-LaTeX, biblatex, Biber, and latexmk. Run from the repository root:
+Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
 - `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
@@ -40,12 +40,14 @@ Always maintain the **Homework placement map** in [README.md](README.md#homework
 - Include each problem once in the main text and each problem/solution pair once in `sections/appendices/exercise-solutions.tex`, in the same order as the book's exercises. Use `\solutionheading{hwNN:topic}` to select the original exercise number, then input `problem.tex` inside `restatedproblem`, followed by `solution.tex`. The restatement must use the main text's bold, inline exercise label, with its number linked back to the original, rather than a separate section heading. The scoped `restatedproblem` environment suppresses duplicate exercise numbering, labels, and solution margin links. Preserve the handout's original question order and numbering; let the book use its own exercise numbering.
 - Keep `\label{ex:hwNN:topic}` and `\solutionlink{hwNN:topic}` in each problem. The latter creates an unnumbered, clickable margin link to `sol:hwNN:topic` in the appendix and is suppressed in handouts. Later mentions must cross-reference the existing exercise instead of including it again.
 - Place exercises by the content they assess and check prerequisites. Explain any deliberate forward use of a later result in the surrounding book text.
-- Keep handout-specific layout in the handout entry file, or use `\handoutonly{...}` for a layout hint inside a shared solution. Keep appendix-only page breaks in the appendix chapter. Leave `problems/template.tex` unchanged unless the user explicitly requests a template change.
+- Let problems flow naturally in handouts and the solutions appendix. Do not insert `\clearpage`, `\newpage`, or other forced page breaks between problems. Resolve layout issues through local spacing and figure placement. Keep handout-specific layout in the handout entry file, or use `\handoutonly{...}` for a layout hint inside a shared solution. Leave `problems/template.tex` unchanged unless the user explicitly requests a template change.
 - Before finishing any homework or book-structure change, verify that every map row agrees with the main-text and appendix inputs, ordering, and labels, and that every appendix solution follows the complete shared problem statement. Run `make check`, check for duplicate labels or destinations, verify links in both directions, and inspect both the book and affected handouts.
 
 ## Editorial Principles
 
 Preserve the author's style and the course's flow of topics when turning lecture notes into publishable text. Capture all supplied mathematical content, including examples and questions. Improve clarity and organization without expanding the notes into an unrelated textbook; add only the supporting explanation needed for a coherent foundation.
+
+Keep the lecturer's syllabus chapters and sections, including their titles and order, as the organising framework. Reorganise content within that framework to introduce tools before their substantial use and before exercises that require them. Keep early motivation concise and return to its proof after the prerequisites. Consult the root and relevant chapter README changelogs before structural edits, and record agreed decisions and their rationale there.
 
 Use shared mathematical environments and styles so the same kind of content has consistent typography wherever it appears. Reusing an exercise in an appendix must preserve its identity and presentation as an exercise.
 
@@ -53,7 +55,7 @@ Use shared mathematical environments and styles so the same kind of content has 
 
 Work in the smallest relevant topic file. Use two-space indentation, lowercase hyphenated names, and explicit `\input` lists. Number files for reading order; keep labels independent of numeric prefixes, e.g. `sec:analysis-i:supremum`. Use `ch:`, `sec:`, `thm:`, `eq:`, `fig:`, and `ex:` prefixes. Keep shared notation in `macros.tex` and figure names topic-specific. Use black and gray for diagrams by default; reserve colour for a specific highlight or distinction.
 
-Format section cross-references throughout the book as `\S~\ref{sec:...}`, producing a section sign followed by the linked section number, for example § 1.2. Use `\S\S` for plural section references. Keep the nonbreaking space between the sign and number, use stable labels rather than hard-coded numbers, and apply this convention in body text, margin notes, and captions. Do not write `Section~\ref{...}` or substitute a section title for the numbered reference.
+Use `\autoref{...}` for numbered object references throughout the book and handouts, including body text, margin notes, captions, and proof headings. The shared definitions in `macros.tex` supply full, capitalised names such as Figure, Table, Theorem, Lemma, Proposition, Corollary, Definition, Property, Example, Exercise, and Remark. Equations render as `Equation (1.2)`; sections and subsections render as `§ 1.2`. Do not prepend an object name or `\S`, use bare `\ref` or `\eqref`, or type reference numbers by hand. For a range, reference both endpoints with `\autoref`, for example `\autoref{sec:first}--\autoref{sec:last}`. Use `\autoref*` only when intentionally suppressing a link, and retain `\pageref` for page numbers and descriptive `\hyperref` links for solution navigation. Define new numbered result environments through `\newsharedtheorem` so their automatic names remain distinct while they share the theorem counter. Preserve the late `hyperref` load and shared `caption` setup in `preamble.tex`.
 
 - In displayed equations, use `\quad` to separate leading quantifiers from their statements.
 - In set-builder notation, use `\mid` and rely on LaTeX's automatic spacing.
@@ -63,17 +65,69 @@ Write proofs in clear English with complete sentences and proper grammar and pun
 
 Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.
 
-Every figure or diagram must have a caption, a stable label, and an explicit in-text reference near the passage it illustrates. Use `Figure~\ref{fig:...}` rather than hard-coded figure numbers. A caption alone does not count as an in-text reference.
-
-Use explicit physical radii for circular point markers, e.g. `circle[radius=1.6pt]`, so unequal TikZ `x` and `y` coordinate units do not flatten them into ellipses.
-
-Use the shared styles in `figures/interval-styles.tex` for interval diagrams so line weights, endpoint diameters, arrowheads, fonts, and row spacing match. Open and closed endpoints differ by fill only. Represent unbounded intervals with arrows, never a point at infinity; use ellipses to continue a sequence rather than inventing a final interval. Label schematic drawings explicitly and do not show excluded limit points as included endpoints.
-
-For function plots, show labeled axes with arrowheads and mark the relevant intercepts. Plot the stated function rather than an arbitrary schematic rescaling, and use arrowheads on continued curve branches. Check label clearance at the final margin size.
+Use bold caption labels and numbers followed by a full stop, for example **Figure 1.1.** or **Table 2.1.**, with ordinary-weight caption text. Apply this through the shared `caption` configuration in `preamble.tex` for every float type in the book and handouts; retain Tufte's margin font and alignment rather than formatting individual captions by hand.
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 
 Use bracketed numeric citations such as `[1]` in the text and a properly formatted bibliography after the main content and before the appendices. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
+
+### TikZ diagram design
+
+A diagram should clarify a specific mathematical idea through accurate geometry,
+simple visual hierarchy, and generous whitespace. Clean spacing is a requirement
+of the first finished version. Check the rendered result before presenting it.
+
+- Plan the layout at its final printed size. Use margin figures for compact
+  illustrations and full-width figures when the content needs more room. Keep
+  text readable at the normal margin font size; simplify the layout or give it
+  more space when it becomes crowded.
+- Give labels clear space around their entire visible shape. Letters must not
+  touch or cross lines, curves, point markers, arrowheads, or other labels.
+  Use explicit physical offsets such as `below=5pt` or `right=4pt` as starting
+  points, then check the actual gap. Account for marker radii, text height,
+  superscripts, and descenders; a default `below` or `left` anchor does not
+  guarantee clearance.
+- Align comparable elements and use consistent row spacing, label positions,
+  and gutters. Leave enough room between rows for both their labels and their
+  distance arrows. Give the plot, legend, and caption distinct space.
+- Place labels in open regions of the drawing. Put an origin label in a clear
+  quadrant and keep axis names away from arrowheads. When curve names cannot
+  fit comfortably beside their curves, use a separate legend with matching
+  line samples. Preserve the mathematical strokes when resolving collisions.
+- Keep the visual hierarchy restrained. Use black for the main construction
+  and gray or dashed lines for secondary guides. Remove unnecessary tick
+  labels and annotations when they compete with the idea being illustrated.
+  Keep line weights, arrowheads, marker sizes, and fonts consistent across
+  related diagrams.
+- Use the shared thin `0.5pt` line weight for ordinary diagram edges, axes,
+  and outlines throughout the book. Inherit it from `interval diagram` or
+  `analysis diagram`; do not introduce `thick`, `semithick`, or a larger local
+  line width for a new figure. Check the resolved width of additional styles,
+  since a style such as `analysis curve` can override the picture's default.
+  Use gray, dashes, or light fills for distinctions instead of heavier strokes.
+  Compare the rendered strokes with an existing diagram at the same printed
+  size, as well as checking label clearance.
+- Use the shared styles in `figures/interval-styles.tex` for interval diagrams,
+  including their line weights, endpoint diameters, arrowheads, fonts, and row
+  spacing. Open and closed endpoints differ by fill only. Use explicit physical
+  radii for circular point markers, e.g. `circle[radius=1.6pt]`, so unequal
+  TikZ `x` and `y` units do not flatten them into ellipses.
+- Preserve the mathematical meaning. Represent unbounded intervals with arrows,
+  never a point at infinity; use ellipses to continue a sequence rather than
+  inventing a final interval. Label schematic drawings explicitly and do not
+  show excluded limit points as included endpoints. For function plots, draw
+  the stated function, label arrowed axes, mark relevant intercepts, and put
+  arrowheads on continued branches. Use equal axis units when the geometry
+  depends on angles or reflection, such as inverse graphs across `y=x`.
+- Every figure or diagram needs a caption, a stable label, and an explicit
+  nearby body reference using `\autoref{fig:...}`. A caption alone does not
+  count as an in-text reference. Match caption text size to ordinary margin text.
+- Compile and visually inspect every edited diagram in the book and each
+  affected handout. Check it at the final printed size for legibility, then
+  zoom in to catch touching letters and strokes. Inspect the whole page for
+  clipping, caption crowding, and collisions with adjacent margin content.
+  Revise and render again until these defects are resolved; compilation success
+  alone does not establish a clean diagram.
 
 ## Validation Guidelines
 

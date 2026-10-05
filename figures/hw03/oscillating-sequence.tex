@@ -1,0 +1,23 @@
+% Actual values of a_n for n = 1,...,18; TikZ trigonometry uses degrees.
+\begin{tikzpicture}[
+  x=0.18cm,y=1.1cm,font=\footnotesize,line width=0.5pt,
+  every node/.style={inner sep=0pt},
+  >={Stealth[length=4pt,width=3pt]}
+]
+  \draw[gray!60,dashed] (0,{sqrt(3)/2}) -- (18.6,{sqrt(3)/2});
+  \draw[gray!60,dashed] (0,{-sqrt(3)/2}) -- (18.6,{-sqrt(3)/2});
+  \draw[->] (0,-1.05) -- (0,2.1) node[above=4pt] {$a_n$};
+  \draw[->] (0,0) -- (19.2,0) node[right=4pt] {$n$};
+  \node[left=4pt] at (0,0) {$0$};
+  \node[left=4pt] at (0,{sqrt(3)/2}) {$\frac{\sqrt{3}}{2}$};
+  \node[left=4pt] at (0,{-sqrt(3)/2}) {$-\frac{\sqrt{3}}{2}$};
+  \foreach \n in {3,6,9,12,15,18} {
+    \draw (\n,0.04) -- (\n,-0.04);
+  }
+  \foreach \n in {6,12,18} {
+    \node[below=4pt] at (\n,-0.04) {$\n$};
+  }
+  \foreach \n in {1,...,18} {
+    \fill (\n,{1/\n+sin(120*\n)}) circle[radius=1.25pt];
+  }
+\end{tikzpicture}

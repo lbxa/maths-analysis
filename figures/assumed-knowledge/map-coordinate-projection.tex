@@ -1,0 +1,30 @@
+% Schematic coordinate projection R^3 -> R^2, (x,y,z) -> (y,z).
+\begin{tikzpicture}[
+  analysis diagram,x=1mm,y=1mm,
+  every node/.style={inner sep=2pt},
+  axis/.style={-{Latex[length=1.6mm,width=1.1mm]}},
+  map arrow/.style={-{Latex[length=1.6mm,width=1.1mm]},
+    shorten <=1.6pt,shorten >=1.6pt}
+]
+  \node at (10,29) {\(\R^3\)};
+  \node at (68,29) {\(\R^2\)};
+  \begin{scope}[x={(8mm,-3mm)},y={(8mm,3mm)},z={(0mm,9mm)}]
+    \draw[axis] (0,0,0) -- (3,0,0) node[below=4pt] {\(x\)};
+    \draw[axis] (0,0,0) -- (0,2.6,0) node[below right=4pt] {\(y\)};
+    \draw[axis] (0,0,0) -- (0,0,2.4) node[above=4pt] {\(z\)};
+    \draw[gray,dashed] (0,0.8,1.8) -- (2.7,0.8,1.8);
+    \coordinate (projection-input-one) at (1,0.8,1.8);
+    \coordinate (projection-input-two) at (2,0.8,1.8);
+    \fill (projection-input-one) circle[radius=1.6pt];
+    \fill (projection-input-two) circle[radius=1.6pt];
+  \end{scope}
+  \draw[axis] (56,0) -- (80,0) node[right=4pt] {\(y\)};
+  \draw[axis] (56,0) -- (56,22) node[above=4pt] {\(z\)};
+  \coordinate (projection-output) at (64,18);
+  \fill (projection-output) circle[radius=1.6pt];
+  \draw[gray] (56,0) -- (projection-output);
+  \draw[map arrow] (projection-input-one)
+    .. controls (32,22) and (46,22) .. (projection-output);
+  \draw[map arrow] (projection-input-two)
+    .. controls (38,13) and (48,15) .. (projection-output);
+\end{tikzpicture}

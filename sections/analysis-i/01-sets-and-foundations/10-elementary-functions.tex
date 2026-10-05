@@ -14,7 +14,8 @@ For example, the expression $(x^2-1)/(x-1)$ equals $x+1$ on its domain,
 but the original quotient is undefined at $x=1$.
 
 \subsection{Absolute value and distance}
-The absolute value function is
+The absolute value function, introduced before convergence in
+\autoref{sec:analysis-i:convergence-preview}, is
 \[
   |x|=\begin{cases}
     x,&x\geq0,\\
@@ -22,32 +23,10 @@ The absolute value function is
   \end{cases}
 \]
 It satisfies $|x|\geq0$, with equality exactly when $x=0$, and
-$-|x|\leq x\leq|x|$. Figure~\ref{fig:absolute-value} shows its graph.
-\begin{marginfigure}[3\baselineskip]
-  \centering
-  \input{figures/foundations/absolute-value}
-  \caption[The absolute value function.]{The graph of $y=|x|$. The distance between $x$ and $y$ on the
-    real line is $|x-y|$.}
-  \label{fig:absolute-value}
-\end{marginfigure}
+$-|x|\leq x\leq|x|$. \autoref{fig:absolute-value} shows its graph.
 
-\begin{proposition}
-  For real $x,y$,
-  \[
-    |xy|=|x|\,|y|,\qquad |x+y|\leq|x|+|y|.
-  \]
-\end{proposition}
-\begin{proof}
-  If either factor is zero, the product identity is immediate.
-  Otherwise, writing each factor as its sign times its positive absolute
-  value shows that the absolute value of the product is $|x|\,|y|$.
-  For the second assertion, add the inequalities
-  $-|x|\leq x\leq|x|$ and $-|y|\leq y\leq|y|$ to obtain
-  \[
-    -(|x|+|y|)\leq x+y\leq |x|+|y|.
-  \]
-  The definition of absolute value now gives the triangle inequality.
-\end{proof}
+\autoref{thm:analysis-i:absolute-value-inequalities} established
+the product rule and triangle inequality before their use in limits.
 Applying the triangle inequality to $x=(x-y)+y$, and then interchanging
 $x$ and $y$, also gives the useful reverse triangle inequality
 $\bigl||x|-|y|\bigr|\leq|x-y|$.
@@ -68,7 +47,7 @@ Checking separately $x\geq0$ and $x<0$ gives
 The negative part records the \emph{magnitude} of the negative contribution,
 so it is nonnegative. For a real-valued function $f$, apply these formulas
 pointwise to obtain $f=f^+-f^-$ and $|f|=f^++f^-$.
-Figure~\ref{fig:positive-negative-parts} replaces the lecture's freehand
+\autoref{fig:positive-negative-parts} replaces the lecture's freehand
 sketch with a specific example.
 \begin{figure*}[htbp]
   \centering

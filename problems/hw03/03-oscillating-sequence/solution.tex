@@ -1,3 +1,51 @@
 % !TEX root = ../../hw03.tex
-% Homework 03, question 3. No solution supplied yet.
-\noindent\emph{Awaiting solution.}
+% Homework 03, question 3.
+\begin{proof}[Solution]
+  The sine term repeats every three indices. Let $h=\sqrt{3}/2$.
+  Separating the indices according to their remainder upon division
+  by three gives
+  \begin{align*}
+    a_{3k}&=\frac{1}{3k}, && k\geq1, \\
+    a_{3k+1}&=h+\frac{1}{3k+1}, && k\geq0, \\
+    a_{3k+2}&=-h+\frac{1}{3k+2}, && k\geq0.
+  \end{align*}
+  The reciprocals tend to zero, so these three subsequences converge
+  to $0$, $h$, and $-h$, respectively. Each of these numbers is
+  therefore a limit point. \autoref{fig:hw03:oscillating-sequence}
+  shows the three groups of terms approaching their limits.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw03/oscillating-sequence}
+    \caption[Three subsequence limits.]{The first eighteen terms. The dashed lines mark
+      $\pm\sqrt{3}/2$; the horizontal axis marks the third limit, $0$.}
+    \label{fig:hw03:oscillating-sequence}
+  \end{marginfigure}
+
+  To show that there are no other limit points, suppose a subsequence
+  converges to $\ell$. Among its infinitely many indices, at least
+  one remainder occurs infinitely often. Keeping only those indices
+  gives a further subsequence of one of the three sequences above.
+  It still converges to $\ell$, so uniqueness of limits forces $\ell$
+  to be $0$, $h$, or $-h$. Thus the set of all limit points is
+  \[
+    \left\{-\frac{\sqrt{3}}{2},0,\frac{\sqrt{3}}{2}\right\}.
+  \]
+
+  To find the lower limit, fix a tail beginning at $N\geq1$. Every
+  term in this tail is greater than $-h$, while terms with indices
+  $3k+2$ occur arbitrarily far out and approach $-h$. Therefore
+  \[
+    \inf\{a_n\mid n\geq N\}=-h.
+  \]
+  For the upper limit, every term in this tail satisfies
+  $a_n\leq h+1/N$. The tail also contains terms with indices $3k+1$,
+  all of which exceed $h$. Hence
+  \[
+    h\leq\sup\{a_n\mid n\geq N\}\leq h+\frac{1}{N}.
+  \]
+  Taking the limits of these tail bounds gives
+  \[
+    \liminf_{n\to\infty}a_n=-\frac{\sqrt{3}}{2},\qquad
+    \limsup_{n\to\infty}a_n=\frac{\sqrt{3}}{2}.
+  \]
+\end{proof}

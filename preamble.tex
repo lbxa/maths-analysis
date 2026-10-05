@@ -15,12 +15,14 @@
 
 \usepackage{nameref}
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{aliascnt}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usepackage{booktabs}
+\usepackage{multicol} % Formula sheet and multicolumn specimen examples.
 % Packages used by the temporary Tufte specimen content.
-\usepackage{fancyvrb,xspace,units,multicol,makeidx}
+\usepackage{fancyvrb,xspace,units,makeidx}
 \fvset{fontsize=\small}
 \usepackage{url}
 \usepackage{lipsum} % Remove after all placeholder prose has been replaced.
@@ -31,16 +33,6 @@
 \graphicspath{{figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \setcounter{secnumdepth}{1}
-
-% Use a full stop after caption numbers in homework handouts.
-\makeatletter
-\@ifclassloaded{tufte-handout}{%
-  \patchcmd{\@caption}{\endcsname:}{\endcsname.}
-    {}
-    {\PackageError{analysis-notes}{Could not format caption punctuation}
-      {Check the Tufte caption definition.}}
-}{}
-\makeatother
 
 % Retain the borrowed title/contents design only for the book.
 % Adapted from Kevin Godby's Tufte-LaTeX title/contents example:
@@ -60,7 +52,10 @@
     {}
     {0pt}
     {\huge\rmfamily\itshape}
-    [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]
+    [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}%
+      % The fullwidth list must not overwrite the chapter's paragraph hook.
+      % Otherwise the first section can lose its normal space after prose.
+      \@endpefalse]
   \renewcommand{\maketitlepage}{%
     \begingroup
     \setlength{\parindent}{0pt}
@@ -95,19 +90,22 @@
 }{}
 \makeatother
 
-% Enable book links after the Tufte contents customizations. The class's
-% nohyper option prevents earlier loading; keep sidenotes unlinked.
+% Enable book and handout links after the Tufte contents customizations.
+% The classes' nohyper option defers loading; keep sidenotes unlinked.
 \makeatletter
-\@ifclassloaded{tufte-book}{%
-  \usepackage[hidelinks,hyperfootnotes=false,bookmarksdepth=0]{hyperref}
-  % Hyperref resets captions to normalsize; restore the Tufte margin font
-  % while retaining its caption anchors and links. Caption paragraphs
-  % must not inherit the first-line indent from the margin justification.
-  \patchcmd{\@caption}{\normalsize}
-    {\@tufte@caption@font\@tufte@caption@justification
-      \setlength{\parindent}{0pt}}
-    {}
-    {\PackageError{analysis-notes}{Could not restore the caption font}
-      {Check the hyperref caption definition.}}
-}{}
+\usepackage[hidelinks,hyperfootnotes=false,bookmarksdepth=0]{hyperref}
+% Tufte's pre-expanded author can contain fragile formatting commands.
+% Let hyperref strip formatting from the unexpanded author for PDF metadata.
+\pdfstringdefDisableCommands{\let\thanklessauthor\@author}
+% One caption convention for the book and homework handouts. Load after
+% hyperref, and explicitly retain Tufte's margin typography and alignment.
+\usepackage{caption}
+\DeclareCaptionFont{tufte}{\@tufte@caption@font}
+\DeclareCaptionJustification{tufte}{\@tufte@caption@justification}
+\captionsetup{
+  font=tufte,labelfont=bf,labelsep=period,
+  justification=tufte,singlelinecheck=false,parindent=0pt,
+  % Tufte builds captions in separate margin boxes; link to the caption.
+  hypcap=false
+}
 \makeatother

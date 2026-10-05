@@ -3,10 +3,11 @@
 Collaborative student notes for Analysis I and II, typeset as a Tufte-style
 LaTeX book with margin notes, figures, and shared mathematical notation.
 
-**Work in progress:** Analysis I has a tentative nine-chapter outline. Much of
-the current text and artwork is marked Tufte template material used to preview
-the layout; it will be replaced with reviewed course notes. Analysis II is
-reserved for a later course and is currently excluded from the book.
+**Work in progress:** Analysis I follows the lecturer's nine-chapter syllabus.
+The first three weeks of reviewed notes are in Chapter 1. Later sections still
+contain Tufte template material used to preview the layout, apart from a retained
+Taylor-remainder application; specimens will be replaced with course notes.
+Analysis II is reserved for a later course and is currently excluded from the book.
 
 ## Table of contents
 
@@ -17,6 +18,7 @@ reserved for a later course and is currently excluded from the book.
 - [Local customisation](#local-customisation)
 - [Contributing](#contributing)
 - [License and attribution](#license-and-attribution)
+- [Changelog](#changelog)
 
 ## Book outline
 
@@ -41,8 +43,14 @@ begins.
 ### Appendices
 
 - [Notation](sections/appendices/notation.tex)
-- [Prerequisite results](sections/appendices/prerequisite-results.tex)
+- [Assumed knowledge](sections/appendices/assumed-knowledge.tex)
 - [Solutions to exercises](sections/appendices/exercise-solutions.tex)
+- [Formula sheet](sections/appendices/formula-sheet.tex)
+
+Assumed knowledge recalls functions, their domains and codomains, and
+injectivity, surjectivity, and bijectivity, with finite-set and Euclidean
+examples. The [appendix changelog](sections/appendices/README.md#changelog)
+records how this background supports the first-use definitions in the book.
 
 ## Repository structure
 
@@ -62,7 +70,7 @@ sections/
       ...
     ...
   analysis-ii/           Future second part
-  appendices/            Notation and prerequisite results
+  appendices/            Notation, assumed knowledge, solutions, and formula sheet
 problems/hwNN.tex         Standalone homework handouts
 problems/hwNN/NN-topic/
   problem.tex            Shared exercise statement
@@ -85,11 +93,10 @@ editing one large document. Explicit `\input` lists in `part.tex` and
 
 This is the internal record of homework reuse in the book. All 24 questions
 from Homework 01, Homework 02, and Homework 03 appear in Chapter 1, **Sets and
-foundations of real analysis**. Homework 01, Homework 02, and Homework 03 Q1
-have completed solutions; the remaining seven Homework 03 entries are marked
-**Awaiting solution** in the appendix and handout. Each exercise has a directory of the form
+foundations of real analysis**. All 24 questions have completed solutions
+in the appendix and handouts. Each exercise has a directory of the form
 `problems/hwNN/NN-topic/`, containing `problem.tex` and `solution.tex`.
-The main chapters input only `problem.tex`. Solutions and pending entries appear in
+The main chapters input only `problem.tex`. Solutions appear in
 [Appendix C, Solutions to exercises](sections/appendices/exercise-solutions.tex),
 under the section **Sets and foundations of real analysis**, in book exercise
 order. Each appendix entry repeats the complete shared `problem.tex` before
@@ -113,37 +120,40 @@ after the restated problem.
 
 | Homework question / problem source | Content assessed | Book section and placement | Appendix order / solution source | Stable key | Status |
 | --- | --- | --- | --- | --- | --- |
-| [HW01 Q1](problems/hw01/01-de-morgan/problem.tex) | De Morgan's laws for arbitrary families | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Exercises on sets and enumeration | [1](problems/hw01/01-de-morgan/solution.tex) | `hw01:de-morgan` | Included |
-| [HW01 Q2](problems/hw01/02-power-set/problem.tex) | Iterated power sets and finite cardinality | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), after the finite power-set formula | [4](problems/hw01/02-power-set/solution.tex) | `hw01:power-set` | Included |
-| [HW01 Q3](problems/hw01/03-prime-roots/problem.tex) | Irrationality of prime roots | [§1.2 Rational gaps and irrational numbers](sections/analysis-i/01-sets-and-foundations/02-rational-gaps.tex), after the proof for the square root of two | [3](problems/hw01/03-prime-roots/solution.tex) | `hw01:prime-roots` | Included |
-| [HW01 Q4](problems/hw01/04-interval-to-reals/problem.tex) | A bijection between an interval and the real line | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals | [5](problems/hw01/04-interval-to-reals/solution.tex) | `hw01:interval-to-reals` | Included |
-| [HW01 Q5](problems/hw01/05-open-to-closed-interval/problem.tex) | A bijection between open and closed intervals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals | [6](problems/hw01/05-open-to-closed-interval/solution.tex) | `hw01:open-to-closed-interval` | Included |
-| [HW01 Q6](problems/hw01/06-transcendental-cardinality/problem.tex) | Countability of algebraic numbers; transcendental cardinality under CH | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, following the Jacobian conjecture discussion | [8](problems/hw01/06-transcendental-cardinality/solution.tex) | `hw01:transcendental-cardinality` | Included |
-| [HW01 Q7](problems/hw01/07-linear-independence/problem.tex) | Transcendence and linear independence over the rationals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, following Q6 | [9](problems/hw01/07-linear-independence/solution.tex) | `hw01:linear-independence` | Included |
-| [HW01 Q8](problems/hw01/08-square-cardinality/problem.tex) | Digit interleaving, injections, and the cardinality of a square | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, after Q4 and Q5 | [7](problems/hw01/08-square-cardinality/solution.tex) | `hw01:square-cardinality` | Included |
-| [HW01 Q9](problems/hw01/09-irrational-roots/problem.tex) | Irrationality of roots of a positive irrational number | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), after existence and uniqueness of roots and HW03 Q2 | [22](problems/hw01/09-irrational-roots/solution.tex) | `hw01:irrational-roots` | Included |
-| [HW01 Q10](problems/hw01/10-countable-union/problem.tex) | Countable unions and diagonal enumeration | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Exercises on sets and enumeration | [2](problems/hw01/10-countable-union/solution.tex) | `hw01:countable-union` | Included |
-| [HW02 Q1](problems/hw02/01-nested-bounded-intervals/problem.tex) | Why nested intervals must be closed | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercises on the nested interval hypotheses | [13](problems/hw02/01-nested-bounded-intervals/solution.tex) | `hw02:nested-bounded-intervals` | Included |
-| [HW02 Q2](problems/hw02/02-nested-closed-intervals/problem.tex) | Why nested intervals must be bounded | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercises on the nested interval hypotheses | [14](problems/hw02/02-nested-closed-intervals/solution.tex) | `hw02:nested-closed-intervals` | Included |
-| [HW02 Q3](problems/hw02/03-nested-rational-intervals/problem.tex) | Incompleteness of the rationals and relative closedness | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Exercises on the missing limits in the rationals | [17](problems/hw02/03-nested-rational-intervals/solution.tex) | `hw02:nested-rational-intervals` | Included |
-| [HW02 Q4](problems/hw02/04-decreasing-sequence/problem.tex) | Monotonicity, Cauchy estimates, limits, infimum, and supremum | [§1.8 Induction and the Archimedean property](sections/analysis-i/01-sets-and-foundations/08-induction-and-archimedean-property.tex), Exercise on bounds and convergence | [15](problems/hw02/04-decreasing-sequence/solution.tex) | `hw02:decreasing-sequence` | Included |
-| [HW02 Q5](problems/hw02/05-factorial-sequence/problem.tex) | A bounded rational set with an irrational supremum | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Exercises on the missing limits in the rationals | [18](problems/hw02/05-factorial-sequence/solution.tex) | `hw02:factorial-sequence` | Included |
-| [HW02 Q6](problems/hw02/06-newton-iteration/problem.tex) | Newton iteration, fixed points, bounds, and monotone convergence | [§1.4 Convergence and iteration](sections/analysis-i/01-sets-and-foundations/04-convergence-and-iteration.tex), Exercise on Newton's method | [10](problems/hw02/06-newton-iteration/solution.tex) | `hw02:newton-iteration` | Included |
-| [HW03 Q1](problems/hw03/01-dedekind-infimum/problem.tex) | Greatest lower bound property directly from Dedekind cuts | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercise on the greatest lower bound property, after DC implies LUBP | [12](problems/hw03/01-dedekind-infimum/solution.tex) | `hw03:dedekind-infimum` | Included; solution complete |
-| [HW03 Q2](problems/hw03/02-cubic-dedekind-cut/problem.tex) | Cubic Dedekind partition, boundary, infimum, and supremum | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), after existence and uniqueness of nonnegative roots, before HW01 Q9 | [21](problems/hw03/02-cubic-dedekind-cut/solution.tex) | `hw03:cubic-dedekind-cut` | Included; awaiting solution |
-| [HW03 Q3](problems/hw03/03-oscillating-sequence/problem.tex) | Subsequence limits, liminf, and limsup of an oscillating sequence | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Upper and lower limits, after the tail definitions | [16](problems/hw03/03-oscillating-sequence/solution.tex) | `hw03:oscillating-sequence` | Included; awaiting solution |
-| [HW03 Q4](problems/hw03/04-fibonacci-ratios/problem.tex) | Fibonacci growth, bounded ratios, and a conditional limit | [§1.4 Convergence and iteration](sections/analysis-i/01-sets-and-foundations/04-convergence-and-iteration.tex), Exercise on Fibonacci ratios, after Newton's method | [11](problems/hw03/04-fibonacci-ratios/solution.tex) | `hw03:fibonacci-ratios` | Included; awaiting solution |
-| [HW03 Q5](problems/hw03/05-rational-interval-cover/problem.tex) | Rational interval covers, geometric-series length estimate, and completeness | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Exercise on small interval covers, after the missing-limit exercises | [19](problems/hw03/05-rational-interval-cover/solution.tex) | `hw03:rational-interval-cover` | Included; awaiting solution |
-| [HW03 Q6](problems/hw03/06-rational-exponent-laws/problem.tex) | Products of roots and laws of positive rational exponents | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), A rational exponent must be well defined, after independence of the fraction representation | [23](problems/hw03/06-rational-exponent-laws/solution.tex) | `hw03:rational-exponent-laws` | Included; awaiting solution |
-| [HW03 Q7](problems/hw03/07-reverse-triangle-inequality/problem.tex) | Reverse triangle inequality and its equality case | [§1.10 Polynomial functions and absolute value](sections/analysis-i/01-sets-and-foundations/10-elementary-functions.tex), Absolute value and distance, after the triangle inequalities | [20](problems/hw03/07-reverse-triangle-inequality/solution.tex) | `hw03:reverse-triangle-inequality` | Included; awaiting solution |
-| [HW03 Q8](problems/hw03/08-odd-roots/problem.tex) | Odd roots as increasing bijections of the real line | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercise on odd roots of real numbers, after rational exponent laws | [24](problems/hw03/08-odd-roots/solution.tex) | `hw03:odd-roots` | Included; awaiting solution |
+| [HW01 Q1](problems/hw01/01-de-morgan/problem.tex) | De Morgan's laws for arbitrary families | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Sets, operations, and maps, immediately after family membership and complements | [1](problems/hw01/01-de-morgan/solution.tex) | `hw01:de-morgan` | Included |
+| [HW01 Q2](problems/hw01/02-power-set/problem.tex) | Iterated power sets and finite cardinality | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), after the finite power-set formula | [3](problems/hw01/02-power-set/solution.tex) | `hw01:power-set` | Included |
+| [HW01 Q3](problems/hw01/03-prime-roots/problem.tex) | Irrationality of prime roots | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after root existence and the reminder of Euclid's lemma | [18](problems/hw01/03-prime-roots/solution.tex) | `hw01:prime-roots` | Included |
+| [HW01 Q4](problems/hw01/04-interval-to-reals/problem.tex) | A bijection between an interval and the real line | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, after the tangent bijection and inverse are stated | [4](problems/hw01/04-interval-to-reals/solution.tex) | `hw01:interval-to-reals` | Included |
+| [HW01 Q5](problems/hw01/05-open-to-closed-interval/problem.tex) | A bijection between open and closed intervals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, using countable shifts and bijections | [5](problems/hw01/05-open-to-closed-interval/solution.tex) | `hw01:open-to-closed-interval` | Included |
+| [HW01 Q6](problems/hw01/06-transcendental-cardinality/problem.tex) | Countability of algebraic numbers; transcendental cardinality under CH | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, after polynomial root bounds, algebraic countability, and CH, before the optional Jacobian excursion | [7](problems/hw01/06-transcendental-cardinality/solution.tex) | `hw01:transcendental-cardinality` | Included |
+| [HW01 Q7](problems/hw01/07-linear-independence/problem.tex) | Transcendence and linear independence over the rationals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, after transcendental existence and the polynomial definition | [8](problems/hw01/07-linear-independence/solution.tex) | `hw01:linear-independence` | Included |
+| [HW01 Q8](problems/hw01/08-square-cardinality/problem.tex) | Digit interleaving, injections, and the cardinality of a square | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, after positional representation, Cantor–Bernstein, and Q4–Q5 | [6](problems/hw01/08-square-cardinality/solution.tex) | `hw01:square-cardinality` | Included |
+| [HW01 Q9](problems/hw01/09-irrational-roots/problem.tex) | Irrationality of roots of a positive irrational number | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after root existence and Q3 | [19](problems/hw01/09-irrational-roots/solution.tex) | `hw01:irrational-roots` | Included |
+| [HW01 Q10](problems/hw01/10-countable-union/problem.tex) | Countable unions and diagonal enumeration | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Exercise on enumeration, after diagonal traversal and the choice of lists | [2](problems/hw01/10-countable-union/solution.tex) | `hw01:countable-union` | Included |
+| [HW02 Q1](problems/hw02/01-nested-bounded-intervals/problem.tex) | Why nested intervals must be closed | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercises on the nested interval hypotheses, after NIP and the earlier Archimedean proof | [10](problems/hw02/01-nested-bounded-intervals/solution.tex) | `hw02:nested-bounded-intervals` | Included |
+| [HW02 Q2](problems/hw02/02-nested-closed-intervals/problem.tex) | Why nested intervals must be bounded | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercises on the nested interval hypotheses, after NIP and the earlier Archimedean proof | [11](problems/hw02/02-nested-closed-intervals/solution.tex) | `hw02:nested-closed-intervals` | Included |
+| [HW02 Q3](problems/hw02/03-nested-rational-intervals/problem.tex) | Incompleteness of the rationals and relative closedness | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Exercises on the missing limits in Q, after floor, rational density, relative closure, and squeeze estimates | [14](problems/hw02/03-nested-rational-intervals/solution.tex) | `hw02:nested-rational-intervals` | Included |
+| [HW02 Q4](problems/hw02/04-decreasing-sequence/problem.tex) | Monotonicity, Cauchy estimates, limits, infimum, and supremum | [§1.8 Induction and the Archimedean property](sections/analysis-i/01-sets-and-foundations/08-induction-and-archimedean-property.tex), Exercise on bounds and convergence, after the sum-of-integers identity, triangle inequality, Cauchy definition, and Archimedean estimates | [12](problems/hw02/04-decreasing-sequence/solution.tex) | `hw02:decreasing-sequence` | Included |
+| [HW02 Q5](problems/hw02/05-factorial-sequence/problem.tex) | A bounded rational set with an irrational supremum | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), The irrationality of e, after monotone convergence, geometric sums, the factorial-series definition, and its irrationality proof | [15](problems/hw02/05-factorial-sequence/solution.tex) | `hw02:factorial-sequence` | Included |
+| [HW02 Q6](problems/hw02/06-newton-iteration/problem.tex) | Newton iteration, fixed points, bounds, and monotone convergence | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Returning to iteration, after tangent slopes, limit laws, monotone convergence, and positive roots | [23](problems/hw02/06-newton-iteration/solution.tex) | `hw02:newton-iteration` | Included |
+| [HW03 Q1](problems/hw03/01-dedekind-infimum/problem.tex) | Greatest lower bound property directly from Dedekind cuts | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercise on the greatest lower bound property, after DC implies LUBP and the definitions of lower bounds and infimum | [9](problems/hw03/01-dedekind-infimum/solution.tex) | `hw03:dedekind-infimum` | Included; solution complete |
+| [HW03 Q2](problems/hw03/02-cubic-dedekind-cut/problem.tex) | Cubic Dedekind partition, boundary, infimum, and supremum | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after nonnegative root existence, cube monotonicity, and HW01 Q9 | [20](problems/hw03/02-cubic-dedekind-cut/solution.tex) | `hw03:cubic-dedekind-cut` | Included; solution complete |
+| [HW03 Q3](problems/hw03/03-oscillating-sequence/problem.tex) | Subsequence limits, liminf, and limsup of an oscillating sequence | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Upper and lower limits, after explicit subsequence selection, the sequence limit-point definition, tail-interval visual, extreme-limit-point proposition, convergence criterion, and sine-value reminder | [13](problems/hw03/03-oscillating-sequence/solution.tex) | `hw03:oscillating-sequence` | Included; solution complete |
+| [HW03 Q4](problems/hw03/04-fibonacci-ratios/problem.tex) | Fibonacci growth, bounded ratios, and a conditional limit | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercise on Fibonacci ratios, after induction, Archimedean growth, limit laws, and square-root existence | [24](problems/hw03/04-fibonacci-ratios/solution.tex) | `hw03:fibonacci-ratios` | Included; solution complete |
+| [HW03 Q5](problems/hw03/05-rational-interval-cover/problem.tex) | Rational interval covers, geometric-series length estimate, and completeness | [§1.9 Denseness, closure, and completion](sections/analysis-i/01-sets-and-foundations/09-denseness-and-closure.tex), Exercise on small interval covers, after enumeration, density, closure versus completion, and the geometric-sum estimate | [16](problems/hw03/05-rational-interval-cover/solution.tex) | `hw03:rational-interval-cover` | Included; solution complete |
+| [HW03 Q6](problems/hw03/06-rational-exponent-laws/problem.tex) | Products of roots and laws of positive rational exponents | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), A rational exponent must be well defined, after integer power laws, root uniqueness, and independence of the fraction representation | [21](problems/hw03/06-rational-exponent-laws/solution.tex) | `hw03:rational-exponent-laws` | Included; solution complete |
+| [HW03 Q7](problems/hw03/07-reverse-triangle-inequality/problem.tex) | Reverse triangle inequality and its equality case | [§1.10 Polynomial functions and absolute value](sections/analysis-i/01-sets-and-foundations/10-elementary-functions.tex), Absolute value and distance, after the triangle-inequality reminder and the reverse-inequality argument | [17](problems/hw03/07-reverse-triangle-inequality/solution.tex) | `hw03:reverse-triangle-inequality` | Included; solution complete |
+| [HW03 Q8](problems/hw03/08-odd-roots/problem.tex) | Odd roots as increasing bijections of the real line | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercise on odd roots of real numbers, after nonnegative root existence, power monotonicity, and rational exponent laws | [22](problems/hw03/08-odd-roots/solution.tex) | `hw03:odd-roots` | Included; solution complete |
 
 Placement follows the material assessed and the available prerequisites.
 HW02 Q3 follows the floor function, rational density, and relative closure.
 HW02 Q4 follows the Archimedean property used to choose its indices.
-The Newton exercise previews monotone convergence, just as the lecture's
-square-root iteration does. HW02 Q5 retains the original Taylor-remainder
-argument, with an explicit note that Taylor's theorem comes later. HW01 Q6
+The Newton and Fibonacci exercises now follow positive-root existence and
+the limit laws; Newton also follows monotone convergence. HW02 Q5 uses the
+factorial-series definition of e, so its solution needs no Taylor theorem.
+The Taylor-remainder identification with exp(1) is retained as a later
+application in [§6.3 Taylor's theorem](sections/analysis-i/06-differentiation-and-applications/03-taylor-theorem.tex).
+HW01 Q6
 retains its requested CH-based proof in the appendix; the lecture gives the
 stronger result without CH.
 
@@ -152,12 +162,13 @@ Homework 03 was transcribed from the two-page assignment
 Q2 follows the root theorem needed to identify its cubic boundary. The
 source's `B` membership typo is corrected to subset notation in part (a),
 and Q4 explicitly interprets increasing as nondecreasing. Q3 assumes the
-usual elementary sine values. Q5 deliberately previews the geometric-series
-estimate from the later series chapter; its surrounding text distinguishes
+usual elementary sine values. Q5 follows a proved geometric-sum estimate;
+its surrounding text distinguishes
 small total covering length from metric incompleteness. The Week 3 topic
 summary is source metadata rather than an additional exercise. The assignment
-PDF supplied no solutions. The author's proof for Homework 03 Q1 is now
-included; the other seven shared solution files remain pending.
+PDF supplied no solutions. The author's proof for Homework 03 Q1 is preserved,
+and Questions 2–8 now have complete shared solutions in the same plain-English
+style, with TikZ diagrams where they clarify the reasoning.
 
 Keep a row for every homework question, including questions not yet used.
 Use **Included**, **Not yet included**, or **Deferred**; record a reason and
@@ -170,16 +181,18 @@ the appendix inputs and the order column synchronized with the main text,
 and check the links in both directions. Beyond this appendix restatement,
 cross-reference an exercise when it is relevant again instead of repeating it.
 
-Keep submission-specific page breaks in the handout entry files. Inside a
-shared solution, wrap an essential handout-only layout hint in
-`\handoutonly{...}` so it does not force a page break in the book. Put
-appendix-specific page breaks in `sections/appendices/exercise-solutions.tex`.
+Let problems flow naturally in handouts and the solutions appendix. Do not
+insert forced page breaks between problems; adjust local spacing and figure
+placement when needed. Keep handout-specific layout in the handout entry
+files. Inside a shared solution, wrap a handout-only layout hint in
+`\handoutonly{...}` so it does not affect the book.
 `problems/template.tex` remains the unchanged standalone template.
 
 ## Build the notes
 
-Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, biblatex, Biber, latexmk,
-and makeindex, plus Make. The project has been built with TeX Live 2025.
+Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
+biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
+with TeX Live 2025.
 
 From the repository root:
 
@@ -232,3 +245,25 @@ This project is licensed under the [Apache License, Version 2.0](LICENSE),
 matching the book's copyright page and the borrowed Tufte-LaTeX template.
 See [third-party notices](THIRD_PARTY_NOTICES.md) for the template's authors,
 source credits, and the modifications made for these notes.
+
+## Changelog
+
+### 2026-10-05
+
+- Add a portrait Formula sheet appendix with two columns for sequences and series, explicit hypotheses, and elementary summation identities. Place it after the solutions to preserve existing appendix references and homework ordering. Its compact layout is local to the sheet, with room to add later course topics.
+
+### 2026-10-03
+
+- Connect upper and lower limits in §1.9 to sequence limit points before HW03 Q3. Explain how increasing indices select actual terms, illustrate nested tail bounds, and prove that their limiting endpoints are the extreme subsequence limits. Explain why one convergent subsequence describes only selected terms, while a bounded sequence with a single limit point converges as a whole. Keep the distinction between an interval bounding all limit points and the set of limit points itself visible.
+- Keep ordinary diagram strokes at the shared thin weight described in [the TikZ style guide](AGENTS.md#tikz-diagram-design). Extra drawing styles can override the inherited width, so check their resolved settings to prevent new geometric figures from looking heavier than the surrounding diagrams.
+- Use the `caption` package in the shared preamble for bold figure and table labels followed by a full stop. Preserve Tufte's margin font and alignment, and place hyperlink targets at the captions because Tufte assembles them in separate margin boxes.
+- Clear the pending list-end state after the full-width chapter title in `preamble.tex`. With the current LaTeX kernel, that state can overwrite the chapter's paragraph hook and make the first section after introductory prose lose its normal spacing; preserve the existing `titlesec` spacing rather than adding manual gaps to chapter files.
+- Use `\autoref` for numbered object references throughout the book and handouts, with full capitalised names, parenthesised equation numbers, and `§` for sections. Centralise the convention in `macros.tex` to avoid inconsistent manual prefixes; alias counters distinguish the kinds of mathematical results without changing their shared numbering.
+- Load `hyperref` late in both document classes, followed by the shared `caption` setup, preserving the contents and margin styling. Prepare PDF author metadata from the unexpanded author, and supply a plain-text optional author when possible, because Tufte's pre-expanded formatting can fail during metadata conversion.
+- Keep the lecturer's syllabus chapters and sections, including their titles and order, as the book's organising framework. Improve the arrangement of explanations, proofs, examples, and exercises within that framework rather than replacing it with a new outline.
+- Introduce the tools an argument needs before its substantial use, and place homework only after the student has the tools to solve it. Early motivation may name a later result, but its proof and assessed applications must follow the prerequisites.
+
+The [Chapter 1 changelog](sections/analysis-i/01-sets-and-foundations/README.md#changelog)
+explains how the first three weeks preserve the syllabus while resolving
+prerequisite gaps. The [Chapter 6 changelog](sections/analysis-i/06-differentiation-and-applications/README.md#changelog)
+records the later placement of the retained Taylor application.

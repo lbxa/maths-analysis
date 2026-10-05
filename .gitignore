@@ -44,6 +44,19 @@ build/
 *.nav
 *.snm
 *.vrb
+*.brf
+*.thm
+*.tdo
+*.spl
+
+# Compiler recovery files and editor-generated auxiliary metadata.
+*-SAVE-ERROR
+*.auxlock
+*.pdfsync
+*.aux.bak
+*.bbl.bak
+*.bcf.bak
+*.run.xml.bak
 
 # SyncTeX output, including files written during compilation.
 *.synctex

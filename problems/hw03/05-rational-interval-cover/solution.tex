@@ -1,3 +1,56 @@
 % !TEX root = ../../hw03.tex
-% Homework 03, question 5. No solution supplied yet.
-\noindent\emph{Awaiting solution.}
+% Homework 03, question 5.
+\begin{proof}[Solution]
+  For part (a), the length of each interval is the difference between
+  its endpoints, so
+  \[
+    |I_n(\varepsilon)|
+      =(q_n+\varepsilon2^{-n})-(q_n-\varepsilon2^{-n})
+      =2\varepsilon2^{-n}.
+  \]
+  The finite geometric sum gives
+  \[
+    \sum_{n=0}^{N}|I_n(\varepsilon)|
+      =2\varepsilon\sum_{n=0}^{N}2^{-n}
+      =4\varepsilon\bigl(1-2^{-(N+1)}\bigr).
+  \]
+  Letting $N\to\infty$, we obtain
+  \[
+    \sum_{n=0}^{\infty}|I_n(\varepsilon)|=4\varepsilon.
+  \]
+  In particular, the requested upper bound holds. Given any $\delta>0$,
+  choosing $0<\varepsilon<\delta/4$ covers every point of $Q$ with
+  intervals whose total length is less than $\delta$.
+
+  For part (b), this explains the word ``sparse'' in terms of covering
+  length. It does not mean that the rationals are separated by gaps.
+  Rational density gives a point of $Q$ in every open subinterval of
+  $[0,1]$, so the closure of $Q$ is the whole interval. Nor does the
+  covering estimate alone prove that $Q$ is incomplete. A singleton
+  is complete and also admits covers of arbitrarily small length.
+
+  To prove incompleteness, we must instead exhibit a Cauchy sequence
+  in $Q$ with no limit in $Q$. Let $\alpha=\sqrt{2}/2$. Then
+  $0<\alpha<1$, and $\alpha$ is irrational, since otherwise
+  $\sqrt{2}=2\alpha$ would be rational. Take the decimal approximations
+  \[
+    x_n=\frac{\lfloor10^n\alpha\rfloor}{10^n},\qquad n\geq1.
+  \]
+  Each $x_n$ belongs to $Q$, and the defining inequalities for the
+  floor function give
+  \[
+    0\leq\alpha-x_n<10^{-n}.
+  \]
+  Given $\eta>0$, choose $N$ so that $2\cdot10^{-N}<\eta$. For
+  $m,n\geq N$, the triangle inequality then gives
+  \[
+    |x_m-x_n|
+      \leq|x_m-\alpha|+|x_n-\alpha|
+      <2\cdot10^{-N}<\eta.
+  \]
+  Thus $(x_n)$ is Cauchy. The same approximation bound shows that
+  $x_n\to\alpha$ in $\R$. By uniqueness of limits, it cannot converge
+  to a point of $Q$. This missing limit proves that $Q$ is incomplete.
+  Since $Q$ is dense in $[0,1]$ and this closed interval is complete,
+  $[0,1]$ is its completion under the usual distance.
+\end{proof}

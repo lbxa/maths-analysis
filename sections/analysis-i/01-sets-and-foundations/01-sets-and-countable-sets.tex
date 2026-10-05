@@ -11,14 +11,35 @@ Throughout these notes, $\N=\{1,2,3,\ldots\}$.
 We write $x\in A$ when $x$ belongs to $A$, and $A\subseteq B$ when every
 element of $A$ belongs to $B$. Two sets are equal precisely when each is
 a subset of the other. The empty set is denoted by $\varnothing$.
-For sets $A$ and $B$, the basic operations are
+For sets $A$ and $B$ in a universe $U$, the basic operations are
+\begin{marginfigure}[-4\baselineskip]
+  \centering
+  \input{figures/foundations/set-union}
+  \caption[Union of two sets.]{Shading marks $A\cup B$, including the overlap.}
+  \label{fig:analysis-i:set-union}
+\end{marginfigure}
+\begin{marginfigure}
+  \centering
+  \input{figures/foundations/set-intersection}
+  \caption[Intersection of two sets.]{Shading marks $A\cap B$, the overlap.}
+  \label{fig:analysis-i:set-intersection}
+\end{marginfigure}
+\begin{marginfigure}
+  \centering
+  \input{figures/foundations/set-complement}
+  \caption[Complement in a universe.]{Shading marks $A^c=U\setminus A$.}
+  \label{fig:analysis-i:set-complement}
+\end{marginfigure}
 \begin{align*}
-  A\cup B&=\{x:x\in A\text{ or }x\in B\},\\
-  A\cap B&=\{x:x\in A\text{ and }x\in B\},\\
-  A\setminus B&=\{x:x\in A\text{ and }x\notin B\}.
+  A\cup B&=\{x\mid x\in A\text{ or }x\in B\},\\
+  A\cap B&=\{x\mid x\in A\text{ and }x\in B\},\\
+  A\setminus B&=\{x\mid x\in A\text{ and }x\notin B\}.
 \end{align*}
+\autoref{fig:analysis-i:set-union} shows the union, and
+\autoref{fig:analysis-i:set-intersection} shows their common part.
 The complement $A^c$ is taken relative to a specified universe $U$, so
-$A^c=U\setminus A$. The distributive laws and De Morgan's laws follow by
+$A^c=U\setminus A$. \autoref{fig:analysis-i:set-complement} shades the
+part of $U$ outside $A$. The distributive laws and De Morgan's laws follow by
 checking membership. For example,
 \[
   (A\cup B)^c=A^c\cap B^c,
@@ -27,14 +48,27 @@ checking membership. For example,
 For a family $(A_i)_{i\in I}$, membership in $\bigcup_{i\in I}A_i$ means
 membership in at least one $A_i$; membership in $\bigcap_{i\in I}A_i$
 means membership in every $A_i$.
+For an empty family, the union is $\varnothing$ and the intersection is
+the specified universe $U$.
+
+The next exercise extends De Morgan's laws to an arbitrary family.
+\input{problems/hw01/01-de-morgan/problem}
 
 The \emph{Cartesian product} is the set of ordered pairs
 \[
-  A\times B=\{(a,b):a\in A,\ b\in B\}.
+  A\times B=\{(a,b)\mid a\in A, b\in B\}.
 \]
-A map $f:A\to B$ is \emph{injective} if $f(a)=f(a')$ implies $a=a'$, and
+\index{function}\index{domain}\index{codomain}
+A \emph{function}, also called a \emph{map}, $f:A\to B$ assigns exactly
+one output $f(a)\in B$ to each input $a\in A$. The set $A$ is its
+\emph{domain}, and $B$ is its \emph{codomain}. Different inputs may have
+the same output, and some elements of $B$ may never be reached.
+
+The map is \emph{injective} if $f(a)=f(a')$ implies $a=a'$, and
 \emph{surjective} if every $b\in B$ equals $f(a)$ for some $a\in A$.
 A map with both properties is a \emph{bijection}.
+\autoref{sec:appendix:map-properties} recalls these definitions with
+finite-set diagrams and examples in Euclidean spaces.
 
 \begin{definition}
   Two sets have the same \emph{cardinality}, written $|A|=|B|$, when there
@@ -48,6 +82,27 @@ mean uncountable. For example, the even positive integers form a proper
 subset of $\N$, yet $n\mapsto 2n$ is a bijection between these two sets.
 \marginnote{For finite sets a proper subset has fewer elements. For infinite
 sets, containment alone does not determine whether cardinality is smaller.}
+
+\subsection{Induction and the least natural number}
+Mathematical induction proves a statement $P(n)$ for every $n\in\N$ by
+proving $P(1)$ and proving that $P(n)$ implies $P(n+1)$.
+For example, $2^n\geq n+1$ holds at $n=1$. If it holds at $n$, then
+$2^{n+1}\geq2(n+1)\geq n+2$, which establishes the next case.
+We will also use the identity
+\[
+  1+2+\cdots+n=\frac{n(n+1)}{2}.
+\]
+It holds at $n=1$, and adding $n+1$ to the formula for $n$ gives
+$(n+1)(n+2)/2$, proving the induction step.
+
+The \emph{well-ordering principle} says that every nonempty subset of
+$\N$ has a least element. It is equivalent to induction. For the direction
+needed here, a subset with no least element cannot contain $1$.
+If it contains none of $1,\ldots,n$, it cannot contain $n+1$ either,
+since that would be its least element. Induction would make it empty.
+In particular, an infinite subset of $\N$ can be enumerated by repeatedly
+choosing the least remaining element. Each member is eventually reached,
+because only finitely many natural numbers precede it.
 
 \subsection{Combining countable sets}
 If $A=\{a_1,a_2,\ldots\}$ and $B=\{b_1,b_2,\ldots\}$, interleave the lists
@@ -80,6 +135,8 @@ of information.
   Enumerations of two countable sets then give a list of their pairs.
 \end{proof}
 
+For the next argument, we use the axiom of countable choice to select
+one enumeration for each nonempty set in a countable family.
 \begin{proposition}
   A countable union of countable sets is countable.
 \end{proposition}
@@ -91,8 +148,7 @@ of information.
   Listing $a_{m,n}$ in this order reaches every element of the union.
   Discard repeated appearances to obtain the required enumeration.
 \end{proof}
-As usual, the argument uses a choice of enumerations for the countable
-family. Figure~\ref{fig:countable-grid} shows the order of traversal.
+\autoref{fig:countable-grid} shows the order of traversal.
 \begin{marginfigure}[-6\baselineskip]
   \centering
   \input{figures/foundations/countable-grid}
@@ -112,9 +168,8 @@ Since $\N\subseteq\Q$, it is infinite, and therefore
 The encoding is a map into pairs of integers; it does not assert that
 rational numbers themselves are a subset of $\N$.
 
-\subsection{Exercises on sets and enumeration}
-The following exercises apply membership arguments to an arbitrary family
-of sets and make the diagonal enumeration of a countable union explicit.
+\subsection{Exercise on enumeration}
+The following exercise makes the diagonal enumeration of a countable
+union explicit.
 
-\input{problems/hw01/01-de-morgan/problem}
 \input{problems/hw01/10-countable-union/problem}
