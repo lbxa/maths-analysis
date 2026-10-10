@@ -1,41 +1,39 @@
 % !TEX root = ../../../main.tex
+% Recall of the completeness result already proved in Chapter 1.
 \section{Bolzano--Weierstrass theorem}
 \label{sec:analysis-i:bolzano-weierstrass-theorem}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 572--602.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:sec:sidenotes}
-One of the most prominent and distinctive features of this style is the
-extensive use of sidenotes.  There is a wide margin to provide ample room
-for sidenotes and small figures.  This book uses unnumbered margin
-notes.\marginnote{This unnumbered note uses the
-\texttt{\textbackslash marginnote} command.}  To place ancillary
-information in the margin without the sidenote mark (the superscript
-number), you can use the \doccmd{marginnote} command.\marginnote{This is a
-margin note.  Notice that there isn't a number preceding the note, and
-there is no number in the main text where this note was written.}
+\begin{theorem}[Bolzano--Weierstrass]
+  \label{thm:analysis-i:bolzano-weierstrass}
+  Every bounded real sequence has a convergent subsequence.
+\end{theorem}
 
-The specification of the \doccmddef{sidenote} command is:
-\begin{docspec}
-  \doccmd{sidenote}[\docopt{number}][\docopt{offset}]\{\docarg{Sidenote text.}\}
-\end{docspec}
+\begin{marginfigure}[22mm]
+  \centering
+  \input{figures/sequences/bolzano-weierstrass-selection}
+  \caption[Selecting a subsequence in nested intervals.]{Schematic selection in nested intervals. Each $I_k$
+    contains infinitely many terms, so we can choose $a_{n_k}\in I_k$
+    with $n_1<n_2<\cdots$. The shrinking intervals share the point $L$;
+    the construction continues beyond the rows shown.}
+  \label{fig:bolzano-weierstrass-selection}
+\end{marginfigure}
 
-Both the \docopt{number} and \docopt{offset} arguments are optional.  If you
-provide a \docopt{number} argument, then that number will be used as the
-sidenote number.  It will change of the number of the current sidenote only and
-will not affect the numbering sequence of subsequent sidenotes.
+A subsequence $(a_{n_k})$ uses strictly increasing indices
+$n_1<n_2<\cdots$. It keeps some terms in their original order.
+The nested-interval proof in
+\autoref{sec:analysis-i:completeness-equivalences} repeatedly retains
+a half-interval containing infinitely many terms, then chooses a term
+in each retained interval with index larger than the previous one.
+\autoref{fig:bolzano-weierstrass-selection} shows these choices.
+If $L$ is the common point of the retained intervals $I_k$, then
+\[
+  |a_{n_k}-L|\le |I_k|\longrightarrow0,
+\]
+where $|I_k|$ denotes the length of $I_k$. Thus the shrinking intervals
+force the chosen subsequence to converge to $L$.
 
-Sometimes a sidenote may run over the top of other text or graphics in the
-margin space.  If this happens, you can adjust the vertical position of the
-sidenote by providing a dimension in the \docopt{offset} argument.  Some
-examples of valid dimensions are:
-\begin{docspec}
-  \ttfamily 1.0in \qquad 2.54cm \qquad 254mm \qquad 6\Verb|\baselineskip|
-\end{docspec}
-If the dimension is positive it will push the sidenote down the page; if the
-dimension is negative, it will move the sidenote up the page.
-
-\lipsum[5]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+The theorem guarantees a convergent subsequence, rather than convergence
+of the original sequence. For instance, $(-1)^n$ is bounded and has
+constant subsequences with limits $1$ and $-1$, although the whole
+sequence does not converge. These subsequential limits are the limit
+points introduced in \autoref{sec:analysis-i:denseness}.

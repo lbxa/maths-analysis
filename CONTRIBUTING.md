@@ -74,8 +74,14 @@ section-based result counter; LUBP in the supremum section is an example.
 
 Use `\marginnote{...}` for secondary observations in the book and homework
 handouts. Notes sit beside the relevant passage without numeric markers in
-either the margin or the main text. Place the command at that passage and
-use `\marginnote[<offset>]{...}` only when needed to avoid a collision.
+either the margin or the main text. Place the command at that passage.
+The shared `marginfix` configuration stacks notes and complete margin figures,
+leaves space between them, and moves excess content intact to the next page.
+Use `\marginnote[<offset>]{...}` or `marginfigure`'s optional offset only
+to suggest alignment with a passage; the scheduler may adjust that position.
+Do not use negative space or forced page breaks to fix crowded margins.
+Use a main-text or full-width figure if a chart and its caption cannot fit
+in one margin at a readable size. Keep side captions' height measurable.
 Do not use numbered `\sidenote` or `\footnote` commands for these notes.
 
 Add source metadata to `bibliography.bib`. Citations use bracketed numbers

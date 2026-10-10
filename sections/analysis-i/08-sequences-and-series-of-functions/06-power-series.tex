@@ -1,17 +1,146 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9238 and IMG_9240--IMG_9242. Keep the syllabus location.
+% Only a final sentence is visible in IMG_9242; a hand obscures the rest.
 \section{Power series}
 \label{sec:analysis-i:power-series}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 1118--1125.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:ch:troubleshooting}
+A power series uses a variable as the base of each term. For each fixed
+value of that variable, it is an ordinary number series, so the tests
+from \autoref{sec:analysis-i:comparison-tests} apply.
 
-\label{template:sec:website}
-The website for the \TL packages is located at
-\url{http://code.google.com/p/tufte-latex/}.  On our website, you'll find
-links to our \smallcaps{svn} repository, mailing lists, bug tracker, and documentation.
+\begin{definition}
+  A \emph{power series centred at zero} has the form
+  \[
+    \sum_{n=0}^{\infty}c_nx^n,
+  \]
+  where the coefficients $c_n$ are fixed real numbers.
+  Its \emph{radius of convergence} is a number $R\in[0,+\infty]$
+  such that the series converges absolutely for $|x|<R$ and diverges
+  for $|x|>R$. The points $x=\pm R$, when $0<R<\infty$, must be
+  examined separately.
+\end{definition}
 
-\lipsum[6]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+% Addition awaiting author review. The source introduces
+% radii through examples; this supplies the existence assertion used above.
+\begin{pendingreview}
+\begin{proposition}
+  \label{thm:analysis-i:power-series-radius}
+  Every real power series centred at zero has a radius of convergence
+  $R\in[0,+\infty]$ with the properties in the preceding definition.
+\end{proposition}
+
+\begin{proof}
+  At $x=0$ the constant term is $c_0$ and every other term vanishes,
+  so the series converges there. Suppose it converges at some
+  $x_0\ne0$. Its terms tend to zero by
+  \autoref{thm:analysis-i:series-term-test}, so there is a number $B>0$
+  such that $|c_nx_0^n|\le B$ for every $n\ge0$. If $|x|<|x_0|$, then
+  \[
+    |c_nx^n|\le B\left(\frac{|x|}{|x_0|}\right)^n.
+  \]
+  The geometric majorant converges. Thus convergence at any nonzero
+  point implies absolute convergence at every point closer to zero.
+
+  Let $S$ consist of the nonnegative values $r$ where the power series
+  converges absolutely. This set contains $0$.
+  If $S$ is bounded above, let $R=\sup S$; otherwise let $R=+\infty$.
+  If $|x|<R$, there is an $r\in S$ with $|x|<r$. The preceding
+  comparison then proves absolute convergence at $x$. For $R=0$
+  this interior condition is empty, while convergence at zero remains.
+
+  If $R<\infty$ and the series converged at a point with $|x|>R$,
+  choose $t$ with $R<t<|x|$. The same comparison would give absolute
+  convergence at $t$, so $t\in S$, contradicting that $R$ is an upper
+  bound. The series therefore diverges for $|x|>R$. This proves all
+  the required properties. Boundary behaviour when $0<R<\infty$
+  still requires separate tests.
+\end{proof}
+\end{pendingreview}
+
+An infinite radius means absolute convergence for every real $x$.
+
+\subsection{The geometric power series}
+
+The series $\sum_{n=0}^{\infty}x^n$ has radius $R=1$, since
+\autoref{sec:analysis-i:number-series} proves that it converges exactly
+for $|x|<1$. Neither endpoint is included. At $x=1$ every term is $1$;
+at $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
+terms fail to tend to zero.
+% IMG_9238's annotation R=|x| confuses the term ratio with the radius.
+
+\subsection{The exponential series}
+
+Consider the polynomials and their limiting series
+\[
+  E_N(x)=\sum_{k=0}^{N}\frac{x^k}{k!},\qquad
+  E(x)=\sum_{k=0}^{\infty}\frac{x^k}{k!}.
+\]
+For fixed $x\ne0$, the absolute successive-term ratio is
+\[
+  \frac{|x|^{k+1}/(k+1)!}{|x|^k/k!}
+  =\frac{|x|}{k+1}\longrightarrow0.
+\]
+The ratio test proves absolute convergence for every such $x$.
+At $x=0$, only the constant term remains, so $E(0)=1$.
+Thus this series has infinite radius of convergence and $E_N(x)\to E(x)$
+for every fixed real $x$. The lecture identifies $E(x)$ with $e^x$;
+the properties of the exponential function are not proved by this
+convergence argument. At $x=1$ the sum is the earlier factorial-series
+definition of $e$.
+
+\subsection{A family with different endpoints}
+
+Let $s\ge0$ be a real number and consider
+\[
+  F_s(x)=\sum_{n=1}^{\infty}\frac{x^n}{n^s}.
+\]
+As in the $p$-series example, real powers use their usual exponent and
+order laws. For $x\ne0$, the $n$th root of the absolute value of the
+$n$th term is
+\[
+  \left|\frac{x^n}{n^s}\right|^{1/n}
+  =\frac{|x|}{(n^{1/n})^s}\longrightarrow |x|.
+\]
+To justify the denominator's limit using the sequence results already
+available, choose an integer $m\ge s$. Since $n^{1/n}\ge1$,
+\[
+  1\le(n^{1/n})^s\le(n^{1/n})^m\longrightarrow1.
+\]
+The last limit follows from \autoref{thm:analysis-i:root-sequence-limits}
+and the product rule, and the squeeze principle gives the desired limit.
+
+For $|x|<1$, the root test proves absolute convergence, with $x=0$
+immediate. For $|x|>1$, choose $1<r<|x|$. The root values eventually
+exceed $r$, so $|x^n/n^s|>r^n$ for every sufficiently large $n$.
+The terms do not tend to zero and the series diverges. Therefore $R=1$
+for every $s\ge0$.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/series/power-series-endpoints}
+  \caption[Three endpoint patterns for radius one.]{All three cases have radius $1$. Open or filled endpoint
+    markers record the separate tests at $-1$ and $1$; the radius
+    alone does not settle them.}
+  \label{fig:power-series-endpoints}
+\end{marginfigure}
+
+At $x=1$, this is the $p$-series, which converges exactly when $s>1$.
+At $x=-1$, it is $\sum(-1)^n/n^s$, which converges for $s>0$ by
+\autoref{ex:analysis-i:alternating-power-series}. For $s=0$, the terms
+do not tend to zero. Accordingly the intervals of convergence are
+\[
+  \begin{array}{c|c}
+    s=0 & (-1,1)\\[3pt]
+    0<s\le1 & [-1,1)\\[3pt]
+    s>1 & [-1,1].
+  \end{array}
+\]
+\autoref{fig:power-series-endpoints} keeps the three cases distinct.
+% IMG_9242 claims [-1,1] without a visible condition. The right endpoint
+% requires s>1; the left requires s>0. No obscured writing is transcribed.
+
+The following exercise introduces a scale factor in the coefficients.
+Use the series tests for the interior and exterior, then examine
+absolute convergence at each endpoint separately.
+
+\input{problems/hw04/07-scaled-power-series/problem}

@@ -1,25 +1,50 @@
 % !TEX root = ../../../main.tex
+% Recall of Chapter 1, needed for IMG_9235--IMG_9236's series tail proofs.
 \section{Cauchy sequences}
 \label{sec:analysis-i:cauchy-sequences}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 623--639.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-References appear as bracketed numbers in the text, using the normal
-\doccmddef{cite} command. Full entries are collected in the bibliography
-before the appendices by \doccmddef{printbibliography}, in order of first
-citation. The build runs Biber to resolve the entries in
-\texttt{bibliography.bib}.
+\begin{definition}
+  A real sequence $(a_n)$ is \emph{Cauchy} if
+  \[
+    \forall\varepsilon>0\ \exists N\in\N\quad
+    \forall m,n\ge N\quad |a_m-a_n|<\varepsilon.
+  \]
+\end{definition}
 
-To enter multiple citations at one location~\cite{Tufte2006,Tufte1990},
-provide a list of keys separated by commas,
-as in \Verb|\cite{Tufte2006,Tufte1990}|.
-An optional argument supplies a page or other locator, rather than a
-vertical offset.
-\begin{docspec}
-  \doccmd{cite}[\docopt{postnote}]\{\docarg{bibkey1,bibkey2,\ldots}\}
-\end{docspec}
+Here $m,n\ge N$ means $m\ge N$ and $n\ge N$, with both indices
+chosen independently from the same tail. We can equivalently require
+the inequality only for $m>n\ge N$. Indeed, exchanging the indices
+does not change the distance, since $|a_m-a_n|=|a_n-a_m|$, and
+the case $m=n$ gives $0<\varepsilon$. In either form, every pair of
+distinct tail terms must be close, however far apart their indices are.
 
-\lipsum[7]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{marginfigure}
+  \centering
+  \input{figures/sequences/cauchy-tail-diameter}
+  \caption[Whole Cauchy tails in shrinking intervals.]{Schematic real-line views of two tails, with
+    $\varepsilon_2<\varepsilon_1$. Each shaded interval contains a
+    whole tail and is narrower than its indicated tolerance, so
+    every pair of terms in that tail is close. Dots show sample terms.}
+  \label{fig:cauchy-tail-diameter}
+\end{marginfigure}
+
+Convergence compares late terms with a proposed limit. The Cauchy
+condition compares late terms with one another, so it can be checked
+without knowing the limit in advance.
+\autoref{fig:cauchy-tail-diameter} shows the whole tail confined to a
+small interval. A smaller tolerance may require a larger starting index;
+the condition controls every pair of terms after that index.
+
+\begin{theorem}[Cauchy completeness of the real numbers]
+  \label{thm:analysis-i:cauchy-completeness}
+  A real sequence converges if and only if it is Cauchy.
+\end{theorem}
+
+If $a_n\to L$, choose $N$ so that $|a_n-L|<\varepsilon/2$ for
+$n\ge N$. The triangle inequality then gives
+$|a_m-a_n|\le|a_m-L|+|a_n-L|<\varepsilon$.
+The converse uses completeness, as proved in
+\autoref{sec:analysis-i:completeness-equivalences}. A Cauchy sequence
+is bounded, hence has a convergent subsequence; its Cauchy property
+then forces every sufficiently late term towards the same limit.
+We will apply this theorem to partial sums of series.

@@ -1,0 +1,18 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=2.6mm,y=19mm]
+  \draw[->] (0,0) -- (12.7,0) node[right=4pt] {$n$};
+  \draw[->] (0,0) -- (0,2.25) node[above=4pt] {$y$};
+  \draw[gray,dashed] (0,1) -- (12,1);
+  \node[left=5pt] at (0,1) {$L$};
+  \draw[gray,domain=1:12,samples=80] plot (\x,{1+1/\x});
+  \draw[gray,domain=1:12,samples=80] plot (\x,{1-1/\x});
+  \node at (4.8,1.55) {$c_n$};
+  \node at (4.8,0.45) {$a_n$};
+  \foreach \n in {1,...,12}{
+    \pgfmathsetmacro{\term}{1+(-1)^\n/(2*\n)}
+    \fill (\n,\term) circle[radius=1.4pt];
+  }
+  \fill (4,1.95) circle[radius=1.4pt];
+  \node[right=5pt] at (4,1.95) {$b_n$ terms};
+\end{tikzpicture}

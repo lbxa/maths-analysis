@@ -14,7 +14,7 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 ## Build & Development Commands
 
-Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, biblatex, Biber, and latexmk. Run from the repository root:
+Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
 - `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
@@ -49,6 +49,20 @@ Preserve the author's style and the course's flow of topics when turning lecture
 
 Keep the lecturer's syllabus chapters and sections, including their titles and order, as the organising framework. Reorganise content within that framework to introduce tools before their substantial use and before exercises that require them. Keep early motivation concise and return to its proof after the prerequisites. Consult the root and relevant chapter README changelogs before structural edits, and record agreed decisions and their rationale there.
 
+Keep the rendered book independent of the semester schedule. Week numbers,
+lecture dates or numbers, import batches, and coverage progress belong only
+in internal README records, source filenames, and non-rendered TeX comments.
+In reader-facing prose, headings, captions, and front matter, describe
+mathematical topics and refer to chapters or sections. Preserve necessary
+statements about assumptions, omitted proofs, and prerequisite dependencies.
+
+Present imported lecture questions and tasks as examples with mathematical
+titles, using the shared `example` environment rather than headings such as
+"A question from the lecture". Give the working needed to make the example
+self-contained using established tools, and keep its original classroom
+prompt in internal source comments. Preserve the shared homework exercise
+system for actual assignments.
+
 Use shared mathematical environments and styles so the same kind of content has consistent typography wherever it appears. Reusing an exercise in an appendix must preserve its identity and presentation as an exercise.
 
 ## Style & Contribution Conventions
@@ -61,9 +75,33 @@ Use `\autoref{...}` for numbered object references throughout the book and hando
 - In set-builder notation, use `\mid` and rely on LaTeX's automatic spacing.
 - Add `\,` only when a small extra gap improves readability; do not add it automatically to every set.
 
+Mark only additions and replacements awaiting author review, at the smallest
+readable span. Keep the author's unchanged wording, equations, proof heading,
+and conclusion in their normal colour; do not wrap an existing proof or section
+just because some of it was edited. Use the shared `pendingreview` environment
+in `macros.tex` for a wholly new or replaced passage, and
+`\pendingreviewtext{...}` for an inline correction or part of an equation.
+The muted slate blue (`#486581`) denotes pending editorial status.
+For a wholly new theorem, proof, or example, keep its normal environment
+inside the wrapper, preserving its typography, numbering, and links.
+Use this component rather than local colour commands, and reserve its colour
+for review status.
+After the author approves a passage, remove only its review wrapper so the
+content returns to the surrounding text colour. Do not remove pending status
+without the author's approval.
+
 Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
 
 Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.
+
+Keep margin placement in the shared `preamble.tex` configuration. It uses
+`marginfix` to stack complete figures and captions with a 12pt gap and a
+6pt bottom reserve, moving excess margin content intact to the next page.
+Optional margin offsets are preferred callout positions, not guaranteed
+placements. Do not insert negative space, smashed content, or manual page
+breaks to fit a crowded margin. Give a diagram that cannot fit in one margin
+a main-text or full-width figure instead of shrinking its labels. Preserve
+the measured height of side captions and captions below full-width figures.
 
 Use bold caption labels and numbers followed by a full stop, for example **Figure 1.1.** or **Table 2.1.**, with ordinary-weight caption text. Apply this through the shared `caption` configuration in `preamble.tex` for every float type in the book and handouts; retain Tufte's margin font and alignment rather than formatting individual captions by hand.
 

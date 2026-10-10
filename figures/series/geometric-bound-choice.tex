@@ -1,0 +1,13 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=38mm,y=6mm]
+  \draw[gray,->] (0,0) -- (1.14,0);
+  \draw (0.26,0) -- (1,0);
+  \node[interval open] at (0.26,0) {};
+  \node[interval closed] at (0.65,0) {};
+  \node[interval open] at (1,0) {};
+  \node[below=6pt] at (0.26,0) {$R_0$};
+  \node[below=6pt] at (0.65,0) {$\rho$};
+  \node[below=6pt] at (1,0) {$1$};
+  \node[above=10pt] at (0.65,0) {$R_0<\rho<1$};
+\end{tikzpicture}

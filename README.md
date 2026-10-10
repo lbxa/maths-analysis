@@ -4,9 +4,11 @@ Collaborative student notes for Analysis I and II, typeset as a Tufte-style
 LaTeX book with margin notes, figures, and shared mathematical notation.
 
 **Work in progress:** Analysis I follows the lecturer's nine-chapter syllabus.
-The first three weeks of reviewed notes are in Chapter 1. Later sections still
-contain Tufte template material used to preview the layout, apart from a retained
-Taylor-remainder application; specimens will be replaced with course notes.
+The first three weeks of reviewed notes are in Chapter 1. Week 4 develops
+Chapters 3 and 4 and the power-series section in Chapter 8. Other sections
+still contain Tufte template material used to preview the layout, apart from
+a retained Taylor-remainder application; specimens will be replaced with
+course notes. Dirichlet's test and continuity await their lecture pages.
 Analysis II is reserved for a later course and is currently excluded from the book.
 
 ## Table of contents
@@ -91,15 +93,20 @@ editing one large document. Explicit `\input` lists in `part.tex` and
 
 ## Homework placement map
 
-This is the internal record of homework reuse in the book. All 24 questions
-from Homework 01, Homework 02, and Homework 03 appear in Chapter 1, **Sets and
-foundations of real analysis**. All 24 questions have completed solutions
-in the appendix and handouts. Each exercise has a directory of the form
+This is the internal record of homework reuse in the book. All 32 questions
+from Homework 01--04 are included. The 24 questions from Homework 01--03
+appear in Chapter 1, **Sets and foundations of real analysis**, with completed
+solutions. Homework 04 adds eight questions to Chapters 3 and 4 and §8.6;
+Q1--Q8 have the author's solutions, with all audited edits approved in the
+appendix and handout. The ten solution photos in
+`images/HW05/` match Homework 04 Q4--Q8 and are recorded under those existing
+identities rather than creating a duplicate assignment.
+Each exercise has a directory of the form
 `problems/hwNN/NN-topic/`, containing `problem.tex` and `solution.tex`.
 The main chapters input only `problem.tex`. Solutions appear in
 [Appendix C, Solutions to exercises](sections/appendices/exercise-solutions.tex),
-under the section **Sets and foundations of real analysis**, in book exercise
-order. Each appendix entry repeats the complete shared `problem.tex` before
+grouped by the containing chapter, in book exercise order. Each appendix
+entry repeats the complete shared `problem.tex` before
 its `solution.tex` so it can be read on its own. The handouts input both
 files, question first, so each statement and solution still has a single
 shared source. There is no `exercises/` layer.
@@ -144,6 +151,14 @@ after the restated problem.
 | [HW03 Q6](problems/hw03/06-rational-exponent-laws/problem.tex) | Products of roots and laws of positive rational exponents | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), A rational exponent must be well defined, after integer power laws, root uniqueness, and independence of the fraction representation | [21](problems/hw03/06-rational-exponent-laws/solution.tex) | `hw03:rational-exponent-laws` | Included; solution complete |
 | [HW03 Q7](problems/hw03/07-reverse-triangle-inequality/problem.tex) | Reverse triangle inequality and its equality case | [§1.10 Polynomial functions and absolute value](sections/analysis-i/01-sets-and-foundations/10-elementary-functions.tex), Absolute value and distance, after the triangle-inequality reminder and the reverse-inequality argument | [17](problems/hw03/07-reverse-triangle-inequality/solution.tex) | `hw03:reverse-triangle-inequality` | Included; solution complete |
 | [HW03 Q8](problems/hw03/08-odd-roots/problem.tex) | Odd roots as increasing bijections of the real line | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercise on odd roots of real numbers, after nonnegative root existence, power monotonicity, and rational exponent laws | [22](problems/hw03/08-odd-roots/solution.tex) | `hw03:odd-roots` | Included; solution complete |
+| [HW04 Q1](problems/hw04/01-polynomial-root-limit/problem.tex) | High roots of a polynomially growing sequence | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after squeeze, geometric growth, and the limits of n-th roots | [25](problems/hw04/01-polynomial-root-limit/solution.tex) | `hw04:polynomial-root-limit` | Included; solution complete; audited edits approved |
+| [HW04 Q2](problems/hw04/02-exponential-root-limit/problem.tex) | High roots with exponential and polynomial terms | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after geometric sequences, fixed-base roots, and squeeze | [26](problems/hw04/02-exponential-root-limit/solution.tex) | `hw04:exponential-root-limit` | Included; solution complete; audited edits approved |
+| [HW04 Q3](problems/hw04/03-alternating-series/problem.tex) | Alternating-series convergence through the Cauchy criterion | [§4.1 Number series](sections/analysis-i/04-infinite-series-of-numbers/01-number-series.tex), after the Cauchy criterion, term test, and basic partial-sum examples | [28](problems/hw04/03-alternating-series/solution.tex) | `hw04:alternating-series` | Included; solution complete; audited edits approved |
+| [HW04 Q4](problems/hw04/04-shifted-root-series/problem.tex) | Convergence with an arbitrary positive real shift and a telescoping sum | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after the majorant theorem and p-series | [29](problems/hw04/04-shifted-root-series/solution.tex) | `hw04:shifted-root-series` | Included; solution complete; audited edits approved |
+| [HW04 Q5](problems/hw04/05-lower-upper-comparison/problem.tex) | Series comparison through lower and upper limits of term ratios | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after nonnegative partial-sum comparisons and §3.4 eventual tail bounds | [30](problems/hw04/05-lower-upper-comparison/solution.tex) | `hw04:lower-upper-comparison` | Included; solution complete; audited edits approved |
+| [HW04 Q6](problems/hw04/06-divergence-tests/problem.tex) | Ratio and root divergence tests using liminf | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), after both tests, the term test, and eventual lower bounds | [31](problems/hw04/06-divergence-tests/solution.tex) | `hw04:divergence-tests` | Included; solution complete; audited edits approved |
+| [HW04 Q7](problems/hw04/07-scaled-power-series/problem.tex) | Absolute convergence of a scaled power series with an integer exponent | [§8.6 Power series](sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex), after radius, ratio/root tests, p-series, and separate endpoint analysis | [32](problems/hw04/07-scaled-power-series/solution.tex) | `hw04:scaled-power-series` | Included; solution complete; audited edits approved |
+| [HW04 Q8](problems/hw04/08-two-variable-am-gm/problem.tex) | Two-variable AM--GM for nonnegative inputs and strictness | [§3.2 Monotone bounded sequence theorem](sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex), after the AM--GM applications, with positive roots and elementary algebra available | [27](problems/hw04/08-two-variable-am-gm/solution.tex) | `hw04:two-variable-am-gm` | Included; solution complete; audited edits approved |
 
 Placement follows the material assessed and the available prerequisites.
 HW02 Q3 follows the floor function, rational density, and relative closure.
@@ -170,6 +185,24 @@ PDF supplied no solutions. The author's proof for Homework 03 Q1 is preserved,
 and Questions 2–8 now have complete shared solutions in the same plain-English
 style, with TikZ diagrams where they clarify the reasoning.
 
+Homework 04 was transcribed from the two-page assignment
+`HW4 Intro to Math Analysis I.pdf` (MA-GY-6213, due October 9, 2026).
+Page 1 contains Q1--Q5, with roman subparts in Q5; page 2 contains
+Q6--Q8, with roman subparts in Q6. All mathematical conditions and hints
+are retained. In particular, Q4 allows any positive real shift, Q7 allows
+every integer exponent, and Q8 includes zero inputs. Q6's classroom
+introduction is recast as mathematical prose, with the original wording
+kept in a source comment. The Week 4 topic summary remains internal metadata.
+The assignment supplied no solutions. The author has now supplied solutions
+to all eight questions, and all audited edits are approved. The factorisation,
+squeeze arguments, and alternating-tail pairings in Q1--Q3 are
+preserved, with eventual bounds, root parentheses, and parity endpoints
+made explicit. Q4--Q8 retain the author's rationalisation, comparison,
+divergence, root-test, and square-expansion arguments. The shared solutions
+render in normal text colour in both the handout and appendix.
+Appendix order is Q1, Q2, Q8, Q3, Q4, Q5, Q6, Q7,
+matching the book, while the standalone handout preserves Q1--Q8.
+
 Keep a row for every homework question, including questions not yet used.
 Use **Included**, **Not yet included**, or **Deferred**; record a reason and
 planned location when deferring a question. Update this map whenever a
@@ -191,7 +224,7 @@ files. Inside a shared solution, wrap a handout-only layout hint in
 ## Build the notes
 
 Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
-biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
+caption, marginfix, biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
 with TeX Live 2025.
 
 From the repository root:
@@ -247,6 +280,92 @@ See [third-party notices](THIRD_PARTY_NOTICES.md) for the template's authors,
 source credits, and the modifications made for these notes.
 
 ## Changelog
+
+### 2026-10-09
+
+- Record the author's approval of all Homework 04 edits, including
+  Q4--Q8 supplied in `images/HW05/`, and remove all review wrappers in
+  the shared solutions. Retain the approved content in normal text colour
+  in both the handout and appendix.
+- Transcribe the author's solutions to Homework 04 Q4--Q8 from the ten
+  HEIC photos in `images/HW05/`, converted to JPEG with `scripts/jpeg.sh`.
+  Match their statements to the existing exercise identities, retaining
+  placement and appendix order. Mark only substantive corrections and
+  additions with the shared pending-review component. Compare finite
+  partial sums on the appropriate tails, choose strict liminf thresholds,
+  and handle every integer exponent and both power-series endpoints.
+  Reuse the convergence-band figure for the author's geometric recall.
+- Queue margin notes and complete margin figures with `marginfix` in the
+  shared preamble, maintaining a 12pt separation and 6pt bottom reserve.
+  Treat offsets as preferred positions and measure side captions' full height
+  so stacked charts cannot overlap or run off the page as pagination changes.
+  Move excess content intact to the next page; use main-text or full-width
+  figures when a single chart and caption cannot fit one margin readably.
+- Audit the author's Homework 04 Q1--Q3 solutions while retaining their
+  approaches. Establish the eventual polynomial bounds before taking
+  limits, keep parentheses around the full base of an n-th root, and
+  account for both finite-tail parities in the alternating-series proof.
+  Mark only corrections and additions as drafts using the shared review
+  component, and record their review status in the placement map. Preserve
+  unchanged author text in its normal colour so each pending edit is visible.
+- Keep the all-pairs Cauchy condition `m,n >= N` and explain its
+  equivalence to `m > n >= N` through symmetry and the zero diagonal.
+  Ordered indices make the series tail sum natural; they do not impose
+  a stronger condition or restrict the comparison to consecutive terms.
+- Import all eight Homework 04 questions as shared statements, a standalone
+  handout, and complete appendix restatements with pending solution notices.
+  Place Q1--Q2 and Q8 in Chapter 3, Q3--Q6 in Chapter 4, and Q7 in §8.6
+  after the tools needed for their full statements, including endpoint tests.
+  Preserve original question and roman subpart numbering in the handout;
+  update the map and appendix to follow book exercise order.
+- Add an automatically generated List of Theorems after the List of Tables,
+  using the same front-matter heading and entry style on a new page.
+  Entries use the numbered theorem blocks' optional titles, current numbers,
+  and page links, so keep theorem titles descriptive rather than maintaining
+  a separate catalogue by hand.
+- Standardise additions awaiting author review with the `pendingreview`
+  environment and inline `\pendingreviewtext` command in `macros.tex`.
+  Use muted slate blue (`#486581`) to distinguish pending passages calmly
+  from accepted text; remove the wrapper only after author approval, as
+  described in [the style guide](AGENTS.md#style--contribution-conventions).
+- Give AM–GM a numbered proposition and its sequence application a
+  corresponding worked example, using the shared environments to separate
+  the general result from its use.
+- Present lecture questions and tasks as worked examples with mathematical
+  titles and the shared `example` environment, so the manuscript explains
+  the mathematics without classroom-prompt headings. Keep the original
+  prompts in source comments and preserve the separate homework exercise
+  system; use established tools to supply the example's reasoning.
+- Keep the rendered manuscript independent of the semester schedule.
+  Week numbers, lecture dates or numbers, import batches, and coverage
+  progress are internal provenance, retained in README records, filenames,
+  and TeX comments; reader-facing text follows mathematical topics and
+  chapter or section references so the book remains useful across semesters.
+  Keep assumptions and omitted-proof notices explicit. The corresponding
+  style rule is in [AGENTS.md](AGENTS.md#editorial-principles).
+- Import all visible material from the 17 Week 4 lecture photos, retaining
+  the syllabus chapter and section titles and order. Develop sequence
+  examples in Chapter 3, series and convergence tests in Chapter 4, and
+  power-series examples in §8.6. Keep Chapter 1's proofs and homework
+  placements, using cross-references and short recalls for prerequisites.
+- Add six TikZ figures for convergence bands, squeeze bounds, root
+  sequences, harmonic blocks, geometric upper bounds, and power-series
+  endpoints. Use actual sequence terms where plotted, physical markers,
+  and the shared thin diagram styles.
+- Correct the lecture's geometric-limit slip, series-tail indices, and
+  geometric bounds in the ratio and root tests. The chosen bound must lie
+  above the limsup and below 1. Distinguish the endpoint cases for
+  `x^n/n^s` and the two different exponents in `(1+1/n)^n` and
+  `(1+1/n)^(1/n)`.
+- Retain AM–GM and Euler's evaluation as stated results where proofs were
+  not supplied. The logical review adds proofs identifying the binomial
+  limit with the factorial-series `e` and establishing a power-series
+  radius from comparison and a supremum; these use only earlier tools.
+  Make the separate real-exponent assumptions explicit. Present the
+  limit-law bounds and alternating
+  series as worked examples, with classroom prompts kept in source comments.
+  No continuity definition is visible in
+  the supplied pages, and part of the final photo is obscured.
 
 ### 2026-10-05
 

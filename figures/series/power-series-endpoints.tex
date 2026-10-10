@@ -1,0 +1,17 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=13mm,y=13mm]
+  \foreach \row/\case in {2/{s=0},1/{0<s\le1},0/{s>1}}{
+    \draw[gray,<->] (-1.6,\row) -- (1.6,\row);
+    \draw (-1,\row) -- (1,\row);
+    \node[above=9pt] at (0,\row) {$\case$};
+    \node[below=6pt] at (-1,\row) {$-1$};
+    \node[below=6pt] at (1,\row) {$1$};
+  }
+  \node[interval open] at (-1,2) {};
+  \node[interval open] at (1,2) {};
+  \node[interval closed] at (-1,1) {};
+  \node[interval open] at (1,1) {};
+  \node[interval closed] at (-1,0) {};
+  \node[interval closed] at (1,0) {};
+\end{tikzpicture}

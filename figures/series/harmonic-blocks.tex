@@ -1,0 +1,14 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=6mm,y=45mm]
+  \foreach \start/\count/\height/\heightlabel in
+    {0/1/0.5/\frac12,3/2/0.25/\frac14,7/4/0.125/\frac18,13/8/0.0625/\frac1{16}}{
+    \fill[black!8] (\start,0) rectangle ({\start+\count},\height);
+    \draw (\start,0) rectangle ({\start+\count},\height);
+    \foreach \i in {1,...,\count}{
+      \draw ({\start+\i},0) -- ({\start+\i},\height);
+    }
+    \node[above=6pt] at ({\start+\count/2},\height) {$N=\count$};
+    \node[below=8pt] at ({\start+\count/2},0) {$\heightlabel$};
+  }
+\end{tikzpicture}

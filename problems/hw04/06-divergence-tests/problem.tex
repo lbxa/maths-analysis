@@ -1,0 +1,29 @@
+% !TEX root = ../../hw04.tex
+% Source: HW4 Intro to Math Analysis I.pdf, page 2, question 6, parts (i)--(ii).
+% Source introduction: "In class, we discussed ratio and root tests for
+% convergence. We now consider the tests for divergence."
+% Replace the classroom framing with a mathematical introduction.
+\begingroup
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\begin{exercise}
+  \label{ex:hw04:divergence-tests}
+  \solutionlink{hw04:divergence-tests}
+  Consider series
+  \[
+    \sum_{n=1}^{\infty}a_n,\qquad a_n>0,\quad n=1,2,\ldots.
+  \]
+  The following are ratio and root tests for divergence.
+  \begin{enumerate}
+    \item Define
+      \[
+        R_1=\liminf_{n\to\infty}\frac{a_{n+1}}{a_n}.
+      \]
+      Show that if $R_1>1$, then the series diverges.
+    \item Define
+      \[
+        R_2=\liminf_{n\to\infty}(a_n)^{1/n}.
+      \]
+      Show that if $R_2>1$, then the series diverges.
+  \end{enumerate}
+\end{exercise}
+\endgroup

@@ -1,0 +1,68 @@
+% !TEX root = ../../hw04.tex
+% Author's handwritten solution: images/HW05/IMG_9278--IMG_9280.HEIC.
+% IMG_9279 also recalls convergence with an epsilon-band sketch, retained
+% through the existing shared convergence-band figure.
+% Correct reversed comparisons, strict threshold choices, and the distinction
+% between a sequence tending to zero and its series converging.
+% The author approved the editorial changes; review colouring is removed.
+\begin{proof}[Solution]
+  \emph{Part (i).} Suppose $R_1>1$. Choose $L$ such that
+  \[
+    1<L<R_1.
+  \]
+  By the definition of the lower limit, there is
+  $N\in\N$ such that
+  \[
+    \forall n\ge N\quad
+    \frac{a_{n+1}}{a_n}>L>1.
+  \]
+  Since $a_n>0$, we obtain
+  \[
+    a_{n+1}>La_n>a_n.
+  \]
+  In other words, $(a_n)$ is strictly increasing
+  from index $N$ onwards. Consequently,
+  \[
+    \forall n\ge N\quad a_n\ge a_N>0.
+  \]
+  Thus the terms $a_n$ cannot converge to zero.
+  This violates the necessary condition for a
+  convergent series, which requires $a_n\to0$.
+
+  To see the contradiction directly, take $\varepsilon=a_N/2$.
+  If $a_n\to0$, there would be $N'\in\N$ such that
+  \[
+    \forall n\ge N'\quad
+    |a_n-0|<\frac{a_N}{2}.
+  \]
+  This would give $a_n<a_N/2$.
+  For $n\ge\max\{N,N'\}$, this contradicts $a_n\ge a_N$.
+  Therefore the series does not converge.
+  \autoref{fig:hw04:divergence-convergence-band}
+  recalls the tail condition used in this contradiction.
+  \begin{marginfigure}
+    \centering
+    \input{figures/sequences/convergence-band}
+    \caption[The tail condition for convergence.]{A convergence-band recall.
+      Beyond $N$, every term must lie strictly between $L-\varepsilon$
+      and $L+\varepsilon$. This example has limit $L=1$;
+      the proof above tests convergence to $0$.}
+    \label{fig:hw04:divergence-convergence-band}
+  \end{marginfigure}
+
+  \emph{Part (ii).} Suppose $R_2>1$. Choose $L$ such that
+  \[
+    1<L<R_2.
+  \]
+  Again, the definition of the lower limit gives
+  $N\in\N$ such that
+  \[
+    \forall n\ge N\quad
+    (a_n)^{1/n}\ge L.
+  \]
+  Raising both sides to the positive integer power $n$ gives $a_n\ge L^n$.
+  Since $L>1$, we have $L^n\to+\infty$. Hence $a_n\to+\infty$,
+  so $a_n$ cannot converge to zero.
+  The necessary term condition therefore shows that
+  $\sum_{n=1}^{\infty}a_n$ diverges.
+\end{proof}

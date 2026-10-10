@@ -1,0 +1,24 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=10mm,y=12mm]
+  % The bands contain whole tails; dots show only a few of their terms.
+  \fill[black!7] (0.45,-0.14) rectangle (3.55,0.14);
+  \draw[gray,->] (0,0) -- (4.05,0) node[right=4pt] {$\R$};
+  \foreach \x in {0.65,1.05,1.65,2.3,3.25}{
+    \fill (\x,0) circle[radius=1.4pt];
+  }
+  \draw[<->] (0.45,0.75) -- (3.55,0.75)
+    node[midway,above=5pt] {$\text{width}<\varepsilon_1$};
+  \node[below=7pt] at (2,0) {$n\ge N_1$};
+
+  \begin{scope}[yshift=-25mm]
+    \fill[black!7] (1.35,-0.14) rectangle (2.65,0.14);
+    \draw[gray,->] (0,0) -- (4.05,0) node[right=4pt] {$\R$};
+    \foreach \x in {1.48,1.75,2.14,2.48}{
+      \fill (\x,0) circle[radius=1.4pt];
+    }
+    \draw[<->] (1.35,0.75) -- (2.65,0.75)
+      node[midway,above=5pt] {$\text{width}<\varepsilon_2$};
+    \node[below=7pt] at (2,0) {$n\ge N_2>N_1$};
+  \end{scope}
+\end{tikzpicture}

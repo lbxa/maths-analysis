@@ -109,3 +109,59 @@
   hypcap=false
 }
 \makeatother
+
+% Arrange margin content as a page-sized column, keeping captions with figures.
+% https://ctan.org/pkg/marginfix
+\usepackage{marginfix}
+\setlength{\marginparpush}{12pt}
+\setlength{\marginheightadjustment}{-6pt}
+\makeatletter
+% Treat offsets as preferred positions, not whitespace inside the measured box.
+% Negative internal space can hide occupied height from the margin scheduler.
+\renewcommand{\marginnote}[2][0pt]{%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@infootnote@cite
+  }{}%
+  \gdef\@tufte@citations{}%
+  \mparshift{#1}%
+  \marginpar{%
+    \@tufte@marginnote@font\@tufte@marginnote@justification
+    \@tufte@margin@par\noindent #2%
+  }%
+  \@tufte@print@citations
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@normal@cite
+  }{}%
+}
+\renewenvironment{@tufte@margin@float}[2][-1.2ex]
+  {\FloatBarrier
+    \def\analysis@margin@offset{#1}%
+    \begin{lrbox}{\@tufte@margin@floatbox}%
+      \begin{minipage}[t]{\marginparwidth}%
+        \@tufte@caption@font
+        \def\@captype{#2}%
+        \@tufte@caption@justification
+        \@tufte@margin@par\noindent
+  }
+  {\end{minipage}%
+    \end{lrbox}%
+    \ifdim\dimexpr\ht\@tufte@margin@floatbox+\dp\@tufte@margin@floatbox\relax
+        <\dimexpr\textheight+\marginheightadjustment\relax
+      \mparshift{\analysis@margin@offset}%
+      \marginpar{\usebox{\@tufte@margin@floatbox}}%
+    \else
+      \PackageError{analysis-notes}{Margin float is taller than the usable margin}
+        {Use a main-text figure or table instead; keep labels readable.}%
+    \fi
+  }
+% Tufte normally smashes side captions and captions below full-width figures.
+% Retain their height so ordinary floats reserve the margin space they occupy.
+\newcommand{\analysis@measure@captions}[1]{%
+  \patchcmd{#1}{\smash}{\@firstofone}
+    {\analysis@measure@captions{#1}}{}%
+}
+\expandafter\analysis@measure@captions
+  \csname\string\@tufte@float@textwidth\endcsname
+\expandafter\analysis@measure@captions
+  \csname\string\@tufte@float@fullwidth\endcsname
+\makeatother

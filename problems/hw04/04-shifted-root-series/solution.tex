@@ -1,0 +1,56 @@
+% !TEX root = ../../hw04.tex
+% Author's handwritten solution: images/HW05/IMG_9274--IMG_9275.HEIC.
+% These photos match Homework 04 Q4 despite the source folder's name.
+% The author approved the corrected signs and finite-sum justification.
+\begin{proof}[Solution]
+  Let $a>0$. We first rationalise the difference.
+  \begin{align*}
+    \frac{1}{\sqrt n}-\frac{1}{\sqrt{n+a}}
+      &=\frac{\sqrt{n+a}-\sqrt n}{\sqrt n\sqrt{n+a}}\\
+      &=\frac{\sqrt{n+a}-\sqrt n}{\sqrt n\sqrt{n+a}}
+        \cdot\frac{\sqrt{n+a}+\sqrt n}{\sqrt{n+a}+\sqrt n}\\
+      &=\frac{n+a-n}
+        {\sqrt n\sqrt{n+a}(\sqrt{n+a}+\sqrt n)}\\
+      &=\frac{a}{\sqrt n(n+a)+n\sqrt{n+a}}.
+  \end{align*}
+  Since $n+a>n$, we have $\sqrt{n+a}>\sqrt n$. Thus
+  \[
+    n\sqrt{n+a}>n\sqrt n,\qquad
+    \sqrt n(n+a)=n\sqrt n+a\sqrt n>n\sqrt n.
+  \]
+  Adding these inequalities gives
+  \[
+    n\sqrt{n+a}+\sqrt n(n+a)>2n\sqrt n.
+  \]
+  Taking reciprocals and multiplying by $a>0$ gives
+  \[
+    0<
+    \frac{1}{\sqrt n}-\frac{1}{\sqrt{n+a}}
+    =\frac{a}{n\sqrt{n+a}+\sqrt n(n+a)}
+    <\frac{a}{2n\sqrt n}=\frac{a}{2n^{3/2}}.
+  \]
+
+  Apply this bound to finite partial sums. For every $N\ge1$,
+  \[
+    0\le\sum_{n=1}^{N}
+      \left(\frac{1}{\sqrt n}-\frac{1}{\sqrt{n+a}}\right)
+    \le\frac a2\sum_{n=1}^{N}\frac{1}{n^{3/2}}.
+  \]
+
+  We know that $\sum_{n=1}^{\infty}n^{-p}$ converges whenever $p>1$.
+  Here $p=3/2>1$, so the upper bounding series converges. Therefore
+  the original series also converges
+  by comparison, since its terms are nonnegative.
+
+  For $a=1$, the partial sums telescope.
+  \begin{align*}
+    S_N
+      &=\sum_{n=1}^{N}
+        \left(\frac{1}{\sqrt n}-\frac{1}{\sqrt{n+1}}\right)\\
+      &=\left(1-\frac{1}{\sqrt2}\right)
+        +\left(\frac{1}{\sqrt2}-\frac{1}{\sqrt3}\right)
+        +\cdots+\left(\frac{1}{\sqrt N}-\frac{1}{\sqrt{N+1}}\right)\\
+      &=1-\frac{1}{\sqrt{N+1}}.
+  \end{align*}
+  As $N\to\infty$, we have $1/\sqrt{N+1}\to0$. Hence the sum is $1$.
+\end{proof}

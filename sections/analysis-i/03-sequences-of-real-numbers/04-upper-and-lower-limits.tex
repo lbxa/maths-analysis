@@ -1,30 +1,78 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9234, together with the bounded-sequence treatment in §1.9.
+% Extended tail bounds are supporting notation for the ratio and root tests.
 \section{Upper and lower limits (lim sup and lim inf)}
 \label{sec:analysis-i:upper-and-lower-limits}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 603--622.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-While both the \docopt{number} and \docopt{offset} arguments are optional, they
-must be provided in order.  To adjust the vertical position of the sidenote
-while leaving the sidenote number alone, use the following syntax:
-\begin{docspec}
-  \doccmd{sidenote}[][\docopt{offset}]\{\docarg{Sidenote text.}\}
-\end{docspec}
-The empty brackets tell the \Verb|\sidenote| command to use the default
-sidenote number.
+For a bounded real sequence $(a_n)$, define its tail bounds by
+\[
+  \alpha_n=\inf\{a_k\mid k\ge n\},\qquad
+  \beta_n=\sup\{a_k\mid k\ge n\}.
+\]
+Removing early terms can only raise the infimum and lower the supremum.
+Thus $(\alpha_n)$ is increasing, $(\beta_n)$ is decreasing, and
+\[
+  \liminf_{n\to\infty}a_n=\lim_{n\to\infty}\alpha_n,
+  \qquad
+  \limsup_{n\to\infty}a_n=\lim_{n\to\infty}\beta_n.
+\]
+By \autoref{thm:analysis-i:extreme-limit-points}, these are respectively
+the smallest and largest limits of convergent subsequences. The full
+sequence converges exactly when these two numbers agree. The tail
+picture and its proof appear in \autoref{sec:analysis-i:denseness}.
 
-If you \emph{only} want to change the sidenote number, however, you may
-completely omit the \docopt{offset} argument:
-\begin{docspec}
-  \doccmd{sidenote}[\docopt{number}]\{\docarg{Sidenote text.}\}
-\end{docspec}
+\subsection{Allowing infinite tail bounds}
 
-The \doccmddef{marginnote} command has a similar \docarg{offset} argument:
-\begin{docspec}
-  \doccmd{marginnote}[\docopt{offset}]\{\docarg{Margin note text.}\}
-\end{docspec}
+The tests for series also use sequences that need not be bounded.
+We allow tail bounds to take values in $\R\cup\{-\infty,+\infty\}$.
+An unbounded-above tail has supremum $+\infty$, and an
+unbounded-below tail has infimum $-\infty$. The definitions become
+\[
+  \liminf a_n=\sup_n\alpha_n,\qquad
+  \limsup a_n=\inf_n\beta_n.
+\]
+For bounded sequences these agree with the preceding definitions.
+The infinite values record divergence of the tail bounds; they are
+not additional real numbers.
 
-\lipsum[6]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{marginfigure}
+  \centering
+  \input{figures/sequences/infinite-tail-bounds}
+  \caption[Two patterns of infinite tail bounds.]{For $a_n=n$, every sufficiently late term stays above a
+    chosen level $r$. Here $r=5/2$ and $N=3$.
+    For $b_n=(-1)^n n$, every tail reaches arbitrarily far in both
+    directions. Dots are actual terms; ellipses indicate continuation.}
+  \label{fig:infinite-tail-bounds}
+\end{marginfigure}
+
+\begin{example}[Two patterns of unbounded tails]
+  \label{ex:analysis-i:infinite-tail-bounds}
+  For $a_n=n$, the tail beginning at $N$ has $\alpha_N=N$ and
+  $\beta_N=+\infty$. Hence both $\liminf a_n$ and $\limsup a_n$
+  equal $+\infty$, and $a_n\to+\infty$.
+  For $b_n=(-1)^n n$, every tail is unbounded above and below, so
+  $\alpha_N=-\infty$ and $\beta_N=+\infty$ for every $N$.
+  Its lower and upper limits are different, and it does not tend to
+  either infinity. \autoref{fig:infinite-tail-bounds} compares the two
+  patterns. Infinite tail bounds describe the whole tail, even though
+  each individual term is a finite real number.
+\end{example}
+
+The feature we will need is an eventual bound. If $\limsup a_n<r$,
+then $\beta_N<r$ for some $N$, so $a_n<r$ for every $n\ge N$.
+Similarly, if $\liminf a_n>r$, then every sufficiently late term
+exceeds $r$. The strict gap between the limit bound and $r$ is essential.
+
+\begin{proposition}
+  If $a_n\le b_n$ for every sufficiently large $n$, then
+  $\liminf a_n\le\limsup b_n$.
+\end{proposition}
+
+\begin{proof}
+  For all sufficiently late tails, $\alpha_n^{a}\le a_k\le b_k
+  \le\beta_n^{b}$ whenever $k\ge n$. Given any two tail indices
+  $i,j$, choose $k$ at least as large as both and beyond the index
+  where $a_k\le b_k$. Then $\alpha_i^{a}\le\beta_j^{b}$.
+  Taking the supremum over $i$ and then the infimum over $j$ gives
+  the claimed inequality, including when a bound is infinite.
+\end{proof}

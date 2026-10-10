@@ -1,0 +1,27 @@
+% !TEX root = ../../hw04.tex
+% Author's handwritten solution: images/HW05/IMG_9285.HEIC.
+% The argument and strictness condition are correct. The explicit equivalence
+% with strict AM--GM and the equality sentence are approved additions.
+\begin{proof}[Solution]
+  From the hint, we have
+  \[
+    (\sqrt a-\sqrt b)^2=a-2\sqrt{ab}+b.
+  \]
+  Since a square is nonnegative,
+  \begin{align*}
+    (\sqrt a-\sqrt b)^2&\ge0,\\
+    a-2\sqrt{ab}+b&\ge0,\\
+    a+b&\ge2\sqrt{ab},\\
+    \frac{a+b}{2}&\ge\sqrt{ab}.
+  \end{align*}
+  Each rearrangement is reversible. Thus
+  \begin{align*}
+    \frac{a+b}{2}>\sqrt{ab}\quad
+      &\Longleftrightarrow\quad
+        (\sqrt a-\sqrt b)^2>0\\
+      &\Longleftrightarrow\quad \sqrt a\ne\sqrt b\\
+      &\Longleftrightarrow\quad a\ne b.
+  \end{align*}
+  Therefore the inequality is strict if and only if $a\ne b$.
+  Equality holds exactly when $a=b$, including $a=b=0$.
+\end{proof}

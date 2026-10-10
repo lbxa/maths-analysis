@@ -1,0 +1,23 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=5.5mm,y=25mm]
+  \draw[->] (0,0) -- (21.2,0) node[right=5pt] {$n$};
+  \draw[->] (0,0) -- (0,2.2) node[above=5pt] {$y$};
+  \draw[gray,dashed] (0,1) -- (20.5,1);
+  \node[left=5pt] at (0,1) {$1$};
+  \node[left=5pt] at (0,2) {$2$};
+  \foreach \n in {1,10,20}{
+    \draw (\n,0) -- +(0,-2pt);
+    \node[below=6pt] at (\n,0) {$\n$};
+  }
+  \foreach \n in {1,...,20}{
+    \pgfmathsetmacro{\growingroot}{\n^(1/\n)}
+    \pgfmathsetmacro{\fixedroot}{2^(1/\n)}
+    \fill (\n,\growingroot) circle[radius=1.6pt];
+    \fill[gray] (\n,\fixedroot) circle[radius=1.6pt];
+  }
+  \fill (4,-0.5) circle[radius=1.6pt];
+  \node[right=6pt] at (4,-0.5) {$n^{1/n}$};
+  \fill[gray] (12,-0.5) circle[radius=1.6pt];
+  \node[right=6pt] at (12,-0.5) {$2^{1/n}$};
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=3.8mm,y=2.6mm]
+  \node at (4.5,9.8) {$a_n=n$};
+  \draw[->] (0,0) -- (7.6,0) node[right=4pt] {$n$};
+  \draw[->] (0,0) -- (0,8.1) node[above=5pt] {$a_n$};
+  \fill[black!7] (3,2.5) rectangle (7.1,7.8);
+  \draw[gray,dashed] (0,2.5) -- (7.1,2.5);
+  \node[left=5pt] at (0,2.5) {$r$};
+  \draw[gray,dashed] (3,0) -- (3,7.8);
+  \node[below=6pt] at (3,0) {$N$};
+  \foreach \n in {1,...,6}{
+    \fill (\n,\n) circle[radius=1.4pt];
+  }
+  \node at (7.5,7.2) {$\cdots$};
+
+  \begin{scope}[yshift=-33mm,x=3.8mm,y=1.5mm]
+    \node at (4.5,11.4) {$b_n=(-1)^n n$};
+    \draw[->] (0,0) -- (7.6,0) node[right=4pt] {$n$};
+    \draw[->] (0,-7.5) -- (0,8.1) node[above=5pt] {$b_n$};
+    \foreach \n in {1,...,6}{
+      \pgfmathsetmacro{\term}{(-1)^\n*\n}
+      \fill (\n,\term) circle[radius=1.4pt];
+    }
+    \node at (8,8.3) {$\cdots$};
+    \node at (8,-8.3) {$\cdots$};
+  \end{scope}
+\end{tikzpicture}

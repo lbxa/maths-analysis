@@ -1,19 +1,195 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9226--IMG_9231. Definitions and examples are expanded from
+% the handwritten notes; the limit-law proofs already appear in Chapter 1.
 \section{Convergent sequences}
 \label{sec:analysis-i:convergent-sequences}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 538--547.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:ch:tufte-book}
+A sequence is a list of real numbers indexed by the natural numbers.
+Convergence describes what happens to its terms after sufficiently many
+of them have been discarded. The first few terms do not decide its limit.
 
-The \TL document classes define a style similar to the
-style Edward Tufte uses in his books and handouts.  Tufte's style is known
-for its extensive use of sidenotes, tight integration of graphics with
-text, and well-set typography.  This document aims to be at once a
-demonstration of the features of the \TL document classes
-and a style guide to their use.
+\begin{definition}
+  A sequence $(a_n)$ \emph{converges} to $L\in\R$ if
+  \[
+    \forall\varepsilon>0\ \exists N\in\N\quad
+    n\ge N\ \Longrightarrow\ |a_n-L|<\varepsilon.
+  \]
+  We write $a_n\to L$ or $\lim_{n\to\infty}a_n=L$.
+\end{definition}
 
-\lipsum[3]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+The index $N$ may depend on $\varepsilon$. Once it has been chosen,
+\emph{every} term with index at least $N$ must lie in
+$(L-\varepsilon,L+\varepsilon)$, as in
+\autoref{fig:sequence-convergence-band}. Finding a few terms near $L$
+would not be enough.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/sequences/convergence-band}
+  \caption[An epsilon band for a convergent sequence.]{For $a_n=1+(-1)^n/n$, all terms from $N=4$ onward lie in
+    the band $1-0.3<a_n<1+0.3$. A smaller band may require a later $N$.}
+  \label{fig:sequence-convergence-band}
+\end{marginfigure}
+
+\subsection{Rules for limits}
+
+If $a_n\to L$, $b_n\to M$, and $c\in\R$, then
+\begin{align*}
+  ca_n&\to cL, & a_n\pm b_n&\to L\pm M,\\
+  a_nb_n&\to LM, & \frac{a_n}{b_n}&\to\frac{L}{M}\quad(M\ne0).
+\end{align*}
+In the quotient rule the denominator is nonzero for all sufficiently
+large $n$, because $b_n\to M\ne0$. These are the rules proved in
+\autoref{thm:analysis-i:limit-laws}. The scalar rule follows from the
+product rule by using the constant sequence $c$.
+
+% IMG_9226 asks for direct proofs. Present the key estimates as a worked
+% example, as requested by the author, rather than a classroom task.
+\begin{example}[Bounds in the product and quotient rules]
+  \label{ex:analysis-i:limit-law-bounds}
+  Suppose $a_n\to L$ and $b_n\to M$. Eventually $|a_n-L|<1$, so
+  $|a_n|\le A$ with $A=|L|+1$. The product error satisfies
+  \[
+    |a_nb_n-LM|\le A|b_n-M|+|M||a_n-L|.
+  \]
+  Given $\varepsilon>0$, choose $N$ so that this bound on $|a_n|$
+  holds and the two errors are respectively less than
+  $\varepsilon/(2A)$ and $\varepsilon/(2(|M|+1))$ for $n\ge N$.
+  The right-hand side is then less than $\varepsilon$, proving
+  $a_nb_n\to LM$ directly from the definition.
+
+  If $M\ne0$, eventually $|b_n-M|<|M|/2$, which gives
+  $|b_n|\ge |M|-|b_n-M|>|M|/2$. Hence
+  \[
+    \left|\frac{a_n}{b_n}-\frac{L}{M}\right|
+    \le\frac{2}{|M|}|a_n-L|
+      +\frac{2|L|}{|M|^2}|b_n-M|.
+  \]
+  Choose $N$ so that the denominator bound holds and the two errors
+  are respectively less than $\varepsilon|M|/4$ and
+  $\varepsilon|M|^2/(4(|L|+1))$ for $n\ge N$. The displayed
+  bound is then less than $\varepsilon$, proving the quotient rule.
+\end{example}
+
+\begin{theorem}[Squeeze principle]
+  \label{thm:analysis-i:squeeze}
+  Suppose that $a_n\le b_n\le c_n$ for all sufficiently large $n$.
+  If $a_n\to L$ and $c_n\to L$, then $b_n\to L$.
+\end{theorem}
+
+\begin{proof}
+  Subtracting $L$ gives
+  \[
+    -|a_n-L|\le a_n-L\le b_n-L\le c_n-L\le |c_n-L|.
+  \]
+  Consequently $|b_n-L|\le |a_n-L|+|c_n-L|$. Given
+  $\varepsilon>0$, choose an index after which the inequalities hold and
+  both errors on the right are less than $\varepsilon/2$. Then
+  $|b_n-L|<\varepsilon$ for every later term, which proves convergence.
+\end{proof}
+% IMG_9228 has crossed sign changes. The valid signed-error bounds above
+% replace them. IMG_9227's sketch interchanges the upper/lower labels.
+
+The middle sequence may oscillate. What matters is that its available
+room shrinks to zero, as \autoref{fig:sequence-squeeze} shows.
+In particular, if $0\le a_n\le b_n$ and $b_n\to0$, then $a_n\to0$.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/sequences/squeeze}
+  \caption[An oscillating sequence squeezed between two bounds.]{The terms $b_n=1+(-1)^n/(2n)$ are trapped between
+    $a_n=1-1/n$ and $c_n=1+1/n$. The gray curves guide the eye;
+    the sequence terms are discrete. Both bounds tend to $1$.}
+  \label{fig:sequence-squeeze}
+\end{marginfigure}
+
+\subsection{Divergence to infinity}
+
+\begin{definition}
+  We write $a_n\to+\infty$ if
+  \[
+    \forall M\in\R\ \exists N\in\N\quad n\ge N\ \Longrightarrow\ a_n>M.
+  \]
+  Similarly, $a_n\to-\infty$ means that for every $M\in\R$, all
+  sufficiently late terms satisfy $a_n<M$.
+\end{definition}
+
+These sequences do not have a finite real limit. Divergence to
+$+\infty$ means eventually remaining above every prescribed level;
+being unbounded alone does not imply this.
+
+\subsection{Geometric sequences}
+
+For a positive number $a$, the behaviour of $a^n$ depends on whether
+$a$ is below, equal to, or above $1$.
+\[
+  a^n\longrightarrow
+  \begin{cases}
+    0,&0<a<1,\\
+    1,&a=1,\\
+    +\infty,&a>1.
+  \end{cases}
+\]
+The binomial identity provides a useful estimate. For $n\in\N$,
+\[
+  (u+v)^n=\sum_{k=0}^n\binom nk u^{n-k}v^k,
+  \qquad \binom nk=\frac{n!}{k!(n-k)!}.
+\]
+If $h>0$, all terms in the expansion of $(1+h)^n$ are nonnegative,
+so $(1+h)^n\ge1+nh$.
+
+For $0<a<1$, write $1/a=1+h$ with $h>0$. Then
+\[
+  0<a^n=\frac{1}{(1+h)^n}\le\frac{1}{1+nh}\longrightarrow0.
+\]
+The squeeze principle gives the limit. If $a>1$, write $a=1+h$.
+Now $a^n\ge1+nh$, which eventually exceeds every $M\in\R$ by the
+Archimedean property. Thus $a^n\to+\infty$.
+
+\subsection{Taking increasingly high roots}
+
+\begin{proposition}
+  \label{thm:analysis-i:root-sequence-limits}
+  We have $n^{1/n}\to1$ and, for every fixed $a>0$, $a^{1/n}\to1$.
+\end{proposition}
+
+\begin{proof}
+  Set $\delta_n=n^{1/n}-1\ge0$. For $n\ge2$, keeping just the
+  quadratic term in the binomial expansion gives
+  \[
+    n=(1+\delta_n)^n\ge\binom n2\delta_n^2,
+    \qquad 0\le\delta_n^2\le\frac{2}{n-1}.
+  \]
+  Given $\varepsilon>0$, the right-hand side is eventually smaller
+  than $\varepsilon^2$, so $0\le\delta_n<\varepsilon$.
+  Therefore $n^{1/n}\to1$.
+
+  If $a\ge1$, choose $n>a$. Monotonicity of positive $n$th roots gives
+  $1\le a^{1/n}\le n^{1/n}$, so the squeeze principle gives
+  $a^{1/n}\to1$. If $0<a<1$, apply this result to $1/a>1$ and use
+  the quotient rule to obtain
+  \[
+    a^{1/n}=\frac{1}{(1/a)^{1/n}}\longrightarrow1.
+  \]
+\end{proof}
+
+\autoref{fig:root-sequences} plots actual terms of two root sequences.
+The base in $n^{1/n}$ grows, yet taking the $n$th root brings the terms
+back towards $1$.
+
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/sequences/root-sequences}
+  \caption[Two root sequences approaching one.]{Terms of $n^{1/n}$ and $2^{1/n}$ on Cartesian axes.
+    Both sequences approach the horizontal line $y=1$. Only integer
+    indices represent sequence terms.}
+  \label{fig:root-sequences}
+\end{figure*}
+
+\subsection{Exercises on root limits}
+
+The following exercises combine root limits with geometric growth and
+the squeeze principle.
+
+\input{problems/hw04/01-polynomial-root-limit/problem}
+\input{problems/hw04/02-exponential-root-limit/problem}

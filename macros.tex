@@ -5,6 +5,14 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+% Draft additions awaiting the author's review. Keep ordinary result styles.
+% Remove the wrapper after approval to restore the surrounding text colour.
+\definecolor{pendingreviewcolor}{HTML}{486581}
+\newenvironment{pendingreview}{%
+  \par\color{pendingreviewcolor}%
+}{\par}
+\newcommand{\pendingreviewtext}[1]{\textcolor{pendingreviewcolor}{#1}}
+
 % One convention for named, linked cross-references in every document.
 \renewcommand*{\figureautorefname}{Figure}
 \renewcommand*{\tableautorefname}{Table}
@@ -80,6 +88,36 @@
 \newtheorem*{restatedexercise}{\autoref{ex:\restatedexercisekey}}
 \theoremstyle{remark}
 \newsharedtheorem{remark}{Remark}
+
+% Catalogue numbered theorem statements using their existing counters and
+% hyperlink anchors. Match the book's figure/table list formatting.
+\makeatletter
+\@ifclassloaded{tufte-book}{%
+  \newcommand{\listoftheorems}{%
+    \begingroup
+    % Begin directly after the tables, without a blank facing page.
+    \let\cleardoublepage\clearpage
+    \chapter*{List of Theorems}%
+    \@starttoc{loe}%
+    \endgroup
+  }
+  \let\l@theorem\@tufte@lof@line
+  \providecommand*{\toclevel@theorem}{2}
+}{}
+% Scan this patch directly so etoolbox can handle its parameter characters.
+\ifdefined\listoftheorems
+  \pretocmd{\@begintheorem}{%
+    \ifstrequal{#1}{Theorem}{%
+      \ifblank{#2}{}{%
+        \addcontentsline{loe}{theorem}{\protect\numberline{#2}#3}%
+      }%
+    }{}%
+  }{}{%
+    \PackageError{analysis-notes}{Could not register theorem list entries}
+      {Check the amsthm definition of \string\@begintheorem.}%
+  }
+\fi
+\makeatother
 
 % BEGIN TUFTE PLACEHOLDER HELPERS
 % Adapted from the supplied Tufte-LaTeX sample (Apache-2.0).

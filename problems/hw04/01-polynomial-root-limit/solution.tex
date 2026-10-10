@@ -1,0 +1,46 @@
+% !TEX root = ../../hw04.tex
+% The author approved the corrections and additions to this proof.
+\begin{proof}[Solution]
+  We start by taking out a factor of $n^3$ to simplify the term inside the
+  $n$th root.
+  The remaining factor is positive for every $n\ge1$,
+  since $5-2/n^2+100/n^3\ge5-2=3$. We first factor at each $n$ and
+  take limits only after establishing convergence of both factors.
+  \begin{align*}
+    (5n^3-2n+100)^{1/n}
+      &=\left(n^3\left(5-\frac{2}{n^2}+\frac{100}{n^3}\right)\right)^{1/n}\\
+      &=(n^3)^{1/n}\left(5-\frac{2}{n^2}+\frac{100}{n^3}\right)^{1/n}.
+  \end{align*}
+  Since we know $\lim_{n\to\infty}n^{1/n}=1$,
+  \[
+    \lim_{n\to\infty}n^{3/n}
+      =\lim_{n\to\infty}(n^{1/n})^3=1^3=1.
+  \]
+
+  Next for the right-side factor, the bounds below
+  hold for $n\ge5$. Indeed,
+
+  \[
+    4<5-\frac{2}{25}
+      \le5-\frac{2}{n^2}+\frac{100}{n^3}
+      \le5+\frac{100}{125}<6.
+  \]
+
+  \begin{align*}
+    4&<5-\frac{2}{n^2}+\frac{100}{n^3}<6,\\
+    4^{1/n}&<\left(5-\frac{2}{n^2}+\frac{100}{n^3}\right)^{1/n}<6^{1/n}.
+  \end{align*}
+  Both bounds need only hold on this tail.
+  The bounding sequences have limits
+  \[
+    \lim_{n\to\infty}4^{1/n}=1,\quad
+    \lim_{n\to\infty}6^{1/n}=1.
+  \]
+  Then by the squeeze theorem,
+  \[
+    \lim_{n\to\infty}\left(5-\frac{2}{n^2}+\frac{100}{n^3}\right)^{1/n}=1.
+  \]
+  Both factor limits now exist, so the product rule
+  applies to the factored expression.
+  Hence the final limit is the product of $1\times1$.
+\end{proof}

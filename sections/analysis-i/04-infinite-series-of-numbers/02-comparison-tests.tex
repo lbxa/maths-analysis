@@ -1,21 +1,157 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9236--IMG_9240. Corrections to tail indices and to the
+% choice of an eventual geometric bound are recorded beside the proofs.
 \section{Comparison tests}
 \label{sec:analysis-i:comparison-tests}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 678--688.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\autoref{template:fig:fullfig} is an example of the \docenv{figure*}
-environment and \autoref{template:fig:textfig} is an example of the normal
-\docenv{figure} environment.
+\begin{definition}
+  A series $\sum a_n$ is \emph{absolutely convergent} if
+  $\sum |a_n|$ converges.
+\end{definition}
 
-\begin{figure*}[h]
-  \includegraphics[width=\linewidth]{template/sine.pdf}%
-  \caption[Full-width sine wave.]{This graph shows $y = \sin x$ from about $x = [-10, 10]$.
-  \emph{Notice that this figure takes up the full page width.}}%
-  \label{template:fig:fullfig}%
-\end{figure*}
+\begin{theorem}[Comparison with a majorant]
+  \label{thm:analysis-i:series-comparison}
+  Suppose $|a_n|\le M_n$ for all sufficiently large $n$, where
+  $M_n\ge0$ and $\sum M_n$ converges. Then $\sum |a_n|$ and
+  $\sum a_n$ both converge.
+\end{theorem}
 
-\lipsum[5]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{proof}
+  Let $T_n=\sum_{k=1}^n M_k$. For $m>n$ beyond the index where
+  the comparison holds, the triangle inequality gives
+  \[
+    \left|\sum_{k=n+1}^{m}a_k\right|
+    \le\sum_{k=n+1}^{m}|a_k|
+    \le\sum_{k=n+1}^{m}M_k=T_m-T_n.
+  \]
+  Since $(T_n)$ converges, its Cauchy property makes the right-hand
+  side smaller than any given $\varepsilon>0$ when $m>n$ are
+  sufficiently large. The Cauchy criterion proves convergence of
+  $\sum a_n$. Applying the same argument to $|a_n|$ proves absolute
+  convergence as well.
+\end{proof}
+% IMG_9236 has T_m-T_(n+1). The sum from n+1 through m is T_m-T_n.
+
+In particular, absolute convergence implies convergence by taking
+$M_n=|a_n|$. A finite number of early terms has no effect on convergence,
+because it only adds a fixed constant to all later partial sums.
+
+\subsection{The \texorpdfstring{$p$}{p}-series}
+
+For a real exponent $s>1$, consider $\sum_{n=1}^{\infty}1/n^s$.
+The lecture uses real powers with their usual exponent and order laws;
+their construction extends the rational powers developed earlier and
+is deferred here.
+% Clarification awaiting author review, concerning irrational exponents.
+\begin{pendingreview}
+The construction in \autoref{sec:analysis-i:roots-and-powers} defines
+rational powers. For irrational $s$, the arguments here assume that
+$n^s$ exists and obeys those order and exponent laws; they do not
+construct it.
+\end{pendingreview}
+Group its terms into blocks between consecutive powers of $2$.
+The block $2^j<n\le2^{j+1}$ has $2^j$ terms, and
+\[
+  \sum_{n=2^j+1}^{2^{j+1}}\frac{1}{n^s}
+  \le 2^j\frac{1}{(2^j)^s}=2^{-j(s-1)}.
+\]
+Writing $q=2^{1-s}<1$, every partial sum is bounded by
+\[
+  1+\frac{1}{2^s}+\sum_{j=1}^{\infty}q^j<\infty.
+\]
+The positive partial sums increase, so the monotone bounded sequence
+theorem proves convergence. When $s\le1$, we have $n^{-s}\ge1/n$
+for $n\ge1$. Comparison with the harmonic partial sums proves
+divergence. Thus the $p$-series converges exactly when $s>1$.
+
+The lecture also states Euler's evaluation
+$\sum_{n=1}^{\infty}1/n^2=\pi^2/6$, without proving its value.
+The argument above proves convergence, not that evaluation.
+\marginnote{The lecture asks how this relates to Gabriel's horn.
+  Keep this question in mind for integration, where volume and surface
+  area can be compared.}
+
+\subsection{Exercises on comparison}
+
+These exercises use estimates of positive terms and partial sums.
+For the second, recall the eventual bounds supplied by the lower and
+upper limits in \autoref{sec:analysis-i:upper-and-lower-limits}.
+
+\input{problems/hw04/04-shifted-root-series/problem}
+\input{problems/hw04/05-lower-upper-comparison/problem}
+
+\subsection{The ratio test}
+
+\begin{theorem}[Ratio test]
+  \label{thm:analysis-i:ratio-test}
+  Suppose $a_n\ne0$ for all sufficiently large $n$, and set
+  $R_n=|a_{n+1}/a_n|$ on that tail.
+  If $\limsup R_n<1$, then $\sum a_n$ converges absolutely.
+  If $\liminf R_n>1$, then $\sum a_n$ diverges.
+\end{theorem}
+
+\begin{proof}
+  First suppose $R_0=\limsup R_n<1$. Choose $\rho$ with
+  $R_0<\rho<1$. By the eventual-bound property in
+  \autoref{sec:analysis-i:upper-and-lower-limits}, some $N$ satisfies
+  $R_n\le\rho$ for every $n\ge N$. Thus
+  \[
+    |a_{n+1}|\le\rho|a_n|\quad(n\ge N),\qquad
+    |a_{N+k}|\le|a_N|\rho^k\quad(k\ge0),
+  \]
+  where the second inequality follows by induction. The geometric
+  majorant $\sum_{k=0}^{\infty}|a_N|\rho^k$ converges, so
+  \autoref{thm:analysis-i:series-comparison} proves absolute convergence.
+
+  Now suppose $\liminf R_n>1$. Choose $\rho>1$ below that lower
+  limit. For some $N$, all $n\ge N$ satisfy $R_n\ge\rho$, hence
+  $|a_{N+k}|\ge|a_N|\rho^k$. Since $a_N\ne0$, these terms do not
+  tend to zero. The series diverges by
+  \autoref{thm:analysis-i:series-term-test}.
+\end{proof}
+% IMG_9239 uses R_0-epsilon as an upper bound. It must be above limsup,
+% so the proof chooses R_0<rho<1. The divergence estimate is editorial
+% explanation of the stated divergence implication.
+
+\autoref{fig:geometric-bound-choice} highlights the choice in the first
+part of the proof. The upper bound must exceed the limsup, while still
+being small enough to produce a convergent geometric series.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/series/geometric-bound-choice}
+  \caption[Choosing an eventual geometric bound.]{Choose $\rho$ in the open interval between $R_0=\limsup R_n$
+    and $1$. The tail ratios are eventually below $\rho$, and
+    $\sum\rho^k$ converges.}
+  \label{fig:geometric-bound-choice}
+\end{marginfigure}
+
+For a geometric series with $x\ne0$, the ratios equal $|x|$.
+The ratio test recovers absolute convergence when $|x|<1$.
+The case $x=0$ is immediate without forming ratios.
+
+\subsection{The root test}
+
+\begin{theorem}[Root test]
+  \label{thm:analysis-i:root-test}
+  If $\limsup_{n\to\infty}|a_n|^{1/n}<1$, then $\sum a_n$
+  converges absolutely.
+\end{theorem}
+
+\begin{proof}
+  Choose $\rho$ strictly between the upper limit and $1$.
+  All sufficiently late terms satisfy $|a_n|^{1/n}\le\rho$,
+  so $|a_n|\le\rho^n$. The geometric majorant $\sum\rho^n$
+  converges, and comparison proves the claim.
+\end{proof}
+% IMG_9240 gives only the convergence criterion and again writes
+% R_0-epsilon. The same correction as in the ratio test applies.
+
+A limiting value of $1$ does not decide convergence. For example,
+both $1/n$ and $1/n^2$ have successive-term ratios tending to $1$
+and $n$th-root limits equal to $1$, but only the second series converges.
+
+The next exercise focuses on the divergence implications, using a lower
+limit to bound the late terms away from zero.
+
+\input{problems/hw04/06-divergence-tests/problem}

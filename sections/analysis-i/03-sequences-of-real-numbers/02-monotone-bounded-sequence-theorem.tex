@@ -1,33 +1,144 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9232--IMG_9234. AM--GM and the identification with e are
+% stated in the source; the two monotonicity arguments and bound are proved.
 \section{Monotone bounded sequence theorem}
 \label{sec:analysis-i:monotone-bounded-sequence-theorem}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 548--571.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:sec:page-layout}
-\label{template:sec:headings}\index{headings}
-This style provides \textsc{a}- and \textsc{b}-heads (that is,
-\Verb|\section| and \Verb|\subsection|), demonstrated above.
+\begin{theorem}[Monotone bounded sequence theorem]
+  \label{thm:analysis-i:monotone-convergence}
+  An increasing sequence bounded above converges to the supremum of
+  its terms. A decreasing sequence bounded below converges to their infimum.
+\end{theorem}
 
-If you need more than two levels of section headings, you'll have to define
-them yourself at the moment; there are no pre-defined styles for anything below
-a \Verb|\subsection|.  As Bringhurst points out in \textit{The Elements of
-Typographic Style}~\cite{Bringhurst2005}, you should ``use as many levels of
-headings as you need: no more, and no fewer.''
+Here increasing and decreasing allow equality between consecutive terms.
+The proof was given in \autoref{sec:analysis-i:completeness-equivalences}.
+For example, if $L=\sup\{a_n\mid n\in\N\}$ and $(a_n)$ is increasing,
+some $a_N$ exceeds $L-\varepsilon$. Every later term then satisfies
+$L-\varepsilon<a_N\le a_n\le L$.
 
-The \TL classes will emit an error if you try to use
-\linebreak\Verb|\subsubsection| and smaller headings.
+\subsection{The sequence \texorpdfstring{$(1+1/n)^n$}{(1+1/n) to the power n}}
 
-% let's start a new thought -- a new section
-\newthought{In his later books}~\cite{Tufte2006}, Tufte
-starts each section with a bit of vertical space, a non-indented paragraph,
-and sets the first few words of the sentence in \textsc{small caps}.  To
-accomplish this using this style, use the \doccmddef{newthought} command:
-\begin{docspec}
-  \doccmd{newthought}\{In his later books\}, Tufte starts\ldots
-\end{docspec}
+Consider
+\[
+  c_n=\left(1+\frac1n\right)^n.
+\]
+We first establish a finite limit by proving monotonicity and an upper
+bound. We then compare the binomial expansion with the factorial series
+to identify the limit as $e$.
 
-\lipsum[4]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{proposition}[Arithmetic--geometric mean inequality]
+  \label{thm:analysis-i:am-gm}
+  For an integer $k\ge1$ and positive real numbers $a_1,\ldots,a_k$,
+  \[
+    (a_1\cdots a_k)^{1/k}\le\frac{a_1+\cdots+a_k}{k}.
+  \]
+\end{proposition}
+
+We use this inequality, abbreviated AM--GM, without proof.
+
+\begin{example}[Convergence using AM--GM]
+  \label{ex:analysis-i:binomial-sequence-am-gm}
+  Apply \autoref{thm:analysis-i:am-gm} to $n+1$ positive numbers,
+  one equal to $1$ and the other $n$ equal to $(n+1)/n$.
+  Their arithmetic mean is $1+1/(n+1)$. Hence
+  \[
+    \left(\frac{n+1}{n}\right)^{n/(n+1)}
+    \le1+\frac{1}{n+1}.
+  \]
+  Raising both sides to the power $n+1$ gives $c_n\le c_{n+1}$.
+  Thus $(c_n)$ is increasing.
+
+  We still need an upper bound. It is convenient to bound $c_{2n}$
+  first. Put $b=1+1/(2n)$. Factoring the difference of powers gives
+  \begin{align*}
+    b^n-1
+      &=(b-1)\sum_{j=0}^{n-1}b^j\\
+      &\le n(b-1)b^{n-1}
+       =\frac12b^{n-1}<\frac12b^n.
+  \end{align*}
+  The sum has $n$ terms, each at most $b^{n-1}$, including when $n=1$.
+  Thus $b^n<2$ and $c_{2n}=(b^n)^2<4$. Since the sequence is
+  increasing, $c_n\le c_{2n}<4$ for every $n$.
+  \autoref{thm:analysis-i:monotone-convergence} now proves that $(c_n)$
+  converges to a finite limit.
+  % The first inequality must be non-strict when n=1 (IMG_9234).
+\end{example}
+
+Convergence alone does not determine the value of the limit. To find it,
+we compare the binomial expansion with the factorial series defining $e$.
+
+\begin{proposition}[The binomial limit]
+  \label{thm:analysis-i:binomial-limit}
+  \[
+    \lim_{n\to\infty}\left(1+\frac1n\right)^n=e.
+  \]
+\end{proposition}
+% Addition awaiting author review. The lecture establishes
+% convergence but does not supply this identification with the earlier e.
+\begin{pendingreview}
+\begin{proof}[Identification of the limit]
+  Let $L=\lim c_n$, whose existence has just been proved. The binomial
+  expansion gives
+  \[
+    c_n=\sum_{k=0}^{n}\frac{1}{k!}
+      \prod_{j=0}^{k-1}\left(1-\frac{j}{n}\right)
+    \le\sum_{k=0}^{n}\frac{1}{k!}\le e.
+  \]
+  The product for $k=0$ is empty and equals $1$. Every other factor
+  lies between $0$ and $1$. Taking limits gives $L\le e$, where $e$
+  is the factorial-series sum defined in
+  \autoref{sec:analysis-i:denseness}.
+
+  Now fix an integer $m\ge0$. For every $n\ge\max\{m,1\}$, positivity
+  of the remaining terms gives
+  \[
+    c_n\ge\sum_{k=0}^{m}\frac{1}{k!}
+      \prod_{j=0}^{k-1}\left(1-\frac{j}{n}\right).
+  \]
+  This sum has a fixed number of terms. Each factor tends to $1$ as
+  $n\to\infty$, so the finite product and sum rules give
+  $L\ge\sum_{k=0}^{m}1/k!$. These inequalities hold for every $m$.
+  The factorial partial sums tend to $e$, hence $L\ge e$.
+  Together with $L\le e$, this proves $L=e$ without exchanging a
+  limit with an infinite sum.
+\end{proof}
+\end{pendingreview}
+
+There is also a direct proof of strict monotonicity using differences
+of powers.
+
+\begin{example}[Monotonicity by differences of powers]
+  \label{ex:analysis-i:binomial-sequence-powers}
+  If $0<a<b$ and $k\ge2$ is an integer, then
+  \begin{align*}
+    b^k-a^k
+      &=(b-a)\bigl(b^{k-1}+b^{k-2}a+\cdots+a^{k-1}\bigr)\\
+      &<k(b-a)b^{k-1}.
+  \end{align*}
+  Each summand in the brackets is at most $b^{k-1}$, and at least one
+  is strictly smaller. Substitute
+  \[
+    a=1+\frac{1}{n+1},\qquad b=1+\frac1n,\qquad k=n+1.
+  \]
+  Since $k(b-a)=1/n$, we obtain
+  \[
+    \left(1+\frac1n\right)c_n-c_{n+1}<\frac{c_n}{n},
+  \]
+  and therefore $c_n<c_{n+1}$.
+  % The strict power bound needs 0<a<b and k>=2, omitted in IMG_9233.
+\end{example}
+
+% The supplied week summary has exponent 1/n, whereas IMG_9232 has n.
+\begin{remark}[Changing the exponent]
+  The related expression with exponent $1/n$ has a different limit.
+  Indeed,
+  \[
+    1\le\left(1+\frac1n\right)^{1/n}\le2^{1/n}\longrightarrow1,
+  \]
+  so it tends to $1$ by the squeeze principle.
+\end{remark}
+
+The two-variable case of AM--GM admits a direct proof that also allows
+zero inputs and determines when equality holds.
+
+\input{problems/hw04/08-two-variable-am-gm/problem}

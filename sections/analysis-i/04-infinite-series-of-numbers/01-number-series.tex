@@ -1,48 +1,114 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9234--IMG_9235 and IMG_9238.
 \section{Number series}
 \label{sec:analysis-i:number-series}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 640--677.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:sec:figures-and-tables}
-Images and graphics play an integral role in Tufte's work.
-In addition to the standard \docenvdef{figure} and \docenvdef{tabular} environments,
-this style provides special figure and table environments for full-width
-floats.
+An infinite sum is defined through finite sums. This lets us use the
+sequence tools from the preceding chapter.
 
-Full page--width figures and tables may be placed in \docenvdef{figure*} or
-\docenvdef{table*} environments.  To place figures or tables in the margin,
-use the \docenvdef{marginfigure} or \docenvdef{margintable} environments as follows
-(see \autoref{template:fig:marginfig}):
+\begin{definition}
+  Given real numbers $a_1,a_2,\ldots$, their \emph{partial sums} are
+  $S_n=\sum_{k=1}^n a_k$. The series $\sum_{k=1}^{\infty}a_k$
+  \emph{converges} to $S\in\R$ if $S_n\to S$. If the partial sums
+  have no finite limit, the series \emph{diverges}.
+\end{definition}
 
-\begin{marginfigure}%
-  \includegraphics[width=\linewidth]{template/helix}
-  \caption[Helix in the margin.]{This is a margin figure.  The helix is defined by 
-    $x = \cos(2\pi z)$, $y = \sin(2\pi z)$, and $z = [0, 2.7]$.  The figure was
-    drawn using Asymptote (\protect\url{http://asymptote.sf.net/}).}
-  \label{template:fig:marginfig}
-\end{marginfigure}
+\begin{theorem}[Cauchy criterion for series]
+  \label{thm:analysis-i:series-cauchy}
+  The series $\sum_{k=1}^{\infty}a_k$ converges if and only if
+  \[
+    \forall\varepsilon>0\ \exists N\in\N\quad
+    m>n\ge N\ \Longrightarrow\
+    \left|\sum_{k=n+1}^{m}a_k\right|<\varepsilon.
+  \]
+\end{theorem}
 
-\begin{docspec}
-\textbackslash begin\{marginfigure\}\\
-  \qquad\textbackslash includegraphics\{helix\}\\
-  \qquad\textbackslash caption\{This is a margin figure.\}\\
-  \qquad\textbackslash label\{fig:marginfig\}\\
-\textbackslash end\{marginfigure\}\\
-\end{docspec}
+\begin{proof}
+  For $m>n$, split $S_m$ after its first $n$ terms and subtract $S_n$.
+  Using the definition of the partial sums gives
+  \begin{align*}
+    S_m-S_n
+      &=\sum_{k=1}^{m}a_k-\sum_{k=1}^{n}a_k\\
+      &=\left(\sum_{k=1}^{n}a_k+\sum_{k=n+1}^{m}a_k\right)
+        -\sum_{k=1}^{n}a_k\\
+      &=\sum_{k=n+1}^{m}a_k.
+  \end{align*}
+  The shared terms $a_1,\ldots,a_n$ cancel. The first remaining term
+  is $a_{n+1}$ and the last is $a_m$, so the remaining sum has $m-n$
+  terms. In particular, when $m=n+1$, it contains just $a_{n+1}$.
+  Taking absolute values therefore gives
+  \[
+    |S_m-S_n|=\left|\sum_{k=n+1}^{m}a_k\right|.
+  \]
+  Thus the expression in the criterion measures the distance between
+  two partial sums, using precisely the terms added after the $n$th one.
 
-The \docenv{marginfigure} and \docenv{margintable} environments accept an optional parameter \docopt{offset} that adjusts the vertical position of the figure or table. See \autoref{template:sec:sidenotes} for examples. The specifications are:
-\begin{docspec}
-  \textbackslash{begin\{marginfigure\}[\docopt{offset}]}\\
-  \qquad\ldots\\
-  \textbackslash{end\{marginfigure\}}\\
-  \mbox{}\\
-  \textbackslash{begin\{margintable\}[\docopt{offset}]}\\
-  \qquad\ldots\\
-  \textbackslash{end\{margintable\}}\\
-\end{docspec}
+  The restriction $m>n$ simply orders the two partial sums. Exchanging the indices
+  gives the same absolute difference, and equal indices give zero.
+  Thus checking $m>n\ge N$ is equivalent to checking every pair
+  $m,n\ge N$. The criterion therefore says exactly that $(S_n)$
+  is Cauchy. By \autoref{thm:analysis-i:cauchy-completeness}, this is
+  equivalent to convergence of $(S_n)$ in $\R$, which is the definition
+  of convergence of the series.
+\end{proof}
 
-\lipsum[4]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{proposition}
+  \label{thm:analysis-i:series-term-test}
+  If $\sum_{n=1}^{\infty}a_n$ converges, then $a_n\to0$.
+\end{proposition}
+
+\begin{proof}
+  If $S_n\to S$, then $S_{n-1}\to S$ as well. Thus
+  $a_n=S_n-S_{n-1}\to S-S=0$ by the difference rule for limits.
+\end{proof}
+
+This condition is necessary but is not sufficient. The harmonic series
+provides the basic counterexample.
+
+\subsection{The harmonic series}
+
+Let $H_n=\sum_{k=1}^n1/k$. Although $1/n\to0$, for every $N\ge1$
+we have
+\[
+  H_{2N}-H_N=\sum_{k=N+1}^{2N}\frac1k
+  \ge N\frac{1}{2N}=\frac12.
+\]
+There are $N$ terms in this block, each at least $1/(2N)$.
+Hence $(H_n)$ fails the Cauchy condition with $\varepsilon=1/2$,
+so the harmonic series diverges. Its partial sums are increasing;
+if they were bounded above, the monotone bounded sequence theorem
+would force convergence. They are therefore unbounded and tend to
+$+\infty$. \autoref{fig:harmonic-blocks} shows why each doubling
+contributes at least another $1/2$.
+% IMG_9235 writes a strict bound; >= includes N=1.
+
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/series/harmonic-blocks}
+  \caption[Harmonic blocks with a constant lower bound.]{Lower bounds for four harmonic blocks. A block of $N$ terms
+    has $N$ strips of height $1/(2N)$, hence area $1/2$. The actual
+    terms are at least these heights, so the block sums do not shrink.}
+  \label{fig:harmonic-blocks}
+\end{figure*}
+
+\subsection{The geometric series}
+
+For $x\ne1$, multiplying a finite sum by $1-x$ gives
+\[
+  (1-x)\sum_{k=0}^N x^k=1-x^{N+1},\qquad
+  \sum_{k=0}^N x^k=\frac{1-x^{N+1}}{1-x}.
+\]
+If $|x|<1$, then $|x|^{N+1}\to0$ by the geometric-sequence
+estimate in \autoref{sec:analysis-i:convergent-sequences}, with
+$x=0$ immediate. Consequently
+\[
+  \sum_{k=0}^{\infty}x^k=\frac{1}{1-x}\qquad(|x|<1).
+\]
+If $|x|\ge1$, the terms $x^k$ do not tend to zero, so the series
+diverges by \autoref{thm:analysis-i:series-term-test}.
+% IMG_9238's repeated claim a^n -> 1 for 0<a<1 is a slip; it is 0.
+
+The Cauchy criterion can also establish convergence when the terms
+alternate in sign.
+
+\input{problems/hw04/03-alternating-series/problem}

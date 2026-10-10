@@ -1,0 +1,50 @@
+% !TEX program = pdflatex
+% Compile from the repository root with make problem HW=hw04.
+% Based on problems/template.tex; the template is unchanged.
+% Source: HW4 Intro to Math Analysis I.pdf, pages 1--2.
+% MA-GY-6213, Homework No. 4, due Friday 10/9/2026.
+% Page 1: Q1--Q4 without numbered subparts, Q5 with parts (i)--(ii).
+% Page 2: Q6 with parts (i)--(ii), Q7--Q8 without numbered subparts.
+% Eight questions; no solutions were supplied with the assignment.
+% The author approved the audited edits to all eight solutions.
+% Q4--Q8 were supplied in images/HW05; their statements match this assignment.
+% The Week 4 topic summary is metadata, not an additional exercise.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+\input{preamble}
+\input{macros}
+
+% Preserve the original question numbers independently of book numbering.
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\title{Homework 04}
+\author[Lucas Barbosa, lc6424]{Lucas Barbosa, \texttt{lc6424}}
+\date{Due Friday, October 9, 2026}
+
+\begin{document}
+\maketitle
+
+\input{problems/hw04/01-polynomial-root-limit/problem}
+\input{problems/hw04/01-polynomial-root-limit/solution}
+
+\input{problems/hw04/02-exponential-root-limit/problem}
+\input{problems/hw04/02-exponential-root-limit/solution}
+
+\input{problems/hw04/03-alternating-series/problem}
+\input{problems/hw04/03-alternating-series/solution}
+
+\input{problems/hw04/04-shifted-root-series/problem}
+\input{problems/hw04/04-shifted-root-series/solution}
+
+\input{problems/hw04/05-lower-upper-comparison/problem}
+\input{problems/hw04/05-lower-upper-comparison/solution}
+
+\input{problems/hw04/06-divergence-tests/problem}
+\input{problems/hw04/06-divergence-tests/solution}
+
+\input{problems/hw04/07-scaled-power-series/problem}
+\input{problems/hw04/07-scaled-power-series/solution}
+
+\input{problems/hw04/08-two-variable-am-gm/problem}
+\input{problems/hw04/08-two-variable-am-gm/solution}
+
+\end{document}

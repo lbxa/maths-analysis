@@ -1,0 +1,91 @@
+% !TEX root = ../../hw04.tex
+% The author approved the corrections and additions to this proof.
+\begin{proof}[Solution]
+  Let $m>n\ge0$ and consider the following partial sums.
+  \[
+    S_n=\sum_{k=0}^{n}(-1)^k a_k,\quad
+    S_m=\sum_{k=0}^{m}(-1)^k a_k.
+  \]
+  To prove $(S_n)$ converges we need to show that it satisfies the Cauchy
+  convergence criterion. For every $\varepsilon>0$
+  we need to find $N\in\N$ such that for $m,n\ge N$,
+  \[
+    |S_m-S_n|<\varepsilon.
+  \]
+
+  There are $\ell=m-n$ terms in the finite tail. Put
+  \[
+    T=\sum_{j=1}^{\ell}(-1)^{j-1}a_{n+j}.
+  \]
+  Its first term is $a_{n+1}$ and its last is $(-1)^{\ell-1}a_m$.
+  This notation keeps the final term explicit, including for short tails.
+
+  We start by understanding the nature of the sequence.
+  \begin{align*}
+    |S_m-S_n|
+      &=\left|\sum_{k=0}^{m}(-1)^k a_k-\sum_{k=0}^{n}(-1)^k a_k\right|\\
+      &=\left|\sum_{k=n+1}^{m}(-1)^k a_k\right|\\
+      &=\left|(-1)^{n+1}T\right|\\
+      &=\left|(-1)^{n+1}\right||T|\\
+      &=|T|.
+  \end{align*}
+  The third equality uses $k=n+j$, so
+  $(-1)^k=(-1)^{n+1}(-1)^{j-1}$.
+  Grouping by the following pairs requires accounting
+  for the parity of the tail.
+
+  An empty sum below is zero.
+  If $\ell=2r$ with $r\ge1$, every term is paired. If $\ell=2r+1$
+  with $r\ge0$, the last term is positive and remains unpaired. Thus
+  \begin{align*}
+    T&=\sum_{j=1}^{r}(a_{n+2j-1}-a_{n+2j})
+      &&\text{if }\ell=2r,\\
+    T&=\sum_{j=1}^{r}(a_{n+2j-1}-a_{n+2j})+a_m
+      &&\text{if }\ell=2r+1.
+  \end{align*}
+
+  Since $a_n\ge a_{n+1}$, each pair $(a_n-a_{n+1})\ge0$,
+  and any unpaired $a_m$ is also nonnegative.
+  Thus the alternating tail is nonnegative in the
+  sense that $T\ge0$.
+  Now consider a different arrangement of pairs.
+
+  Leaving the first term alone and pairing from the second gives
+  \begin{align*}
+    T&=a_{n+1}-\sum_{j=1}^{r-1}(a_{n+2j}-a_{n+2j+1})-a_m
+      &&\text{if }\ell=2r,\\
+    T&=a_{n+1}-\sum_{j=1}^{r}(a_{n+2j}-a_{n+2j+1})
+      &&\text{if }\ell=2r+1.
+  \end{align*}
+  The last term is subtracted in the even case. In the odd case,
+  every term after the first is paired. This includes $\ell=1$,
+  when $r=0$ and $T=a_{n+1}$.
+
+  Similarly, each pair $(a_n-a_{n+1})\ge0$, and
+  $a_m\ge0$, so $T\le a_{n+1}$. Since $T\ge0$, we have $|T|=T$.
+  Therefore $|S_m-S_n|$ can be at most $|a_{n+1}|$.
+  \begin{align*}
+    |S_m-S_n|&\le|a_{n+1}|,\\
+    |S_m-S_n|&\le a_{n+1},\quad a_n\ge0.
+  \end{align*}
+
+  Since $\lim_{n\to\infty}a_n=0$, for every
+  $\varepsilon>0$ there exists $N\in\N$
+  such that $a_n<\varepsilon$ for all $n\ge N$.
+
+  Thus, for all $m>n\ge N$,
+  \[
+    |S_m-S_n|\le a_{n+1}\le a_n<\varepsilon.
+  \]
+  Swapping the indices preserves the absolute
+  difference, and equal indices give zero. Hence the same
+  $\varepsilon$ bound holds for every pair $m,n\ge N$.
+
+  Hence $(S_n)$ satisfies the Cauchy convergence
+  criterion and therefore converges in $\R$.
+  Consequently, the alternating series
+  \[
+    \sum_{n=0}^{\infty}(-1)^n a_n
+  \]
+  converges.
+\end{proof}

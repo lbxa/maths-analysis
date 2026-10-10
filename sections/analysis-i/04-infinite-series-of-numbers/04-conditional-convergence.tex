@@ -1,33 +1,55 @@
 % !TEX root = ../../../main.tex
+% Week 4, IMG_9236 and IMG_9241. The source assigns convergence as a
+% question. The author requested a worked example; the proof below uses
+% only monotone convergence and the sequence tools already established.
 \section{Conditional convergence}
 \label{sec:analysis-i:conditional-convergence}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 697--719.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-As with sidenotes and marginnotes, a caption may sometimes require vertical
-adjustment. The \doccmddef{caption} command now takes a second optional
-argument that enables you to do this by providing a dimension \docopt{offset}.
-You may specify the caption in any one of the following forms:
-\begin{docspec}
-  \doccmd{caption}\{\docarg{long caption}\}\\
-  \doccmd{caption}[\docarg{short caption}]\{\docarg{long caption}\}\\
-  \doccmd{caption}[][\docopt{offset}]\{\docarg{long caption}\}\\
-  \doccmd{caption}[\docarg{short caption}][\docopt{offset}]%
-                  \{\docarg{long caption}\}
-\end{docspec}
-A positive \docopt{offset} will push the caption down the page. The short
-caption, if provided, is what appears in the list of figures/tables, otherwise
-the ``long'' caption appears there. Note that although the arguments
-\docopt{short caption} and \docopt{offset} are both optional, they must be
-provided in order. Thus, to specify an \docopt{offset} without specifying a
-\docopt{short caption}, you must include the first set of empty brackets
-\Verb|[]|, which tell \doccmd{caption} to use the default ``long'' caption. As
-an example, the caption to \autoref{template:fig:textfig} above was given in the form
-\begin{docspec}
-  \doccmd{caption}[Hilbert curves...][6pt]\{Hilbert curves...\}
-\end{docspec}
+\begin{definition}
+  A series is \emph{conditionally convergent} if it converges but
+  does not converge absolutely.
+\end{definition}
 
-\lipsum[7]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{example}[Alternating power series]
+  \label{ex:analysis-i:alternating-power-series}
+  For every real $s>0$, the series
+  \[
+    \sum_{n=1}^{\infty}\frac{(-1)^n}{n^s}
+  \]
+  converges. Its even and odd partial sums give a direct way to see why.
+
+  \begin{proof}
+    Put $u_n=1/n^s$ and $S_n=\sum_{j=1}^n(-1)^ju_j$.
+    The positive terms $u_n$ decrease to zero. Indeed, for any
+    $\varepsilon>0$, choosing $n>\varepsilon^{-1/s}$ gives
+    $u_n<\varepsilon$. Consecutive partial sums of the same parity satisfy
+    \begin{align*}
+      S_{2k+2}-S_{2k}&=u_{2k+2}-u_{2k+1}\le0,\\
+      S_{2k+1}-S_{2k-1}&=u_{2k}-u_{2k+1}\ge0.
+    \end{align*}
+    Thus the even partial sums decrease and the odd partial sums increase.
+    They are bounded, since
+    \[
+      -u_1\le S_{2k-1}\le S_{2k}\le S_2.
+    \]
+    By \autoref{thm:analysis-i:monotone-convergence}, both subsequences
+    converge. Their difference is $S_{2k}-S_{2k-1}=u_{2k}\to0$, so
+    their limits agree. Every sufficiently late partial sum belongs to
+    one of these two subsequences and is therefore close to their common
+    limit. This proves convergence of the full sequence $(S_n)$.
+  \end{proof}
+
+  The series of absolute values is $\sum 1/n^s$. The $p$-series test
+  therefore gives conditional convergence for $0<s\le1$ and absolute
+  convergence for $s>1$. At $s=0$, the terms alternate between $-1$
+  and $1$ and do not tend to zero, so the series diverges.
+\end{example}
+
+In particular, taking $s=1$ gives the alternating harmonic series
+\[
+  \sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+  =-1+\frac12-\frac13+\frac14-\cdots.
+\]
+It converges by \autoref{ex:analysis-i:alternating-power-series}, but
+its absolute values form the divergent harmonic series. It is therefore
+conditionally convergent.

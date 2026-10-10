@@ -1,0 +1,63 @@
+% !TEX root = ../../hw04.tex
+% The author approved the corrections and additions to this proof.
+\begin{proof}[Solution]
+  \textit{Case $(0\le a\le1)$}.
+  For $n\ge1$, we have $0\le a^n\le1$, including
+  when $a=0$ or $a=1$. Therefore,
+  \[
+    n\le a^n+n\le n+1.
+  \]
+  For $n\ge1$, $n+1\le2n$, so
+  \begin{align*}
+    n&\le a^n+n\le n+1\le2n,\\
+    n&\le a^n+n\le2n,\\
+    n^{1/n}&\le(a^n+n)^{1/n}\le(2n)^{1/n}.
+  \end{align*}
+
+  The parentheses matter here. The entire product $2n$ is inside the
+  root, and
+  \[
+    (2n)^{1/n}=2^{1/n}n^{1/n}\longrightarrow1\cdot1=1.
+  \]
+
+  Applying the squeeze property with the limits
+  \[
+    \lim_{n\to\infty}n^{1/n}=1,\quad
+    \lim_{n\to\infty}(2n)^{1/n}=1
+  \]
+  establishes convergence of the middle sequence.
+  The limit over $0\le a\le1$ is $1$.
+
+  \textit{Case $(a>1)$}.
+  Since $a^n\ge1$ for $n\ge1$, we have $n\le na^n$. Hence
+  \begin{align*}
+    a^n&\le a^n+n\le a^n+na^n,\\
+    a^n&\le a^n+n\le a^n(1+n),\\
+    (a^n)^{1/n}&\le(a^n+n)^{1/n}\le(a^n(1+n))^{1/n},\\
+    a&\le(a^n+n)^{1/n}
+      \le a(1+n)^{1/n}.
+  \end{align*}
+  These are inequalities between terms. We have not
+  yet assumed that the middle sequence converges.
+  Applying the squeeze theorem again, we use
+  \begin{align*}
+    1&\le n+1\le2n,\\
+    1^{1/n}&\le(n+1)^{1/n}\le(2n)^{1/n}.
+  \end{align*}
+  Since $(2n)^{1/n}\to1$, it follows that
+  $(n+1)^{1/n}\to1$. The upper bound $a(n+1)^{1/n}$ therefore tends to $a$.
+  Substituting back into the previous inequality,
+  the squeeze property proves
+  \[
+    \lim_{n\to\infty}(a^n+n)^{1/n}=a,\quad a>1.
+  \]
+
+  Joining both cases together gives
+  \[
+    \lim_{n\to\infty}(a^n+n)^{1/n}
+      =\begin{cases}
+        1,&0\le a\le1,\\
+        a,&a>1.
+      \end{cases}
+  \]
+\end{proof}
