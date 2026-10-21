@@ -76,13 +76,37 @@ environment or fabricated argument.
   This preserves the book exercise number, its return link, and the solution
   anchor without duplicate numbering or margin links.
 - **Handout:** copy [template.tex](../../../problems/template.tex) to the new
-  entry file, leaving the template unchanged. Input each statement and solution
-  pair in original assignment order and preserve original question numbering.
-  Keep assignment titles, running heads, question-label overrides, and handout
-  page breaks local to that entry file. Appendix breaks belong in the appendix.
+  entry file, preserving its TeXShop engine directives and path setup. Leave
+  the template unchanged unless the user requests a template change. Input each
+  statement and solution pair in original assignment order and preserve original
+  question numbering. Keep assignment titles, running heads, question-label
+  overrides, and handout page breaks local to that entry file. Appendix breaks
+  belong in the appendix.
 
 Reuse figure sources too. Later mentions reference the existing exercise;
 they do not input it again.
+
+## Preserve TeXShop compatibility
+
+Every new or updated homework must work both through Make from the repository
+root and directly from `problems/`, where TeXShop compiles its entry file.
+Follow the current [template](../../../problems/template.tex) and
+[TeXShop setup guide](../../../CUSTOMISATION.md#texshop-homework-previews).
+
+- Preserve `% !TEX TS-program = pdflatexmk` and the generic pdfLaTeX directive.
+  A single pdfLaTeX pass is not sufficient validation for references or citations.
+- Keep the template's `\analysisroot` detection and `\input@path` setup before
+  loading `preamble.tex` and `macros.tex`. The shared preamble also uses this
+  directory for graphics and bibliography resources. Locating only the preamble
+  does not establish that nested inputs, figures, and Biber will work.
+- Put `% !TEX root = ../../hwNN.tex` on the first line of every nested
+  `problem.tex` and `solution.tex`. Substitute the assignment's actual basename
+  and adjust the relative path when moving files. The handout remains a complete
+  document; do not redirect its root to `main.tex` or add document classes and
+  preambles to the shared fragments.
+- Keep paths portable. Do not copy shared files into `problems/`, use absolute
+  project paths, or depend on global `TEXINPUTS` or editor working-directory
+  overrides to make a handout compile.
 
 ## Apply Analysis proof and figure conventions
 
@@ -114,12 +138,36 @@ solutions as appropriate. Keep both shared source paths and the original
 question identity visible. Update bibliography and acknowledgements as required
 by the project; it has no prescribed README source-coverage table.
 
-Run `make check`. Compare the rendered statements against every original page,
-separately from compilation success. Inspect book and handout layouts, original
-handout numbering, complete appendix restatements, pending notices, unresolved
-references, and duplicate labels or destinations. Verify that each margin link
-reaches its solution page and each appendix exercise number returns to the
-original exercise.
+Require both build modes for every new or updated homework. From the repository
+root, run:
+
+```sh
+make check
+```
+
+This automatically builds the book and every discovered homework from both
+the repository root and `problems/`. Root builds write to `build/problems/`;
+subdirectory builds write `problems/hwNN.pdf`, matching TeXShop, with separate
+caches. Either build mode failing must fail the check.
+
+For a focused check of all subdirectory builds, run from the repository root:
+
+```sh
+make check-texshop
+```
+
+If the template is changed, also compile `problems/template.tex` from the
+repository root and `template.tex` from `problems/`; `make check` does not
+include the template.
+
+Check that every nested root directive resolves to its homework, all shared
+inputs and figures load, Biber finds the bibliography, and references and
+citations settle in both builds. Compare the rendered statements against every
+original page, separately from compilation success. Inspect book and handout
+layouts, original handout numbering, complete appendix restatements, pending
+notices, unresolved references, and duplicate labels or destinations. Verify
+that each margin link reaches its solution page and each appendix exercise
+number returns to the original exercise.
 
 Use the existing [Makefile](../../../Makefile) from the repository root.
 `make problem HW=hwNN` builds an individual `build/problems/hwNN.pdf`;
@@ -127,5 +175,6 @@ Use the existing [Makefile](../../../Makefile) from the repository root.
 `export-problem` target. If a single-file export is explicitly requested,
 prepare it as derived output without changing the shared-source workflow;
 use the built-in LaTeX editor and compiler for that standalone document.
-Report source fidelity, mathematical review, build and visual checks, and any
-unresolved source issues separately. Do not commit generated PDFs or auxiliaries.
+Report source fidelity, mathematical review, both build working directories,
+visual checks, and any unresolved source issues separately. Do not commit
+generated PDFs or auxiliaries.

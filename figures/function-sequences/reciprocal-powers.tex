@@ -1,0 +1,23 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=16.5mm,y=22mm]
+  \draw[gray,->] (-0.14,0) -- (2.2,0) node[right=4pt] {$x$};
+  \draw[gray,->] (0,-0.1) -- (0,1.22) node[above=4pt] {$y$};
+  \node[below left=4pt] at (0,0) {$0$};
+  \node[left=5pt] at (0,1) {$1$};
+  \draw[gray] (1,0) -- +(0,-2pt);
+  \node[below=6pt] at (1,0) {$1$};
+  \draw[gray,->,domain=0:2.08,samples=100]
+    plot (\x,{1/(1+\x^2)});
+  \draw[domain=0:1,samples=85]
+    plot (\x,{1/(1+\x^16)});
+  % Reciprocal powers avoid PGF overflow beyond one.
+  \draw[->,domain=1:2.08,samples=85]
+    plot (\x,{\x^(-16)/(1+\x^(-16))});
+  \draw[densely dashed] (0,1) -- (1,1);
+  \draw[densely dashed,->] (1,0) -- (2.08,0);
+  \filldraw[fill=white] (1,1) circle[radius=1.6pt];
+  \filldraw[fill=white] (1,0) circle[radius=1.6pt];
+  \fill (1,0.5) circle[radius=1.6pt];
+  \node[right=6pt] at (1,0.5) {$\tfrac12$};
+\end{tikzpicture}

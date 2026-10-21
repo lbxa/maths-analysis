@@ -1,0 +1,24 @@
+% !TEX root = ../../main.tex
+% Schematic graph and sample values approaching its attained maximum.
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=0.7cm,y=0.8cm]
+  \draw[->] (0,0) -- (5,0) node[right=4pt] {$x$};
+  \draw[->] (0,0) -- (0,3.1) node[above=4pt] {$y$};
+  \draw[gray,densely dashed] (0,2.6) -- (1.4,2.6) -- (1.4,0);
+  \draw[gray,densely dashed] (0,0.8) -- (3.6,0.8) -- (3.6,0);
+  \node[left=5pt] at (0,2.6) {$M$};
+  \node[left=5pt] at (0,0.8) {$m$};
+  \draw[domain=0.35:4.65,samples=101,smooth,variable=\t]
+    plot ({\t},{1.7+0.9*cos(180*(\t-1.4)/2.2)});
+  \foreach \t in {0.72,0.94,1.12,1.27}
+    \fill[gray] ({\t},{1.7+0.9*cos(180*(\t-1.4)/2.2)})
+      circle[radius=1.2pt];
+  \fill (1.4,2.6) circle[radius=1.6pt];
+  \fill (3.6,0.8) circle[radius=1.6pt];
+  \fill (0.35,{1.7+0.9*cos(180*(0.35-1.4)/2.2)}) circle[radius=1.6pt];
+  \fill (4.65,{1.7+0.9*cos(180*(4.65-1.4)/2.2)}) circle[radius=1.6pt];
+  \draw (0.35,0.06) -- (0.35,-0.06) node[below=5pt] {$a$};
+  \draw (4.65,0.06) -- (4.65,-0.06) node[below=5pt] {$b$};
+  \node[below=5pt] at (1.4,0) {$x_{\max}$};
+  \node[below=5pt] at (3.6,0) {$x_{\min}$};
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+% Schematic continuity graph; all strokes inherit the shared 0.5pt weight.
+\begin{tikzpicture}[analysis diagram,x=9mm,y=9mm]
+  \fill[gray!10] (1.25,0) rectangle (2.35,2.65);
+  \fill[gray!15] (0,0.9684) rectangle (3.45,2.1684);
+  \draw[analysis guide] (0,0.9684) -- (3.45,0.9684);
+  \draw[analysis guide] (0,2.1684) -- (3.45,2.1684);
+  \draw[analysis guide] (1.25,0) -- (1.25,2.65);
+  \draw[analysis guide] (2.35,0) -- (2.35,2.65);
+  \draw[->] (-0.12,0) -- (3.7,0) node[right=4pt] {$x$};
+  \draw[->] (0,-0.08) -- (0,3.35) node[above=4pt] {$y$};
+  \draw[<->,domain=0.12:3.18,samples=45]
+    plot (\x,{0.6+0.25*\x+0.16*\x*\x});
+  \draw[gray,densely dashed] (0,1.5684) -- (1.8,1.5684) -- (1.8,0);
+  \fill (1.8,1.5684) circle[radius=1.6pt];
+  \node[left=5pt] at (0,1.5684) {$f(c)$};
+  \node[below=5pt] at (1.8,0) {$c$};
+  \draw[<->,gray] (3.45,1.5684) -- (3.45,2.1684)
+    node[midway,right=4pt,text=black] {$\varepsilon$};
+  \draw[<->,gray] (1.25,-0.55) -- (2.35,-0.55)
+    node[midway,below=4pt,text=black] {$2\delta$};
+\end{tikzpicture}

@@ -2,32 +2,290 @@
 \section{Continuity}
 \label{sec:analysis-i:continuity}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 720--742.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\autoref{template:tab:normaltab} shows table created with the \docpkg{booktabs}
-package.  Notice the lack of vertical rules---they serve only to clutter
-the table's data.
+% Source: images/LEC05/IMG_9250.jpg and IMG_9251.jpg.
+% Composition is stated in images/LEC05/IMG_9258.jpg.
+% The source only sketches the irrational-continuity argument for Thomae's
+% function. Added justifications and prerequisites are marked for review.
 
-\begin{table}[ht]
+\subsection{Limits and continuity at a point}
+
+Let $I\subseteq\R$ be an interval
+\pendingreviewtext{containing at least two points}, and let $f:I\to\R$.
+
+\begin{definition}[Limit of a function]
+  \label{thm:analysis-i:function-limit}
+  \pendingreviewtext{Suppose that $c$ can be approached by points of
+  $I\setminus\{c\}$.} We write
+  \[
+    \lim_{x\to c}f(x)=L
+  \]
+  if, for every $\varepsilon>0$, there is a $\delta>0$ such that
+  \[
+    x\in I,\quad 0<|x-c|<\delta
+    \quad\Longrightarrow\quad |f(x)-L|<\varepsilon.
+  \]
+\end{definition}
+
+\begin{pendingreview}
+The condition $0<|x-c|$ excludes the point $c$ itself. The limit describes
+the values near $c$, so it does not depend on the value $f(c)$, or even
+require that $f(c)$ be defined.
+\end{pendingreview}
+
+The \emph{left-hand limit} and \emph{right-hand limit} are written
+\[
+  \lim_{x\to c^-}f(x)=L_-,
+  \qquad
+  \lim_{x\to c^+}f(x)=L_+.
+\]
+\pendingreviewtext{Their definitions restrict the input condition to
+$0<c-x<\delta$ and $0<x-c<\delta$, respectively. When $c$ is an interior
+point of $I$, the two-sided limit exists exactly when both one-sided
+limits exist and have the same value.}
+
+\begin{definition}[Continuity]
+  \label{thm:analysis-i:continuity-at-a-point}
+  The function $f$ is \emph{continuous at} $c\in I$ if
+  \[
+    \lim_{x\to c}f(x)=f(c).
+  \]
+  \pendingreviewtext{Equivalently, for every $\varepsilon>0$, there is a
+  $\delta>0$ such that}
+  \[
+    \pendingreviewtext{x\in I,\quad |x-c|<\delta
+    \quad\Longrightarrow\quad |f(x)-f(c)|<\varepsilon.}
+  \]
+  It is \emph{continuous on} $I$ if it is continuous at every point of $I$.
+\end{definition}
+
+\begin{pendingreview}
+For $c\in I$, \emph{left continuity} and \emph{right continuity}
+mean, respectively,
+\[
+  \lim_{x\to c^-}f(x)=f(c),\qquad
+  \lim_{x\to c^+}f(x)=f(c).
+\]
+Each condition is considered when $c$ can be approached from that
+side through the domain.
+At an endpoint of $I$, only inputs belonging to $I$ are considered.
+Thus continuity on $[a,b]$ means ordinary continuity in $(a,b)$,
+right continuity at $a$, and left continuity at $b$.
+\autoref{fig:analysis-i:continuity-basic-neighbourhood} shows how an input
+neighbourhood is chosen to fit a prescribed output neighbourhood.
+\end{pendingreview}
+
+\begin{marginfigure}
   \centering
-  \fontfamily{ppl}\selectfont
-  \begin{tabular}{ll}
-    \toprule
-    Margin & Length \\
-    \midrule
-    Paper width & \unit[8\nicefrac{1}{2}]{inches} \\
-    Paper height & \unit[11]{inches} \\
-    Textblock width & \unit[6\nicefrac{1}{2}]{inches} \\
-    Textblock/sidenote gutter & \unit[\nicefrac{3}{8}]{inches} \\
-    Sidenote width & \unit[2]{inches} \\
-    \bottomrule
-  \end{tabular}
-  \caption[Page dimensions.]{Here are the dimensions of the various margins used in the Tufte-handout class.}
-  \label{template:tab:normaltab}
-  %\zsavepos{pos:normaltab}
-\end{table}
+  \input{figures/continuity/continuity-basic-neighbourhood}
+  \caption[Input and output neighbourhoods for continuity.]{%
+    \pendingreviewtext{A schematic continuous graph. Inputs within
+    $\delta$ of $c$ have outputs within $\varepsilon$ of $f(c)$.
+    The graph over the shaded input strip lies inside the horizontal
+    output band.}}
+  \label{fig:analysis-i:continuity-basic-neighbourhood}
+\end{marginfigure}
 
-\lipsum[5]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\subsection{Algebra of limits}
+
+\begin{proposition}[Limit laws]
+  \label{thm:analysis-i:function-limit-laws}
+  Suppose that
+  \[
+    \lim_{x\to c}f(x)=F,
+    \qquad
+    \lim_{x\to c}g(x)=G,
+  \]
+  where $F,G\in\R$. For every $k\in\R$,
+  \begin{align*}
+    \lim_{x\to c}k f(x)&=kF,\\
+    \lim_{x\to c}\bigl(f(x)+g(x)\bigr)&=F+G,\\
+    \lim_{x\to c}\bigl(f(x)-g(x)\bigr)&=F-G,\\
+    \lim_{x\to c}f(x)g(x)&=FG.
+  \end{align*}
+  Also,
+  \[
+    \lim_{x\to c}\frac{f(x)}{g(x)}=\frac{F}{G}
+    \qquad\pendingreviewtext{\text{provided }}G\ne0.
+  \]
+\end{proposition}
+% IMG_9251 writes "iff lim g(x) != 0". The nonzero condition is sufficient
+% for this quotient law, not necessary for a quotient to have a limit.
+
+\begin{pendingreview}
+The last condition ensures that $g(x)$ is nonzero sufficiently near $c$.
+These laws show that sums, scalar multiples, and products of continuous
+functions are continuous. A quotient is continuous wherever its denominator
+is nonzero. In particular, constant functions and $x\mapsto x$ are
+continuous, so every polynomial is continuous.
+\end{pendingreview}
+
+\input{problems/hw05/06-absolute-value-continuity/problem}
+
+\subsection{Testing continuity with sequences}
+
+\begin{pendingreview}
+The following characterization connects the definition above with the
+sequence methods already developed. The sequences approach $c$ through
+the domain of the function, including from only one side at an endpoint.
+
+\begin{theorem}[Sequential characterization of continuity]
+  \label{thm:analysis-i:sequential-continuity}
+  Let $f:I\to\R$ and $c\in I$. Then $f$ is continuous at $c$ if and only if
+  every sequence $(x_n)$ in $I$ satisfies
+  \[
+    x_n\to c\quad\Longrightarrow\quad f(x_n)\to f(c).
+  \]
+\end{theorem}
+
+\begin{proof}
+  Suppose first that $f$ is continuous at $c$ and that $x_n\to c$.
+  Given $\varepsilon>0$, continuity provides a $\delta>0$ such that
+  $|f(x)-f(c)|<\varepsilon$ whenever $x\in I$ and $|x-c|<\delta$.
+  Since $x_n\to c$, this input condition holds for all sufficiently large
+  $n$. Hence $f(x_n)\to f(c)$.
+
+  Conversely, suppose that $f$ is not continuous at $c$. There is then
+  an $\varepsilon_0>0$ such that, for every $n\in\N$, we can choose
+  $x_n\in I$ with
+  \[
+    |x_n-c|<\frac1n,
+    \qquad |f(x_n)-f(c)|\ge\varepsilon_0.
+  \]
+  Thus $x_n\to c$, while $f(x_n)$ does not tend to $f(c)$. This contradicts
+  the stated sequence property and proves the converse.
+\end{proof}
+\end{pendingreview}
+
+\input{problems/hw05/04-continuous-additive-function/problem}
+
+\subsection{Examples of discontinuity}
+
+\begin{definition}[Indicator function]
+  \label{thm:analysis-i:indicator-function}
+  For a set $S\subseteq\R$, its \emph{indicator function} is
+  \[
+    \mathbf{1}_S(x)=
+    \begin{cases}
+      0,&x\notin S,\\
+      1,&x\in S.
+    \end{cases}
+  \]
+\end{definition}
+
+\begin{example}[A jump at one point]
+  \label{thm:analysis-i:step-discontinuity}
+  Fix $a\in\R$ and define
+  \[
+    H(x)=
+    \begin{cases}
+      0,&x\le a,\\
+      1,&x>a.
+    \end{cases}
+  \]
+  \pendingreviewtext{Its one-sided limits at $a$ are different, since}
+  \[
+    \pendingreviewtext{\lim_{x\to a^-}H(x)=0,
+    \qquad \lim_{x\to a^+}H(x)=1.}
+  \]
+  \pendingreviewtext{Consequently $H$ is discontinuous at $a$, although
+  it is constant near every other point and hence continuous there.}
+\end{example}
+
+\begin{example}[The Dirichlet function]
+  \label{thm:analysis-i:dirichlet-function}
+  The \emph{Dirichlet function} is
+  \[
+    D(x)=\mathbf{1}_{\Q}(x)=
+    \begin{cases}
+      0,&x\notin\Q,\\
+      1,&x\in\Q.
+    \end{cases}
+  \]
+  This function is nowhere continuous.
+
+  \begin{pendingreview}
+  Every neighbourhood of a real number contains both rational and
+  irrational numbers. Thus, however small the neighbourhood, the function
+  takes both values $0$ and $1$. Taking $\varepsilon=1/2$ in the definition
+  rules out continuity at every point.
+  \end{pendingreview}
+\end{example}
+
+\begin{example}[Thomae's function]
+  \label{thm:analysis-i:thomae-function}
+  \emph{Thomae's function}, also called the \emph{popcorn function}, is
+  \[
+    T(x)=
+    \begin{cases}
+      0,&x\notin\Q,\\
+      \dfrac1q,&x=\dfrac pq\in\Q.
+    \end{cases}
+  \]
+  \pendingreviewtext{In the rational case, the fraction is written in
+  lowest terms, with $p\in\Z$, $q\in\N$, and $q>0$.}
+  In particular, $T(0)=1$.
+
+  The function $T$ is discontinuous at every rational point.
+  \pendingreviewtext{Indeed, if $c=p/q$ is rational in lowest terms,
+  then $T(c)=1/q>0$. Choose irrational numbers $x_n\to c$.
+  Since $T(x_n)=0$ for every $n$, the sequential characterization
+  rules out continuity at $c$.}
+
+  The function $T$ is continuous at every irrational point $c$.
+  For a sequence of rational numbers $r_k=p_k/q_k\to c$, the denominators
+  tend to infinity, giving
+  \[
+    T(r_k)=\frac1{q_k}\longrightarrow0=T(c).
+  \]
+
+  \begin{pendingreview}
+  To justify the assertion about denominators, fix $M\in\N$.
+  The convergent sequence $(r_k)$ eventually lies in $[c-1,c+1]$.
+  Only finitely many reduced fractions in this interval have denominator
+  at most $M$, since their numerators are also bounded. None equals the
+  irrational number $c$, so a sufficiently small neighbourhood of $c$
+  avoids all of them. Eventually $q_k>M$, proving that $q_k\to\infty$.
+
+  Now take any sequence $x_n\to c$. Its irrational terms have
+  $T(x_n)=0$, while the argument above makes the values at its rational
+  terms arbitrarily small as well. Hence $T(x_n)\to0=T(c)$, and
+  \autoref{thm:analysis-i:sequential-continuity} proves continuity at $c$.
+  \autoref{fig:analysis-i:continuity-basic-thomae} illustrates why only
+  finitely many large values need to be avoided near $c$.
+  \end{pendingreview}
+\end{example}
+
+\begin{marginfigure}
+  \centering
+  \input{figures/continuity/continuity-basic-thomae}
+  \caption[Selected values of Thomae's function.]{%
+    \pendingreviewtext{Selected values of $T$ on $[0,1]$. Dots show all
+    reduced fractions with denominator at most $8$. Larger denominators
+    give smaller heights; irrational inputs have value $0$. The finite
+    drawing shows only part of the graph.}}
+  \label{fig:analysis-i:continuity-basic-thomae}
+\end{marginfigure}
+
+\subsection{Composition}
+
+% Source: images/LEC05/IMG_9258.jpg, paragraph headed "Composition".
+\begin{theorem}[Composition of continuous functions]
+  \label{thm:analysis-i:continuous-composition}
+  \pendingreviewtext{Let $f:I\to\R$ and $g:J\to\R$, where $f(I)\subseteq J$.}
+  If $f$ is continuous at $c$ and $g$ is continuous at $f(c)$, then
+  $g\circ f$ is continuous at $c$, where
+  \[
+    (g\circ f)(x)=g(f(x)).
+  \]
+\end{theorem}
+
+\begin{pendingreview}
+\begin{proof}
+  If $x_n\to c$ with $x_n\in I$, continuity of $f$ gives
+  $f(x_n)\to f(c)$. These values lie in $J$, so continuity of $g$ gives
+  $g(f(x_n))\to g(f(c))$. Apply
+  \autoref{thm:analysis-i:sequential-continuity} to $g\circ f$.
+\end{proof}
+\end{pendingreview}
+
+\input{problems/hw05/05-composition-continuity/problem}

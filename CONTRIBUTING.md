@@ -38,8 +38,12 @@ examples and checks before committing. Add reusable setup instructions there.
   and bibliography entries in `bibliography.bib`.
 - Store figures in `figures/` with descriptive names such as
   `supremum-upper-bounds.pdf`. Include editable diagram sources when available.
-- Add homework as `problems/hwNN.tex`, following the existing standalone
-  handout. Build it from the repository root.
+- Add homework as `problems/hwNN.tex`, starting from
+  [`problems/template.tex`](problems/template.tex) and preserving its
+  `\analysisroot` setup and TeXShop engine directive.
+  Build it with Make from the repository root or typeset it directly in
+  TeXShop. Keep nested problem and solution root directives pointing to that
+  homework. See [TeXShop setup](CUSTOMISATION.md#texshop-homework-previews).
 
 ## Write consistent mathematics and LaTeX
 
@@ -81,7 +85,9 @@ Use `\marginnote[<offset>]{...}` or `marginfigure`'s optional offset only
 to suggest alignment with a passage; the scheduler may adjust that position.
 Do not use negative space or forced page breaks to fix crowded margins.
 Use a main-text or full-width figure if a chart and its caption cannot fit
-in one margin at a readable size. Keep side captions' height measurable.
+in one margin at a readable size. Retain Tufte's standard height handling
+for ordinary and full-width figures, so their margin captions do not push
+down the main text.
 Do not use numbered `\sidenote` or `\footnote` commands for these notes.
 
 Add source metadata to `bibliography.bib`. Citations use bracketed numbers
@@ -122,7 +128,14 @@ Run from the repository root:
 make check
 ```
 
-Read `build/main.pdf` and any affected `build/problems/hwNN.pdf`. Check the
+This builds the book and every homework from both the repository root and
+`problems/`. The second pass matches TeXShop's working directory and writes
+`problems/hwNN.pdf`, using a separate cache from `build/problems/`. Either
+build mode failing makes the check fail. Use `make check-texshop` for a
+focused check of all subdirectory builds.
+
+Read `build/main.pdf`, any affected `build/problems/hwNN.pdf`, and the
+corresponding `problems/hwNN.pdf`. Check the
 contents and references, equations, citations, figure placement, and margin
 collisions. Inspect build logs for errors, undefined references, and overfull
 boxes. Review mathematical correctness separately from whether LaTeX compiles.

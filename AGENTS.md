@@ -19,12 +19,42 @@ Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
 - `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
 - `make problems`: build every `problems/hw*.tex` into `build/problems/`.
-- `make check`: compile the book and homework handouts.
+- `make check`: compile the book and every homework from both the repository root and `problems/`.
+- `make check-texshop`: compile every homework from `problems/`, writing PDFs beside their sources.
 - `make watch`: rebuild the book when included sources change; stop with Ctrl-C.
 - `make watch-problems`: watch `hw01`; use `HW=hw02` to select another handout. Stop with Ctrl-C.
 - `make clean`: remove generated PDFs and auxiliary files through latexmk.
 
 On Overleaf, select `main.tex` and pdfLaTeX.
+
+### TeXShop and standalone homework
+
+- Start new homework entry files from `problems/template.tex`. Preserve its
+  `% !TEX TS-program = pdflatexmk` directive so TeXShop runs the bibliography
+  and reference passes. Keep the generic pdfLaTeX directive for other editors.
+- Every `problems/hwNN.tex` must compile both from the repository root through
+  Make and directly from `problems/`, as TeXShop does. Preserve the template's
+  `\analysisroot` detection and `\input@path` setup before loading the shared
+  preamble and macros. Keep the template and homework setup in sync when
+  changing this convention.
+- The shared `preamble.tex` uses `\analysisroot` for graphics and bibliography
+  resources too. A fix that locates only the preamble is incomplete. Use
+  portable relative paths; do not duplicate shared files or rely on an
+  absolute path, a global `TEXINPUTS` setting, or a particular editor's
+  working-directory configuration.
+- Put `% !TEX root = ../../hwNN.tex` on the first line of every nested
+  `problems/hwNN/NN-topic/problem.tex` and `solution.tex`. Adjust it when moving
+  files. These shared fragments must point to their own homework entry, which
+  remains a complete document without a root directive redirecting it to the
+  book. Book chapter fragments continue to point to `main.tex`.
+- For a new homework, template change, or shared path change, run `make check`
+  from the repository root. It automatically builds every homework in both
+  working directories with separate build caches. Use `make check-texshop`
+  for a focused check of the subdirectory builds. Test the template itself in
+  both directories when editing it; it is not included by `make check`.
+  Check that nested root directives resolve, figures load, references settle,
+  and Biber finds the bibliography. See the
+  [TeXShop setup guide](CUSTOMISATION.md#texshop-homework-previews).
 
 ## Shared and Local Editor Settings
 
@@ -101,7 +131,9 @@ Optional margin offsets are preferred callout positions, not guaranteed
 placements. Do not insert negative space, smashed content, or manual page
 breaks to fit a crowded margin. Give a diagram that cannot fit in one margin
 a main-text or full-width figure instead of shrinking its labels. Preserve
-the measured height of side captions and captions below full-width figures.
+Tufte's standard height handling for ordinary and full-width figures. Their
+margin captions must not reserve vertical space in the main text; leave the
+class's internal caption handling unchanged.
 
 Use bold caption labels and numbers followed by a full stop, for example **Figure 1.1.** or **Table 2.1.**, with ordinary-weight caption text. Apply this through the shared `caption` configuration in `preamble.tex` for every float type in the book and handouts; retain Tufte's margin font and alignment rather than formatting individual captions by hand.
 

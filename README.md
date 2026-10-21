@@ -5,10 +5,12 @@ LaTeX book with margin notes, figures, and shared mathematical notation.
 
 **Work in progress:** Analysis I follows the lecturer's nine-chapter syllabus.
 The first three weeks of reviewed notes are in Chapter 1. Week 4 develops
-Chapters 3 and 4 and the power-series section in Chapter 8. Other sections
+Chapters 3 and 4 and the power-series section in Chapter 8. Week 5 develops
+Chapter 5 and pointwise and uniform convergence in Chapter 8. Editorial
+additions await review in the shared slate-blue component. Other chapters
 still contain Tufte template material used to preview the layout, apart from
 a retained Taylor-remainder application; specimens will be replaced with
-course notes. Dirichlet's test and continuity await their lecture pages.
+course notes. Dirichlet's test awaits its lecture pages.
 Analysis II is reserved for a later course and is currently excluded from the book.
 
 ## Table of contents
@@ -93,14 +95,16 @@ editing one large document. Explicit `\input` lists in `part.tex` and
 
 ## Homework placement map
 
-This is the internal record of homework reuse in the book. All 32 questions
-from Homework 01--04 are included. The 24 questions from Homework 01--03
+This is the internal record of homework reuse in the book. All 42 questions
+from Homework 01--05 are included. The 24 questions from Homework 01--03
 appear in Chapter 1, **Sets and foundations of real analysis**, with completed
 solutions. Homework 04 adds eight questions to Chapters 3 and 4 and §8.6;
 Q1--Q8 have the author's solutions, with all audited edits approved in the
 appendix and handout. The ten solution photos in
 `images/HW05/` match Homework 04 Q4--Q8 and are recorded under those existing
 identities rather than creating a duplicate assignment.
+Homework 05 adds nine questions to Chapter 5 and its function-sequence
+question to §8.3. All ten solutions are awaiting the author's work.
 Each exercise has a directory of the form
 `problems/hwNN/NN-topic/`, containing `problem.tex` and `solution.tex`.
 The main chapters input only `problem.tex`. Solutions appear in
@@ -157,8 +161,18 @@ after the restated problem.
 | [HW04 Q4](problems/hw04/04-shifted-root-series/problem.tex) | Convergence with an arbitrary positive real shift and a telescoping sum | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after the majorant theorem and p-series | [29](problems/hw04/04-shifted-root-series/solution.tex) | `hw04:shifted-root-series` | Included; solution complete; audited edits approved |
 | [HW04 Q5](problems/hw04/05-lower-upper-comparison/problem.tex) | Series comparison through lower and upper limits of term ratios | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after nonnegative partial-sum comparisons and §3.4 eventual tail bounds | [30](problems/hw04/05-lower-upper-comparison/solution.tex) | `hw04:lower-upper-comparison` | Included; solution complete; audited edits approved |
 | [HW04 Q6](problems/hw04/06-divergence-tests/problem.tex) | Ratio and root divergence tests using liminf | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), after both tests, the term test, and eventual lower bounds | [31](problems/hw04/06-divergence-tests/solution.tex) | `hw04:divergence-tests` | Included; solution complete; audited edits approved |
-| [HW04 Q7](problems/hw04/07-scaled-power-series/problem.tex) | Absolute convergence of a scaled power series with an integer exponent | [§8.6 Power series](sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex), after radius, ratio/root tests, p-series, and separate endpoint analysis | [32](problems/hw04/07-scaled-power-series/solution.tex) | `hw04:scaled-power-series` | Included; solution complete; audited edits approved |
+| [HW04 Q7](problems/hw04/07-scaled-power-series/problem.tex) | Absolute convergence of a scaled power series with an integer exponent | [§8.6 Power series](sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex), after radius, ratio/root tests, p-series, and separate endpoint analysis | [42](problems/hw04/07-scaled-power-series/solution.tex) | `hw04:scaled-power-series` | Included; solution complete; audited edits approved |
 | [HW04 Q8](problems/hw04/08-two-variable-am-gm/problem.tex) | Two-variable AM--GM for nonnegative inputs and strictness | [§3.2 Monotone bounded sequence theorem](sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex), after the AM--GM applications, with positive roots and elementary algebra available | [27](problems/hw04/08-two-variable-am-gm/solution.tex) | `hw04:two-variable-am-gm` | Included; solution complete; audited edits approved |
+| [HW05 Q1](problems/hw05/01-interval-fixed-point/problem.tex) | A fixed point of an interval self-map and the equation x=1/(1+x^n) | [§5.3 Intermediate value theorem](sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex), after intermediate values and the power-function application, with limit laws and roots available | [36](problems/hw05/01-interval-fixed-point/solution.tex) | `hw05:interval-fixed-point` | Included; solution complete; approved |
+| [HW05 Q2](problems/hw05/02-uniform-continuity-boundedness/problem.tex) | Boundedness from uniform continuity on a bounded interval, including nonclosed intervals | [§5.4 Uniform continuity](sections/analysis-i/05-continuity/04-uniform-continuity.tex), Exercises on uniform continuity, after its definition and Heine–Cantor, with finite partitions and the Archimedean property available | [38](problems/hw05/02-uniform-continuity-boundedness/solution.tex) | `hw05:uniform-continuity-boundedness` | Included; solution complete; approved |
+| [HW05 Q3](problems/hw05/03-odd-polynomial-root/problem.tex) | Existence of a real zero of an odd-degree polynomial | [§5.3 Intermediate value theorem](sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex), after intermediate values and the power-function application, with polynomial continuity and elementary power estimates available | [37](problems/hw05/03-odd-polynomial-root/solution.tex) | `hw05:odd-polynomial-root` | Included; solution complete; approved |
+| [HW05 Q4](problems/hw05/04-continuous-additive-function/problem.tex) | Continuous additive functions and extension from rational to real inputs | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after sequential continuity, with rational density and field laws available from Chapter 1 | [33](problems/hw05/04-continuous-additive-function/solution.tex) | `hw05:continuous-additive-function` | Included; solution complete; approved |
+| [HW05 Q5](problems/hw05/05-composition-continuity/problem.tex) | A direct epsilon–delta proof of continuity of a composition | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after Composition; the source explicitly requires the pointwise definition rather than the preceding sequential proof | [34](problems/hw05/05-composition-continuity/solution.tex) | `hw05:composition-continuity` | Included; solution complete; approved |
+| [HW05 Q6](problems/hw05/06-absolute-value-continuity/problem.tex) | A direct proof that absolute value preserves continuity | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after the definition and limit laws, using the reverse triangle inequality from Chapter 1 | [32](problems/hw05/06-absolute-value-continuity/solution.tex) | `hw05:absolute-value-continuity` | Included; solution complete; approved |
+| [HW05 Q7](problems/hw05/07-square-not-uniformly-continuous/problem.tex) | Failure of uniform continuity of x^2 on the whole real line | [§5.4 Uniform continuity](sections/analysis-i/05-continuity/04-uniform-continuity.tex), Exercises on uniform continuity, after the common-delta definition and its negation in the Heine–Cantor proof | [39](problems/hw05/07-square-not-uniformly-continuous/solution.tex) | `hw05:square-not-uniformly-continuous` | Included; solution complete; approved |
+| [HW05 Q8](problems/hw05/08-lipschitz-continuity/problem.tex) | Lipschitz continuity and an algebraic Lipschitz estimate for 1/(1+x^2) | [§5.4 Uniform continuity](sections/analysis-i/05-continuity/04-uniform-continuity.tex), Exercises on uniform continuity, after its definition and elementary inequalities; differentiation is not needed | [40](problems/hw05/08-lipschitz-continuity/solution.tex) | `hw05:lipschitz-continuity` | Included; solution complete; approved |
+| [HW05 Q9](problems/hw05/09-pointwise-not-uniform/problem.tex) | Pointwise convergence without uniform convergence on [0,1] | [§8.3 Uniform convergence](sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex), at the end, after both definitions, the moving-input example, and the uniform-limit theorem | [41](problems/hw05/09-pointwise-not-uniform/solution.tex) | `hw05:pointwise-not-uniform` | Included; solution complete; approved |
+| [HW05 Q10](problems/hw05/10-coercive-minimum/problem.tex) | Existence and attainment of a finite infimum under a coercive lower bound | [§5.2 Maximum (extreme value theorem)](sections/analysis-i/05-continuity/02-extreme-value-theorem.tex), after attainment of extrema, with infima, Bolzano–Weierstrass, and sequential continuity available | [35](problems/hw05/10-coercive-minimum/solution.tex) | `hw05:coercive-minimum` | Included; solution complete; approved |
 
 Placement follows the material assessed and the available prerequisites.
 HW02 Q3 follows the floor function, rational density, and relative closure.
@@ -203,6 +217,28 @@ render in normal text colour in both the handout and appendix.
 Appendix order is Q1, Q2, Q8, Q3, Q4, Q5, Q6, Q7,
 matching the book, while the standalone handout preserves Q1--Q8.
 
+Homework 05 was transcribed from `MA-GY-6213-hw5.pdf`
+(MA-GY-6213, due October 16, 2026). Page 1 contains Q1--Q6; page 2
+contains Q7--Q10, with parts (a)--(b) in Q8--Q10. Preserve the fixed-point
+application and n=1 request, nonclosed intervals in Q2, the definition-based
+proof requests in Q5--Q6, the Lipschitz estimate, the sequence's endpoint
+values, and the full coercivity hint. The source PDF supplied no solutions.
+All ten shared solutions and their supporting diagrams are complete and
+approved. Q2 preserves the author's proof with the approved corrections.
+All Homework 05 solutions render in normal text colour in both the handout
+and appendix.
+The handout keeps Q1--Q10 in that order. Book and appendix order is
+Q6, Q4, Q5, Q10, Q1, Q3, Q2, Q7, Q8, Q9, occupying positions 32--41;
+the existing HW04 Q7 remains in §8.6 and becomes appendix position 42.
+
+The assignment's Week 5 summary confirms coverage in §§5.1--5.4,
+§8.1, and §8.3. Explicit left/right continuity and monotone-function
+definitions, plus the decreasing-inverse case, are pending clarifications.
+The manuscript proves approximation by continuous piecewise linear
+functions, a more specific form of the summary's “piecewise continuous”
+wording. Week numbers remain internal metadata. The photos in `images/HW05/`
+still belong to HW04 Q4--Q8; they do not supply this assignment's solutions.
+
 Keep a row for every homework question, including questions not yet used.
 Use **Included**, **Not yet included**, or **Deferred**; record a reason and
 planned location when deferring a question. Update this map whenever a
@@ -219,12 +255,13 @@ insert forced page breaks between problems; adjust local spacing and figure
 placement when needed. Keep handout-specific layout in the handout entry
 files. Inside a shared solution, wrap a handout-only layout hint in
 `\handoutonly{...}` so it does not affect the book.
-`problems/template.tex` remains the unchanged standalone template.
+Start new handouts from `problems/template.tex`, preserving its TeXShop engine
+directives and path setup for both supported working directories.
 
 ## Build the notes
 
 Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
-caption, marginfix, biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
+caption, marginfix, needspace, biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
 with TeX Live 2025.
 
 From the repository root:
@@ -241,7 +278,8 @@ managed by the build.
 | `make` or `make book` | Build the book. |
 | `make problem HW=hw02` | Build only Homework 02 into `build/problems/hw02.pdf`; omit `HW` for Homework 01. |
 | `make problems` | Build each `problems/hw*.tex` into `build/problems/`. |
-| `make check` | Build the book and all homework handouts. |
+| `make check` | Build the book and every homework from both the repository root and `problems/`. |
+| `make check-texshop` | Build every homework from `problems/`, matching TeXShop's working directory. |
 | `make watch` | Rebuild the book when sources change; stop with Ctrl-C. |
 | `make watch-problems` | Watch Homework 01; use `HW=hw02` for another handout. |
 | `make clean` | Remove generated PDFs and auxiliary build files. |
@@ -254,16 +292,28 @@ included sources change. Both commands use the filename without `.tex` for
 commands automatically and are included by `make problems`. Stop either
 watcher with Ctrl-C. The watch commands do not launch a PDF viewer automatically.
 
+In TeXShop, open `problems/hwNN.tex` and press **Cmd-T** to compile that
+homework. You can also typeset a nested `problem.tex` or `solution.tex`;
+its root directive selects the corresponding homework. TeXShop writes the
+PDF beside the homework source. See the
+[TeXShop setup guide](CUSTOMISATION.md#texshop-homework-previews).
+
+`make check` runs both homework build modes automatically. The repository-root
+builds write to `build/problems/`; the TeXShop checks run inside `problems/`
+and write PDFs and auxiliary files there. Their caches are separate, so a
+successful root build cannot mask a broken subdirectory build. A failure in
+either mode fails the check. `make clean` removes output from both locations.
+
 For Overleaf, upload the repository sources, select `main.tex` as the main
-document, and use pdfLaTeX. Local builds should always run from the repository
-root so shared inputs and figure paths resolve correctly.
+document, and use pdfLaTeX. Run Make commands from the repository root;
+standalone homework files also support compilation from `problems/`.
 
 ## Local customisation
 
-See [CUSTOMISATION.md](CUSTOMISATION.md) for LaTeX Workshop setup. Share portable
-team settings in `.vscode/settings.json`. Keep machine-specific tool paths and
-personal preferences in your editor's User `settings.json`, outside the
-repository.
+See [CUSTOMISATION.md](CUSTOMISATION.md) for TeXShop and LaTeX Workshop setup.
+Share portable team settings in `.vscode/settings.json`. Keep machine-specific
+tool paths and personal preferences in your editor's User `settings.json`,
+outside the repository.
 
 ## Contributing
 
@@ -280,6 +330,67 @@ See [third-party notices](THIRD_PARTY_NOTICES.md) for the template's authors,
 source credits, and the modifications made for these notes.
 
 ## Changelog
+
+### 2026-10-16
+
+- The author approved all Homework 05 solutions for submission. Remove their
+  review wrappers, including Q2's inline corrections and all figure captions,
+  while preserving the approved proofs and diagrams. Mark all ten placement
+  rows approved and rebuild the handout in both working directories and the book.
+- Complete Homework 05 Q1 and Q3--Q10 at the author's request, with explicit
+  intermediate steps and six TikZ margin figures. Use the intermediate value
+  theorem for fixed points and odd-degree roots, rational approximation for
+  additive functions, direct continuity definitions, an algebraic Lipschitz
+  estimate, moving peaks for nonuniform convergence, and a bounded minimising
+  sequence for coercivity. Mark the new solutions pending review; retain Q2
+  and its existing review status. Preserve all placements and stable keys.
+- Audit Homework 05 Q2 while retaining the author's chaining argument.
+  Fix one anchor in the domain, construct a uniformly short chain for arbitrary
+  inputs, correct the cancellation and strict bounds, and define a global
+  constant. Make reciprocal unboundedness explicit; mark only changed spans
+  and added justifications pending review.
+- Add the author's requested margin visuals to the Homework 05 Q2 draft
+  solution: a finite chain of small input steps and the reciprocal curve near
+  its excluded endpoint. Keep captions and body references pending review.
+- Make `make check` build every discovered homework from both working
+  directories, using separate caches. Add `make check-texshop` for focused
+  subdirectory checks and include those generated files in `make clean`.
+- Carry the tested TeXShop setup into `problems/template.tex` and record its
+  requirements in `AGENTS.md`. Require root and subdirectory builds for new
+  handouts and path changes, and keep nested fragments rooted at their own
+  homework entry rather than the book.
+- Make all standalone homework files work from both the repository root and
+  `problems/`, so TeXShop can find the shared preamble, nested inputs, figures,
+  and bibliography. Select its `pdflatexmk` engine for complete builds and
+  retain nested root directives pointing to the corresponding homework.
+  Document the setup in [CUSTOMISATION.md](CUSTOMISATION.md#texshop-homework-previews).
+
+### 2026-10-15
+
+- Import all ten Homework 05 questions from the supplied two-page PDF as
+  shared statements, complete appendix restatements, and `problems/hw05.tex`.
+  Place nine after their Chapter 5 prerequisites and Q9 after uniform
+  convergence in §8.3; update all 42 map rows and appendix ordering.
+  Retain all source hints and subparts, and mark each missing solution
+  as awaiting solution. Verify the topic list against the new notes and
+  mark small one-sided-continuity and monotonicity clarifications pending.
+- Restore Tufte's standard height handling for ordinary and full-width
+  figures. Remove the earlier caption-height override, which pushed main
+  text below margin captions. Retain stacking for dedicated margin figures.
+- Convert all 13 HEIC images in `images/LEC05` with `scripts/jpeg.sh` and
+  transcribe their mathematical content into the existing Chapter 5 sections
+  and §§8.1 and 8.3. The separate whiteboard photo completes the source's
+  uniform-continuity proof. Preserve the lecturer's section order and all
+  homework placements.
+- Add ten TikZ margin figures and replace the unrelated specimens throughout
+  the affected chapters. Retain reserved syllabus headings without inventing
+  material for the missing topics. Keep source transcriptions in normal text
+  and mark substantive corrections, proof completions, and supporting
+  explanations with the shared pending-review component.
+- Record continuity and approximation decisions in the new
+  [Chapter 5 changelog](sections/analysis-i/05-continuity/README.md#changelog)
+  and function-limit decisions in the
+  [Chapter 8 changelog](sections/analysis-i/08-sequences-and-series-of-functions/README.md#changelog).
 
 ### 2026-10-09
 

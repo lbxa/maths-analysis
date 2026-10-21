@@ -1,6 +1,13 @@
+% !TEX TS-program = pdflatexmk
 % !TEX program = pdflatex
-% Compile this handout from the repository root with make problems.
+% Typeset in TeXShop, or run make problems from the repository root.
 \documentclass[nohyper,nobib,nofonts]{tufte-handout}
+% Resolve shared inputs from either the repository root or problems/.
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
 \input{preamble}
 \input{macros}
 

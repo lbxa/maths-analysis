@@ -1,0 +1,29 @@
+% !TEX root = ../../problems/hw05.tex
+% An exact example, f(x)=1+x^2 >= |x|-1. Here m=1 and R=3.
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=6mm,y=4.5mm]
+  \draw[->] (-3.4,0) -- (3.5,0) node[right=4pt] {$x$};
+  \draw[->] (0,-1.5) -- (0,8.1) node[above=4pt] {$y$};
+  \node[below left=5pt] at (0,0) {$0$};
+
+  \draw[gray,densely dashed] (-3,0) -- (-3,2);
+  \draw[gray,densely dashed] (3,0) -- (3,2);
+  \draw[gray,densely dotted] (-3.15,2) -- (3.15,2);
+  \node[above=4pt] at (2.25,2) {$m+1$};
+  \node[below=6pt] at (-3,0) {$-R$};
+  \node[below=6pt] at (3,0) {$R$};
+
+  \draw[<->,gray] (-3.3,2.3) -- (0,-1) -- (3.3,2.3);
+  \draw[<->,domain=-2.55:2.55,samples=100]
+    plot (\x,{1+\x*\x});
+  \foreach \position in {0.85,0.55,0.25}{
+    \fill (\position,{1+\position*\position}) circle[radius=1.6pt];
+  }
+  \node[interval closed] at (0,1) {};
+  \node[left=6pt] at (0,1) {$m$};
+
+  \draw (-2.8,-3.6) -- (-1.9,-3.6);
+  \node[anchor=west] at (-1.5,-3.6) {$f(x)=1+x^2$};
+  \draw[gray] (-2.8,-5.3) -- (-1.9,-5.3);
+  \node[anchor=west] at (-1.5,-5.3) {$|x|-1$};
+\end{tikzpicture}

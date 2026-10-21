@@ -1,5 +1,6 @@
+% !TEX TS-program = pdflatexmk
 % !TEX program = pdflatex
-% Compile from the repository root with make problem HW=hw04.
+% Typeset in TeXShop, or run make problem HW=hw04 from the repository root.
 % Based on problems/template.tex; the template is unchanged.
 % Source: HW4 Intro to Math Analysis I.pdf, pages 1--2.
 % MA-GY-6213, Homework No. 4, due Friday 10/9/2026.
@@ -10,6 +11,12 @@
 % Q4--Q8 were supplied in images/HW05; their statements match this assignment.
 % The Week 4 topic summary is metadata, not an additional exercise.
 \documentclass[nohyper,nobib,nofonts]{tufte-handout}
+% Resolve shared inputs from either the repository root or problems/.
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
 \input{preamble}
 \input{macros}
 

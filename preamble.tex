@@ -1,4 +1,6 @@
 % Shared packages and typography for the book and homework handouts.
+% Handouts set this directory when TeXShop compiles from problems/.
+\providecommand{\analysisroot}{.}
 \usepackage[T1]{fontenc}
 % Give titletoc a separate part number before nameref wraps \@part.
 \usepackage{etoolbox}
@@ -21,6 +23,7 @@
 \usetikzlibrary{arrows.meta}
 \usepackage{booktabs}
 \usepackage{multicol} % Formula sheet and multicolumn specimen examples.
+\usepackage{needspace} % Keep a section opening together when space is short.
 % Packages used by the temporary Tufte specimen content.
 \usepackage{fancyvrb,xspace,units,makeidx}
 \fvset{fontsize=\small}
@@ -28,9 +31,9 @@
 \usepackage{lipsum} % Remove after all placeholder prose has been replaced.
 % Bracketed citations in the text; bibliography numbered by first citation.
 \usepackage[backend=biber,natbib=true,style=numeric,sorting=none]{biblatex}
-\addbibresource{bibliography.bib}
+\expandafter\addbibresource\expandafter{\analysisroot/bibliography.bib}
 
-\graphicspath{{figures/}}
+\graphicspath{{\analysisroot/figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \setcounter{secnumdepth}{1}
 
@@ -154,14 +157,6 @@
         {Use a main-text figure or table instead; keep labels readable.}%
     \fi
   }
-% Tufte normally smashes side captions and captions below full-width figures.
-% Retain their height so ordinary floats reserve the margin space they occupy.
-\newcommand{\analysis@measure@captions}[1]{%
-  \patchcmd{#1}{\smash}{\@firstofone}
-    {\analysis@measure@captions{#1}}{}%
-}
-\expandafter\analysis@measure@captions
-  \csname\string\@tufte@float@textwidth\endcsname
-\expandafter\analysis@measure@captions
-  \csname\string\@tufte@float@fullwidth\endcsname
+% Keep Tufte's standard height handling for ordinary and full-width floats.
+% Their margin captions must not reserve vertical space in the main text.
 \makeatother

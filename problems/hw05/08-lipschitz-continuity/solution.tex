@@ -1,0 +1,42 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  \textit{(a)} Let $\varepsilon>0$ and choose $\delta=\varepsilon/L$.
+  Since $L>0$, we have $\delta>0$. For any $x,y\in\R$,
+  \[
+    |x-y|<\delta
+      \quad\Longrightarrow\quad
+      |f(x)-f(y)|\le L|x-y|<L\delta=\varepsilon.
+  \]
+  The same $\delta$ works for every pair $x,y$, so $f$ is uniformly
+  continuous on $\R$.
+
+  \textit{(b)} For $f(x)=1/(1+x^2)$, we first subtract the fractions
+  and factor the numerator,
+  \begin{align*}
+    |f(x)-f(y)|
+      &=\left|\frac{1}{1+x^2}-\frac{1}{1+y^2}\right|\\
+      &=\frac{|y^2-x^2|}{(1+x^2)(1+y^2)}\\
+      &=|x-y|\frac{|x+y|}{(1+x^2)(1+y^2)}.
+  \end{align*}
+  It remains to bound the last fraction independently of $x$ and $y$.
+  For any $t\in\R$, the inequality $(|t|-1)^2\ge0$ gives
+  \[
+    t^2-2|t|+1\ge0,
+    \qquad\text{so}\qquad |t|\le\frac{1+t^2}{2}.
+  \]
+  Applying this to both $x$ and $y$, we obtain
+  \begin{align*}
+    \frac{|x+y|}{(1+x^2)(1+y^2)}
+      &\le\frac{|x|+|y|}{(1+x^2)(1+y^2)}\\
+      &\le\frac{(1+x^2)+(1+y^2)}{2(1+x^2)(1+y^2)}\\
+      &=\frac{1}{2(1+y^2)}+\frac{1}{2(1+x^2)}\\
+      &\le\frac12+\frac12=1.
+  \end{align*}
+  Therefore
+  \[
+    |f(x)-f(y)|\le |x-y|,\qquad x,y\in\R.
+  \]
+  Thus $f$ is Lipschitz with $L=1$. This is a valid estimate; we do
+  not need the smallest possible constant. By part (a), $f$ is also
+  uniformly continuous on $\R$.
+\end{proof}

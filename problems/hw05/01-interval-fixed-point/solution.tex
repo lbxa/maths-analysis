@@ -1,0 +1,55 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  A fixed point is a point where $F(x)$ and $x$ have the same value. To
+  find one, consider their difference,
+  \[
+    G(x)=F(x)-x.
+  \]
+  This function is continuous on $[a,b]$. Since $F$ maps $[a,b]$ into
+  itself, $F(a)\ge a$ and $F(b)\le b$. Hence
+  \[
+    G(a)\ge0,\qquad G(b)\le0.
+  \]
+  If either value is zero, the corresponding endpoint is a fixed point.
+  Otherwise $G(a)>0>G(b)$, so the intermediate value theorem gives a
+  $c\in(a,b)$ with $G(c)=0$. Thus $F(c)=c$. This also covers a
+  one-point interval, since then $F(a)=a$.
+
+  Now fix $n\in\N$ and define
+  \[
+    F_n(x)=\frac{1}{1+x^n},\qquad x\in[0,1].
+  \]
+  The denominator is positive on this interval, so $F_n$ is continuous.
+  Also $0\le x^n\le1$, which gives
+  \[
+    \frac12\le F_n(x)\le1.
+  \]
+  Therefore $F_n$ maps $[0,1]$ into itself. By the result just proved,
+  it has a fixed point $c\in[0,1]$. Neither endpoint is fixed, since
+  $F_n(0)=1$ and $F_n(1)=1/2$. Consequently $c\in(0,1)$ and
+  \[
+    c=\frac{1}{1+c^n}.
+  \]
+  \autoref{fig:hw05:interval-fixed-point} shows the intersection when
+  $n=1$.
+
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw05/interval-fixed-point}
+    \caption[A fixed point as a graph intersection.]{%
+      For $n=1$, the graph $y=1/(1+x)$ crosses $y=x$
+      inside the unit square. At the crossing, the input equals its output.}
+    \label{fig:hw05:interval-fixed-point}
+  \end{marginfigure}
+
+  When $n=1$, multiplying by $1+c>0$ gives
+  \begin{align*}
+    c=\frac{1}{1+c}
+      &\iff c(1+c)=1\\
+      &\iff c^2+c-1=0\\
+      &\iff c=\frac{-1+\sqrt5}{2}
+        \quad\text{or}\quad c=\frac{-1-\sqrt5}{2}.
+  \end{align*}
+  Only the first value belongs to $(0,1)$. Hence the required value is
+  $c=(\sqrt5-1)/2$.
+\end{proof}

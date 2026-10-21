@@ -10,6 +10,25 @@ the authoritative record of exercise inclusion and solution order.
 
 ## Changelog
 
+### 2026-10-16
+
+- The author approved all Homework 05 solutions for submission. Remove only
+  their pending-review wrappers so the shared solutions and captions render
+  in normal text colour in both the appendix and standalone handout.
+- Complete the nine remaining Homework 05 solutions in their shared files,
+  with six supporting margin diagrams. Keep the new solutions pending review
+  and preserve the author's completed Q2 with its existing surgical review
+  marks. All ten solutions now appear in the appendix and standalone handout;
+  exercise identities, shared statements, and appendix order are unchanged.
+
+### 2026-10-15
+
+- Add all ten Homework 05 statement/solution pairs in book order, with
+  unsupplied solutions marked awaiting solution. Insert a Continuity
+  group for its nine Chapter 5 exercises and place Q9 before the existing
+  power-series exercise. Preserve the first 31 pairs and all stable keys;
+  the existing HW04 Q7 becomes pair 42.
+
 ### 2026-10-09
 
 - The author approved the edits to all Homework 04 solutions, including

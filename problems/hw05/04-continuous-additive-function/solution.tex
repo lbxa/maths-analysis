@@ -1,0 +1,46 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  Following the hint, we first determine $f$ on the integers, then on
+  the rationals, and finally on all of $\R$. Set $a=f(1)$.
+
+  Taking $s=t=0$ in the additivity condition gives
+  \[
+    f(0)=f(0)+f(0),\qquad\text{so }f(0)=0.
+  \]
+  For any $t\in\R$, we also have
+  \[
+    0=f(t+(-t))=f(t)+f(-t),
+  \]
+  and therefore $f(-t)=-f(t)$. For a positive integer $m$, repeated
+  addition gives
+  \[
+    f(m)=f(\underbrace{1+\cdots+1}_{m\text{ terms}})
+      =mf(1)=ma.
+  \]
+  Together with $f(0)=0$ and $f(-m)=-f(m)$, this proves $f(m)=am$
+  for every integer $m$.
+
+  Now let $r=m/n$ be rational, where $m\in\Z$ and $n\in\N$.
+  Adding $m/n$ to itself $n$ times gives
+  \[
+    nf\left(\frac mn\right)
+      =f\left(\underbrace{\frac mn+\cdots+\frac mn}_{n\text{ terms}}\right)
+      =f(m)=am.
+  \]
+  Dividing by $n$ yields
+  \[
+    f\left(\frac mn\right)=a\frac mn.
+  \]
+  Thus $f(r)=ar$ for every $r\in\Q$.
+
+  Finally, fix any $x\in\R$. By the density of $\Q$ in $\R$, for
+  each $k\in\N$ we can choose $r_k\in\Q$ such that
+  \[
+    |r_k-x|<\frac1k.
+  \]
+  Hence $r_k\to x$. Since $f$ is continuous at $x$, sequential
+  continuity gives $f(r_k)\to f(x)$. On the other hand,
+  $f(r_k)=ar_k\to ax$ by the limit laws. Uniqueness of limits
+  therefore gives $f(x)=ax$. Since $x$ was arbitrary, this holds on
+  all of $\R$.
+\end{proof}

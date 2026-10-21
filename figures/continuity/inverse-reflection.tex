@@ -1,0 +1,25 @@
+% !TEX root = ../../main.tex
+% Actual power/inverse graphs with equal coordinate units.
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=0.95cm,y=0.95cm]
+  \draw[->] (0,0) -- (4,0) node[right=4pt] {$x$};
+  \draw[->] (0,0) -- (0,4) node[above=4pt] {$y$};
+  \draw[gray,densely dashed] (0,0) -- (3.65,3.65);
+  \draw[->,domain=0:1.9,samples=81,smooth,variable=\t]
+    plot ({\t},{\t*\t});
+  \draw[->,gray,domain=0:1.9,samples=81,smooth,variable=\t]
+    plot ({\t*\t},{\t});
+  \draw[gray,densely dashed] (1.6,2.56) -- (2.56,1.6);
+  \fill (1.6,2.56) circle[radius=1.6pt];
+  \fill (2.56,1.6) circle[radius=1.6pt];
+  \node[above left=6pt] at (1.6,2.56) {$(u,v)$};
+  \node[below right=6pt] at (2.56,1.6) {$(v,u)$};
+  \node[below left=5pt] at (0,0) {$0$};
+  % A separate legend keeps the curve labels away from the crossing at (1,1).
+  \draw (0,-0.65) -- (0.65,-0.65);
+  \node[right=5pt] at (0.65,-0.65) {$y=x^2$};
+  \draw[gray] (0,-1.2) -- (0.65,-1.2);
+  \node[right=5pt] at (0.65,-1.2) {$y=\sqrt{x}$};
+  \draw[gray,densely dashed] (0,-1.75) -- (0.65,-1.75);
+  \node[right=5pt] at (0.65,-1.75) {$y=x$};
+\end{tikzpicture}
