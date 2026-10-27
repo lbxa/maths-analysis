@@ -25,6 +25,66 @@ so its hypotenuse has square equal to two.
   so $q$ is even as well. This contradicts the choice of $p$ and $q$.
 \end{proof}
 
+The parity argument above is a special case of a general fact about
+prime divisors. We write $d\mid m$ when $m=dk$ for some integer $k$.
+A prime is an integer $p>1$ whose only positive divisors are $1$ and $p$.
+
+\begin{lemma}[Euclid's lemma on prime divisors]
+  \label{thm:analysis-i:euclid-prime-divisors}
+  Let $p$ be prime and let $a,b\in\Z$. If $p$ divides a product $ab$,
+  then it divides at least one factor.
+  \[
+    p\mid ab\quad\Longrightarrow\quad
+    p\mid a\quad\text{or}\quad p\mid b.
+  \]
+  In particular, $p\mid a^2$ implies $p\mid a$, since $a^2=a\cdot a$.
+\end{lemma}
+\marginnote{Euclid states this result in Book VII,
+Proposition 30 of the \emph{Elements}~\cite{EuclidElementsVII30}.
+His word ``measures'' means ``divides.'' His proof uses coprimality
+and ratios of whole numbers, showing how ancient arithmetic already
+isolated this decisive property of primes.}
+\begin{proof}
+  Suppose $p\nmid a$. By well-ordering, there is a least positive
+  integer $d$ of the form $ua+vp$, with $u,v\in\Z$. Such positive
+  integers exist because $p$ is one of them.
+
+  Divide $a$ by $d$ with remainder, writing $a=qd+r$ with
+  $0\le r<d$. The remainder $r=a-qd$ is another integer combination
+  of $a$ and $p$. If $r>0$, it contradicts the minimality of $d$.
+  Thus $r=0$ and $d\mid a$. The same argument applied to division
+  of $p$ by $d$ gives $d\mid p$.
+
+  Since $p$ is prime, $d$ is either $1$ or $p$. The second possibility
+  would give $p\mid a$, contrary to our assumption. Hence $d=1$,
+  so there are integers $u,v$ with $ua+vp=1$. Multiplying by $b$ gives
+  \[
+    b=uab+vpb.
+  \]
+  Both terms on the right are divisible by $p$, since $p\mid ab$.
+  Therefore $p\mid b$, as required.
+\end{proof}
+
+Repeated application gives the consequence used in the root arguments,
+\marginnote{The lemma is the key to uniqueness of
+prime factorisation. A prime in one factorisation must divide a prime
+in any other, so the two primes are equal. Cancel and repeat to match
+all the factors. In \autoref{sec:analysis-i:roots-and-powers}, the same
+principle detects prime divisors hidden inside powers, forcing the
+common-factor contradiction in irrationality proofs.}
+\[
+  p\mid a^k\quad\Longrightarrow\quad p\mid a
+  \qquad(k\in\N).
+\]
+Consequently, coprime integers have coprime positive powers. To see this,
+every integer $d>1$ has a prime divisor, since its least divisor greater
+than $1$ must be prime. Otherwise a proper factor would be a smaller
+divisor greater than $1$. A common divisor $d>1$ of two powers would
+therefore supply a prime dividing both bases, contradicting coprimality.
+
+The prime hypothesis matters. For example, $6\mid2\cdot3$, although
+$6\nmid2$ and $6\nmid3$.
+
 The same divisibility argument extends to other primes and higher roots.
 We take up that exercise in \autoref{sec:analysis-i:roots-and-powers},
 after establishing existence of the roots themselves.

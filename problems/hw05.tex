@@ -1,0 +1,61 @@
+% !TEX TS-program = pdflatexmk
+% !TEX program = pdflatex
+% Typeset in TeXShop, or run make problem HW=hw05 from the repository root.
+% Based on problems/template.tex; the template is unchanged.
+% Source: MA-GY-6213-hw5.pdf, pages 1--2.
+% MA-GY-6213, Homework No. 5, due Friday 10/16/2026.
+% Page 1 contains Q1--Q6 without numbered subparts.
+% Page 2 contains Q7--Q10; Q8--Q10 each have parts (a)--(b).
+% Ten questions; the assignment supplies no solutions.
+% The Week 5 summary is internal coverage metadata, not another exercise.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+% Resolve shared inputs from either the repository root or problems/.
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
+\input{preamble}
+\input{macros}
+
+% Preserve original question numbers independently of book numbering.
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\title{Homework 05}
+\author[Lucas Barbosa, lc6424]{Lucas Barbosa, \texttt{lc6424}}
+\date{Due Friday, October 16, 2026}
+
+\begin{document}
+\maketitle
+
+\input{problems/hw05/01-interval-fixed-point/problem}
+\input{problems/hw05/01-interval-fixed-point/solution}
+
+\input{problems/hw05/02-uniform-continuity-boundedness/problem}
+\input{problems/hw05/02-uniform-continuity-boundedness/solution}
+
+\input{problems/hw05/03-odd-polynomial-root/problem}
+\input{problems/hw05/03-odd-polynomial-root/solution}
+
+\input{problems/hw05/04-continuous-additive-function/problem}
+\input{problems/hw05/04-continuous-additive-function/solution}
+
+\input{problems/hw05/05-composition-continuity/problem}
+\input{problems/hw05/05-composition-continuity/solution}
+
+\input{problems/hw05/06-absolute-value-continuity/problem}
+\input{problems/hw05/06-absolute-value-continuity/solution}
+
+\input{problems/hw05/07-square-not-uniformly-continuous/problem}
+\input{problems/hw05/07-square-not-uniformly-continuous/solution}
+
+\input{problems/hw05/08-lipschitz-continuity/problem}
+\input{problems/hw05/08-lipschitz-continuity/solution}
+
+\input{problems/hw05/09-pointwise-not-uniform/problem}
+\input{problems/hw05/09-pointwise-not-uniform/solution}
+
+\input{problems/hw05/10-coercive-minimum/problem}
+\input{problems/hw05/10-coercive-minimum/solution}
+
+\end{document}

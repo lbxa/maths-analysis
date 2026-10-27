@@ -1,0 +1,24 @@
+% !TEX root = ../../problems/hw05.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=28mm,y=28mm]
+  \draw[->] (-0.05,0) -- (1.13,0) node[right=4pt] {$x$};
+  \draw[->] (0,-0.05) -- (0,1.14) node[above=4pt] {$y$};
+  \node[below left=5pt] at (0,0) {$0$};
+  \draw[gray] (1,-0.025) -- (1,0.025);
+  \draw[gray] (-0.025,1) -- (0.025,1);
+  \node[below=6pt] at (1,0) {$1$};
+  \node[left=5pt] at (0,1) {$1$};
+
+  \draw[gray,densely dashed] (0,0) -- (1.04,1.04);
+  \node at (0.68,1.09) {$y=x$};
+  \draw[domain=0:1,samples=80] plot (\x,{1/(1+\x)});
+  \node at (0.92,0.76) {$F_1$};
+  \fill (0,1) circle[radius=1.6pt];
+  \fill (1,0.5) circle[radius=1.6pt];
+
+  \draw[gray,densely dotted] (0.618034,0) -- (0.618034,0.618034)
+    -- (0,0.618034);
+  \fill (0.618034,0.618034) circle[radius=1.6pt];
+  \node[below=6pt] at (0.618034,0) {$c$};
+  \node[left=5pt] at (0,0.618034) {$c$};
+\end{tikzpicture}

@@ -1,0 +1,28 @@
+% !TEX root = ../../problems/hw05.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=33mm,y=46mm]
+  \draw[->] (-0.03,0) -- (1.1,0) node[right=4pt] {$x$};
+  \draw[->] (0,-0.02) -- (0,0.66) node[above=4pt] {$y$};
+  \node[below left=5pt] at (0,0) {$0$};
+  \draw[gray] (1,-0.015) -- (1,0.015);
+  \node[below=6pt] at (1,0) {$1$};
+  \draw[gray,densely dotted] (0,0.5) -- (0.62,0.5);
+  \node[left=5pt] at (0,0.5) {$\frac12$};
+
+  \draw[domain=0:1,samples=140] plot (\x,{2*\x/(1+4*\x*\x)});
+  \draw[gray,domain=0:1,samples=140] plot (\x,{4*\x/(1+16*\x*\x)});
+  \draw[densely dashed,domain=0:1,samples=160]
+    plot (\x,{8*\x/(1+64*\x*\x)});
+  \foreach \position in {0.5,0.25,0.125}{
+    \fill (\position,0.5) circle[radius=1.6pt];
+  }
+  \fill (0,0) circle[radius=1.6pt];
+
+  % The legend has its own space below the plot and its axis labels.
+  \draw (0.05,-0.26) -- (0.27,-0.26);
+  \node[anchor=west] at (0.35,-0.26) {$n=2$};
+  \draw[gray] (0.05,-0.42) -- (0.27,-0.42);
+  \node[anchor=west] at (0.35,-0.42) {$n=4$};
+  \draw[densely dashed] (0.05,-0.58) -- (0.27,-0.58);
+  \node[anchor=west] at (0.35,-0.58) {$n=8$};
+\end{tikzpicture}

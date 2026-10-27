@@ -2,28 +2,183 @@
 \section{Intermediate value theorem}
 \label{sec:analysis-i:intermediate-value-theorem}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 765--783.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-If, after using the \doccmd{morefloats} command twice, you continue to get the
-\texttt{Too many unprocessed floats} error, there are a couple things you can
-do.
+% Sources: LEC05/IMG_9252, property 2; IMG_9254, partial IVT proof;
+% IMG_9255, roots; IMG_9257, inverse continuity; IMG_9258, root/rational powers.
+% IMG_9254 stops after the shifted function has opposite signs. The supremum
+% argument completing that proof is an editorial addition marked pending.
+\begin{theorem}[Intermediate value theorem]
+  \label{thm:analysis-i:intermediate-value}
+  Let $a<b$ be real numbers and let $f:[a,b]\to\R$ be continuous.
+  Write
+  \[
+    m=\min_{x\in[a,b]}f(x),\qquad
+    M=\max_{x\in[a,b]}f(x).
+  \]
+  For every $y_0\in[m,M]$, there is $x_0\in[a,b]$ such that
+  $f(x_0)=y_0$. In other words, the image of $[a,b]$ is the interval
+  \[
+    f([a,b])=[m,M].
+  \]
+\end{theorem}
 
-The \doccmddef{FloatBarrier} command will immediately process all the floats
-before typesetting more material.  Since \doccmd{FloatBarrier} will start a new
-paragraph, you should place this command at the beginning or end of a
-paragraph.
+\begin{pendingreview}
+  The extreme value theorem supplies the endpoints of the image. The
+  intermediate value theorem says there are no gaps between them.
+  \autoref{fig:continuity:intermediate-crossing} shows the central idea.
+  Subtracting the desired value turns the problem into finding a zero.
+\end{pendingreview}
+\begin{marginfigure}
+  \centering
+  \input{figures/continuity/intermediate-crossing}
+  \caption[A crossing of an intermediate level.]{\pendingreviewtext{Schematic
+    continuous graph. A level $y_0$ between the extreme values is reached
+    at some $x_0$. For $g=f-y_0$, that point is a zero.}}
+  \label{fig:continuity:intermediate-crossing}
+\end{marginfigure}
 
-The \doccmddef{clearpage} command will also process the floats before
-continuing, but instead of starting a new paragraph, it will start a new page.
+\begin{proof}
+  \pendingreviewtext{If $m=M$, the function is constant and the conclusion
+    follows. The endpoint values $y_0=m$ and $y_0=M$ are already attained
+    by \autoref{thm:analysis-i:extreme-value}.}
+  Suppose that $m<y_0<M$. Choose $a_1,b_1\in[a,b]$ with
+  $f(a_1)=m$ and $f(b_1)=M$, and first suppose that $a_1<b_1$.
+  The continuous function $g(x)=f(x)-y_0$ satisfies
+  \[
+    g(a_1)=m-y_0<0,\qquad g(b_1)=M-y_0>0.
+  \]
 
-You can also try moving your floats around a bit: move a figure or table to the
-next page or reduce the number of sidenotes.  (Each sidenote actually uses
-\emph{two} slots.)
+  \begin{pendingreview}
+    Let
+    \[
+      S=\{x\in[a_1,b_1]\mid g(x)<0\},\qquad c=\sup S.
+    \]
+    The set $S$ contains $a_1$ and is bounded above by $b_1$, so $c$
+    exists and lies in $[a_1,b_1]$. Continuity and the strict endpoint
+    signs give $a_1<c<b_1$.
 
-After the floats have placed, \LaTeX{} will mark those slots as unused so they
-are available for the next page to be composed.
+    If $g(c)<0$, continuity gives points just to the right of $c$ at
+    which $g$ remains negative. Such a point belongs to $S$,
+    contradicting that $c$ is an upper bound. If $g(c)>0$, continuity
+    gives $\eta>0$ such that $g(x)>0$ whenever
+    $x\in(c-\eta,c+\eta)\cap[a_1,b_1]$. The definition of the supremum
+    gives an element of $S$ greater than $c-\eta$, again a
+    contradiction. Hence $g(c)=0$, so $f(c)=y_0$.
 
-\lipsum[7]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+    If $b_1<a_1$, apply the same argument to $-g$ on $[b_1,a_1]$.
+    Its left endpoint value is negative and its right endpoint value
+    is positive, and a zero of $-g$ is also a zero of $g$.
+  \end{pendingreview}
+\end{proof}
+
+\subsection{Roots as an application}
+
+\begin{example}[Reaching every nonnegative value with a power]
+  \label{ex:continuity:roots-by-intermediate-value}
+  Let $n\in\N$ and consider $f(x)=x^n$ for $x\ge0$. This function is
+  continuous and \pendingreviewtext{strictly} increasing, with $f(0)=0$
+  and $f(x)\to\infty$ as $x\to\infty$.
+  \pendingreviewtext{For any $c>0$, choose $A>0$ with $A^n>c$.}
+  On $[0,A]$, the function takes every value in $[0,A^n]$. Thus there
+  is $b\in[0,A]$ with $b^n=c$, and $b=c^{1/n}$.
+  Every nonnegative real number therefore has an $n$th root.
+  \pendingreviewtext{Strict increase gives uniqueness. This is an
+    alternative existence argument to
+    \autoref{thm:analysis-i:positive-roots}, whose earlier proof used
+    completeness directly. The present argument uses continuity of
+    $x^n$, without presupposing continuity of its inverse.}
+\end{example}
+
+\input{problems/hw05/01-interval-fixed-point/problem}
+\input{problems/hw05/03-odd-polynomial-root/problem}
+
+\subsection{Continuity of an inverse}
+
+\begin{pendingreview}
+\begin{definition}[Monotone functions]
+  \label{thm:analysis-i:monotone-functions}
+  A function $f:I\to\R$ is \emph{nondecreasing} if $x<y$ implies
+  $f(x)\le f(y)$, and \emph{nonincreasing} if $x<y$ implies
+  $f(x)\ge f(y)$. It is \emph{monotone} if it has either property.
+  Replacing these weak inequalities by strict inequalities defines
+  \emph{strictly increasing} and \emph{strictly decreasing} functions.
+  These two cases are called \emph{strictly monotone}.
+\end{definition}
+\end{pendingreview}
+
+\begin{theorem}[Continuity of an increasing inverse]
+  \label{thm:analysis-i:continuous-inverse}
+  Let $a<b$ be real numbers and let $f:[a,b]\to\R$ be continuous and
+  \pendingreviewtext{strictly} increasing. Put $c=f(a)$ and $d=f(b)$.
+  Then the inverse function
+  \[
+    g=f^{-1}:[c,d]\longrightarrow[a,b]
+  \]
+  is continuous.
+\end{theorem}
+
+\begin{pendingreview}
+  Strict increase makes $f$ injective, and
+  \autoref{thm:analysis-i:intermediate-value} shows that its image is
+  exactly $[c,d]$. Together these facts justify the existence of $g$.
+  The graphs of $f$ and $g$ interchange their coordinates, as
+  \autoref{fig:continuity:inverse-reflection} illustrates.
+\end{pendingreview}
+\begin{marginfigure}
+  \centering
+  \input{figures/continuity/inverse-reflection}
+  \caption[Reflecting a function to obtain its inverse.]{\pendingreviewtext{The
+    graphs of $y=x^2$ and $y=\sqrt{x}$ for nonnegative inputs are
+    reflections in $y=x$. A point $(u,v)$ on one graph corresponds to
+    $(v,u)$ on the other.}}
+  \label{fig:continuity:inverse-reflection}
+\end{marginfigure}
+
+\begin{proof}
+  Suppose that $g$ is not continuous at $y_0\in[c,d]$, and put
+  $x_0=g(y_0)$.
+  \pendingreviewtext{By the failure of continuity, there are
+    $\varepsilon_0>0$ and points $y_n\in[c,d]$ such that}
+  \[
+    \pendingreviewtext{|y_n-y_0|<\frac1n,\qquad
+      |g(y_n)-x_0|\ge\varepsilon_0.}
+  \]
+  Set $x_n=g(y_n)$. Since $x_n\in[a,b]$,
+  \autoref{thm:analysis-i:bolzano-weierstrass} gives a subsequence
+  $x_{n_k}\to x^*\in[a,b]$. Continuity of $f$ yields
+  \[
+    y_{n_k}=f(x_{n_k})\longrightarrow f(x^*).
+  \]
+  But $y_{n_k}\to y_0$, so uniqueness of limits gives
+  $f(x^*)=y_0=f(x_0)$. Injectivity of $f$ then gives $x^*=x_0$.
+  \pendingreviewtext{This contradicts
+    $|x_{n_k}-x_0|\ge\varepsilon_0$ for every $k$, since
+    $x_{n_k}\to x_0$.} Therefore $g$ is continuous at $y_0$.
+\end{proof}
+
+\begin{pendingreview}
+The inverse of a continuous strictly decreasing function is continuous
+as well. Apply the theorem to $-f$, which is strictly increasing, and
+compose its continuous inverse with $y\mapsto-y$. Strict monotonicity
+is essential for an inverse to exist; a merely monotone function can
+take the same value at several inputs.
+\end{pendingreview}
+
+% IMG_9257 passes from a sequence that fails to converge to a convergent
+% subsequence without retaining a positive separation from x_0. The fixed
+% epsilon above is essential for the final contradiction.
+\begin{example}[Continuity of roots and rational powers]
+  \label{ex:continuity:rational-powers}
+  For $n\in\N$, the root function $x\mapsto x^{1/n}$ is continuous
+  for $x\ge0$.
+  \pendingreviewtext{Indeed, for every $A>0$ the power map is a continuous,
+    strictly increasing bijection from $[0,A]$ onto $[0,A^n]$. Its inverse
+    is continuous by \autoref{thm:analysis-i:continuous-inverse}. These
+    intervals cover all nonnegative inputs, including relative
+    continuity at zero.}
+
+  \pendingreviewtext{For $m\in\Z$ and $n\in\N$,} the rational power
+  $x\mapsto x^{m/n}$ is also continuous
+  \pendingreviewtext{on $(0,\infty)$. For positive $m$, it is continuous
+    at zero as well. This follows by composing the root function with
+    the integer power function, and taking a reciprocal when $m<0$.}
+\end{example}

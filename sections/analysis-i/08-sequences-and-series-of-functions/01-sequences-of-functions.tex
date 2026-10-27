@@ -2,25 +2,127 @@
 \section{Sequences of functions}
 \label{sec:analysis-i:sequences-of-functions}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 1034--1050.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-\label{template:sec:marginal-material}
+% Source: LEC05/IMG_9260, pointwise convergence and truncated powers;
+% LEC05/IMG_9261, truncated roots and reciprocal powers.
+Let $f_n:D\to\R$ be a function for each $n\in\N$. For a fixed $x\in D$,
+the values $f_n(x)$ form a sequence of real numbers. Its limit may depend
+on the input $x$.
 
-Marginal material includes sidenotes, citations, margin notes, and captions.
-Normally, the justification of the marginal material follows the justification
-of the body text.  If you specify the \docclsopt{justified} document class
-option, all of the margin material will be fully justified as well.  If you
-don't specify the \docclsopt{justified} option, then the marginal material will
-be set ragged right.
+\begin{definition}[Pointwise convergence]
+  \label{thm:analysis-i:pointwise-convergence}
+  The sequence $(f_n)$ converges \emph{pointwise} to $f:D\to\R$ if
+  $f_n(x)\to f(x)$ for every $x\in D$. Equivalently,
+  \[
+    \begin{gathered}
+      \forall x\in D\quad\forall\varepsilon>0\quad\exists N\in\N\\
+      \forall n\ge N\quad |f_n(x)-f(x)|<\varepsilon.
+    \end{gathered}
+  \]
+  Here $N$ may depend on both $\varepsilon$ and $x$.
+\end{definition}
 
-You can set the justification of the marginal material separately from the body
-text using the following document class options: \docclsopt{sidenote},
-\docclsopt{marginnote}, \docclsopt{caption}, \docclsopt{citation}, and
-\docclsopt{marginals}.  Each option refers to its obviously corresponding
-marginal material type.  The \docclsopt{marginals} option simultaneously sets
-the justification on all four marginal material types.
+\begin{example}[A discontinuous limit of continuous functions]
+  \label{ex:analysis-i:truncated-powers}
+  On $[0,\infty)$, define
+  \[
+    f_n(x)=
+    \begin{cases}
+      x^n,&0\le x\le1,\\
+      1,&x>1.
+    \end{cases}
+  \]
+  Every $f_n$ is continuous. At a fixed $0\le x<1$, the geometric
+  sequence $x^n$ tends to zero. At $x=1$ and at every $x>1$, the value
+  is always one. Thus the pointwise limit is
+  \[
+    f(x)=
+    \begin{cases}
+      0,&0\le x<1,\\
+      1,&x\ge1.
+    \end{cases}
+  \]
+  This function is discontinuous at $1$. The continuous curves and
+  their pointwise limit are shown in
+  \autoref{fig:analysis-i:truncated-powers}.
+\end{example}
 
-\lipsum[1]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{marginfigure}
+  \centering
+  \input{figures/function-sequences/truncated-powers}
+  \caption[Truncated powers and their pointwise limit.]{\pendingreviewtext{Truncated powers for $n=2$ (gray) and $n=16$
+    (black). The dashed graph is the pointwise limit. Its value at $1$
+    is one.}}
+  \label{fig:analysis-i:truncated-powers}
+\end{marginfigure}
+
+\begin{example}[Truncated roots]
+  \label{ex:analysis-i:truncated-roots}
+  On $(0,\infty)$, define
+  \[
+    g_n(x)=
+    \begin{cases}
+      x^{1/n},&0<x\le1,\\
+      1,&x>1.
+    \end{cases}
+  \]
+  For each fixed $0<x\le1$, the root sequence $x^{1/n}$ tends to one.
+  For $x>1$, the value is already one. Hence $g_n(x)\to1$ for every
+  $x>0$, as illustrated in \autoref{fig:analysis-i:truncated-roots}.
+\end{example}
+
+% The source excludes x=0. Its natural continuous extension and the
+% endpoint limit below are editorial additions, not source transcription.
+\begin{pendingreview}
+  If we extend every $g_n$ continuously to $0$ by setting $g_n(0)=0$,
+  the pointwise limit on $[0,\infty)$ becomes
+  \[
+    g(x)=
+    \begin{cases}
+      0,&x=0,\\
+      1,&x>0.
+    \end{cases}
+  \]
+  The extended limit is discontinuous at $0$, even though each extended
+  $g_n$ is continuous there. The original domain $(0,\infty)$ excludes
+  precisely this point.
+\end{pendingreview}
+
+\begin{marginfigure}
+  \centering
+  \input{figures/function-sequences/truncated-roots}
+  \caption[Truncated roots and their pointwise limit.]{\pendingreviewtext{Truncated roots for $n=2$ (gray) and $n=16$ (black),
+    on the domain $x>0$. The dashed line is the limit $1$.
+    The open origin is excluded from each graph.}}
+  \label{fig:analysis-i:truncated-roots}
+\end{marginfigure}
+
+\begin{example}[A transition at one]
+  \label{ex:analysis-i:reciprocal-powers}
+  On $[0,\infty)$, let
+  \[
+    h_n(x)=\frac{1}{1+x^n}.
+  \]
+  If $0\le x<1$, then $x^n\to0$, so $h_n(x)\to1$.
+  At $x=1$, every term equals $1/2$.
+  If $x>1$, then $x^n\to\infty$, so $h_n(x)\to0$.
+  Consequently,
+  \[
+    h(x)=\lim_{n\to\infty}h_n(x)=
+    \begin{cases}
+      1,&0\le x<1,\\
+      \dfrac12,&x=1,\\
+      0,&x>1.
+    \end{cases}
+  \]
+  The transition becomes increasingly sharp near $1$, as shown in
+  \autoref{fig:analysis-i:reciprocal-powers}.
+\end{example}
+
+\begin{marginfigure}
+  \centering
+  \input{figures/function-sequences/reciprocal-powers}
+  \caption[Reciprocal powers and their pointwise limit.]{\pendingreviewtext{Reciprocal powers for $n=2$ (gray) and $n=16$ (black).
+    The dashed graph is the pointwise limit. All curves pass through
+    $(1,1/2)$, which remains the limit's value at $1$.}}
+  \label{fig:analysis-i:reciprocal-powers}
+\end{marginfigure}

@@ -5,6 +5,7 @@
 Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 - `main.tex` assembles the book; `preamble.tex` holds packages and layout; `macros.tex` defines shared notation and theorem environments.
+- `formula-sheet.tex` is a standalone entry that inputs `sections/appendices/formula-sheet.tex`; keep its ordered formulas and proof reminders in the shared topic files under `sections/appendices/formula-sheet/`.
 - `sections/analysis-i/part.tex` orders nine chapter directories. Each numbered directory contains `chapter.tex` and one numbered `.tex` file per topic, e.g. `01-sets-and-foundations/06-supremum.tex`.
 - `sections/analysis-ii/part.tex` is reserved and excluded from the book until needed.
 - `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, assumed knowledge, and the solutions chapter.
@@ -17,14 +18,45 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
+- `make formula-sheet`: build the shared formula sheet separately as `build/formula-sheet.pdf`.
 - `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
 - `make problems`: build every `problems/hw*.tex` into `build/problems/`.
-- `make check`: compile the book and homework handouts.
+- `make check`: compile the book, standalone formula sheet, and every homework from both the repository root and `problems/`.
+- `make check-texshop`: compile every homework from `problems/`, writing PDFs beside their sources.
 - `make watch`: rebuild the book when included sources change; stop with Ctrl-C.
 - `make watch-problems`: watch `hw01`; use `HW=hw02` to select another handout. Stop with Ctrl-C.
 - `make clean`: remove generated PDFs and auxiliary files through latexmk.
 
 On Overleaf, select `main.tex` and pdfLaTeX.
+
+### TeXShop and standalone homework
+
+- Start new homework entry files from `problems/template.tex`. Preserve its
+  `% !TEX TS-program = pdflatexmk` directive so TeXShop runs the bibliography
+  and reference passes. Keep the generic pdfLaTeX directive for other editors.
+- Every `problems/hwNN.tex` must compile both from the repository root through
+  Make and directly from `problems/`, as TeXShop does. Preserve the template's
+  `\analysisroot` detection and `\input@path` setup before loading the shared
+  preamble and macros. Keep the template and homework setup in sync when
+  changing this convention.
+- The shared `preamble.tex` uses `\analysisroot` for graphics and bibliography
+  resources too. A fix that locates only the preamble is incomplete. Use
+  portable relative paths; do not duplicate shared files or rely on an
+  absolute path, a global `TEXINPUTS` setting, or a particular editor's
+  working-directory configuration.
+- Put `% !TEX root = ../../hwNN.tex` on the first line of every nested
+  `problems/hwNN/NN-topic/problem.tex` and `solution.tex`. Adjust it when moving
+  files. These shared fragments must point to their own homework entry, which
+  remains a complete document without a root directive redirecting it to the
+  book. Book chapter fragments continue to point to `main.tex`.
+- For a new homework, template change, or shared path change, run `make check`
+  from the repository root. It automatically builds every homework in both
+  working directories with separate build caches. Use `make check-texshop`
+  for a focused check of the subdirectory builds. Test the template itself in
+  both directories when editing it; it is not included by `make check`.
+  Check that nested root directives resolve, figures load, references settle,
+  and Biber finds the bibliography. See the
+  [TeXShop setup guide](CUSTOMISATION.md#texshop-homework-previews).
 
 ## Shared and Local Editor Settings
 
@@ -48,6 +80,15 @@ Always maintain the **Homework placement map** in [README.md](README.md#homework
 Preserve the author's style and the course's flow of topics when turning lecture notes into publishable text. Capture all supplied mathematical content, including examples and questions. Improve clarity and organization without expanding the notes into an unrelated textbook; add only the supporting explanation needed for a coherent foundation.
 
 Keep the lecturer's syllabus chapters and sections, including their titles and order, as the organising framework. Reorganise content within that framework to introduce tools before their substantial use and before exercises that require them. Keep early motivation concise and return to its proof after the prerequisites. Consult the root and relevant chapter README changelogs before structural edits, and record agreed decisions and their rationale there.
+
+Maintain the same mathematical topic order in summaries, formula sheets,
+recaps, and appendix reference material as in the book's chapter and section
+inputs. Group related entries under clear topic headings, with finite-sum
+background before sequences and infinite series and sequence criteria in
+their chapter order. Place additions with their topic rather than appending
+them in editing order. Preserve deliberate prerequisite recalls and closing
+syntheses, linking them to their main treatment instead of duplicating or
+reordering the syllabus.
 
 Keep the rendered book independent of the semester schedule. Week numbers,
 lecture dates or numbers, import batches, and coverage progress belong only
@@ -92,6 +133,11 @@ without the author's approval.
 
 Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
 
+Present final answers and proof conclusions as ordinary displayed equations,
+without `\boxed`, `\fbox`, or other enclosing outlines. Use the shared proof
+environment's QED marker to signal completion and keep the conclusion's
+typography consistent with the surrounding mathematics.
+
 Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.
 
 Keep margin placement in the shared `preamble.tex` configuration. It uses
@@ -101,7 +147,9 @@ Optional margin offsets are preferred callout positions, not guaranteed
 placements. Do not insert negative space, smashed content, or manual page
 breaks to fit a crowded margin. Give a diagram that cannot fit in one margin
 a main-text or full-width figure instead of shrinking its labels. Preserve
-the measured height of side captions and captions below full-width figures.
+Tufte's standard height handling for ordinary and full-width figures. Their
+margin captions must not reserve vertical space in the main text; leave the
+class's internal caption handling unchanged.
 
 Use bold caption labels and numbers followed by a full stop, for example **Figure 1.1.** or **Table 2.1.**, with ordinary-weight caption text. Apply this through the shared `caption` configuration in `preamble.tex` for every float type in the book and handouts; retain Tufte's margin font and alignment rather than formatting individual captions by hand.
 

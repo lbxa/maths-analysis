@@ -1,8 +1,15 @@
+% !TEX TS-program = pdflatexmk
 % !TEX program = pdflatex
-% Compile this handout from the repository root with make problem HW=hw02.
+% Typeset in TeXShop, or run make problem HW=hw02 from the repository root.
 % Questions transcribed verbatim from Math Analysis I Assignment 2.pdf.
 % Original wording, including "seqeunce" and "continuous fraction", is retained.
 \documentclass[nohyper,nobib,nofonts]{tufte-handout}
+% Resolve shared inputs from either the repository root or problems/.
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
 \input{preamble}
 \input{macros}
 \input{figures/interval-styles}

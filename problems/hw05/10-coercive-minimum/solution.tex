@@ -1,0 +1,60 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  \textit{(a)} Since $a|x|\ge0$ for every $x\in\R$, the given bound
+  implies
+  \[
+    f(x)\ge a|x|-b\ge-b.
+  \]
+  Thus the range $f(\R)$ is bounded below. It is nonempty because it
+  contains $f(0)$. By completeness of $\R$, its infimum exists as a
+  real number. Write
+  \[
+    m=\inf f(\R),\qquad -b\le m\le f(0).
+  \]
+
+  \textit{(b)} We follow the hint by choosing inputs whose outputs
+  approach $m$. By the defining property of the infimum, for every
+  $n\in\N$ there is an $x_n\in\R$ such that
+  \[
+    m\le f(x_n)<m+\frac1n.
+  \]
+  Indeed, if no such point existed, $m+1/n$ would be a lower bound
+  for $f(\R)$ larger than $m$. These inequalities give $f(x_n)\to m$.
+
+  We next show that the inputs $x_n$ stay in a bounded interval.
+  Combining the coercive bound with the choice of $x_n$ gives
+  \begin{align*}
+    a|x_n|-b&\le f(x_n)<m+\frac1n\le m+1,\\
+    a|x_n|&<m+b+1,\\
+    |x_n|&<\frac{m+b+1}{a}.
+  \end{align*}
+  Since $m\ge-b$ and $a>0$, the number
+  $R=(m+b+1)/a$ is positive and finite. Thus $(x_n)$ is contained
+  in $[-R,R]$. The coercive bound prevents inputs with nearly
+  minimal outputs from escaping to infinity, as illustrated in
+  \autoref{fig:hw05:coercive-minimum}.
+
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw05/coercive-minimum}
+    \caption[A coercive bound traps a minimising sequence.]{%
+      An example with $f(x)=1+x^2$ and the lower bound
+      $|x|-1$. Here $m=1$. If $f(x)<m+1=2$, the lower bound forces
+      $|x|<3$. The indicated points approach the minimum inside
+      this bounded interval.}
+    \label{fig:hw05:coercive-minimum}
+  \end{marginfigure}
+
+  By the Bolzano--Weierstrass theorem, there is a subsequence
+  $(x_{n_k})$ converging to some $x_0\in\R$. Continuity of $f$ at
+  $x_0$ gives
+  \[
+    f(x_{n_k})\longrightarrow f(x_0).
+  \]
+  But the same subsequence satisfies
+  \[
+    m\le f(x_{n_k})<m+\frac1{n_k},
+  \]
+  so $f(x_{n_k})\to m$ as $n_k\to\infty$. By uniqueness of limits,
+  $f(x_0)=m=\inf f(\R)$. Hence $f$ attains its global minimum.
+\end{proof}

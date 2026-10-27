@@ -1,0 +1,21 @@
+% Each row independently magnifies the decimal cell containing sqrt(2).
+\begin{tikzpicture}[interval diagram,x=6cm]
+  \node[anchor=south west] at (-0.16,1.05) {Decimal cell};
+  \node[anchor=south west] at (1.18,1.05) {Width};
+  \foreach \n/\row/\leftvalue/\rightvalue/\position/\width in {
+      0/0/1/2/0.414214/1,
+      1/-2.4/1.4/1.5/0.142136/{10^{-1}},
+      2/-4.8/1.41/1.42/0.421356/{10^{-2}},
+      3/-7.2/1.414/1.415/0.213562/{10^{-3}}} {
+    \draw (0,\row) -- (1,\row);
+    \fill (0,\row) circle[radius=1.6pt];
+    \draw[fill=white] (1,\row) circle[radius=1.6pt];
+    \fill (\position,\row) circle[radius=1.6pt];
+    \node[left=6pt] at (0,\row) {$n=\n$};
+    \node[below=5pt] at (0,\row) {$\leftvalue$};
+    \node[below=5pt] at (1,\row) {$\rightvalue$};
+    \node[above=5pt] at (\position,\row) {$\sqrt2$};
+    \node[anchor=west] at (1.18,\row) {$\width$};
+  }
+  \node at (0.5,-8.6) {$\vdots$};
+\end{tikzpicture}

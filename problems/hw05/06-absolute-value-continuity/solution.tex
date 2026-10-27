@@ -1,0 +1,35 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  Let $\varepsilon>0$. Since $f$ is continuous at $x_0$, there is a
+  $\delta>0$ such that
+  \[
+    |x-x_0|<\delta
+      \quad\Longrightarrow\quad |f(x)-f(x_0)|<\varepsilon.
+  \]
+  We can use the same $\delta$ for $g(x)=|f(x)|$. The reason is the
+  reverse triangle inequality,
+  \[
+    \bigl||u|-|v|\bigr|\le |u-v|,\qquad u,v\in\R.
+  \]
+  Taking absolute values cannot increase the distance between two
+  outputs, as illustrated in \autoref{fig:hw05:absolute-value-fold}.
+
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw05/absolute-value-fold}
+    \caption[Absolute value as a fold of the real line.]{%
+      Absolute value folds the negative half-line onto the
+      positive half-line. In the illustrated case $u<0<v<|u|$, the
+      original distance is $|u|+v$, while the folded distance is
+      $|u|-v$. Folding brings the two points closer together.}
+    \label{fig:hw05:absolute-value-fold}
+  \end{marginfigure}
+
+  Applying the inequality with $u=f(x)$ and $v=f(x_0)$ gives
+  \[
+    |g(x)-g(x_0)|
+      =\bigl||f(x)|-|f(x_0)|\bigr|
+      \le |f(x)-f(x_0)|<\varepsilon
+  \]
+  whenever $|x-x_0|<\delta$. Hence $g$ is continuous at $x_0$.
+\end{proof}

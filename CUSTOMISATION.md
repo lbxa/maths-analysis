@@ -73,13 +73,51 @@ and check its build output rather than invoking pdfLaTeX alone.
 The recipe uses `latexmk` from `PATH`; shared settings contain no
 machine-specific executable paths.
 
+## TeXShop homework previews
+
+Open `problems/hwNN.tex` in TeXShop and choose **Typeset** (`Cmd-T`). Each
+homework is a complete document and selects the `pdflatexmk` engine, which
+runs pdfLaTeX, Biber when needed, and the passes needed for references.
+The PDF appears beside the source, for example `problems/hw05.pdf`.
+
+You can also typeset while editing a nested `problem.tex` or `solution.tex`.
+Its first-line directive points to its homework entry file, for example:
+
+```tex
+% !TEX root = ../../hw05.tex
+```
+
+TeXShop resolves this path relative to the file containing the directive and
+typesets that root document. Keep these directives pointing to the homework
+entry file to preview the assignment. The book continues to reuse the same
+files through `main.tex`.
+
+TeXShop compiles from the entry file's directory. Each homework detects
+whether it is running from `problems/` or the repository root and sets
+`\analysisroot` and LaTeX's input search path before loading `preamble.tex`.
+The shared preamble uses that directory for graphics and the bibliography too.
+This keeps TeXShop and the existing Make commands working without absolute
+paths or duplicate copies of the preamble.
+
+Run `make check` from the repository root to verify both build modes for every
+homework automatically. The TeXShop checks use `problems/` as their working
+directory and write PDFs beside the source files, keeping their cache separate
+from `build/problems/`. Use `make check-texshop` to run just those checks.
+`make clean` removes generated files from both locations.
+
+If `pdflatexmk` is absent from TeXShop's engine menu, move
+`pdflatexmk.engine` from `~/Library/TeXShop/Engines/Inactive/Latexmk/` into
+`~/Library/TeXShop/Engines/` and restart TeXShop. See TeXShop's
+[root-file documentation](https://github.com/texshop/texshop/blob/master/Resources/Interfaces/en.lproj/TeXShopHelp/pgs/advanced_root.htm)
+and [engine guidance](https://github.com/texshop/texshop/blob/master/DocumentSources/TeXShop%20Tips%20%26%20Tricks/TeXShop%20Tips%20%26%20Tricks/TeXShopTipsAndTricks.tex).
+
 ## Codex stop hook
 
 The project-local `.codex/hooks.json` runs `make check` once when the main
 agent turn finishes. It calls `scripts/codex-stop-check.sh` from the
 repository root, including when the session starts in a subdirectory.
-The check builds the book and all homework handouts using the tools on
-`PATH`, with a ten-minute timeout.
+The check builds the book and every homework from both working directories,
+using the tools on `PATH`, with a ten-minute timeout.
 
 Build output is saved to `build/codex-stop-check.log`. A failed check
 produces a Codex warning without automatically restarting the agent.

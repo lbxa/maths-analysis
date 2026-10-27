@@ -1,0 +1,49 @@
+% Finite set-and-arrow examples. Gray shading is the image f(A).
+\begin{tikzpicture}[analysis diagram,x=1cm,y=1cm]
+  \foreach \shift/\title/\comparison/\intuition in {
+      0/Injective/{|A|\le|B|}/{Distinct inputs stay distinct.},
+      5.3/Surjective/{|A|\ge|B|}/{Every output is reached.},
+      10.6/Bijective/{|A|=|B|}/{Every output has one preimage.}} {
+    \begin{scope}[shift={(\shift,0)}]
+      \node at (1.9,1.9) {\title};
+      \draw (0.65,0) ellipse[x radius=0.5cm,y radius=1.05cm];
+      \node at (0.65,1.35) {$A$};
+      \node at (3.2,1.35) {$B$};
+      \node at (1.9,1.05) {$f$};
+      \node at (1.9,-1.55) {$\comparison$};
+      \node[anchor=north,text width=4.4cm,align=center]
+        at (1.9,-2.05) {\intuition};
+    \end{scope}
+  }
+
+  % An injection pairs A with the shaded image, leaving one output unused.
+  \fill[black!10] (3.2,0.24) ellipse[x radius=0.37cm,y radius=0.66cm];
+  \draw (3.2,0) ellipse[x radius=0.5cm,y radius=1.05cm];
+  \foreach \y in {0.6,0,-0.6}
+    \fill (0.65,\y) circle[radius=1.6pt];
+  \foreach \y in {0.72,0.24,-0.24,-0.72}
+    \fill (3.2,\y) circle[radius=1.6pt];
+  \foreach \from/\to in {0.6/0.72,0/0.24,-0.6/-0.24}
+    \draw[->,shorten <=3pt,shorten >=3pt] (0.65,\from) -- (3.2,\to);
+
+  % A surjection reaches all of B, although two inputs share one output.
+  \begin{scope}[shift={(5.3,0)}]
+    \draw[fill=black!10] (3.2,0) ellipse[x radius=0.5cm,y radius=1.05cm];
+    \foreach \y in {0.75,0.25,-0.25,-0.75}
+      \fill (0.65,\y) circle[radius=1.6pt];
+    \foreach \y in {0.6,0,-0.6}
+      \fill (3.2,\y) circle[radius=1.6pt];
+    \foreach \from/\to in {0.75/0.6,0.25/0.6,-0.25/0,-0.75/-0.6}
+      \draw[->,shorten <=3pt,shorten >=3pt] (0.65,\from) -- (3.2,\to);
+  \end{scope}
+
+  % A bijection reaches every output exactly once and can be reversed.
+  \begin{scope}[shift={(10.6,0)}]
+    \draw[fill=black!10] (3.2,0) ellipse[x radius=0.5cm,y radius=1.05cm];
+    \foreach \y in {0.6,0,-0.6} {
+      \fill (0.65,\y) circle[radius=1.6pt];
+      \fill (3.2,\y) circle[radius=1.6pt];
+      \draw[->,shorten <=3pt,shorten >=3pt] (0.65,\y) -- (3.2,\y);
+    }
+  \end{scope}
+\end{tikzpicture}

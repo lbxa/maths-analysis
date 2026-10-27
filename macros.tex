@@ -33,7 +33,8 @@
 % The handouts print solutions immediately; only the book needs these links.
 \newcommand{\solutionlink}[1]{%
   \@ifclassloaded{tufte-book}{%
-    \leavevmode\marginnote{\hyperref[sol:#1]{Solution on page~\pageref*{sol:#1}.}}%
+    \analysissolutionnote{#1}{%
+      \hyperref[sol:#1]{Solution on page~\pageref*{sol:#1}.}}%
   }{}%
 }
 \makeatother

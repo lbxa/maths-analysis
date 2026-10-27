@@ -1,0 +1,74 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  Following the hint, we first determine $f$ on the integers, then on
+  the rationals, and finally on all of $\R$. Set $a=f(1)$.
+
+  Taking $s=t=0$ in the additivity condition gives
+  \[
+    f(0)=f(0)+f(0),\qquad\text{so }f(0)=0.
+  \]
+  For any $t\in\R$, we also have
+  \[
+    0=f(t+(-t))=f(t)+f(-t),
+  \]
+  and therefore $f(-t)=-f(t)$. For a positive integer $m$, repeated
+  addition gives
+  \[
+    f(m)=f(\underbrace{1+\cdots+1}_{m\text{ terms}})
+      =mf(1)=ma.
+  \]
+  Together with $f(0)=0$ and $f(-m)=-f(m)$, this proves $f(m)=am$
+  for every integer $m$.
+
+  Now let $r=m/n$ be rational, where $m\in\Z$ and $n\in\N$.
+  Adding $m/n$ to itself $n$ times gives
+  \[
+    nf\left(\frac mn\right)
+      =f\left(\underbrace{\frac mn+\cdots+\frac mn}_{n\text{ terms}}\right)
+      =f(m)=am.
+  \]
+  Dividing by $n$ yields
+  \[
+    f\left(\frac mn\right)=a\frac mn.
+  \]
+  Thus $f(r)=ar$ for every $r\in\Q$.
+
+  \begin{pendingreview}
+  Let $x\in\R$ be arbitrary.
+  By the density of $\Q$ in $\R$, there exists a sequence $(q_n)$
+  of rational numbers such that
+  \[
+    q_n\longrightarrow x.
+  \]
+  Since $f$ is continuous at $x$, the sequential characterization of
+  continuity gives
+  \[
+    \lim_{n\to\infty}f(q_n)=f(x).
+  \]
+  But we have already established that $f(q_n)=aq_n$ for every $n$.
+  Therefore,
+  \[
+    \begin{aligned}
+      \lim_{n\to\infty}f(q_n)
+        &=\lim_{n\to\infty}aq_n\\
+        &=a\lim_{n\to\infty}q_n\\
+        &=ax.
+    \end{aligned}
+  \]
+  By the uniqueness of limits,
+  \[
+    f(x)=ax.
+  \]
+  Since $x\in\R$ was arbitrary, we conclude
+  \[
+    f(x)=ax,\qquad\forall x\in\R,\quad a=f(1).\qedhere
+  \]
+  \end{pendingreview}
+\end{proof}
+
+\begin{pendingreview}
+The central insight is that additivity determines $f$ on all rational
+numbers. Because the rationals are dense in the reals, continuity forces
+the function to preserve that same linear relationship at every
+irrational number.
+\end{pendingreview}

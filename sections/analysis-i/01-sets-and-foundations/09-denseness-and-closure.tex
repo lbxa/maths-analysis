@@ -206,6 +206,46 @@ The grid in \autoref{fig:rational-grid} makes the estimate visible.
 In particular, choosing $m_n=\lfloor nx\rfloor$ gives an explicit rational
 sequence $m_n/n\to x$.
 
+\begin{pendingreview}
+\begin{proof}[Second proof by decimal approximation]
+  The decimal approximations of $\sqrt2$ make the idea concrete,
+  \[
+    \sqrt2=1.414213\ldots,\qquad
+    1.4,\quad 1.41,\quad 1.414,\quad 1.4142,\quad\ldots.
+  \]
+  Each displayed approximation is rational, and keeping more digits
+  makes the error smaller. To prove density, apply this construction
+  to an arbitrary nonnegative real number $x$. Truncating after $n$
+  decimal places gives
+  \[
+    q_n=\frac{\lfloor10^n x\rfloor}{10^n}\in\Q,
+    \qquad 0\le x-q_n<10^{-n}.
+  \]
+  Since $10^n\ge n+1$, the Archimedean property lets us choose $n$
+  with $10^{-n}<\varepsilon$ for any prescribed $\varepsilon>0$.
+  Then $|x-q_n|<\varepsilon$, so every neighbourhood of $x$ contains
+  a rational number. For $x<0$, apply the same construction to $-x$
+  and negate the rational approximations. Thus every real number
+  belongs to the closure of $\Q$.
+\end{proof}
+This specializes the earlier grid argument to denominators $10^n$.
+In fact, terminating decimals alone are dense in $\R$.
+\autoref{fig:decimal-sqrt-two} shows the successive decimal cells
+containing $\sqrt2$.
+\end{pendingreview}
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/foundations/decimal-sqrt-two}
+  \caption[Decimal approximations of the square root of two.]{%
+    \pendingreviewtext{Successive zooms around $\sqrt2$. The left
+    endpoints $1$, $1.4$, $1.41$, and $1.414$ are rational
+    truncations. Each cell has one tenth the width of the previous
+    cell. The rows use different scales so every decimal step remains
+    visible; the open right endpoint is excluded.}}
+  \label{fig:decimal-sqrt-two}
+\end{figure}
+
 \subsection{Closure is relative to an ambient space}
 Closure and completion answer related but different questions. Closure
 adds points already present in a specified ambient space. Thus

@@ -1,39 +1,197 @@
 % !TEX root = ../../../main.tex
+\Needspace{7\baselineskip}
 \section{Uniform continuity}
 \label{sec:analysis-i:uniform-continuity}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 784--813.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-You may notice that the captions are sometimes misaligned.
-Due to the way \LaTeX's float mechanism works, we can't know for sure where it
-decided to put a float. Therefore, the \TL document classes provide commands to
-override the caption position.
+% LEC05 IMG_9252 states the property; IMG_9256 starts its proof and
+% IMG_9215 supplies the whiteboard continuation with common subsequence indices.
+% The source recalls pointwise continuity without writing uniform quantifiers.
+\begin{pendingreview}
+For continuity at a single point $c$, the choice of $\delta$ may depend
+on $c$ as well as $\varepsilon$. Uniform continuity asks for one
+$\delta$ that works throughout the domain.
 
-\paragraph{Vertical alignment} To override the vertical alignment, use the
-\doccmd{setfloatalignment} command inside the float environment.  For
-example:
+\begin{definition}[Uniform continuity]
+  A function $f:I\to\R$ is \emph{uniformly continuous} on $I$ if
+  for every $\varepsilon>0$ there is a $\delta>0$ such that
+  \[
+    \text{for all }x,y\in I,\quad
+    |x-y|<\delta\ \Longrightarrow\ |f(x)-f(y)|<\varepsilon.
+  \]
+  The same $\delta$ must work throughout $I$.
+\end{definition}
+\autoref{fig:continuity:uniform-versus-nonuniform} compares the square
+function on two domains, keeping the output tolerance fixed at
+$\varepsilon_0=1$.
+\end{pendingreview}
 
+% Keep this comparison and its caption together before the theorem.
 \begin{fullwidth}
-\begin{docspec}
-  \textbackslash begin\{figure\}[btp]\\
-  \qquad \textbackslash includegraphics\{sinewave\}\\
-  \qquad \textbackslash caption\{This is an example of a sine wave.\}\\
-  \qquad \textbackslash label\{fig:sinewave\}\\
-  \qquad \hlred{\textbackslash setfloatalignment\{b\}\% forces caption to be bottom-aligned}\\
-  \textbackslash end\{figure\}
-\end{docspec}
+  \noindent\begin{minipage}{\linewidth}
+    \centering
+    \input{figures/continuity/uniform-versus-nonuniform}
+    \captionof{figure}[Uniform and nonuniform continuity.]{%
+      \pendingreviewtext{The same parabola at identical coordinate scales.
+      Every shaded window has width $1/4$ and height $1$. On $[0,2]$,
+      one input tolerance works throughout. Farther along $\R$, input
+      gaps $1/3$ and $1/6$ still give output gaps above $2$.}}
+    \label{fig:continuity:uniform-versus-nonuniform}
+  \end{minipage}
 \end{fullwidth}
 
-\noindent The syntax of the \doccmddef{setfloatalignment} command is:
+\begin{pendingreview}
+For $f(x)=x^2$ on $[0,2]$,
+\[
+  |x^2-y^2|=|x-y||x+y|\le4|x-y|,
+\]
+so the single choice $\delta=\varepsilon/4$ works for every pair of
+inputs. The shaded windows use $\varepsilon_0=1$ and $\delta=1/4$.
 
-\begin{docspec}
-  \doccmd{setfloatalignment}\{\docopt{pos}\}
-\end{docspec}
+On $\R$, take $x_n=n$ and $y_n=n+1/n$. Then
+\[
+  |x_n-y_n|=\frac1n\longrightarrow0,
+  \qquad |x_n^2-y_n^2|=2+\frac1{n^2}>2.
+\]
+Keep $\varepsilon_0=1$ fixed. Whatever $\delta>0$ is chosen, taking
+$n>1/\delta$ gives inputs closer than $\delta$ whose outputs are more
+than $1$ apart. This is the failure of uniform continuity. Continuity
+at each point allows the input tolerance to shrink as the point moves.
+\end{pendingreview}
 
-\noindent where \docopt{pos} can be either \texttt{b} for bottom-aligned
-captions, or \texttt{t} for top-aligned captions.
+\begin{theorem}[Heine--Cantor]
+  \label{thm:analysis-i:heine-cantor}
+  Every continuous function on a closed bounded interval $[a,b]$
+  is uniformly continuous there.
+\end{theorem}
 
-\lipsum[1]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{proof}
+  Suppose otherwise. Then there is some $\varepsilon_0>0$ such that
+  for every $n\in\N$ we can choose $x_n,y_n\in[a,b]$ with
+  \[
+    |x_n-y_n|<\frac1n,
+    \qquad |f(x_n)-f(y_n)|\ge\varepsilon_0.
+  \]
+  By \autoref{thm:analysis-i:bolzano-weierstrass}, $(x_n)$ has a
+  convergent subsequence $(x_{n_k})$. Apply the theorem again to the
+  bounded sequence $(y_{n_k})$ to obtain a convergent subsequence
+  $(y_{n_{k_i}})$. With these same indices, $(x_{n_{k_i}})$ still
+  converges. Write
+  \[
+    x_{n_{k_i}}\longrightarrow x_0,
+    \qquad y_{n_{k_i}}\longrightarrow y_0.
+  \]
+  \begin{marginfigure}
+    \centering
+    \input{figures/continuity/paired-subsequences}
+    \caption[Paired subsequences approach the same point.]{\pendingreviewtext{Schematic pairs selected with common indices.
+      Their separation tends to zero. Once both subsequences converge,
+      their limits must coincide. The selection continues beyond the
+      three pairs drawn.}}
+    \label{fig:continuity:paired-subsequences}
+  \end{marginfigure}
+  Both limits belong to $[a,b]$, since every selected term lies between
+  $a$ and $b$. Moreover,
+  \[
+    |x_{n_{k_i}}-y_{n_{k_i}}|
+    <\frac1{n_{k_i}}\longrightarrow0,
+  \]
+  so $x_0=y_0$. By continuity and
+  \autoref{thm:analysis-i:sequential-continuity},
+  \[
+    |f(x_{n_{k_i}})-f(y_{n_{k_i}})|
+    \longrightarrow |f(x_0)-f(y_0)|=0.
+  \]
+  This contradicts the lower bound $\varepsilon_0$ on every one of
+  these differences.
+\end{proof}
+
+\begin{pendingreview}
+The indices in the proof matter. We first select a convergent subsequence
+of the $x_n$, then refine its indices to make the corresponding $y_n$
+converge too. We never separate the pairs. Their shrinking distance then
+forces the same limit, as \autoref{fig:continuity:paired-subsequences}
+illustrates.
+\end{pendingreview}
+
+\subsection{Exercises on uniform continuity}
+
+\input{problems/hw05/02-uniform-continuity-boundedness/problem}
+\input{problems/hw05/07-square-not-uniformly-continuous/problem}
+\input{problems/hw05/08-lipschitz-continuity/problem}
+
+% LEC05 IMG_9258--IMG_9259. The approximation is stated in the source;
+% its uniform-continuity proof below is an editorial addition.
+\subsection{Piecewise linear approximation}
+
+Partition $[a,b]$ into
+\[
+  a=x_0<x_1<\cdots<x_n=b.
+\]
+The partition is equally spaced when $x_k-x_{k-1}=(b-a)/n$ for
+$k=1,\ldots,n$.
+
+\begin{definition}[Piecewise linear function]
+  A function $g:[a,b]\to\R$ is \emph{piecewise linear} if, on each
+  interval $[x_{k-1},x_k]$, it agrees with an affine function
+  $L_k(x)=\alpha_k+\beta_kx$.
+\end{definition}
+
+To approximate a continuous function $f$, join its successive values
+$(x_k,f(x_k))$ by straight segments. On $[x_{k-1},x_k]$ the slope is
+\[
+  m_k=\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}},
+\]
+and the segment is given by
+\[
+  g(x)=f(x_{k-1})
+    +\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}(x-x_{k-1}).
+\]
+The pieces agree at the partition points, since $g(x_k)=f(x_k)$.
+\pendingreviewtext{The curved graph and its straight interpolating
+segments are shown in \autoref{fig:continuity:polygonal-approximation}.}
+
+\begin{marginfigure}
+  \centering
+  \input{figures/continuity/polygonal-approximation}
+  \caption[Joining nearby function values by straight segments.]{\pendingreviewtext{The black curve is $f(x)=1+x^2/4$ on $[0,2]$.
+    The two gray segments interpolate equally spaced values. Refining the
+    partition makes the whole polygonal graph close to the curve.}}
+  \label{fig:continuity:polygonal-approximation}
+\end{marginfigure}
+
+\begin{proposition}[Piecewise linear approximation]
+  \label{thm:analysis-i:polygonal-approximation}
+  If $f:[a,b]\to\R$ is continuous, then for every $\varepsilon>0$
+  there is a piecewise linear function $g$ such that
+  \[
+    \text{for every }x\in[a,b],\quad |f(x)-g(x)|<\varepsilon.
+  \]
+\end{proposition}
+
+\begin{pendingreview}
+\begin{proof}
+  By \autoref{thm:analysis-i:heine-cantor}, choose $\delta>0$ so that
+  points less than $\delta$ apart have function values less than
+  $\varepsilon$ apart. Choose an equally spaced partition with
+  $(b-a)/n<\delta$, and let $g$ be the interpolant above.
+
+  If $x\in[x_{k-1},x_k]$, put
+  $t=(x-x_{k-1})/(x_k-x_{k-1})$. Then $0\le t\le1$ and
+  \[
+    g(x)=(1-t)f(x_{k-1})+tf(x_k).
+  \]
+  Both endpoints are less than $\delta$ from $x$, so
+  \begin{align*}
+    |f(x)-g(x)|
+      &\le (1-t)|f(x)-f(x_{k-1})|
+        +t|f(x)-f(x_k)|\\
+      &< (1-t)\varepsilon+t\varepsilon=\varepsilon.
+  \end{align*}
+  The same partition works for every $x\in[a,b]$, as required.
+\end{proof}
+\end{pendingreview}
+
+The construction also motivates integration. A piecewise linear function
+can be treated one segment at a time, turning its integral into a finite
+sum. We return to this idea in
+\autoref{ch:analysis-i:riemann-integration}.

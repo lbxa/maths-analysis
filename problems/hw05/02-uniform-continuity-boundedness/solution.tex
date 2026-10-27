@@ -1,0 +1,159 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+
+\textbf{Claim.} Let $I\subseteq \mathbb{R}$ be an interval with finite endpoints $a$, $b$. If
+$f: I \rightarrow \mathbb{R}$ is uniformly continuous then $f$ is bounded on $I$.
+
+Suppose $f$ is uniformly continuous on $I$. By definition, for every
+$\varepsilon > 0$ there is a $\delta > 0$ such that
+$$
+\forall x,y \in I,\quad |x - y| < \delta \implies |f(x) - f(y)| < \varepsilon.
+$$
+Choose $\varepsilon = 1$. Then there exists a $\delta > 0$ such that
+$$
+|x - y| < \delta \implies |f(x) - f(y)| < 1.
+$$
+Our goal is to show that there exists a finite constant $M > 0$ such that
+$$
+|f(x)| \le M,\quad \forall x \in I.
+$$
+
+If $I$ is empty, the claim is immediate. Otherwise, fix $x_0\in I$ once
+and for all.
+
+Since $a$ and $b$ are finite endpoints, we consider
+an arbitrary point $x\in I$.
+We'll take $N$ steps between $x_0$ and $x$ such that $|x_k - x_{k- 1}| < \delta$
+and $|f(x_k) - f(x_{k-1})| < \varepsilon$.
+
+% a figure showing this interval
+\autoref{fig:hw05:uniform-continuity-chain} illustrates
+the finite chain of small steps.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/hw05/uniform-continuity-chain}
+  \caption[Chaining small steps across a bounded interval.]{%
+    A schematic chain inside $I$, with the open-interval
+    case shown. Every successive gap is less than $\delta$, so each
+    corresponding output change is less than $1$. The dots omit
+    intermediate steps in the finite chain.}
+  \label{fig:hw05:uniform-continuity-chain}
+\end{marginfigure}
+
+Over our interval $[a,b]$, if we take $N$ steps,
+we can arrange for each to have size at most
+$$
+\dfrac{b - a}{N}.
+$$
+For uniform continuity, it is enough to choose $N$ so that
+$$
+\dfrac{b - a}{N} < \delta \iff \dfrac{b - a}{\delta} < N.
+$$
+Since $b - a$ and $\delta$ are both fixed, we can select
+an integer $N\ge2$ that
+works for every pair of points in $I$.
+
+Such an integer exists by the Archimedean property. Set
+\[
+  x_k=x_0+\frac{k}{N}(x-x_0),\qquad k=0,\ldots,N.
+\]
+Each $x_k$ lies between $x_0$ and $x$, so it belongs to $I$ because $I$
+is an interval. For $k=1,\ldots,N$,
+\[
+  |x_k-x_{k-1}|=\frac{|x-x_0|}{N}
+  \le\frac{b-a}{N}<\delta.
+\]
+Uniform continuity therefore gives $|f(x_k)-f(x_{k-1})|<1$ at every
+step. This construction also works when $x\le x_0$.
+
+
+For the first two steps, we have
+$$
+|f(x_2) - f(x_0)| = |f(x_2) - \underbrace{f(x_1) \mathbin{-} f(x_1)}_{0} - f(x_0)|.
+$$
+Using the triangle inequality $|A| + |B| \ge |A + B|$,
+\begin{align*}
+|f(x_2) - f(x_1) + f(x_1) - f(x_0)|
+&= |[f(x_2) - f(x_1)] + [f(x_1) - f(x_0)]| ,\\
+\mathrel{\Longrightarrow}\quad |f(x_2) - f(x_0)| &\le |f(x_2) - f(x_1)| + |f(x_1) - f(x_0)|.
+\end{align*}
+We can continue adding central terms like $f(x_1)$ that cancel out to generalize
+this to
+$$
+|f(x_N) - f(x_{0})| \le \sum_{k=1}^N |f(x_k) - f(x_{k-1})|.
+$$
+Since we chose $\varepsilon=1$,
+$$
+\sum_{k=1}^N |f(x_k) - f(x_{k-1})| \mathrel{<} \varepsilon N \mathrel{=} N.
+$$
+Hence we've established that
+\begin{align*}
+|f(x_N) - f(x_0)| \le \sum_{k=1}^N |f(x_k) - f(x_{k-1})| &< N,\\
+\mathrel{\Longrightarrow}\quad |f(x_N) - f(x_0)| & < N.
+\end{align*}
+In this case $x_N = x$, so we add and subtract a $f(x_0)$ term to arrive
+at an expression for $|f(x)|$ in terms of $f(x_0)$,
+\begin{align*}
+|f(x)| &= |f(x) - f(x_0) + f(x_0)|,\\
+|f(x)| &= |[f(x) - f(x_0)] + f(x_0)|.
+\end{align*}
+We can apply the triangle inequality again,
+\begin{align*}
+|f(x)| &= |[f(x) - f(x_0)] + f(x_0)|,\\
+&\mathrel{\le} |f(x) - f(x_0)| + |f(x_0)|.
+\end{align*}
+Combining our previous result with the new inequality
+and setting $M=N+|f(x_0)|>0$,
+\begin{align*}
+|f(x)| & \le |f(x) - f(x_0)| + |f(x_0)|,\\
+|f(x)| &< N + |f(x_0)|,\\
+|f(x)| &< M,\qquad \text{for every }x \in I.
+\end{align*}
+Both $N$ and $x_0$ are fixed, so $M$ does not depend on $x$.
+Since $N$ and $|f(x_0)|$ are both finite, $f$ is bounded on $I$. Therefore we have
+proved that if $f$ is uniformly continuous over $I$, then it is bounded.
+
+To prove $f(x) = \frac{1}{1 +x}$ is continuous but not uniformly continuous, we can
+first prove the case for regular continuity, then
+apply the contrapositive of the claim.
+
+% insert diagram of the function itself with special focus on the the limit point
+% at x = -1
+\autoref{fig:hw05:unbounded-reciprocal} shows the graph
+near the excluded endpoint $-1$.
+
+\begin{marginfigure}
+  \centering
+  \input{figures/hw05/unbounded-reciprocal}
+  \caption[An unbounded continuous function on an open interval.]{%
+    The graph of $f(x)=1/(1+x)$ on $(-1,1)$ rises
+    without bound as $x$ approaches $-1$ from the right. The dashed line
+    is the vertical asymptote. The open point at $(1,1/2)$ is also
+    excluded from the graph.}
+  \label{fig:hw05:unbounded-reciprocal}
+\end{marginfigure}
+
+The numerator $1$ and denominator $1+x$ are continuous,
+and $1+x>0$ on $(-1,1)$.
+The quotient of two continuous functions is continuous wherever the denominator is
+not equal to zero, so for $x \in (-1, 1)$ the function $f(x)$ is continuous.
+
+When we analyze the limit as $x \rightarrow -1^+$,
+$$
+\lim_{x \rightarrow -1^+} \dfrac{1}{1 + x} = +\infty,
+$$
+
+This means that there is no finite upper bound for $f$ on $(-1,1)$.
+More explicitly, for any $B>0$, choose an integer $n>\max\{B,1\}$.
+Then
+\[
+  x_n=-1+\frac1n\in(-1,1),\qquad
+  f(x_n)=\frac{1}{1+x_n}=n>B.
+\]
+Thus $f$ is unbounded on $(-1,1)$.
+
+By the contrapositive of the above claim, if $f$ is not bounded, then it cannot be
+uniformly continuous over $(-1,1)$.
+
+\end{proof}

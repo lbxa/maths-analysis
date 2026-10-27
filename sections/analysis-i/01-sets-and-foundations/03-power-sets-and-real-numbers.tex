@@ -1,5 +1,11 @@
 % !TEX root = ../../../main.tex
 % Sources: LEC01, IMG_9114--IMG_9117.
+% Author's detailed cardinality proof: IMG_9342--IMG_9347 (2026-10-26).
+% Source outline: 9342 halving and separation; 9343 binary injection and
+% sigmoid inverse; 9344--9345 endpoint shift; 9345--9346 binary ambiguity;
+% 9346--9347 corrected ternary sums and the strict tail comparison.
+% Omit crossed-out arithmetic and unrelated page-top sketches. Retain the
+% author's argument in normal colour; mark added conventions and gap repairs.
 \section{Power sets and the size of the real line}
 \label{sec:analysis-i:power-sets}
 
@@ -33,9 +39,25 @@ The map $x\mapsto\{x\}$ is injective, so the theorem is expressed as
 $|X|<|\mathcal P(X)|$. In particular, $\mathcal P(\N)$ is uncountable.
 
 \begin{theorem}[Cantor--Bernstein]
+  \label{thm:analysis-i:cantor-bernstein}
+  \marginnote{\pendingreviewtext{Also called the
+  \emph{Cantor--Schr\"oder--Bernstein theorem}. Injections both ways give
+  a perfect pairing; they need not be inverses.}}
   If there are injections $A\to B$ and $B\to A$, then there is a
   bijection $A\to B$.
 \end{theorem}
+\marginnote{\pendingreviewtext{Cantor formulated the claim, and Felix
+Bernstein presented a correct proof in Cantor's seminar in 1897. He
+had found the argument while still a school student proofreading
+Cantor's work. Cantor passed it to \'Emile Borel, who
+published it in 1898. Ernst Schr\"oder also published a proof in 1898,
+but it contained an error. The shorter name \emph{Cantor--Bernstein}
+highlights Cantor's formulation and Bernstein's correct
+proof~\cite{MacTutorBernstein}.}
+\par
+\pendingreviewtext{An earlier proof by Richard Dedekind dates to 1887, but remained
+unpublished until 1932. Dedekind's name is nevertheless usually
+absent~\cite{Sieg2019CantorBernstein}.}}
 We use this set-theoretic theorem for cardinality comparisons. Its proof
 is not needed for the subsequent analysis.
 
@@ -71,54 +93,305 @@ More generally, a base-$b$ expansion of a number in $[0,1]$ has the form
 Successively subdividing an interval into $b$ equal parts supplies these
 digits; the remaining interval has length $b^{-n}$ after $n$ steps.
 
-In base two, a digit string records a subset of $\N$ through the positions
-of its ones. There is a small ambiguity, such as
-$0.1000\ldots=0.0111\ldots$. Choose the terminating expansion whenever
-there are two choices, and represent $1$ by $0.1111\ldots$.
-This gives an injection $[0,1]\to\mathcal P(\N)$.
+\begin{pendingreview}
+A binary sequence $(b_1,b_2,\ldots)$ records a subset of $\N$ by putting
+$n$ in the subset exactly when $b_n=1$. Thus
+\[
+  |\{0,1\}^{\N}|=|\mathcal P(\N)|=2^{|\N|}=2^{\aleph_0}.
+\]
+Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
+\end{pendingreview}
 
-For an injection in the other direction, send a subset $A\subseteq\N$ to
+\begin{proposition}
+  \label{thm:analysis-i:binary-interval-cardinality}
+  The unit interval has cardinality
+  \[
+    |[0,1]|=2^{|\N|}=2^{\aleph_0}.
+  \]
+\end{proposition}
+\begin{proof}
+  Fix $x\in[0,1]$. Bisect $I_0=[0,1]$, recording $0$ if we keep its
+  left half and $1$ if we keep its right half. At each stage keep a
+  half containing $x$ and repeat.
+  \pendingreviewtext{When $x$ is the shared midpoint, choose the right
+  half. This makes the choice unique.}
+  After $n$ halvings, the chosen interval $I_n$ has length
+  \[
+    \operatorname{length}(I_n)
+      =\underbrace{\frac12\cdot\frac12\cdots\frac12}_{n\text{ factors}}
+      =\frac1{2^n},
+  \]
+  and $x$ has been assigned an \pendingreviewtext{infinite} binary
+  sequence $(b_1,b_2,\ldots)$.
+  \pendingreviewtext{\autoref{fig:binary-interval-halving} shows one such
+  sequence of choices.}
+
+  \begin{figure}[htbp]
+    \centering
+    \input{figures/foundations/binary-interval-halving}
+    \caption[Encoding a point by interval halving.]{\pendingreviewtext{A
+      schematic point $x$ remains in each chosen closed interval.
+      Recording left as $0$ and right as $1$ gives the prefix $0111$.
+      The intervals continue to shrink; the displayed rows are not
+      a final interval.}}
+    \label{fig:binary-interval-halving}
+  \end{figure}
+
+  Suppose that $x<y$ were assigned the same sequence. Both would then
+  lie in the same interval $I_n$ for every $n$. Since $y-x>0$, choose
+  $n$ so large that $2^{-n}<y-x$. An interval of length $2^{-n}$ cannot
+  contain both points, a contradiction. Hence the encoding is injective,
+  and $|[0,1]|\le2^{|\N|}$.
+
+  To prove the reverse inequality, first consider reading an arbitrary
+  binary sequence as a number
+  \[
+    (b_1,b_2,\ldots)\longmapsto
+    0.b_1b_2\ldots{}_2=\sum_{n=1}^{\infty}\frac{b_n}{2^n}.
+  \]
+  \pendingreviewtext{The evaluation exists by
+  \autoref{thm:analysis-i:positional-representation}.}
+  For example, $0.1011\ldots{}_2=1/2+1/8+1/16+\cdots$.
+  This map need not be injective, since
+  \[
+    0.0111\ldots{}_2
+      =\frac14+\frac18+\frac1{16}+\cdots
+      =\frac{1/4}{1-1/2}=\frac12
+      =0.1000\ldots{}_2.
+  \]
+  Also $0.1111\ldots{}_2=1/2+1/2=1$. Thus different binary
+  sequences can represent the same real number.
+
+  \begin{pendingreview}
+  Geometrically, the closed halves touch at their common midpoint.
+  The intervals with prefixes $0,01,011,\ldots$ and $1,10,100,\ldots$
+  shrink onto $1/2$ from opposite sides. Each path determines one point,
+  but two different paths can determine the same point. Choosing one
+  code for each real number makes the earlier encoding injective;
+  it does not make evaluation of \emph{all} binary sequences injective.
+  \end{pendingreview}
+
+  Instead, use ternary digits $0$ and $2$ to encode a subset
+  $A\subseteq\N$ by
+  \[
+    t_A=\sum_{k\in A}\frac{2}{3^k}\in[0,1].
+  \]
+  \begin{pendingreview}
+  To see why this helps, divide $[0,1]$ into thirds, remove the
+  \emph{open} middle third, and retain the two closed outer thirds.
+  Repeat this operation inside every interval retained. Let $E_n$
+  denote the union of the intervals remaining after $n$ steps, so
+  \[
+    E_0=[0,1],\qquad
+    E_1=[0,1/3]\cup[2/3,1].
+  \]
+  \autoref{fig:separated-interval-codes} shows the first stages of this
+  construction. The gaps separate the retained intervals at every stage.
+  \end{pendingreview}
+
+  \begin{figure}[htbp]
+    \centering
+    \input{figures/foundations/separated-interval-codes}
+    \caption[Retaining the closed outer thirds.]{\pendingreviewtext{Remove
+      the open middle third of every remaining interval. Filled endpoints
+      stay in the set, while gaps separate the two choices. Record the
+      left choice as $0$ and the right as $2$ at every stage. The
+      construction continues indefinitely.}}
+    \label{fig:separated-interval-codes}
+  \end{figure}
+
+  \begin{pendingreview}
+  A left choice records the ternary digit $0$ and a right choice the
+  digit $2$. Now different children are separated by a gap rather than
+  sharing a boundary.
+  \end{pendingreview}
+
+  \begin{samepage}
+  The corresponding expansions are separated more widely. In particular,
+  \begin{align*}
+    0.2000\ldots{}_3&=\frac23,\\
+    0.0222\ldots{}_3
+      &=\frac2{3^2}+\frac2{3^3}+\cdots\\
+      &=\frac29\left(1+\frac13+\frac1{3^2}+\cdots\right)
+        =\frac29\,\frac1{1-1/3}=\frac13.
+  \end{align*}
+  \end{samepage}
+  More generally, the largest possible tail after position $j$ is
+  \[
+    \sum_{k=j+1}^{\infty}\frac2{3^k}
+      =\frac2{3^{j+1}}\,\frac1{1-1/3}=\frac1{3^j}.
+  \]
+  If $A$ and $B$ first differ at position $j$, their contribution there
+  differs by $2/3^j$, which is larger than this entire tail.
+  \begin{pendingreview}
+  Even if every later digit opposes that difference, it follows that
+  \[
+    |t_A-t_B|\ge\frac2{3^j}-\frac1{3^j}
+      =\frac1{3^j}>0.
+  \]
+  Thus $A\mapsto t_A$ is injective, and $2^{|\N|}\le|[0,1]|$.
+  \end{pendingreview}
+  The Cantor--Bernstein theorem now gives
+  $|[0,1]|=2^{|\N|}$.
+\end{proof}
+
+\begin{pendingreview}
+The points that survive every removal form the \emph{middle-thirds
+Cantor set}, denoted here by $\mathcal K$.
+\marginnote{\pendingreviewtext{Georg Cantor described this set in
+1883~\cite{Cantor1883PointSets}. Related constructions had appeared in
+Henry J. S. Smith's 1875 work on integration~\cite{MacTutorSmith}.
+}}
+In terms of the retained stages,
 \[
-  t_A=\sum_{k\in A}\frac{2}{3^k}\in[0,1].
+  \mathcal K=\bigcap_{n=0}^{\infty}E_n.
 \]
-If $A$ and $B$ first differ at position $j$, the difference $2/3^j$ there
-exceeds the maximum possible opposing tail
-$\sum_{k>j}2/3^k=1/3^j$. Hence $t_A\ne t_B$.
-The Cantor--Bernstein theorem now gives
+At each step, a surviving point lies in exactly one of the two separated
+children, so its choices give a ternary expansion using only $0$ and $2$.
+Conversely, every such expansion remains in its chosen interval at every
+stage. The strict tail estimate above shows that this restricted code is
+unique. A point may also have an expansion using $1$; for example,
+$1/3=0.0222\ldots{}_3=0.1000\ldots{}_3$ still belongs to $\mathcal K$.
+
+Thus all binary sequences are represented once in $\mathcal K$, giving
 \[
-  |[0,1]|=|\mathcal P(\N)|=2^{\aleph_0}.
+  |\mathcal K|=2^{\aleph_0}=|[0,1]|.
 \]
+\marginnote{\pendingreviewtext{After $n$ steps there are $2^n$ intervals
+of length $3^{-n}$, with total length $(2/3)^n\to0$. Yet their common
+surviving set has continuum cardinality. Counting points and measuring
+length are different notions of size.}}
+The gaps preserve distinct codes while still leaving as many points as
+the whole interval.
+\end{pendingreview}
+
+\subsection{From the unit interval to the real line}
+
+\pendingreviewtext{For the next explicit map, we use the usual strict
+monotonicity of the exponential and its inverse relation with the
+natural logarithm as elementary background.}
+
+\begin{example}[The sigmoid bijection]
+  \label{ex:analysis-i:sigmoid-bijection}
+  Consider
+  \[
+    \sigma:\R\longrightarrow(0,1),\qquad
+    \sigma(x)=\frac1{1+e^{-x}}.
+  \]
+  \begin{marginfigure}
+    \centering
+    \input{figures/foundations/cardinality-sigmoid}
+    \caption[A bijection from the real line to an open interval.]{%
+      \pendingreviewtext{The sigmoid $\sigma(x)=1/(1+e^{-x})$ passes
+      through $(0,1/2)$ and approaches $0$ and $1$ without attaining
+      either value.}}
+    \label{fig:cardinality-sigmoid}
+  \end{marginfigure}
+
+  The function is strictly increasing and therefore injective.
+  \pendingreviewtext{Indeed, if $x_1<x_2$, then
+  $e^{-x_1}>e^{-x_2}>0$, so
+  $1/(1+e^{-x_1})<1/(1+e^{-x_2})$.}
+  \pendingreviewtext{Its shape is shown in
+  \autoref{fig:cardinality-sigmoid}.}
+
+  For surjectivity, let $0<y<1$ and solve
+  \begin{align*}
+    y=\frac1{1+e^{-x}}
+      &\ \Longleftrightarrow\ e^{-x}=\frac1y-1\\
+      &\ \Longleftrightarrow\ x=-\ln\left(\frac1y-1\right).
+  \end{align*}
+  Since $0<y<1$, the number $1/y-1$ is positive, so this is a real
+  preimage of $y$. Hence $\sigma$ is bijective and
+  $|\R|=|(0,1)|$.
+\end{example}
+
+\begin{pendingreview}
+The next exercise asks for a bijection in the opposite direction.
+Inverting $\sigma$ gives one construction. Another uses the elementary
+fact that $\tan$ maps $(-\pi/2,\pi/2)$ bijectively onto $\R$, with
+inverse $\arctan$.
+\end{pendingreview}
+\input{problems/hw01/04-interval-to-reals/problem}
+
+\begin{example}[Freeing two places in an interval]
+  \label{ex:analysis-i:endpoint-shift}
+  Consider the sequence $1/2,1/3,1/4,\ldots$ in $(0,1)$.
+  Sending each $1/n$ to $1/(n+2)$ shifts the sequence and frees the
+  places $1/2$ and $1/3$. Put the two endpoints there and leave all
+  other points fixed.
+  \pendingreviewtext{\autoref{fig:endpoint-shift} shows the two infinite
+  chains that make this shift possible.}
+
+  Explicitly, define $h:[0,1]\to(0,1)$ by
+  \[
+    h(x)=
+    \begin{cases}
+      1/2,&x=0,\\
+      1/3,&x=1,\\
+      1/(n+2),&x=1/n,\quad n\ge2,\\
+      x,&\text{otherwise}.
+    \end{cases}
+  \]
+  \begin{marginfigure}
+    \centering
+    \input{figures/foundations/endpoint-shift}
+    \caption[Making room for two endpoints.]{\pendingreviewtext{Each arrow
+      applies $h$. Shifting the even- and odd-denominator chains makes room
+      for $0$ and $1$ at $1/2$ and $1/3$. Every other interior point stays
+      fixed.}}
+    \label{fig:endpoint-shift}
+  \end{marginfigure}
+
+  \begin{pendingreview}
+  The endpoints and the points $1/n$ for $n\ge2$ map bijectively onto
+  the reciprocal sequence. Every other point of $(0,1)$ is fixed and
+  lies outside that sequence. These two parts have disjoint images
+  and exhaust the target.
+  \end{pendingreview}
+  Thus $h$ is bijective and $|[0,1]|=|(0,1)|$.
+\end{example}
+
+\pendingreviewtext{Reversing the construction in
+\autoref{ex:analysis-i:endpoint-shift} gives the bijection requested next.}
+\input{problems/hw01/05-open-to-closed-interval/problem}
+
+Combining $|\R|=|(0,1)|$ and $|(0,1)|=|[0,1]|$ with
+\autoref{thm:analysis-i:binary-interval-cardinality} gives
+\[
+  |\R|=|[0,1]|=2^{|\N|}=2^{\aleph_0}=:\mathfrak c.
+\]
+\pendingreviewtext{There is also an algebraic comparison that avoids
+the exponential and logarithm.}
 The function $x\mapsto\tfrac12(1+x/(1+|x|))$ injects $\R$ into $(0,1)$.
 To see injectivity, $x/(1+|x|)$ is strictly increasing on each side of zero
 by cross multiplication, and has the sign of $x$. Together with the
-inclusion $[0,1]\subseteq\R$, this proves the following cardinality
-identity.\marginnote{The \emph{continuum hypothesis} is the additional
+inclusion $[0,1]\subseteq\R$, \pendingreviewtext{Cantor--Bernstein
+gives the same comparison $|\R|=|[0,1]|$.}
+\marginnote{The \emph{continuum hypothesis} is the additional
 assertion that there is no cardinality strictly between $\aleph_0$ and
 $\mathfrak c$. The identity $|\R|=2^{\aleph_0}$ does not assume that hypothesis.}
-\[
-  |\R|=2^{\aleph_0}=:\mathfrak c.
-\]
 
-\subsection{Exercises on the cardinality of intervals}
-The next constructions compare intervals, the real line, and a square.
-Here $\aleph$ denotes $|\R|=\mathfrak c$. For the first construction,
-recall the elementary trigonometric fact that $\tan$ maps
-$(-\pi/2,\pi/2)$ bijectively onto $\R$, with inverse $\arctan$.
-For the second, shifting a countable list of distinct points can make
-room for new target values, as the even-integer example suggested.
+\begin{pendingreview}
+\subsection{From an interval to a square}
+The next exercise extends the digit-encoding idea to a pair of points.
+\end{pendingreview}
+Here $\aleph$ denotes $|\R|=\mathfrak c$.
 For the square, use the unique decimal expansions from
 \autoref{thm:analysis-i:positional-representation} and injections in
 both directions. None of these exercises requires a continuity proof.
 
-\input{problems/hw01/04-interval-to-reals/problem}
-\input{problems/hw01/05-open-to-closed-interval/problem}
 \input{problems/hw01/08-square-cardinality/problem}
 
 \subsection{Algebraic and transcendental numbers}
+\label{sec:analysis-i:algebraic-transcendental}
 A polynomial is a finite sum $a_0+a_1X+\cdots+a_mX^m$.
 If $a_m\ne0$, its degree is $m$.
 A real number is \emph{algebraic} if it is a root of a nonzero polynomial
 with rational coefficients. It is \emph{transcendental} otherwise.
+\marginnote{\pendingreviewtext{\autoref{sec:analysis-i:number-systems}
+brings these sets together in a nesting diagram and compares their sizes
+with the natural, rational, real, and complex numbers.}}
 For instance, $\sqrt{2}$ is algebraic because it satisfies $x^2-2=0$.
 Rational numbers are algebraic as well, since $p/q$ satisfies $qx-p=0$.
 Clearing denominators shows that rational and integer coefficients give
@@ -133,6 +406,7 @@ Induction then shows that a nonzero degree-$m$ polynomial has at most
 $m$ distinct real roots.
 
 \begin{proposition}
+  \label{thm:analysis-i:algebraic-transcendental-cardinalities}
   The set $\mathcal A$ of real algebraic numbers is countably infinite.
   The set $\mathcal T=\R\setminus\mathcal A$ has cardinality $\mathfrak c$.
 \end{proposition}
@@ -174,7 +448,8 @@ The second applies the definition of transcendence to linear independence.
 \input{problems/hw01/07-linear-independence/problem}
 
 One further algebraic fact will be useful for the recurrences that follow.
-Recall Euclid's lemma, that a prime dividing a product of integers divides
+\pendingreviewtext{By \autoref{thm:analysis-i:euclid-prime-divisors},}
+a prime dividing a product of integers divides
 at least one factor. In particular, coprime integers have coprime powers.
 If a rational number $u/v$ in lowest terms is a root of a monic integer
 polynomial, multiplying its equation by $v^m$ shows that $v$ divides $u^m$.

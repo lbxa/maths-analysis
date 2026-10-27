@@ -1,6 +1,14 @@
+% !TEX TS-program = pdflatexmk
 % !TEX program = pdflatex
-% Standalone handout: compile from the repository root with make problems.
+% Copy to problems/hwNN.tex. Typeset in TeXShop, or use make problem HW=hwNN.
+% Keep this path setup so both repository-root and problems/ builds work.
 \documentclass[nohyper,nobib,nofonts]{tufte-handout}
+% Resolve shared inputs before loading the preamble and macros.
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
 \input{preamble}
 \input{macros}
 
@@ -14,7 +22,10 @@
 \section{Sets and foundations}
 \label{sec:hw01:sets-and-foundations}
 
-% Placeholder exercise and solution; replace with reviewed problem content.
+% Replace the specimen below with inputs of shared problem/solution pairs.
+% Each nested source's editor root must point to ../../hwNN.tex.
+% Keep its document class and shared preamble here, not in those fragments.
+% See CUSTOMISATION.md for the complete TeXShop workflow.
 \begin{exercise}
   \label{ex:hw01:placeholder}
   \lipsum[1]

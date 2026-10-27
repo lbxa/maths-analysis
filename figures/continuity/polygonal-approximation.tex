@@ -1,0 +1,20 @@
+% !TEX root = ../../main.tex
+\input{figures/interval-styles}
+\begin{tikzpicture}[interval diagram,x=16mm,y=13mm]
+  \draw[->] (-0.15,0) -- (2.35,0) node[right=4pt] {$x$};
+  \draw[->] (0,-0.15) -- (0,2.55) node[above=4pt] {$y$};
+  \draw[black,domain=0:2,samples=60] plot (\x,{1+\x*\x/4});
+  \draw[gray,densely dashed] (0,1) -- (1,1.25) -- (2,2);
+  \foreach \x in {0,1,2}{
+    \fill (\x,{1+\x*\x/4}) circle[radius=1.4pt];
+  }
+  \node[below left=4pt] at (0,0) {$0$};
+  \node[below=5pt] at (2,0) {$2$};
+  \draw (2,0.04) -- (2,-0.04);
+  \draw (0,1) -- (-0.05,1);
+  \node[left=4pt] at (0,1) {$1$};
+  \draw (0.25,-0.65) -- (0.65,-0.65);
+  \node[right=4pt] at (0.65,-0.65) {$f$};
+  \draw[gray,densely dashed] (1.3,-0.65) -- (1.7,-0.65);
+  \node[right=4pt] at (1.7,-0.65) {$g$};
+\end{tikzpicture}

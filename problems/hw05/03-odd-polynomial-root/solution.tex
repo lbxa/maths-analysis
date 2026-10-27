@@ -1,0 +1,35 @@
+% !TEX root = ../../hw05.tex
+\begin{proof}[Solution]
+  Let
+  \[
+    p(x)=a_mx^m+a_{m-1}x^{m-1}+\cdots+a_0,
+  \]
+  where $m$ is odd and $a_m\ne0$. Dividing by $a_m$ does not change
+  the roots, so we work with
+  \[
+    q(x)=\frac{p(x)}{a_m}
+      =x^m+b_{m-1}x^{m-1}+\cdots+b_0.
+  \]
+  We want to choose two inputs where the leading term is larger in
+  absolute value than all the remaining terms together.
+
+  Set $C=\sum_{k=0}^{m-1}|b_k|$. For $|x|\ge1$, every power
+  $|x|^k$ with $k\le m-1$ is at most $|x|^{m-1}$. The triangle
+  inequality therefore gives
+  \[
+    \left|\sum_{k=0}^{m-1}b_kx^k\right|
+      \le\sum_{k=0}^{m-1}|b_k||x|^k
+      \le C|x|^{m-1}.
+  \]
+  Choose $R>\max\{1,C\}$. Since $m$ is odd, $(-R)^m=-R^m$.
+  Applying the bound at $R$ and $-R$, we obtain
+  \begin{align*}
+    q(R)&\ge R^m-CR^{m-1}
+      =R^{m-1}(R-C)>0,\\
+    q(-R)&\le -R^m+CR^{m-1}
+      =-R^{m-1}(R-C)<0.
+  \end{align*}
+  The polynomial $q$ is continuous on $[-R,R]$. By the intermediate
+  value theorem, there is a $c\in(-R,R)$ such that $q(c)=0$.
+  Since $p(c)=a_mq(c)$, we also have $p(c)=0$.
+\end{proof}
