@@ -33,14 +33,42 @@
   \]
   Thus $f(r)=ar$ for every $r\in\Q$.
 
-  Finally, fix any $x\in\R$. By the density of $\Q$ in $\R$, for
-  each $k\in\N$ we can choose $r_k\in\Q$ such that
+  \begin{pendingreview}
+  Let $x\in\R$ be arbitrary.
+  By the density of $\Q$ in $\R$, there exists a sequence $(q_n)$
+  of rational numbers such that
   \[
-    |r_k-x|<\frac1k.
+    q_n\longrightarrow x.
   \]
-  Hence $r_k\to x$. Since $f$ is continuous at $x$, sequential
-  continuity gives $f(r_k)\to f(x)$. On the other hand,
-  $f(r_k)=ar_k\to ax$ by the limit laws. Uniqueness of limits
-  therefore gives $f(x)=ax$. Since $x$ was arbitrary, this holds on
-  all of $\R$.
+  Since $f$ is continuous at $x$, the sequential characterization of
+  continuity gives
+  \[
+    \lim_{n\to\infty}f(q_n)=f(x).
+  \]
+  But we have already established that $f(q_n)=aq_n$ for every $n$.
+  Therefore,
+  \[
+    \begin{aligned}
+      \lim_{n\to\infty}f(q_n)
+        &=\lim_{n\to\infty}aq_n\\
+        &=a\lim_{n\to\infty}q_n\\
+        &=ax.
+    \end{aligned}
+  \]
+  By the uniqueness of limits,
+  \[
+    f(x)=ax.
+  \]
+  Since $x\in\R$ was arbitrary, we conclude
+  \[
+    f(x)=ax,\qquad\forall x\in\R,\quad a=f(1).\qedhere
+  \]
+  \end{pendingreview}
 \end{proof}
+
+\begin{pendingreview}
+The central insight is that additivity determines $f$ on all rational
+numbers. Because the rationals are dense in the reals, continuity forces
+the function to preserve that same linear relationship at every
+irrational number.
+\end{pendingreview}

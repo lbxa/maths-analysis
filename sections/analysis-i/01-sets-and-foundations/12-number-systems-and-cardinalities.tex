@@ -1,0 +1,92 @@
+% !TEX root = ../../../main.tex
+% Author-requested overview of number systems, containment, and cardinality.
+\begin{pendingreview}
+\section{Number systems and cardinalities}
+\label{sec:analysis-i:number-systems}
+
+\newthought{The roots just constructed are part of a larger picture.}
+In \autoref{sec:analysis-i:roots-and-powers}, completeness supplied
+$\sqrt2$ as a real number. Its equation $x^2-2=0$ also identifies it
+as algebraic, in the sense of
+\autoref{sec:analysis-i:algebraic-transcendental}. We now bring that
+classification together with the chapter's counting results. The two
+questions are where a number belongs and how large each set is.
+
+The familiar number systems satisfy
+\[
+  \N\subsetneq\Q\subsetneq\R\subsetneq\C.
+\]
+Here $\N=\{1,2,3,\ldots\}$, $\Q$ consists of ratios of integers with
+nonzero denominator, and $\R$ is the real line. A complex number is
+$a+bi$ with $a,b\in\R$ and $i^2=-1$; we identify $a$ with $a+0i$.
+The examples $1/2$, $\sqrt2$, and $i$ show, respectively, that each
+inclusion is strict.
+
+\subsection{Where algebraic and transcendental numbers belong}
+Recall the two sets from
+\autoref{sec:analysis-i:algebraic-transcendental}. The set
+$\mathcal A$ consists of the real algebraic numbers, and
+$\mathcal T=\R\setminus\mathcal A$ consists of the transcendental reals.
+Inserting the algebraic numbers into the chain gives
+\[
+  \N\subsetneq\Q\subsetneq\mathcal A\subsetneq\R\subsetneq\C.
+\]
+Every rational is algebraic, while roots such as $\sqrt2$ show that
+$\mathcal A$ also contains irrational numbers. The transcendental
+reals include $\pi$ and $e$, whose transcendence was stated earlier
+without proof. Thus the irrational reals split into
+$\mathcal A\setminus\Q$ and $\mathcal T$.
+Complex numbers can also be algebraic; $i$ satisfies $x^2+1=0$, but
+is outside the \emph{real} algebraic set $\mathcal A$.
+\autoref{fig:number-systems} shows these relationships with nested boxes.
+Inside the real box, every number is either in the algebraic box or in
+the transcendental region outside it.
+
+\begin{figure}[htbp]
+  \centering
+  \input{figures/foundations/number-systems}
+  \caption[Containment of the number systems.]{Nested boxes show
+    containment. Examples lie in the regions they belong to, outside
+    the smaller boxes that exclude them. Areas are schematic and do
+    not represent cardinalities.}
+  \label{fig:number-systems}
+\end{figure}
+
+\subsection{Their infinite sizes}
+Cardinality compares sets by bijections, rather than by containment.
+The earlier algebraic/transcendental distinction also determines two
+different infinite sizes. Combining the counting results in
+\autoref{sec:analysis-i:sets-and-countable-sets} with
+\autoref{thm:analysis-i:algebraic-transcendental-cardinalities} gives
+\[
+  |\N|=|\Q|=|\mathcal A|=\aleph_0,
+  \qquad
+  |\R|=|\mathcal T|=\mathfrak c=2^{\aleph_0}.
+\]
+Here $\aleph_0$, read ``aleph zero,'' is the smallest infinite
+cardinality, and the continuum $\mathfrak c$ is strictly larger.
+Thus the step from $\Q$ to all real algebraic numbers adds numbers
+such as $\sqrt2$ without increasing cardinality. The transcendental
+reals alone already have the cardinality of the whole real line.
+
+Since $a+bi$ corresponds to the pair $(a,b)$, the square-cardinality
+result in \autoref{ex:hw01:square-cardinality} and a bijection
+$(0,1)\to\R$ give $|\C|=|\R^2|=\mathfrak c$.
+A proper subset can therefore have the same cardinality as its
+containing set.
+
+\subsection{Aleph one and beyond}
+The next infinite cardinalities are written
+\[
+  \aleph_0<\aleph_1<\aleph_2<\aleph_3<\cdots.
+\]
+The cardinal $\aleph_1$ is the smallest uncountable cardinality.
+Each $\aleph_{n+1}$ is the next cardinality after $\aleph_n$, with
+none strictly between them. The hierarchy continues beyond finite
+subscripts; there is no largest infinite cardinality.
+
+The \emph{Continuum Hypothesis} (CH) asserts that
+$\mathfrak c=\aleph_1$. Uncountability alone does not establish this
+equality. The bare $\aleph$ used in some exercises denotes
+$\mathfrak c$.
+\end{pendingreview}

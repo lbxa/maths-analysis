@@ -1,0 +1,51 @@
+% !TEX root = ../../../main.tex
+% Back-left column. HW04 Q3--Q6.
+\section{Infinite series}
+\label{sec:appendix:formula-sheet-series}
+\formulagroup{Partial sums, tails, and basic sums}
+$S_N=\sum_{n=1}^N a_n$; $\sum a_n=S$ means $S_N\to S$.
+Convergence requires $a_n\to0$; the converse fails.
+For $a_n\ge0$, convergence is equivalent to bounded partial sums.
+The Cauchy criterion is
+\[
+  \forall\varepsilon>0\ \exists N\ \forall m>n\ge N\quad
+    \left|\sheetsum_{k=n+1}^m a_k\right|<\varepsilon.
+\]
+\[
+  \begin{aligned}
+    \sheetsum_{k=0}^\infty ar^k&=\frac a{1-r}\quad(|r|<1),\\
+    \sheetsum_{k=N+1}^\infty ar^k&=\frac{ar^{N+1}}{1-r}\quad(|r|<1),\\
+    \sheetsum_{n=1}^N(b_n-b_{n+1})&=b_1-b_{N+1},\\
+    \sheetsum_{n=1}^\infty(b_n-b_{n+1})&=b_1-B\quad(b_n\to B).
+  \end{aligned}
+\]
+In particular, $\sum_{n=1}^\infty1/[n(n+1)]=1$.
+
+\formulagroup{Comparison}
+$\sum n^{-p}$ converges iff $p>1$.
+For nonnegative terms, eventual $a_n\le Cb_n$ transfers convergence
+from $\sum b_n$; eventual $a_n\ge cb_n$ transfers divergence
+($C,c>0$).
+For $a_n\ge0$, $b_n>0$,
+\[
+  r=\liminf\frac{a_n}{b_n},\qquad R=\limsup\frac{a_n}{b_n}.
+\]
+If $r>0$, divergence of $\sum b_n$ implies divergence of $\sum a_n$.
+If $R<\infty$, convergence of $\sum b_n$ implies convergence of $\sum a_n$.
+For a real shift $a>0$,
+\[
+  0<\frac1{\sqrt n}-\frac1{\sqrt{n+a}}<\frac{a}{2n^{3/2}}.
+\]
+
+\formulagroup{Ratio, root, and alternating tests}
+For eventually nonzero terms, $q_n=|a_{n+1}/a_n|$.
+Absolute convergence follows if $\limsup q_n<1$;
+divergence follows if $\liminf q_n>1$.
+For $\rho=\limsup|a_n|^{1/n}$, $\rho<1$ gives absolute convergence;
+$\rho>1$ gives divergence. A lower root limit $>1$ also gives divergence.
+Test value $1$ is inconclusive.
+If $a_n\downarrow0$, $\sum_{n=0}^\infty(-1)^n a_n$ converges and
+\[
+  |S-S_N|\le a_{N+1},\qquad |S_m-S_n|\le a_{n+1}\quad(m>n).
+\]
+Absolute convergence implies convergence; its failure does not imply divergence.

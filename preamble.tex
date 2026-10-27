@@ -116,9 +116,58 @@
 % Arrange margin content as a page-sized column, keeping captions with figures.
 % https://ctan.org/pkg/marginfix
 \usepackage{marginfix}
+\usepackage{zref-savepos}
 \setlength{\marginparpush}{12pt}
 \setlength{\marginheightadjustment}{-6pt}
 \makeatletter
+\@ifclassloaded{tufte-book}{%
+  % Decide a break before starting the heading and its margin insertion.
+  \AtBeginDocument{%
+    \BeforeBeginEnvironment{exercise}{\Needspace{3\baselineskip}}%
+  }
+  % Solution links need the final heading baseline, rather than marginfix's
+  % page-height estimate, which omits later vertical stretching and floats.
+  \let\analysis@marginlabel\@empty
+  \newcommand{\analysissolutionnote}[2]{%
+    \begingroup
+      \edef\analysis@marginlabel{analysis-solution-#1}%
+      \leavevmode\zsavepos{\analysis@marginlabel}%
+      \marginnote{#2}%
+    \endgroup
+  }
+  % Associate the saved position with both allocated note boxes. Other notes
+  % clear the association when LaTeX reuses those boxes.
+  \pretocmd{\@xympar}{%
+    \expandafter\xdef\csname analysis@marginlabel@\number\@marbox\endcsname
+      {\analysis@marginlabel}%
+    \expandafter\xdef\csname analysis@marginlabel@\number\@currbox\endcsname
+      {\analysis@marginlabel}%
+  }{}{\PackageError{analysis-notes}{Could not track solution margin boxes}
+    {Check the LaTeX margin paragraph definition.}}
+  \let\analysis@margin@getypos\MFX@getypos
+  % Record the actual top of each margin column, including pages with top floats.
+  \patchcmd{\MFX@attachmargin}{\if\MFX@leftmargin}{%
+    \zsavepos{analysis-margin-top-\thepage}%
+    \if\MFX@leftmargin
+  }{}{\PackageError{analysis-notes}{Could not locate the margin column}
+    {Check the marginfix margin attachment definition.}}
+  \renewcommand{\MFX@getypos}{%
+    \analysis@margin@getypos
+    \ifcsname analysis@marginlabel@\number\@marbox\endcsname
+      \edef\analysis@label{%
+        \csname analysis@marginlabel@\number\@marbox\endcsname}%
+      \ifx\analysis@label\@empty\else
+        \ifnum\zposy{\analysis@label}>0\relax
+          \ifnum\zposy{analysis-margin-top-\thepage}>0\relax
+            \dimen@\dimexpr\zposy{analysis-margin-top-\thepage}sp
+              -\zposy{\analysis@label}sp-\ht\@marbox\relax
+            \edef\mfx@ypos{\the\dimen@}%
+          \fi
+        \fi
+      \fi
+    \fi
+  }
+}{}
 % Treat offsets as preferred positions, not whitespace inside the measured box.
 % Negative internal space can hide occupied height from the margin scheduler.
 \renewcommand{\marginnote}[2][0pt]{%

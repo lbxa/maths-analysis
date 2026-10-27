@@ -83,6 +83,57 @@ subset of $\N$, yet $n\mapsto 2n$ is a bijection between these two sets.
 \marginnote{For finite sets a proper subset has fewer elements. For infinite
 sets, containment alone does not determine whether cardinality is smaller.}
 
+\begin{pendingreview}
+\begin{remark}[Cardinality comparisons from functions]
+  \label{thm:analysis-i:function-cardinality}
+  We write $|A|\le|B|$ when there is an injection from $A$ into $B$.
+  For a function $f:A\to B$, the following comparisons hold, with the
+  axiom of choice understood for the surjective line when the sets
+  are arbitrary and infinite.
+  \[
+    \begin{aligned}
+      f\text{ injective}&\quad\Longrightarrow\quad |A|\le|B|,\\
+      f\text{ surjective}&\quad\Longrightarrow\quad |A|\ge|B|,\\
+      f\text{ bijective}&\quad\Longrightarrow\quad |A|=|B|.
+    \end{aligned}
+  \]
+  An injection gives each input a distinct place in $B$. Its image
+  $f(A)=\{f(a)\mid a\in A\}$ is therefore a copy of $A$ inside $B$,
+  even if some outputs are unused.
+
+  A surjection may send several inputs to the same output, but it
+  cannot leave any element of $B$ unreached. Choose one preimage
+  $a_b\in A$ for each $b\in B$, so that $f(a_b)=b$. The map
+  $b\mapsto a_b$ is an injection from $B$ into $A$, since distinct
+  outputs cannot have the same chosen preimage. Making all these
+  choices for arbitrary infinite sets invokes the axiom of choice;
+  no such assumption is needed for finite sets.
+
+  If $f$ is both injective and surjective, every $b\in B$ has exactly
+  one preimage. The pairing can therefore be reversed uniquely,
+  giving the inverse $f^{-1}:B\to A$ and $|A|=|B|$. Uniqueness means
+  that this case needs no axiom of choice.
+  \autoref{fig:function-cardinality} illustrates the three properties.
+\end{remark}
+\end{pendingreview}
+
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/foundations/function-cardinality}
+  \caption[How functions compare set sizes.]{\pendingreviewtext{Arrows
+    show the function $f$; shading marks the image $f(A)$, the outputs
+    actually reached. These finite examples distinguish unused outputs,
+    shared outputs, and a reversible pairing.}}
+  \label{fig:function-cardinality}
+\end{figure*}
+
+\begin{pendingreview}
+The inequalities need not be strict. In the even-integer example above,
+both domain and codomain are $\N$, although the odd outputs are missed.
+Equal cardinalities describe the two sets; they do not make every
+function between those sets bijective.
+\end{pendingreview}
+
 \subsection{Induction and the least natural number}
 Mathematical induction proves a statement $P(n)$ for every $n\in\N$ by
 proving $P(1)$ and proving that $P(n)$ implies $P(n+1)$.

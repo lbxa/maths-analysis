@@ -1,0 +1,22 @@
+% !TEX root = ../../../main.tex
+% Continue back-left. HW04 Q7 and small auxiliary values.
+\section{Power series}
+\label{sec:appendix:formula-sheet-power-series}
+For $\sum c_nx^n$,
+\[
+  R=\frac1{\limsup|c_n|^{1/n}},\qquad
+  1/0=+\infty,\quad1/(+\infty)=0.
+\]
+If defined with a limit, $R=\lim|c_n/c_{n+1}|$ also works.
+There is absolute convergence for $|x|<R$, divergence for $|x|>R$;
+test $x=\pm R$ separately. At $x=0$ the series equals $c_0$.
+For $a>0$, $k\in\Z$,
+\[
+  \left|\frac{x^n}{a^n n^k}\right|^{1/n}
+     =\frac{|x|}{a(n^{1/n})^k}\longrightarrow\frac{|x|}{a}.
+\]
+Thus $R=a$, while $|x|/a$ is the test value, not the radius.
+At $x=\pm a$, absolute convergence holds iff $k>1$ by $\sum n^{-k}$.
+For $k=1$, $x=-a$ converges conditionally and $x=a$ diverges;
+for $k\le0$, endpoint terms do not tend to zero.
+

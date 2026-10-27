@@ -5,6 +5,7 @@
 Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 - `main.tex` assembles the book; `preamble.tex` holds packages and layout; `macros.tex` defines shared notation and theorem environments.
+- `formula-sheet.tex` is a standalone entry that inputs `sections/appendices/formula-sheet.tex`; keep its ordered formulas and proof reminders in the shared topic files under `sections/appendices/formula-sheet/`.
 - `sections/analysis-i/part.tex` orders nine chapter directories. Each numbered directory contains `chapter.tex` and one numbered `.tex` file per topic, e.g. `01-sets-and-foundations/06-supremum.tex`.
 - `sections/analysis-ii/part.tex` is reserved and excluded from the book until needed.
 - `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, assumed knowledge, and the solutions chapter.
@@ -17,9 +18,10 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
+- `make formula-sheet`: build the shared formula sheet separately as `build/formula-sheet.pdf`.
 - `make problem HW=hw02`: build only `problems/hw02.tex` into `build/problems/hw02.pdf`; omit `HW` to select `hw01`.
 - `make problems`: build every `problems/hw*.tex` into `build/problems/`.
-- `make check`: compile the book and every homework from both the repository root and `problems/`.
+- `make check`: compile the book, standalone formula sheet, and every homework from both the repository root and `problems/`.
 - `make check-texshop`: compile every homework from `problems/`, writing PDFs beside their sources.
 - `make watch`: rebuild the book when included sources change; stop with Ctrl-C.
 - `make watch-problems`: watch `hw01`; use `HW=hw02` to select another handout. Stop with Ctrl-C.
@@ -79,6 +81,15 @@ Preserve the author's style and the course's flow of topics when turning lecture
 
 Keep the lecturer's syllabus chapters and sections, including their titles and order, as the organising framework. Reorganise content within that framework to introduce tools before their substantial use and before exercises that require them. Keep early motivation concise and return to its proof after the prerequisites. Consult the root and relevant chapter README changelogs before structural edits, and record agreed decisions and their rationale there.
 
+Maintain the same mathematical topic order in summaries, formula sheets,
+recaps, and appendix reference material as in the book's chapter and section
+inputs. Group related entries under clear topic headings, with finite-sum
+background before sequences and infinite series and sequence criteria in
+their chapter order. Place additions with their topic rather than appending
+them in editing order. Preserve deliberate prerequisite recalls and closing
+syntheses, linking them to their main treatment instead of duplicating or
+reordering the syllabus.
+
 Keep the rendered book independent of the semester schedule. Week numbers,
 lecture dates or numbers, import batches, and coverage progress belong only
 in internal README records, source filenames, and non-rendered TeX comments.
@@ -121,6 +132,11 @@ content returns to the surrounding text colour. Do not remove pending status
 without the author's approval.
 
 Write proofs in clear English with complete sentences and proper grammar and punctuation. Do not use colons in proof prose. The main body must form a complete, continuous proof when the margin is ignored. Keep essential theorem and lemma invocations, the relevant hypotheses, their application, and every logical step and conclusion in the body. Reserve the right margin for visual guides, optional reminders of general results, and secondary observations. Do not move a necessary justification into a sidenote merely because it mentions a theorem or lemma, and avoid repeating the same reminder throughout a handout.
+
+Present final answers and proof conclusions as ordinary displayed equations,
+without `\boxed`, `\fbox`, or other enclosing outlines. Use the shared proof
+environment's QED marker to signal completion and keep the conclusion's
+typography consistent with the surrounding mathematics.
 
 Align margin notes with the relevant passage and leave them unnumbered, without footnote-style markers in the body. Match figure-caption text size to ordinary margin text. Author mathematical diagrams in TikZ with consistent styling; use margin figures for compact illustrations and full-width figures when they need the space.
 

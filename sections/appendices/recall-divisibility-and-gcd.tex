@@ -1,0 +1,85 @@
+% !TEX root = ../../main.tex
+% Author-requested recall. Keep the full prime-root proof in its shared solution.
+\begin{pendingreview}
+\section{Divisibility, primes, and greatest common divisors}
+\label{sec:appendix:divisibility}
+
+\subsection{Divisibility and multiples}
+For integers $d\ne0$ and $a$, the notation $d\mid a$, read
+``$d$ divides $a$,'' means
+\[
+  a=md\quad\text{for some }m\in\Z.
+\]
+When $d>0$ and $a\ge0$, this says that $m$ groups of size $d$ make up
+$a$. For example, $3\mid12$ because $12=4\cdot3$.
+The multiplier $m$ may also be zero or negative. In particular,
+$3\mid0$ because $0=0\cdot3$, and $3\mid-12$ because
+$-12=(-4)\cdot3$.
+
+For $a\ne0$, we can rearrange the defining equation as $d=a/m$ with
+a nonzero integer $m$. The product form $a=md$ also handles $a=0$,
+when $m=0$. The notation $d\nmid a$ means that there is no integer
+multiplier. Thus $3\nmid10$, since $10/3\notin\Z$.
+\index{divisibility}\index{multiple}
+
+\subsection{Greatest common divisors and lowest terms}
+For integers $a,b$ that are not both zero, their \emph{greatest common
+divisor}, written $\gcd(a,b)$, is the largest positive integer dividing
+both of them. For example, the positive common divisors of $12$ and
+$18$ are $1,2,3,6$, so
+\[
+  \gcd(12,18)=6.
+\]
+The integers $a,b$ are \emph{coprime}, or \emph{relatively prime},
+when $\gcd(a,b)=1$. If a prime $p$ divides both $a$ and $b$, it is a
+positive common divisor, so
+\[
+  \gcd(a,b)\ge p>1.
+\]
+
+Every rational number can be written as $a/b$ with $a,b\in\Z$,
+$b>0$, and $\gcd(a,b)=1$. This is a representation in \emph{lowest
+terms}, obtained by dividing numerator and denominator by their GCD.
+Being rational, or even being a prime integer, does not make every
+representation reduced. For example,
+\[
+  3=\frac31=\frac62,\qquad
+  \gcd(3,1)=1,\quad\gcd(6,2)=2.
+\]
+We choose a lowest-terms representation when an argument needs
+coprime numerator and denominator.
+\index{greatest common divisor}\index{coprime integers}\index{lowest terms}
+
+\subsection{Prime divisors and Euclid's lemma}
+A \emph{prime} is an integer $p>1$ whose only positive divisors are
+$1$ and $p$. Euclid's lemma, proved in
+\autoref{thm:analysis-i:euclid-prime-divisors}, states that for
+$a,b\in\Z$,
+\[
+  p\mid ab\quad\Longrightarrow\quad
+  p\mid a\quad\text{or}\quad p\mid b.
+\]
+In particular, $p\mid a^2$ implies $p\mid a$, since $a^2=a\cdot a$.
+Repeated application gives $p\mid a^k\Longrightarrow p\mid a$ for
+every positive integer $k$.
+The prime hypothesis is essential. For instance, $6\mid2\cdot3$,
+but $6$ divides neither $2$ nor $3$.
+\index{prime number}\index{Euclid's lemma}
+
+\subsection{How the prime-root contradiction uses GCD}
+In \autoref{ex:hw01:prime-roots}, $p$ is prime and we suppose for a
+contradiction that $\sqrt p$ has a lowest-terms representation,
+\[
+  \sqrt p=\frac ab,\qquad
+  a,b\in\Z,\quad b>0,\quad\gcd(a,b)=1.
+\]
+The \hyperref[sol:hw01:prime-roots]{full solution} uses Euclid's lemma
+to establish both $p\mid a$ and $p\mid b$. These conclusions force
+\[
+  \gcd(a,b)\ge p>1,
+\]
+contradicting the choice $\gcd(a,b)=1$. Rationality would have allowed
+a lowest-terms representation, so this contradiction proves that
+$\sqrt p$ is irrational. Throughout the argument, $p$ is prime;
+the rationality of $\sqrt p$ is the assumption being contradicted.
+\end{pendingreview}

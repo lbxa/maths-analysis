@@ -1,8 +1,10 @@
 # Third-party notices
 
-This project is licensed under the [Apache License, Version 2.0](LICENSE).
-The following notices identify the borrowed Tufte-LaTeX material and
-formula-sheet layout inspiration, with their source credits.
+The book's original text and illustrations, including their editable sources,
+are licensed under [CC BY 4.0](LICENSE-CC-BY-4.0.txt), except where otherwise
+indicated. Build scripts and typesetting infrastructure remain under the
+[Apache License, Version 2.0](LICENSE). The following notices identify
+third-party material, its terms, and source credits.
 
 ## Tufte-LaTeX specimen material
 
@@ -29,8 +31,8 @@ The included license text comes from the
   in the specimen captions.
 - Template documentation helpers in `macros.tex` and specimen bibliography
   entries in `bibliography.bib`.
-- Adapted title and contents formatting in `preamble.tex`, sample prose in
-  the introduction, and the template notice on the copyright page.
+- Adapted title and contents formatting in `preamble.tex` and sample prose in
+  the introduction. The copyright page retains a separate template notice.
 
 ### Project modifications
 
@@ -52,3 +54,17 @@ Its compact, grouped, multicolumn layout inspired the portrait two-column
 appendix in `sections/appendices/formula-sheet.tex`. The analysis formulas
 and local book styling were written for these notes; the supplied physics
 content is not included.
+
+## Creative Commons license badge
+
+The official CC BY badge in `figures/licensing/cc-by.eps` was downloaded from
+[Creative Commons' downloads page](https://creativecommons.org/mission/downloads/)
+at [the official EPS source](https://mirrors.creativecommons.org/presskit/buttons/88x31/eps/by.eps).
+The adjacent PDF is a vector conversion for pdfLaTeX; the badge's design and
+proportions are unchanged.
+
+The badge identifies the license applying to the book's original content.
+Creative Commons logos are trademarks used under the
+[Creative Commons Trademark Policy](https://creativecommons.org/policies/#trademark),
+rather than under the book's content license. The printed badge links to the
+[CC BY 4.0 deed](https://creativecommons.org/licenses/by/4.0/).

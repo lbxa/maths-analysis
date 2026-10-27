@@ -1,0 +1,88 @@
+% !TEX root = ../../../main.tex
+% Compact front-left column. HW01 Q1--Q10; sums also support HW02 Q4.
+\section{Sets, numbers, and counting}
+\label{sec:appendix:formula-sheet-sets}
+\formulagroup{Membership and complements in $S$}
+\[
+  \begin{aligned}
+    x\in\bigcup_\gamma A_\gamma&\iff\exists\gamma\quad x\in A_\gamma,\\
+    x\in\bigcap_\gamma A_\gamma&\iff\forall\gamma\quad x\in A_\gamma,\\
+    \left(\bigcup_\gamma A_\gamma\right)^c&=\bigcap_\gamma A_\gamma^c,\qquad
+    \left(\bigcap_\gamma A_\gamma\right)^c=\bigcup_\gamma A_\gamma^c.
+  \end{aligned}
+\]
+Empty family in $S$: $\bigcup_\varnothing A_\gamma=\varnothing$,
+$\bigcap_\varnothing A_\gamma=S$.
+
+\formulagroup{Maps and counting}
+For $f:A\to B$, injective means $f(x)=f(y)\Rightarrow x=y$;
+surjective means $f(A)=B$; bijective means both.
+\[
+  A\hookrightarrow B\Rightarrow |A|\le|B|,\qquad
+  (A\hookrightarrow B,\ B\hookrightarrow A)\Rightarrow |A|=|B|.
+\]
+The second statement is Cantor--Bernstein. A countable union of
+countable sets, or a finite product of countable sets, is at most
+countable; an infinite subset establishes cardinality $\aleph_0$.
+
+\formulagroup{Finite sums}
+\phantomsection\label{sec:appendix:formula-sheet-finite-sums}
+\[
+  \sheetsum_{j=1}^{N}j=\frac{N(N+1)}2.
+\]
+\ifdefined\standaloneformulasheet\else
+\[
+  \begin{aligned}
+    \sheetsum_{j=1}^{N}(a+(j-1)d)&=\frac N2(2a+(N-1)d),\\
+    \sheetsum_{j=1}^{N}j^2&=\frac{N(N+1)(2N+1)}6,\\
+    \sheetsum_{j=1}^{N}j^3&=\left(\frac{N(N+1)}2\right)^2.
+  \end{aligned}
+\]
+\fi
+
+\formulagroup{Lowest terms and Euclid's lemma}
+$d\mid a$ means $a=dm$ for an integer $m$.
+For prime $p$ and $k\in\N$,
+\[
+  p\mid ab\Rightarrow(p\mid a\text{ or }p\mid b),\qquad
+  p\mid a^k\Rightarrow p\mid a.
+\]
+Use $a/b$ with $b>0$ and $\gcd(a,b)=1$.
+A common prime divisor forces $\gcd(a,b)>1$.
+
+\formulagroup{Power sets, algebraic numbers, and CH}
+\[
+  \begin{gathered}
+    \mathcal P(\varnothing)=\{\varnothing\},\quad
+    \mathcal P(\{\varnothing\})=\{\varnothing,\{\varnothing\}\},\\
+    |\mathcal P(A)|=2^{|A|}>|A|,\\
+    |\N|=|\Z|=|\Q|=|\mathcal A|=\aleph_0,\\
+    |\R|=|\C|=|\R^2|=|\mathcal T|=\mathfrak c=2^{\aleph_0}.
+  \end{gathered}
+\]
+$\mathcal A$ consists of real roots of nonzero polynomials in $\Q[X]$
+(equivalently $\Z[X]$); $\mathcal T=\R\setminus\mathcal A$.
+A nonzero degree-$d$ polynomial has at most $d$ roots.
+CH asserts $\mathfrak c=\aleph_1$; the displayed sizes do not need CH.
+Bare $\aleph$ in exercises means $\mathfrak c$.
+
+\formulagroup{Interval maps worth having at hand}
+For $a<b$, $t=(x-a)/(b-a)$ maps $(a,b)$ bijectively to $(0,1)$.
+For $(0,1)\leftrightarrow\R$,
+\[
+  f(t)=\tan\left(\pi t-\frac\pi2\right),\qquad
+  f^{-1}(y)=\frac12+\frac{\arctan y}{\pi}.
+\]
+A bijection $h:(0,1)\to[0,1]$, with $n\in\N$, is
+\[
+  h(t)=
+  \begin{cases}
+    0,&t=1/2,\\
+    1,&t=1/3,\\
+    1/(n-2),&t=1/n,\quad n\ge4,\\
+    t,&\text{otherwise}.
+  \end{cases}
+\]
+For $(0,1)^2\hookrightarrow(0,1)$, interleave decimal digits
+$x_1y_1x_2y_2\cdots$ using expansions not eventually all $9$s.
+For the reverse injection use $t\mapsto(t,1/2)$.

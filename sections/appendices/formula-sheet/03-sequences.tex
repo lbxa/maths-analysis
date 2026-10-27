@@ -1,0 +1,67 @@
+% !TEX root = ../../../main.tex
+% Continue front-right. Follow Chapter 3 order.
+\section{Sequences}
+\label{sec:appendix:formula-sheet-sequences}
+$x_n\to L$ means
+$\forall\varepsilon>0\ \exists N\ \forall n\ge N\quad |x_n-L|<\varepsilon$.
+If $x_n\to L$, $y_n\to M$, limit laws give
+\[
+  \begin{gathered}
+    ax_n+by_n\to aL+bM,\\
+    x_ny_n\to LM,\qquad x_n/y_n\to L/M\ (M\ne0).
+  \end{gathered}
+\]
+Squeeze: eventual $u_n\le x_n\le v_n$ and $u_n,v_n\to L$ imply $x_n\to L$.
+
+\ifdefined\standaloneformulasheet\else
+\formulagroup{Binomial identity}
+\[
+  \begin{gathered}
+    (u+v)^n=\sheetsum_{j=0}^n\binom nj u^{n-j}v^j,\\
+    \binom nj=\frac{n!}{j!(n-j)!}.
+  \end{gathered}
+\]
+\fi
+
+\formulagroup{Standard limits}
+Bernoulli: $(1+t)^n\ge1+nt$ for $t\ge-1$.
+For fixed $c>0$, $a>1$, and $p>0$,
+\[
+  \begin{gathered}
+    n^{-p}\to0,\quad c^{1/n}\to1,\quad n^{1/n}\to1,\\
+    n^{p/n}\to1,\quad n^p/a^n\to0,\\
+    (a^n+n)^{1/n}\to\max\{1,a\}\quad(a\ge0),\\
+    (1+1/n)^n\to e,\qquad (1+1/n)^{1/n}\to1.
+  \end{gathered}
+\]
+$r^n\to0$ for $|r|<1$; $r^n\to+\infty$ for $r>1$.
+For a polynomial with positive leading coefficient, $P(n)^{1/n}\to1$.
+
+\formulagroup{Monotonicity, AM--GM, and subsequences}
+A bounded increasing sequence tends to $\sup\{x_n\}$ and has infimum $x_1$;
+a bounded decreasing one tends to $\inf\{x_n\}$ and has supremum $x_1$.
+\[
+  (a_1\cdots a_k)^{1/k}\le\frac{a_1+\cdots+a_k}{k}
+  \quad(a_i\ge0,\ k\in\N);
+\]
+equality holds exactly when all $a_i$ agree.
+Bounded real sequences have convergent subsequences.
+Two distinct subsequence limits rule out convergence.
+For indices $n\equiv0,1,2\pmod3$, respectively,
+$\sin(2\pi n/3)=0,\sqrt3/2,-\sqrt3/2$.
+
+\formulagroup{Tail bounds and Cauchy}
+\[
+  \begin{aligned}
+    \liminf x_n&=\lim_n\inf_{k\ge n}x_k,\qquad
+    \limsup x_n=\lim_n\sup_{k\ge n}x_k,\\
+    x_n\to L&\iff\liminf x_n=\limsup x_n=L.
+  \end{aligned}
+\]
+For bounded sequences these are the extreme subsequence limits.
+In $\R$, convergence is equivalent to the Cauchy condition
+\[
+  \forall\varepsilon>0\ \exists N\ \forall m,n\ge N\quad
+  |x_m-x_n|<\varepsilon.
+\]
+

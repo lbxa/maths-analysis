@@ -1,0 +1,83 @@
+% !TEX root = ../../../main.tex
+% Back-right column. Patterns from all 32 questions of HW01--HW04.
+\section{Common proof moves}
+\label{sec:appendix:formula-sheet-proof-moves}
+\formulagroup{Sets, bijections, and enumeration}
+Chase an arbitrary element in both directions; swap $\forall,\exists$
+when negating. For a bijection, give an inverse or show disjoint image
+pieces cover the target. For countable unions, read diagonals of an
+array of enumerations and skip repeats.
+
+\formulagroup{Irrationality and transcendence}
+Assume a lowest-terms fraction. For $p^{1/k}$, $p$ prime, $k\ge2$,
+raise to the $k$th power and force $p$ to divide both numerator and
+denominator. For powers of transcendental $\tau$, clear denominators
+in a nontrivial rational relation to get a nonzero polynomial vanishing
+at $\tau$. Count algebraic numbers using bounded degree and coefficients;
+then $\R=\mathcal A\cup\mathcal T$ forces $\mathcal T$ uncountable.
+Under CH, $\aleph_0<|\mathcal T|\le|\R|$ implies equality with $|\R|$.
+
+\formulagroup{Best bounds, epsilon choices, and cuts}
+Prove a bound first, then give witnesses within every $\varepsilon$.
+If $u>v$, take $\varepsilon=(u-v)/2$.
+If $|x_n-L|\le C/n^\alpha$, choose $N>(C/\varepsilon)^{1/\alpha}$.
+For two errors budget $\varepsilon/2$ each.
+Use $|x_m-x_n|\le|x_m-L|+|x_n-L|$ to obtain a Cauchy estimate.
+For a direct infimum cut, take $L$ as all lower bounds and
+$U=\R\setminus L$; prove separation, then use
+$c\le s+\varepsilon$ for every $\varepsilon>0$ to obtain $c\le s$.
+Do not invoke LUBP if the question forbids it.
+
+\formulagroup{Missing hypotheses and missing limits}
+Use $(0,1/n)$ to drop closedness, $[n,\infty)$ to drop boundedness,
+and shrinking rational-ended intervals about an irrational to expose
+incompleteness of $\Q$.
+Rational decimals $q_n$ with $|q_n-\alpha|<10^{-n}$ are Cauchy
+but have no rational limit when $\alpha$ is irrational.
+Small covering length alone does not prove incompleteness.
+
+\formulagroup{Root uniqueness and equality conditions}
+For nonnegative expressions, raise to a common integer power and use
+uniqueness; for rational exponents use a common denominator.
+Even powers do not identify signed reals.
+$ (\sqrt a-\sqrt b)^2=a+b-2\sqrt{ab}\ge0$ proves AM--GM,
+with equality exactly at $a=b$.
+For reverse triangle, write $x=(x-y)+y$, then swap $x,y$;
+equality holds exactly when $xy\ge0$.
+
+\ifdefined\standaloneformulasheet
+\sheetnewtonandquadratic
+\fi
+\formulagroup{Recurrences and fixed points}
+Simplify sums first. Prove an invariant interval by induction and
+factor $g(x)-x$ to get monotonicity. Bounded monotonicity proves
+convergence; only then solve $L=g(L)$, retaining roots compatible
+with the bounds. Positive terms alone do not imply $L>0$.
+For $g(x)=(\tfrac32x^2+2x)/(1+x^2)$,
+\[
+  2-g(x)=\frac{(x-2)^2}{2(1+x^2)},\qquad
+  g(x)-x=\frac{x(2-x)(2x+1)}{2(1+x^2)}.
+\]
+The general Newton map for $x-a-1/x$ is
+$(ax^2+2x)/(1+x^2)$; its positive limiting fixed point is
+$(a+\sqrt{a^2+4})/2$.
+Fibonacci ratios satisfy $r_n=1+1/r_{n-1}$ for $n\ge3$
+and $1\le r_n\le2$ for $n\ge2$;
+if convergent, their limit is $(1+\sqrt5)/2$.
+
+\formulagroup{Integer remainder, oscillation, and $n$th roots}
+If $e=p/q$, take $N\ge\max\{q,2\}$; $N!(e-s_N)$ is an integer in $(0,1)$.
+For periodic behaviour, split indices modulo the period; an infinite
+subsequence contains infinitely many indices in one class.
+For $n$th roots, factor the dominant term and squeeze using
+$\max\{u,v\}\le u+v\le2\max\{u,v\}$ and $c^{1/n},n^{1/n}\to1$.
+
+\formulagroup{Finite tails, strict gaps, and last checks}
+Telescope finite partial sums and keep the last term.
+For alternating tails, pair in both parities, retaining any unpaired
+term, to get the first-omitted-term bound.
+Rationalise arbitrary real shifts rather than assuming cancellation.
+Choose $\limsup t_n<r<1$ for an eventual upper bound or
+$1<r<\liminf t_n$ for a lower bound.
+Test value $1$ is inconclusive; test power-series endpoints separately.
+Finite prefixes do not change convergence, but can change extrema and sums.

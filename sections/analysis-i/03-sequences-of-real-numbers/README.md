@@ -5,6 +5,10 @@ The five syllabus section titles and their order are preserved.
 
 ## Changelog
 
+### 2026-10-21
+
+- Place the full-width root-sequence plot after the two root-limit exercises. Its margin caption then has space of its own instead of overlapping the solution links aligned with those exercise headings.
+
 ### 2026-10-09
 
 - Place Homework 04 Q1--Q2 after the root-limit estimates in §3.1,

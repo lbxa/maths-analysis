@@ -1,0 +1,71 @@
+% !TEX root = ../../../main.tex
+% Compact front-right column, followed by sequences.
+\newcommand{\sheetnewtonandquadratic}{%
+  \formulagroup{Newton's method and quadratic roots}
+  \[
+    \begin{gathered}
+      x_{n+1}=x_n-\frac{F(x_n)}{F'(x_n)},\\
+      Ax^2+Bx+C=0\Rightarrow x=\frac{-B\pm\sqrt{B^2-4AC}}{2A}.
+    \end{gathered}
+  \]
+  Require $F'(x_n)\ne0$, $A\ne0$, and a nonnegative discriminant
+  for real roots.\par
+}
+\section{Bounds, completeness, and algebra}
+\label{sec:appendix:formula-sheet-bounds}
+\formulagroup{Best bounds and complete real intervals}
+For nonempty $E$, $s=\sup E$ iff $s$ bounds $E$ above and
+$\forall\varepsilon>0\ \exists x\in E$ with $s-\varepsilon<x$.
+Likewise, $\ell=\inf E$ iff $\ell$ bounds $E$ below and
+$\forall\varepsilon>0\ \exists x\in E$ with $x<\ell+\varepsilon$.
+\ifdefined\standaloneformulasheet\else
+If bounded below, $\inf E=-\sup(-E)$.
+\fi
+For a Dedekind partition $L<U$ of $\R$,
+$c=\sup L=\inf U$.
+For nested nonempty bounded closed real intervals,
+\[
+  \bigcap_{n\ge1}[a_n,b_n]=[\sup_n a_n,\inf_n b_n]\ne\varnothing.
+\]
+If $b_n-a_n\to0$, the intersection is a singleton.
+\formulacolumnbreak
+
+\formulagroup{Floor, finite geometric sum, and factorials}
+Archimedean choice: for every real $M$, some $N\in\N$ has $N>M$.
+\[
+  \begin{gathered}
+    \lfloor x\rfloor\le x<\lfloor x\rfloor+1,\quad
+    0\le x-\frac{\lfloor Nx\rfloor}{N}<\frac1N,\\
+    \sheetsum_{j=0}^{N}ar^j=a\frac{1-r^{N+1}}{1-r}\quad(r\ne1).
+  \end{gathered}
+\]
+For $r=1$ the sum is $a(N+1)$.
+With $s_N=\sum_{j=0}^N1/j!$, we have $2\le s_N<3$ and
+\[
+  e=\sheetsum_{j=0}^\infty\frac1{j!},\quad
+  k!\ge2^{k-1}\ (k\ge1),\quad
+  0<N!(e-s_N)<\frac1N.
+\]
+For interval radii $\varepsilon2^{-n}$, $n\ge0$, total length is
+$2\varepsilon\sum2^{-n}=4\varepsilon$.
+
+\formulagroup{Algebra and roots ($k\in\N$)}
+\[
+  \begin{gathered}
+    |x+y|\le|x|+|y|,\qquad \bigl||x|-|y|\bigr|\le|x-y|,\\
+    b^k-a^k=(b-a)\sheetsum_{j=0}^{k-1}b^{k-1-j}a^j,\\
+    0<b^k-a^k\le k(b-a)b^{k-1}\quad(0\le a<b),\\
+    \sqrt u-\sqrt v=\frac{u-v}{\sqrt u+\sqrt v}\quad
+       (u,v\ge0,\ u+v>0).
+  \end{gathered}
+\]
+For nonnegative bases, $m,n\in\N$, and positive rational $r,s$,
+$(xy)^{1/n}=x^{1/n}y^{1/n}$,
+$x^{m/n}=(x^m)^{1/n}=(x^{1/n})^m$,
+$(x^r)^s=x^{rs}$, and $x^{r+s}=x^rx^s$.
+Negative exponents need $x>0$.
+Nonnegative roots are unique; odd power maps are increasing bijections on $\R$.
+
+\ifdefined\standaloneformulasheet\else
+\sheetnewtonandquadratic
+\fi

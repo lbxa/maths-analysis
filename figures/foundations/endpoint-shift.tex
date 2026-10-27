@@ -1,0 +1,22 @@
+% Two infinite chains show the endpoint insertion without crowded number lines.
+\begin{tikzpicture}[analysis diagram,x=1cm,y=1cm]
+  \node[draw,fill=black!12,inner sep=3pt] (even-start) at (0,0) {$0$};
+  \node (even-two) at (1,0) {$1/2$};
+  \node (even-four) at (2,0) {$1/4$};
+  \node (even-six) at (3,0) {$1/6$};
+  \node (even-more) at (4,0) {$\cdots$};
+
+  \node[draw,fill=black!12,inner sep=3pt] (odd-start) at (0,-0.85) {$1$};
+  \node (odd-three) at (1,-0.85) {$1/3$};
+  \node (odd-five) at (2,-0.85) {$1/5$};
+  \node (odd-seven) at (3,-0.85) {$1/7$};
+  \node (odd-more) at (4,-0.85) {$\cdots$};
+
+  \foreach \from/\to in {
+      even-start/even-two,even-two/even-four,
+      even-four/even-six,even-six/even-more,
+      odd-start/odd-three,odd-three/odd-five,
+      odd-five/odd-seven,odd-seven/odd-more} {
+    \draw[->] (\from) -- (\to);
+  }
+\end{tikzpicture}

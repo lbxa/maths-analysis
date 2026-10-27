@@ -21,8 +21,8 @@
 \listoffigures
 \listoftables
 \listoftheorems
-\input{sections/front-matter/introduction}
 \input{sections/front-matter/acknowledgements}
+\input{sections/front-matter/introduction}
 
 \mainmatter
 \input{sections/analysis-i/part}
@@ -30,7 +30,10 @@
 % \input{sections/analysis-ii/part}
 
 % References follow the course content and precede the appendices.
+\begingroup
+\setlength{\emergencystretch}{1em}
 \printbibliography[heading=bibintoc]
+\endgroup
 
 \appendix
 \input{sections/appendices/part}

@@ -128,7 +128,7 @@ Run from the repository root:
 make check
 ```
 
-This builds the book and every homework from both the repository root and
+This builds the book, standalone formula sheet, and every homework from both the repository root and
 `problems/`. The second pass matches TeXShop's working directory and writes
 `problems/hwNN.pdf`, using a separate cache from `build/problems/`. Either
 build mode failing makes the check fail. Use `make check-texshop` for a
@@ -161,8 +161,9 @@ auxiliary files in the ignored `build/` directory.
 
 ## Licensing and attribution
 
-Submit original contributions under the repository's
-[Apache License, Version 2.0](LICENSE).
+Submit original text and illustration contributions, including their editable
+sources, under [CC BY 4.0](LICENSE-CC-BY-4.0.txt). Contributions to build scripts
+and typesetting infrastructure use the [Apache License, Version 2.0](LICENSE).
 For reused material, record the source, author, and applicable license, and
 retain its required notices. The existing Tufte specimens retain Apache 2.0
 terms; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Keep those notices

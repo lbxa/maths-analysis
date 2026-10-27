@@ -38,6 +38,11 @@ Analysis II is reserved for a later course and is currently excluded from the bo
 8. [Sequences and series of functions](sections/analysis-i/08-sequences-and-series-of-functions/)
 9. [Fourier analysis](sections/analysis-i/09-fourier-analysis/)
 
+Chapter 1 closes with a short [number systems and cardinalities
+overview](sections/analysis-i/01-sets-and-foundations/12-number-systems-and-cardinalities.tex),
+including a nested-box diagram and the distinction between the continuum
+and the aleph hierarchy.
+
 ### Part II — Analysis II
 
 [Reserved for future chapters](sections/analysis-ii/). Add topics using the same
@@ -51,20 +56,33 @@ begins.
 - [Solutions to exercises](sections/appendices/exercise-solutions.tex)
 - [Formula sheet](sections/appendices/formula-sheet.tex)
 
+The formula sheet also has a [standalone entry](formula-sheet.tex), sharing
+the appendix source. Run `make formula-sheet` to build `build/formula-sheet.pdf`,
+or open the entry in TeXShop and typeset it separately.
+Its [coverage audit](sections/appendices/README.md#formula-sheet-coverage-audit)
+maps every question of Homework 01--04 to the reference formulas and proof
+reminders. The shared content is split into topic files under
+`sections/appendices/formula-sheet/`.
+The standalone PDF fits one US Letter sheet printed on both sides
+(two pages). The book retains a few additional background identities.
+
 Assumed knowledge recalls functions, their domains and codomains, and
 injectivity, surjectivity, and bijectivity, with finite-set and Euclidean
-examples. The [appendix changelog](sections/appendices/README.md#changelog)
+examples. It also reviews divisibility, primes, GCD, lowest terms, and
+the role of Euclid's lemma in prime-root irrationality arguments.
+The [appendix changelog](sections/appendices/README.md#changelog)
 records how this background supports the first-use definitions in the book.
 
 ## Repository structure
 
 ```text
 main.tex                 Book entry point and reading order
+formula-sheet.tex        Standalone entry for the shared formula sheet
 preamble.tex             Packages, typography, and page layout
 macros.tex               Shared notation and theorem environments
 bibliography.bib         Sources and citation keys
 sections/
-  front-matter/          Copyright, introduction, and acknowledgements
+  front-matter/          Copyright, about these notes, acknowledgements, and introduction
   analysis-i/
     part.tex             Chapter order for Analysis I
     01-sets-and-foundations/
@@ -86,6 +104,7 @@ AGENTS.md                Repository conventions for coding agents
 CONTRIBUTING.md          Student contribution workflow
 CUSTOMISATION.md         Local editor setup and machine-specific settings
 LICENSE                  Apache License, Version 2.0
+LICENSE-CC-BY-4.0.txt     Creative Commons license for original book content
 THIRD_PARTY_NOTICES.md    Attribution and license scope for borrowed material
 ```
 
@@ -133,12 +152,12 @@ after the restated problem.
 | --- | --- | --- | --- | --- | --- |
 | [HW01 Q1](problems/hw01/01-de-morgan/problem.tex) | De Morgan's laws for arbitrary families | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Sets, operations, and maps, immediately after family membership and complements | [1](problems/hw01/01-de-morgan/solution.tex) | `hw01:de-morgan` | Included |
 | [HW01 Q2](problems/hw01/02-power-set/problem.tex) | Iterated power sets and finite cardinality | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), after the finite power-set formula | [3](problems/hw01/02-power-set/solution.tex) | `hw01:power-set` | Included |
-| [HW01 Q3](problems/hw01/03-prime-roots/problem.tex) | Irrationality of prime roots | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after root existence and the reminder of Euclid's lemma | [18](problems/hw01/03-prime-roots/solution.tex) | `hw01:prime-roots` | Included |
-| [HW01 Q4](problems/hw01/04-interval-to-reals/problem.tex) | A bijection between an interval and the real line | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, after the tangent bijection and inverse are stated | [4](problems/hw01/04-interval-to-reals/solution.tex) | `hw01:interval-to-reals` | Included |
-| [HW01 Q5](problems/hw01/05-open-to-closed-interval/problem.tex) | A bijection between open and closed intervals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, using countable shifts and bijections | [5](problems/hw01/05-open-to-closed-interval/solution.tex) | `hw01:open-to-closed-interval` | Included |
+| [HW01 Q3](problems/hw01/03-prime-roots/problem.tex) | Irrationality of prime roots | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after root existence and a reference to Euclid's lemma proved in §1.2 | [18](problems/hw01/03-prime-roots/solution.tex) | `hw01:prime-roots` | Included |
+| [HW01 Q4](problems/hw01/04-interval-to-reals/problem.tex) | A bijection between an interval and the real line | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), From the unit interval to the real line, immediately after the sigmoid bijection and a reminder of its inverse and the alternative tangent construction | [4](problems/hw01/04-interval-to-reals/solution.tex) | `hw01:interval-to-reals` | Included |
+| [HW01 Q5](problems/hw01/05-open-to-closed-interval/problem.tex) | A bijection between open and closed intervals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), From the unit interval to the real line, immediately after the endpoint-shift example and before combining the cardinalities of the intervals and the real line | [5](problems/hw01/05-open-to-closed-interval/solution.tex) | `hw01:open-to-closed-interval` | Included |
 | [HW01 Q6](problems/hw01/06-transcendental-cardinality/problem.tex) | Countability of algebraic numbers; transcendental cardinality under CH | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, after polynomial root bounds, algebraic countability, and CH, before the optional Jacobian excursion | [7](problems/hw01/06-transcendental-cardinality/solution.tex) | `hw01:transcendental-cardinality` | Included |
 | [HW01 Q7](problems/hw01/07-linear-independence/problem.tex) | Transcendence and linear independence over the rationals | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on transcendence, after transcendental existence and the polynomial definition | [8](problems/hw01/07-linear-independence/solution.tex) | `hw01:linear-independence` | Included |
-| [HW01 Q8](problems/hw01/08-square-cardinality/problem.tex) | Digit interleaving, injections, and the cardinality of a square | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), Exercises on the cardinality of intervals, after positional representation, Cantor–Bernstein, and Q4–Q5 | [6](problems/hw01/08-square-cardinality/solution.tex) | `hw01:square-cardinality` | Included |
+| [HW01 Q8](problems/hw01/08-square-cardinality/problem.tex) | Digit interleaving, injections, and the cardinality of a square | [§1.3 Power sets and the size of the real line](sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex), From an interval to a square, after the completed real-line cardinality comparison, positional representation, Cantor–Bernstein, and Q4–Q5 | [6](problems/hw01/08-square-cardinality/solution.tex) | `hw01:square-cardinality` | Included |
 | [HW01 Q9](problems/hw01/09-irrational-roots/problem.tex) | Irrationality of roots of a positive irrational number | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercises on roots and boundaries, after root existence and Q3 | [19](problems/hw01/09-irrational-roots/solution.tex) | `hw01:irrational-roots` | Included |
 | [HW01 Q10](problems/hw01/10-countable-union/problem.tex) | Countable unions and diagonal enumeration | [§1.1 Sets and countable sets](sections/analysis-i/01-sets-and-foundations/01-sets-and-countable-sets.tex), Exercise on enumeration, after diagonal traversal and the choice of lists | [2](problems/hw01/10-countable-union/solution.tex) | `hw01:countable-union` | Included |
 | [HW02 Q1](problems/hw02/01-nested-bounded-intervals/problem.tex) | Why nested intervals must be closed | [§1.7 The completeness proof chain](sections/analysis-i/01-sets-and-foundations/07-completeness-equivalences.tex), Exercises on the nested interval hypotheses, after NIP and the earlier Archimedean proof | [10](problems/hw02/01-nested-bounded-intervals/solution.tex) | `hw02:nested-bounded-intervals` | Included |
@@ -155,8 +174,8 @@ after the restated problem.
 | [HW03 Q6](problems/hw03/06-rational-exponent-laws/problem.tex) | Products of roots and laws of positive rational exponents | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), A rational exponent must be well defined, after integer power laws, root uniqueness, and independence of the fraction representation | [21](problems/hw03/06-rational-exponent-laws/solution.tex) | `hw03:rational-exponent-laws` | Included; solution complete |
 | [HW03 Q7](problems/hw03/07-reverse-triangle-inequality/problem.tex) | Reverse triangle inequality and its equality case | [§1.10 Polynomial functions and absolute value](sections/analysis-i/01-sets-and-foundations/10-elementary-functions.tex), Absolute value and distance, after the triangle-inequality reminder and the reverse-inequality argument | [17](problems/hw03/07-reverse-triangle-inequality/solution.tex) | `hw03:reverse-triangle-inequality` | Included; solution complete |
 | [HW03 Q8](problems/hw03/08-odd-roots/problem.tex) | Odd roots as increasing bijections of the real line | [§1.11 Roots and rational powers](sections/analysis-i/01-sets-and-foundations/11-roots-and-rational-powers.tex), Exercise on odd roots of real numbers, after nonnegative root existence, power monotonicity, and rational exponent laws | [22](problems/hw03/08-odd-roots/solution.tex) | `hw03:odd-roots` | Included; solution complete |
-| [HW04 Q1](problems/hw04/01-polynomial-root-limit/problem.tex) | High roots of a polynomially growing sequence | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after squeeze, geometric growth, and the limits of n-th roots | [25](problems/hw04/01-polynomial-root-limit/solution.tex) | `hw04:polynomial-root-limit` | Included; solution complete; audited edits approved |
-| [HW04 Q2](problems/hw04/02-exponential-root-limit/problem.tex) | High roots with exponential and polynomial terms | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after geometric sequences, fixed-base roots, and squeeze | [26](problems/hw04/02-exponential-root-limit/solution.tex) | `hw04:exponential-root-limit` | Included; solution complete; audited edits approved |
+| [HW04 Q1](problems/hw04/01-polynomial-root-limit/problem.tex) | High roots of a polynomially growing sequence | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after squeeze, geometric growth, and the limits of n-th roots, before the full-width root-sequence plot | [25](problems/hw04/01-polynomial-root-limit/solution.tex) | `hw04:polynomial-root-limit` | Included; solution complete; audited edits approved |
+| [HW04 Q2](problems/hw04/02-exponential-root-limit/problem.tex) | High roots with exponential and polynomial terms | [§3.1 Convergent sequences](sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex), Exercises on root limits, after geometric sequences, fixed-base roots, and squeeze, before the full-width root-sequence plot | [26](problems/hw04/02-exponential-root-limit/solution.tex) | `hw04:exponential-root-limit` | Included; solution complete; audited edits approved |
 | [HW04 Q3](problems/hw04/03-alternating-series/problem.tex) | Alternating-series convergence through the Cauchy criterion | [§4.1 Number series](sections/analysis-i/04-infinite-series-of-numbers/01-number-series.tex), after the Cauchy criterion, term test, and basic partial-sum examples | [28](problems/hw04/03-alternating-series/solution.tex) | `hw04:alternating-series` | Included; solution complete; audited edits approved |
 | [HW04 Q4](problems/hw04/04-shifted-root-series/problem.tex) | Convergence with an arbitrary positive real shift and a telescoping sum | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after the majorant theorem and p-series | [29](problems/hw04/04-shifted-root-series/solution.tex) | `hw04:shifted-root-series` | Included; solution complete; audited edits approved |
 | [HW04 Q5](problems/hw04/05-lower-upper-comparison/problem.tex) | Series comparison through lower and upper limits of term ratios | [§4.2 Comparison tests](sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex), Exercises on comparison, after nonnegative partial-sum comparisons and §3.4 eventual tail bounds | [30](problems/hw04/05-lower-upper-comparison/solution.tex) | `hw04:lower-upper-comparison` | Included; solution complete; audited edits approved |
@@ -166,7 +185,7 @@ after the restated problem.
 | [HW05 Q1](problems/hw05/01-interval-fixed-point/problem.tex) | A fixed point of an interval self-map and the equation x=1/(1+x^n) | [§5.3 Intermediate value theorem](sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex), after intermediate values and the power-function application, with limit laws and roots available | [36](problems/hw05/01-interval-fixed-point/solution.tex) | `hw05:interval-fixed-point` | Included; solution complete; approved |
 | [HW05 Q2](problems/hw05/02-uniform-continuity-boundedness/problem.tex) | Boundedness from uniform continuity on a bounded interval, including nonclosed intervals | [§5.4 Uniform continuity](sections/analysis-i/05-continuity/04-uniform-continuity.tex), Exercises on uniform continuity, after its definition and Heine–Cantor, with finite partitions and the Archimedean property available | [38](problems/hw05/02-uniform-continuity-boundedness/solution.tex) | `hw05:uniform-continuity-boundedness` | Included; solution complete; approved |
 | [HW05 Q3](problems/hw05/03-odd-polynomial-root/problem.tex) | Existence of a real zero of an odd-degree polynomial | [§5.3 Intermediate value theorem](sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex), after intermediate values and the power-function application, with polynomial continuity and elementary power estimates available | [37](problems/hw05/03-odd-polynomial-root/solution.tex) | `hw05:odd-polynomial-root` | Included; solution complete; approved |
-| [HW05 Q4](problems/hw05/04-continuous-additive-function/problem.tex) | Continuous additive functions and extension from rational to real inputs | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after sequential continuity, with rational density and field laws available from Chapter 1 | [33](problems/hw05/04-continuous-additive-function/solution.tex) | `hw05:continuous-additive-function` | Included; solution complete; approved |
+| [HW05 Q4](problems/hw05/04-continuous-additive-function/problem.tex) | Continuous additive functions and extension from rational to real inputs | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after sequential continuity, with rational density and field laws available from Chapter 1 | [33](problems/hw05/04-continuous-additive-function/solution.tex) | `hw05:continuous-additive-function` | Included; solution complete; earlier steps approved; revised real-input conclusion and explanatory note pending review |
 | [HW05 Q5](problems/hw05/05-composition-continuity/problem.tex) | A direct epsilon–delta proof of continuity of a composition | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after Composition; the source explicitly requires the pointwise definition rather than the preceding sequential proof | [34](problems/hw05/05-composition-continuity/solution.tex) | `hw05:composition-continuity` | Included; solution complete; approved |
 | [HW05 Q6](problems/hw05/06-absolute-value-continuity/problem.tex) | A direct proof that absolute value preserves continuity | [§5.1 Continuity](sections/analysis-i/05-continuity/01-continuity.tex), after the definition and limit laws, using the reverse triangle inequality from Chapter 1 | [32](problems/hw05/06-absolute-value-continuity/solution.tex) | `hw05:absolute-value-continuity` | Included; solution complete; approved |
 | [HW05 Q7](problems/hw05/07-square-not-uniformly-continuous/problem.tex) | Failure of uniform continuity of x^2 on the whole real line | [§5.4 Uniform continuity](sections/analysis-i/05-continuity/04-uniform-continuity.tex), Exercises on uniform continuity, after the common-delta definition and its negation in the Heine–Cantor proof | [39](problems/hw05/07-square-not-uniformly-continuous/solution.tex) | `hw05:square-not-uniformly-continuous` | Included; solution complete; approved |
@@ -261,8 +280,8 @@ directives and path setup for both supported working directories.
 ## Build the notes
 
 Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
-caption, marginfix, needspace, biblatex, Biber, latexmk, and makeindex, plus Make. The project has been built
-with TeX Live 2025.
+caption, marginfix, zref-savepos, needspace, biblatex, Biber, latexmk, and
+makeindex, plus Make. The project has been built with TeX Live 2025.
 
 From the repository root:
 
@@ -276,9 +295,10 @@ managed by the build.
 | Command | Purpose |
 | --- | --- |
 | `make` or `make book` | Build the book. |
+| `make formula-sheet` | Build the standalone formula sheet into `build/formula-sheet.pdf`. |
 | `make problem HW=hw02` | Build only Homework 02 into `build/problems/hw02.pdf`; omit `HW` for Homework 01. |
 | `make problems` | Build each `problems/hw*.tex` into `build/problems/`. |
-| `make check` | Build the book and every homework from both the repository root and `problems/`. |
+| `make check` | Build the book, standalone formula sheet, and every homework from both the repository root and `problems/`. |
 | `make check-texshop` | Build every homework from `problems/`, matching TeXShop's working directory. |
 | `make watch` | Rebuild the book when sources change; stop with Ctrl-C. |
 | `make watch-problems` | Watch Homework 01; use `HW=hw02` for another handout. |
@@ -324,12 +344,54 @@ details to the [acknowledgements](sections/front-matter/acknowledgements.tex).
 
 ## License and attribution
 
-This project is licensed under the [Apache License, Version 2.0](LICENSE),
-matching the book's copyright page and the borrowed Tufte-LaTeX template.
-See [third-party notices](THIRD_PARTY_NOTICES.md) for the template's authors,
-source credits, and the modifications made for these notes.
+Except where otherwise indicated, the book's original text and illustrations,
+including their editable sources, are licensed under
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+The full license is included in [LICENSE-CC-BY-4.0.txt](LICENSE-CC-BY-4.0.txt).
+Reuse and adaptation, including commercial reuse, require appropriate credit,
+a license link, and an indication of changes.
+
+Build scripts, typesetting infrastructure, and retained Tufte-LaTeX template
+and specimen material remain under the [Apache License, Version 2.0](LICENSE).
+Other credited third-party material retains its stated terms. See
+[third-party notices](THIRD_PARTY_NOTICES.md) for source credits, exceptions,
+and modifications made for these notes.
 
 ## Changelog
+
+### 2026-10-27
+
+- Expand the shared formula sheet for the Homework 01--04 exam topics, with reusable proof patterns rather than copied solutions. Record all 32 questions in the appendix coverage audit; keep additions pending and preserve book topic order in the shared topic files.
+- Provide `formula-sheet.tex` as a standalone entry that inputs the same source as the appendix. Include it in `make check` and cleanup so separate compilation stays usable without maintaining duplicate formulas.
+- Keep topic order consistent between the main text and its summaries, recaps, and reference appendices. Organise the formula sheet as finite-sum background, sequences in Chapter 3 order, and infinite series; group new material with its topic instead of appending it in editing order. Preserve the syllabus framework and explicit prerequisite recalls.
+
+### 2026-10-26
+
+- Keep final answers and proof conclusions unboxed in the book and homework
+  handouts. Shared display and proof-ending styles already identify the result;
+  extra outlines add unnecessary emphasis and disrupt the book's restrained
+  typography. The rule is recorded in [AGENTS.md](AGENTS.md#editorial-principles).
+- License the book's original text and illustrations under CC BY 4.0 and
+  display the official, unmodified CC BY badge with a license link on the
+  copyright page. Preserve Apache 2.0 for the typesetting infrastructure and
+  retained Tufte material, and retain other third-party terms rather than
+  implying that the book's license replaces them.
+- Reserve a blank, unnumbered Introduction in the front matter before Analysis I for
+  the author's broad perspective on analysis and common tools and techniques
+  to know before beginning the course material. Keep About these notes and
+  Introduction as separate chapter headings within
+  `sections/front-matter/introduction.tex`, and leave the Introduction content
+  for the author to write.
+- Order the front matter as title, copyright, contents and reference lists,
+  Acknowledgements, About these notes, and Introduction. Keep Introduction
+  immediately before Analysis I so the mathematical orientation leads
+  directly into the course material, with both introduction headings in
+  `sections/front-matter/introduction.tex`.
+
+### 2026-10-21
+
+- Anchor book solution links to the final exercise-heading baseline using saved text and margin-column positions. Keep their collision handling in the shared margin scheduler, and decide short-page breaks before the exercise begins so its link cannot land on the preceding page. Position records settle through the normal repeated LaTeX passes; handouts and appendix restatements still suppress solution links.
+- Keep competing figure captions away from exercise-heading links by placing the root-sequence plot after its exercises and the paired-subsequence diagram beside the proof's convergence display. Preserve the shared 12pt margin gap, 6pt bottom reserve, and Tufte float-height handling.
 
 ### 2026-10-16
 

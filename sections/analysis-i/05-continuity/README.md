@@ -7,6 +7,15 @@ Their function-sequence examples continue in Chapter 8.
 
 ## Changelog
 
+### 2026-10-26
+
+- Replace only the real-input step of HW05 Q4 with the author's expanded sequence-of-rationals argument, displaying continuity, the constant-multiple limit law, and uniqueness of limits separately. Keep the approved integer and rational arguments intact, and mark the replacement conclusion and supplied explanatory paragraph pending review in the shared solution.
+- Label the full neighbourhood widths in the continuity diagram as $2\delta$ horizontally and $2\varepsilon$ vertically. Keep the definition and caption's pointwise distance bounds as $\delta$ and $\varepsilon$.
+
+### 2026-10-21
+
+- Anchor the paired-subsequence margin figure beside the two limits in the Heine--Cantor proof, where the pictured pairs are introduced. This keeps its complete caption clear of the following exercises' aligned solution links.
+
 ### 2026-10-16
 
 - Simplify the uniform-continuity comparison by removing prose beneath the
