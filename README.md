@@ -81,6 +81,7 @@ formula-sheet.tex        Standalone entry for the shared formula sheet
 preamble.tex             Packages, typography, and page layout
 macros.tex               Shared notation and theorem environments
 bibliography.bib         Sources and citation keys
+styles/                  Shared AMS bibliography style and bundled dependency
 sections/
   front-matter/          Copyright, about these notes, acknowledgements, and introduction
   analysis-i/
@@ -104,7 +105,7 @@ AGENTS.md                Repository conventions for coding agents
 CONTRIBUTING.md          Student contribution workflow
 CUSTOMISATION.md         Local editor setup and machine-specific settings
 LICENSE                  Apache License, Version 2.0
-LICENSE-CC-BY-4.0.txt     Creative Commons license for original book content
+LICENSE-CC-BY-NC-ND-4.0.txt  Creative Commons license for original book content
 THIRD_PARTY_NOTICES.md    Attribution and license scope for borrowed material
 ```
 
@@ -346,10 +347,16 @@ details to the [acknowledgements](sections/front-matter/acknowledgements.tex).
 
 Except where otherwise indicated, the book's original text and illustrations,
 including their editable sources, are licensed under
-[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-The full license is included in [LICENSE-CC-BY-4.0.txt](LICENSE-CC-BY-4.0.txt).
-Reuse and adaptation, including commercial reuse, require appropriate credit,
-a license link, and an indication of changes.
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+The full license is included in [LICENSE-CC-BY-NC-ND-4.0.txt](LICENSE-CC-BY-NC-ND-4.0.txt).
+You may copy and share the material for noncommercial purposes with appropriate
+credit and a license link. Commercial use and distribution of modified versions
+require separate permission unless otherwise permitted by law. Private
+adaptations are permitted under the license; distributing them is not.
+
+This change does not revoke permissions already granted for any material
+previously distributed under CC BY 4.0. See the
+[Creative Commons guidance on changing licenses](https://creativecommons.org/faq/#what-if-i-change-my-mind-about-using-a-cc-license).
 
 Build scripts, typesetting infrastructure, and retained Tufte-LaTeX template
 and specimen material remain under the [Apache License, Version 2.0](LICENSE).
@@ -359,8 +366,14 @@ and modifications made for these notes.
 
 ## Changelog
 
+### 2026-10-28
+
+- Match bibliography entries to the author's [reference paper](https://mntruell.com/math.pdf), retaining alphabetic labels while using author initials, upright article titles, italic journal and book titles, and `volume(issue):pages, year` details. Repeat author names, separate grouped citations with commas, and keep DOI/URL links and access dates consistent in the book and handouts. This refines the initial AMS entry typography recorded below.
+
 ### 2026-10-27
 
+- Use CC BY-NC-ND 4.0 for the book's original text and illustrations to permit credited noncommercial sharing while restricting commercial use and distribution of adaptations. Replace the license text, copyright notice, and official badge together; retain Apache and other third-party terms and any permissions already granted under earlier CC BY 4.0 releases.
+- Use the alphabetic AMS style throughout the book and handouts, with abbreviated author/year citation labels such as `[Can83]` and `[Rod20]` and references ordered alphabetically by author, year, and title. Follow the label convention in the author's [reference paper](https://mntruell.com/math.pdf) so citations identify their sources by name. Bundle the BibLaTeX style sources and license so Biber builds also work in standalone and subdirectory workflows; keep journal volumes bold and place years before issue numbers and pages.
 - Expand the shared formula sheet for the Homework 01--04 exam topics, with reusable proof patterns rather than copied solutions. Record all 32 questions in the appendix coverage audit; keep additions pending and preserve book topic order in the shared topic files.
 - Provide `formula-sheet.tex` as a standalone entry that inputs the same source as the appendix. Include it in `make check` and cleanup so separate compilation stays usable without maintaining duplicate formulas.
 - Keep topic order consistent between the main text and its summaries, recaps, and reference appendices. Organise the formula sheet as finite-sum background, sequences in Chapter 3 order, and infinite series; group new material with its topic instead of appending it in editing order. Preserve the syllabus framework and explicit prerequisite recalls.
@@ -371,11 +384,12 @@ and modifications made for these notes.
   handouts. Shared display and proof-ending styles already identify the result;
   extra outlines add unnecessary emphasis and disrupt the book's restrained
   typography. The rule is recorded in [AGENTS.md](AGENTS.md#editorial-principles).
-- License the book's original text and illustrations under CC BY 4.0 and
+- Initially license the book's original text and illustrations under CC BY 4.0 and
   display the official, unmodified CC BY badge with a license link on the
   copyright page. Preserve Apache 2.0 for the typesetting infrastructure and
   retained Tufte material, and retain other third-party terms rather than
-  implying that the book's license replaces them.
+  implying that the book's license replaces them. The current license policy
+  is recorded in the 2026-10-27 entry above.
 - Reserve a blank, unnumbered Introduction in the front matter before Analysis I for
   the author's broad perspective on analysis and common tools and techniques
   to know before beginning the course material. Keep About these notes and

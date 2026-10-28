@@ -66,6 +66,11 @@ The editor writes the PDF beside its root source (`main.pdf` for the book),
 matching the existing editor preview. Terminal `make book` writes the same
 book to `build/main.pdf`. Both builds process `bibliography.bib`; the
 bibliography appears after the course chapters and before the appendices.
+AMS bibliography and citation styles are bundled under `styles/`; no separate
+style installation is needed. The shared preamble resolves them from the
+repository root and from `problems/`. Citations use author-based labels such
+as `[Can83]` and `[Rod20]`, while references are ordered alphabetically by
+author, then year and title.
 If a preview displays a bold citation key such as `[Waldschmidt2017]`,
 the bibliography pass has not completed for that PDF. Run the full recipe
 and check its build output rather than invoking pdfLaTeX alone.

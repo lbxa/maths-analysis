@@ -155,7 +155,15 @@ Use bold caption labels and numbers followed by a full stop, for example **Figur
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 
-Use bracketed numeric citations such as `[1]` in the text and a properly formatted bibliography after the main content and before the appendices. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
+Use the alphabetic AMS reference style, with bracketed author-based labels such as `[Can83]` and `[Rod20]` and an alphabetically ordered bibliography after the main content and before the appendices. The shared preamble uses Biber, the project AMS style in `styles/analysis-ams.bbx`, and the bundled `ams-alphabetic` citation style. Preserve their portable paths for standalone homework builds. Generate labels from bibliography metadata, including disambiguation where needed; do not substitute numbered citations or type labels by hand. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
+
+Match the bibliography entry typography in the author's reference paper,
+as documented in `styles/README.md`: author initials, upright article and
+webpage titles, italic journal and book titles, and journal details in
+`volume(issue):pages, year` order. Repeat authors in each entry, retain
+clickable DOI/URL links, and use structured metadata rather than formatting
+publication details inside `.bib` fields. Keep the same shared style in the
+book and standalone documents.
 
 ### TikZ diagram design
 

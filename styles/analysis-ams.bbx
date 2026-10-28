@@ -1,0 +1,65 @@
+% Alphabetic mathematics references matching the author's reference paper.
+\ProvidesFile{analysis-ams.bbx}[2026/10/28 Alphabetic mathematics bibliography]
+\RequireBibliographyStyle{ams-alphabetic}
+\ExecuteBibliographyOptions{giveninits=true,maxbibnames=99,isbn=false,
+  maxalphanames=4,minalphanames=3,dateabbrev=false}
+
+% Repeat author names and separate the main entry components with full stops.
+\DeclareNameAlias{author}{given-family}
+\DeclareNameAlias{editor}{given-family}
+\DeclareNameAlias{translator}{given-family}
+\renewbibmacro*{bbx:dashcheck}[2]{#2}
+\renewcommand*{\newunitpunct}{\addperiod\space}
+\DeclareDelimFormat[bib,biblist]{nametitledelim}{\addperiod\space}
+
+% Article and webpage titles are upright; journals and book titles are italic.
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,online,misc,unpublished]
+  {title}{#1\isdot}
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1\isdot}}
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[article,periodical]{volume}{#1}
+\DeclareFieldFormat[article,periodical]{number}{\mkbibparens{#1}}
+\DeclareFieldFormat[article,incollection,inproceedings]{pages}{#1}
+
+% Journal VOLUME(ISSUE):PAGES or ARTICLE-ID, YEAR.
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}
+    {}
+    {\printfield{series}%
+     \setunit{\addspace}}%
+  \printfield{volume}%
+  \setunit{}%
+  \printfield{number}%
+  \setunit{\addcolon}%
+  \iffieldundef{eid}
+    {\printfield{pages}}
+    {\printfield{eid}}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+% Article pages were printed above; retain normal page handling elsewhere.
+\renewbibmacro*{note+pages}{%
+  \printfield{note}%
+  \ifentrytype{article}
+    {}
+    {\setunit{\bibpagespunct}%
+     \printfield{pages}}%
+  \newunit}
+\renewbibmacro*{in:}{%
+  \ifentrytype{article}
+    {}
+    {\printtext{\bibstring{in}\intitlepunct}}}
+
+% Publisher, location, year for books and similar standalone works.
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \printlist{location}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+\endinput
