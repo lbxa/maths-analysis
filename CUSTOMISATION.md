@@ -51,9 +51,9 @@ for supported formatters and their settings.
 
 ## Bibliography-aware builds
 
-The shared settings select the `latexmk (BibTeX and references)` recipe for
+The shared settings select the `latexmk (Biber and references)` recipe for
 manual and automatic builds. It runs from the workspace root, uses
-pdfLaTeX, and lets latexmk run BibTeX, makeindex, and the additional LaTeX
+pdfLaTeX, and lets latexmk run Biber, makeindex, and the additional LaTeX
 passes needed to resolve citations and references.
 
 `latex-workshop.latex.build.enableMagicComments` is set to `false` so a
@@ -66,6 +66,11 @@ The editor writes the PDF beside its root source (`main.pdf` for the book),
 matching the existing editor preview. Terminal `make book` writes the same
 book to `build/main.pdf`. Both builds process `bibliography.bib`; the
 bibliography appears after the course chapters and before the appendices.
+AMS bibliography and citation styles are bundled under `styles/`; no separate
+style installation is needed. The shared preamble resolves them from the
+repository root and from `problems/`. Citations use author-based labels such
+as `[Can83]` and `[Rod20]`, while references are ordered alphabetically by
+author, then year and title.
 If a preview displays a bold citation key such as `[Waldschmidt2017]`,
 the bibliography pass has not completed for that PDF. Run the full recipe
 and check its build output rather than invoking pdfLaTeX alone.
@@ -77,7 +82,7 @@ machine-specific executable paths.
 
 Open `problems/hwNN.tex` in TeXShop and choose **Typeset** (`Cmd-T`). Each
 homework is a complete document and selects the `pdflatexmk` engine, which
-runs pdfLaTeX, BibTeX when needed, and the passes needed for references.
+runs pdfLaTeX, Biber when needed, and the passes needed for references.
 The PDF appears beside the source, for example `problems/hw05.pdf`.
 
 You can also typeset while editing a nested `problem.tex` or `solution.tex`.

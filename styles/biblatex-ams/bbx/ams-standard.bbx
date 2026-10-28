@@ -1,0 +1,80 @@
+%% $Id: ams-standard.bbx 1242 2026-04-23 14:02:49Z herbert $
+%%
+%% This is file `ams-standard.bbx', which is based on 
+%% \url{https://github.com/konn/biblatex-math}
+%%
+%% Herbert Voss <hvoss@tug.org>
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the LaTeX Project Public License Distributed from CTAN archives
+%% in directory macros/latex/base/lppl.txt.
+%%
+%% version 0.01 for Biber/BibLaTeX versions 2.21/3.21
+%% Copyright (C) 2026 all rights reserved.
+
+\ProvidesFile{ams-standard.bbx}[2026/04/22 biblatex bibliography 
+		style for mathematicians]
+
+%\newtoggle{bbx:sentencetitle}
+\newbibmacro*{bbx:savehash}{}%   predefined, will be changed later
+
+\RequireBibliographyStyle{standard}
+
+\DeclareBibliographyOption[boolean]{dashed}[true]{%
+  \ifstrequal{#1}{true}
+    {\ExecuteBibliographyOptions{pagetracker}%
+     \renewbibmacro*{bbx:savehash}{\savefield{fullhash}{\bbx@lasthash}}}
+    {}}
+
+%\DeclareBibliographyOption[boolean]{sentencetitle}[true]{%
+%  \settoggle{bbx:sentencetitle}{#1}}
+
+%\ExecuteBibliographyOptions{sentencetitle,dashed}
+\ExecuteBibliographyOptions{dashed}
+
+%\iftoggle{bbx:sentencetitle}
+%  {\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}}
+%  {}
+
+\renewbibmacro*{bbx:savehash}{%
+  \savefield{fullhash}{\bbx@lasthash}}
+
+\renewcommand*{\bibfont}{\footnotesize}
+\renewcommand*{\subtitlepunct}{\textup{\addcolon}\space}
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\renewcommand*{\mkbibquote}[1]{\mkbibemph{#1}}
+\renewcommand*{\labelnamepunct}{\addcomma\space}
+\renewbibmacro*{in:}{}
+\renewbibmacro*{author}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{author}}
+  }
+  {\usebibmacro{bbx:dashcheck}
+    {\bibnamedash}
+    {\printnames{author}%
+      \setunit{\addcomma\space}%
+      \usebibmacro{bbx:savehash}}%
+    \usebibmacro{authorstrg}}
+  {\global\undef\bbx@lasthash}}
+
+\DeclareFieldFormat{journaltitle}{\textup{#1}}
+\DeclareFieldFormat{booktitle}{\textup{#1}}
+\DeclareFieldFormat[article]{number}{\mkbibbold{#1}}
+\DeclareFieldFormat[book]{number}{\mkbibbold{#1}}
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+  {title}{\mkbibemph{#1\isdot}}
+
+\newbibmacro*{bbx:dashcheck}[2]{%
+  \ifboolexpr{
+    test {\iffieldequals{fullhash}{\bbx@lasthash}}
+    and
+    not test \iffirstonpage
+  }
+  {#1}
+  {#2}}
+\renewcommand*{\bibnamedash}{\rule{3em}{0.4pt}\hspace*{.16667em}\addcomma\addspace}
+
+\endinput

@@ -12,10 +12,12 @@ mathematical impact. Eponyms alone do not establish discovery or sole
 ownership. General limit laws and elementary inequalities can have a long
 collective development; they are inventoried below without invented authors.
 
-Citations now use the AMS's `amsplain` BibTeX style, with bracketed numbers
-and an author-alphabetised bibliography. Standard fields and visible URL/DOI
-notes replace the former Biber-only metadata. The book and Homework 03 share
-`\analysisbibliography`; the template and exercise identities are unchanged.
+Citations use the shared alphabetic AMS style from `main`, with Biber-generated
+bracketed author/year labels and author/year/title sorting. The book and
+Homework 03 use `\printbibliography` with the same bundled styles. Historical
+sources keep dates, journal names, locations, identifiers, and links in their
+dedicated BibLaTeX fields; contextual notes distinguish composition, publication,
+and later digitisation.
 
 ## Topic and attribution map
 

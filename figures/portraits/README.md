@@ -3,7 +3,7 @@
 The book includes 27 small, unmodified JPEG reproductions, acquired on
 2026-10-27 from Bookofproofs revision
 `c81f01462158ad7cdd2ea0c9b5090c674c635588` under its CC BY-SA 4.0 notice.
-The licence applies separately from the book's original CC BY 4.0 text.
+The licence applies separately from the book's original CC BY-NC-ND 4.0 text.
 See [third-party notices](../../THIRD_PARTY_NOTICES.md) and the exact URLs,
 hashes, and source-gallery links in [sources.json](sources.json).
 

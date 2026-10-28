@@ -29,17 +29,19 @@
 \fvset{fontsize=\small}
 \usepackage{url}
 \usepackage{lipsum} % Remove after all placeholder prose has been replaced.
-% AMS numeric references, alphabetised by author, using the AMS's own style.
-% Keep the resource path relative so handouts also build from problems/.
-\usepackage[numbers,sort&compress]{natbib}
-\bibliographystyle{amsplain}
-\newcommand{\analysisbibliography}{%
-  % A leading ./ prevents BibTeX from using latexmk's adjusted search path
-  % when it changes into build/. Direct problems/ builds need ../ instead.
-  \ifthenelse{\equal{\analysisroot}{.}}%
-    {\bibliography{bibliography}}%
-    {\bibliography{../bibliography}}%
-}
+% Vendored AMS styles resolve from both the book and problems/ working directory.
+\makeatletter
+\providecommand{\input@path}{}
+\edef\input@path{{\analysisroot/styles/}%
+  {\analysisroot/styles/biblatex-ams/bbx/}%
+  {\analysisroot/styles/biblatex-ams/cbx/}\input@path}
+\makeatother
+% AMS author-based labels; bibliography alphabetized by author, year, and title.
+\usepackage[backend=biber,natbib=true,bibstyle=analysis-ams,
+  citestyle=ams-alphabetic,sorting=nyt]{biblatex}
+% Group sources as [Key1, Key2], as in the reference paper.
+\renewcommand*{\multicitedelim}{\addcomma\space}
+\expandafter\addbibresource\expandafter{\analysisroot/bibliography.bib}
 
 \graphicspath{{\analysisroot/figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}

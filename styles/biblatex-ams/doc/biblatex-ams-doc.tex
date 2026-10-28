@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{minted-code,hvdoctools,hvlogos}
+
+\usepackage[
+  mono=Julia Mono,
+  monoFeatures={Scale=MatchLowercase,FakeStretch=0.88},
+  math=STIXTwo Math,
+  mathFeatures={math-style=TeX}]{gentium-otf}
+\setsansfont
+      [ Ligatures      = TeX ,
+        Scale          = MatchUppercase,
+        Extension      = .otf,
+          Numbers      = Lining,
+        UprightFont    = *-Regular,
+        ItalicFont     = *-Italic,
+        BoldFont       = *-Bold,
+        BoldItalicFont = *-BoldItalic,
+      ]{FiraSans}
+
+\usepackage[bibstyle=ams-numeric, citestyle=numeric]{biblatex}
+
+%\def\AmS{\textsf{AmS}}
+
+\addbibresource{\jobname.bib}
+\addbibresource{biblatex-examples.bib}
+\begin{document}
+	
+\title{\AmS\ bibliographystyle for Bib\LaTeX}
+\author{Herbert Voß}
+\maketitle
+
+\begin{abstract}
+This package is based on \url{https://github.com/konn/biblatex-math}
+\end{abstract}
+
+\section{Loading biblatex}
+There are two ways to load the style files for \AmS:
+
+\begin{enumerate}
+	\item \verb|\usepackage[bibstyle=ams-numeric, citestyle=numeric]{biblatex}|
+	   This uses the modified bibstyle and the default citation style. It is
+	   the same as:
+	\item \verb|\usepackage[style=ams-numeric]{biblatex}|
+\end{enumerate}
+
+For \verb|numeric| you calso use \verb|alphabetic|.
+
+
+\section{Citations -- \texttt{cbx} files}
+The citation-commands, e.g. \verb|\cite| are completely identical to the
+standard Bib\LaTeX\ citation styles.
+
+\begin{exampleM}[righthand width=0.3\linewidth]{\Lcs{cite}-command}
+The German philosopher Friedrich Wilhelm Nietzsche (1844--1900) wrote some books.~\cite{nietzsche:ksa,nietzsche:ksa1}
+\end{exampleM}
+
+\verb|\textcite|-command is not equivilant to the \verb|\cite| command:
+
+\begin{exampleM}[righthand width=0.3\linewidth]{\Lcs{textcite}-command}
+That was already wrote in \textcite[see][p.\,23]{nietzsche:ksa} and also in \textcite{nietzsche:ksa1}.
+\end{exampleM}
+
+The \verb|\parencite|-command is identical to the \verb|\cite|-command
+and should be used for citations at the end of
+a complete sentense:
+
+\begin{exampleM}%[righthand width=0.3\linewidth]
+{\Lcs{parencite}-command}
+That was already wrote by Nietzsche.~\parencite[p.\,23]{nietzsche:ksa}. It was different to what Aks{\i}n and Weinberg wrote.~\cite{aksin,weinberg}
+\end{exampleM}
+
+
+\section{Bibliography -- \texttt{bbx} files}
+\subsection{Package option}
+
+%sentencedtitle (default: true)
+%Whether to make title alphabet sentence-style or not. If true, for example, 
+%The {Proof of Riemann Hypothesis will be rendered as "The proof of riemann hypothesis". 
+%
+%To prevent letters to be downcased, you can use braces: 
+%The Proof of {Riemann} Hypothesis will result in The proof of Riemann hypothesis. You 
+%also have to embrace maths with { and }, as in A short proof of {$1 + 1 \neq 2$}, 
+%otherwise LaTeX halts with an error.
+
+\verb|dashed| (default: true) Whether to omit the same author(s) by \rule{1.5em}{0.4pt}, 
+as in \Lpack{amsrefs} (see \textcite{nietzsche:ksa1} in the bibliography).
+
+\subsection{Styles}
+There are the bibliographystyles \texttt{ams-alphabetic} and \texttt{ams-numeric}.
+The latter is the default style which is also used for this document.
+
+
+\printbibliography
+	
+\end{document}
+
+https://github.com/konn/biblatex-math
+
+This package provides a BibLaTeX (NOT BibTeX) citation styles for Mathematical articles, which looks alike amsrefs.
+
+It currently provides the following themes:
+
+math-numeric, which uses numbers like [1], [2], [3] ... as a reference label.
+math-alphabetic, which uses the part of author names such as [FMS88b] or [Coh74].
+In either case, we provide the following package options:
+
+sentencedtitle (default: true)
+Whether to make title alphabet sentence-style or not. If true, for example, The Proof of Riemann Hypothesis will be rendered as "The proof of riemann hypothesis". To prevent letters to be downcased, you can use braces: The Proof of {Riemann} Hypothesis will result in The proof of Riemann hypothesis. You also have to embrace maths with { and }, as in A short proof of {$1 + 1 \neq 2$}, otherwise LaTeX halts with an error.
+dashed (default: true)
+Whether to omit the same author(s) by _____, as in amsrefs.

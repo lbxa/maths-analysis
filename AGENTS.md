@@ -15,7 +15,7 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 ## Build & Development Commands
 
-Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, natbib, BibTeX (AMS amsplain), and latexmk. Run from the repository root:
+Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, biblatex, Biber, and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
 - `make formula-sheet`: build the shared formula sheet separately as `build/formula-sheet.pdf`.
@@ -55,7 +55,7 @@ On Overleaf, select `main.tex` and pdfLaTeX.
   for a focused check of the subdirectory builds. Test the template itself in
   both directories when editing it; it is not included by `make check`.
   Check that nested root directives resolve, figures load, references settle,
-  and BibTeX finds the bibliography. See the
+  and Biber finds the bibliography. See the
   [TeXShop setup guide](CUSTOMISATION.md#texshop-homework-previews).
 
 ## Shared and Local Editor Settings
@@ -155,13 +155,15 @@ Use bold caption labels and numbers followed by a full stop, for example **Figur
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 
-Use AMS bracketed numeric citations such as `[1]`, with the AMS `amsplain`
-BibTeX style and `natbib`. The bibliography follows the main content and
-precedes the appendices, alphabetised by author. Use standard BibTeX fields
-(`year`, `journal`, `address`); put persistent URLs and DOIs in `note` or
-`howpublished` because `amsplain` does not print `url` or `doi` fields.
-Citation keys must resolve to readable references rather than appearing as
-raw keys or margin footnotes.
+Use the alphabetic AMS reference style, with bracketed author-based labels such as `[Can83]` and `[Rod20]` and an alphabetically ordered bibliography after the main content and before the appendices. The shared preamble uses Biber, the project AMS style in `styles/analysis-ams.bbx`, and the bundled `ams-alphabetic` citation style. Preserve their portable paths for standalone homework builds. Generate labels from bibliography metadata, including disambiguation where needed; do not substitute numbered citations or type labels by hand. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
+
+Match the bibliography entry typography in the author's reference paper,
+as documented in `styles/README.md`: author initials, upright article and
+webpage titles, italic journal and book titles, and journal details in
+`volume(issue):pages, year` order. Repeat authors in each entry, retain
+clickable DOI/URL links, and use structured metadata rather than formatting
+publication details inside `.bib` fields. Keep the same shared style in the
+book and standalone documents.
 
 ### Historical context and portraits
 
@@ -190,7 +192,7 @@ and acquisition metadata in `figures/portraits/`. A university reproduction
 gallery is an image source, not proof of an original object's provenance.
 Do not substitute a similarly named person or present a later imagined
 depiction as a contemporary likeness. Keep borrowed image licences
-separate from the book's original CC BY 4.0 text.
+separate from the book's original CC BY-NC-ND 4.0 text.
 
 ### TikZ diagram design
 

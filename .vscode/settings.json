@@ -6,7 +6,7 @@
   "latex-workshop.latex.outDir": "%DIR%",
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (BibTeX and references)",
+      "name": "latexmk (Biber and references)",
       "tools": ["latexmk"]
     }
   ],

@@ -90,22 +90,25 @@ for ordinary and full-width figures, so their margin captions do not push
 down the main text.
 Do not use numbered `\sidenote` or `\footnote` commands for these notes.
 
-Add source metadata to `bibliography.bib`. Citations use bracketed numbers
-in the main text, for example `theory~\cite{Waldschmidt2017}.` Use
+Add source metadata to `bibliography.bib`. Citations use bracketed
+author-based labels such as `[Wal17]` in the main text, for example
+`theory~\cite{Waldschmidt2017}.` Use
 `\cite[32]{Bringhurst2005}` for a page reference and comma-separated keys
 for multiple sources. Do not wrap citations in sidenotes or use Tufte's
 old vertical-offset arguments. The bibliography after the course chapters
-and before the appendices lists cited sources alphabetically by author. Run `make book` (or
-`make watch`) so latexmk runs BibTeX and the required LaTeX passes; a single
-pdfLaTeX pass can leave bold citation keys instead of resolved numbers.
+and before the appendices uses AMS formatting and lists cited sources
+alphabetically by author, then year and title. The shared
+[bibliography styles](styles/README.md) apply to the book and handouts.
+Keep author names, dates, volume/issue numbers, page ranges or article IDs,
+and links in their dedicated `.bib` fields. The shared style supplies author
+initials, title typography, punctuation, and journal detail order; do not
+embed those presentation choices in source metadata.
+Run `make book` (or
+`make watch`) so latexmk runs Biber and the required LaTeX passes; a single
+pdfLaTeX pass can leave bold citation keys instead of resolved author-based
+labels.
 The shared LaTeX Workshop recipe also runs latexmk; its PDF is `main.pdf`
 beside the book source. See [CUSTOMISATION.md](CUSTOMISATION.md) for details.
-
-Use the AMS `amsplain` style with standard BibTeX fields (`year`, `journal`,
-and `address`). Keep URLs and DOIs visible in `note` or `howpublished`;
-the style ignores standalone `url` and `doi` fields. After changing from
-the former Biber setup, remove stale generated `.aux` and `.bbl` caches
-before rebuilding; source files and the bibliography stay in place.
 
 Historical margin notes should explain the motivating problem and impact,
 with original texts or correspondence and careful attribution. Use
@@ -175,7 +178,7 @@ auxiliary files in the ignored `build/` directory.
 ## Licensing and attribution
 
 Submit original text and illustration contributions, including their editable
-sources, under [CC BY 4.0](LICENSE-CC-BY-4.0.txt). Contributions to build scripts
+sources, under [CC BY-NC-ND 4.0](LICENSE-CC-BY-NC-ND-4.0.txt). Contributions to build scripts
 and typesetting infrastructure use the [Apache License, Version 2.0](LICENSE).
 For reused material, record the source, author, and applicable license, and
 retain its required notices. The existing Tufte specimens retain Apache 2.0
