@@ -21,6 +21,7 @@ Analysis II is reserved for a later course and is currently excluded from the bo
 - [Build the notes](#build-the-notes)
 - [Local customisation](#local-customisation)
 - [Contributing](#contributing)
+- [Historical context and portraits](#historical-context-and-portraits)
 - [License and attribution](#license-and-attribution)
 - [Changelog](#changelog)
 
@@ -280,7 +281,7 @@ directives and path setup for both supported working directories.
 ## Build the notes
 
 Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
-caption, marginfix, zref-savepos, needspace, biblatex, Biber, latexmk, and
+caption, marginfix, zref-savepos, needspace, natbib, BibTeX (AMS amsplain), latexmk, and
 makeindex, plus Make. The project has been built with TeX Live 2025.
 
 From the repository root:
@@ -357,9 +358,44 @@ Other credited third-party material retains its stated terms. See
 [third-party notices](THIRD_PARTY_NOTICES.md) for source credits, exceptions,
 and modifications made for these notes.
 
+## Historical context and portraits
+
+The [history inventory](docs/history-inventory.md) locates all 69 substantive
+formal statement blocks and maps 40 named or historical topic groups to their
+sources and editorial decisions. Brief pending margin notes explain motivating
+problems, dates, collaborators or predecessors, formulation choices, and impact.
+They distinguish discovery, proof, publication, and modern restatement.
+
+The book includes 27 compact portrait reproductions with caption citations.
+The [portrait ledger](figures/portraits/README.md) records acquisition hashes,
+the separate CC BY-SA 4.0 reproduction licence, institutional image sources,
+and original-object provenance that still needs verification. No contemporary
+likeness is asserted for ancient or medieval figures without evidence.
+
+References use the AMS's `amsplain` BibTeX style, alphabetised by author.
+For a checkout previously built with Biber, remove its generated `.aux` and
+`.bbl` caches before rebuilding. Preserve the source `.tex` and `.bib` files.
+
 ## Changelog
 
+### 2026-10-28
+
+- Enlarge single historical portraits to the full margin width and paired
+  portraits to 49% each with a 2% gap. Remove the height caps that previously
+  shrank the images below their requested widths; retain native proportions
+  and the shared margin stacking rules. Keep the two specimen table captions
+  inside the main column and constrain the sample prose to that column, so
+  these remaining layout examples cannot overlap the enlarged portraits.
+
 ### 2026-10-27
+
+- Inventory named mathematics and add historical margin context throughout
+  Analysis I, retaining pending-review status and the existing topic order.
+  Add 27 credited portrait reproductions and a provenance/rights ledger.
+  Replace nine unrelated specimen openings with short historical introductions;
+  their course definitions and proofs remain reserved. Preserve all exercise
+  identities and placements. Switch the shared bibliography to AMS `amsplain`
+  with BibTeX and author-alphabetised numeric references.
 
 - Expand the shared formula sheet for the Homework 01--04 exam topics, with reusable proof patterns rather than copied solutions. Record all 32 questions in the appendix coverage audit; keep additions pending and preserve book topic order in the shared topic files.
 - Provide `formula-sheet.tex` as a standalone entry that inputs the same source as the appendix. Include it in `make check` and cleanup so separate compilation stays usable without maintaining duplicate formulas.

@@ -7,6 +7,10 @@ Their function-sequence examples continue in Chapter 8.
 
 ## Changelog
 
+### 2026-10-27
+
+- Add pending historical margin context and compact credited portraits at the substantive topic treatments. Keep the syllabus order and mathematical statement/proof status; see the [book-wide history inventory](../../../docs/history-inventory.md) and [portrait ledger](../../../figures/portraits/README.md).
+
 ### 2026-10-26
 
 - Replace only the real-input step of HW05 Q4 with the author's expanded sequence-of-rationals argument, displaying continuity, the constant-multiple limit law, and uniqueness of limits separately. Keep the approved integer and rational arguments intact, and mark the replacement conclusion and supplied explanatory paragraph pending review in the shared solution.

@@ -19,6 +19,11 @@ The smallest case distinguishes the empty set from the set containing it.
 \input{problems/hw01/02-power-set/problem}
 
 Cantor's theorem extends the strict increase in size to every set.
+\historynote{Cantor's 1874 paper separated countable algebraic numbers
+from the uncountable real line. His later diagonal argument, in the
+volume dated 1891, gives the general obstruction behind the power-set
+theorem~\cite{Cantor1874,Cantor1891}. This changed infinity from a single
+size into a subject of comparison and founded transfinite set theory.}
 
 \begin{samepage}
 \begin{theorem}[Cantor]
@@ -46,18 +51,15 @@ $|X|<|\mathcal P(X)|$. In particular, $\mathcal P(\N)$ is uncountable.
   If there are injections $A\to B$ and $B\to A$, then there is a
   bijection $A\to B$.
 \end{theorem}
-\marginnote{\pendingreviewtext{Cantor formulated the claim, and Felix
-Bernstein presented a correct proof in Cantor's seminar in 1897. He
-had found the argument while still a school student proofreading
-Cantor's work. Cantor passed it to \'Emile Borel, who
-published it in 1898. Ernst Schr\"oder also published a proof in 1898,
-but it contained an error. The shorter name \emph{Cantor--Bernstein}
-highlights Cantor's formulation and Bernstein's correct
-proof~\cite{MacTutorBernstein}.}
-\par
-\pendingreviewtext{An earlier proof by Richard Dedekind dates to 1887, but remained
-unpublished until 1932. Dedekind's name is nevertheless usually
-absent~\cite{Sieg2019CantorBernstein}.}}
+\historynote{Cantor posed the comparison problem; Bernstein supplied
+a correct proof in 1897, published by Borel in 1898. Schr\"oder's
+published argument contained a gap. Dedekind had an earlier, unpublished
+proof in 1887~\cite{MacTutorBernstein,Sieg2019CantorBernstein}.
+The theorem makes two injections sufficient for comparing infinite sizes;
+the names record different contributions, rather than a joint paper. See \autoref{fig:portrait:cantor-bernstein} and \autoref{fig:portrait:schroder}.}
+\historyportraitpair{cantor}{Georg Cantor}{PortraitCantor}{bernstein-felix}{Felix Bernstein}{PortraitBernsteinFelix}{cantor-bernstein}
+\historyportrait{schroder}{Ernst Schr\"oder}{PortraitSchroder}
+
 We use this set-theoretic theorem for cardinality comparisons. Its proof
 is not needed for the subsequent analysis.
 
@@ -240,8 +242,10 @@ The points that survive every removal form the \emph{middle-thirds
 Cantor set}, denoted here by $\mathcal K$.
 \marginnote{\pendingreviewtext{Georg Cantor described this set in
 1883~\cite{Cantor1883PointSets}. Related constructions had appeared in
-Henry J. S. Smith's 1875 work on integration~\cite{MacTutorSmith}.
-}}
+Henry J. S. Smith's 1875 work on integration~\cite{Smith1875}.
+} See \autoref{fig:portrait:smith}.}
+\historyportrait{smith}{Henry John Stephen Smith}{PortraitSmith}
+
 In terms of the retained stages,
 \[
   \mathcal K=\bigcap_{n=0}^{\infty}E_n.
@@ -385,6 +389,12 @@ both directions. None of these exercises requires a continuity proof.
 
 \subsection{Algebraic and transcendental numbers}
 \label{sec:analysis-i:algebraic-transcendental}
+\historynote{Cantor sent Dedekind a proposed uncountability argument
+on 7 December 1873~\cite{CantorDedekind1873}. The 1874 paper then
+contrasts the algebraic numbers with the real continuum
+~\cite{Cantor1874}. The correspondence documents an exchange of
+ideas; it should be distinguished from a joint publication. The
+result proves the existence of transcendental numbers by counting.}
 A polynomial is a finite sum $a_0+a_1X+\cdots+a_mX^m$.
 If $a_m\ne0$, its degree is $m$.
 A real number is \emph{algebraic} if it is a root of a nonzero polynomial

@@ -95,11 +95,24 @@ in the main text, for example `theory~\cite{Waldschmidt2017}.` Use
 `\cite[32]{Bringhurst2005}` for a page reference and comma-separated keys
 for multiple sources. Do not wrap citations in sidenotes or use Tufte's
 old vertical-offset arguments. The bibliography after the course chapters
-and before the appendices lists cited sources in order of first citation. Run `make book` (or
-`make watch`) so latexmk runs Biber and the required LaTeX passes; a single
+and before the appendices lists cited sources alphabetically by author. Run `make book` (or
+`make watch`) so latexmk runs BibTeX and the required LaTeX passes; a single
 pdfLaTeX pass can leave bold citation keys instead of resolved numbers.
 The shared LaTeX Workshop recipe also runs latexmk; its PDF is `main.pdf`
 beside the book source. See [CUSTOMISATION.md](CUSTOMISATION.md) for details.
+
+Use the AMS `amsplain` style with standard BibTeX fields (`year`, `journal`,
+and `address`). Keep URLs and DOIs visible in `note` or `howpublished`;
+the style ignores standalone `url` and `doi` fields. After changing from
+the former Biber setup, remove stale generated `.aux` and `.bbl` caches
+before rebuilding; source files and the bibliography stay in place.
+
+Historical margin notes should explain the motivating problem and impact,
+with original texts or correspondence and careful attribution. Use
+`\historynote` for additions awaiting review, and consult the
+[history inventory](docs/history-inventory.md). Portraits use the shared
+helpers and the [portrait source ledger](figures/portraits/README.md).
+Retain the separate image licences and identify gaps in original provenance.
 
 State assumptions precisely, define symbols before using them, and check each
 proof step. Clearly identify unfinished arguments. Write explanations in your

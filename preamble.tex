@@ -29,9 +29,17 @@
 \fvset{fontsize=\small}
 \usepackage{url}
 \usepackage{lipsum} % Remove after all placeholder prose has been replaced.
-% Bracketed citations in the text; bibliography numbered by first citation.
-\usepackage[backend=biber,natbib=true,style=numeric,sorting=none]{biblatex}
-\expandafter\addbibresource\expandafter{\analysisroot/bibliography.bib}
+% AMS numeric references, alphabetised by author, using the AMS's own style.
+% Keep the resource path relative so handouts also build from problems/.
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{amsplain}
+\newcommand{\analysisbibliography}{%
+  % A leading ./ prevents BibTeX from using latexmk's adjusted search path
+  % when it changes into build/. Direct problems/ builds need ../ instead.
+  \ifthenelse{\equal{\analysisroot}{.}}%
+    {\bibliography{bibliography}}%
+    {\bibliography{../bibliography}}%
+}
 
 \graphicspath{{\analysisroot/figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}

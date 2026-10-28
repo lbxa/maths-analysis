@@ -1,7 +1,7 @@
 % !TEX program = pdflatex
 % Compile from the repository root with make book.
 % Keep nohyper to defer hyperlinks until after the custom contents setup.
-% nobib lets biblatex manage citations.
+% nobib lets the shared preamble configure AMS numeric citations.
 \documentclass[nohyper,nobib,nofonts]{tufte-book}
 
 \input{preamble}
@@ -32,7 +32,9 @@
 % References follow the course content and precede the appendices.
 \begingroup
 \setlength{\emergencystretch}{1em}
-\printbibliography[heading=bibintoc]
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\analysisbibliography
 \endgroup
 
 \appendix

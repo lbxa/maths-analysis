@@ -15,7 +15,7 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 
 ## Build & Development Commands
 
-Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, biblatex, Biber, and latexmk. Run from the repository root:
+Install LaTeX with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt, caption, marginfix, natbib, BibTeX (AMS amsplain), and latexmk. Run from the repository root:
 
 - `make` or `make book`: build `build/main.pdf`, including bibliography and index passes.
 - `make formula-sheet`: build the shared formula sheet separately as `build/formula-sheet.pdf`.
@@ -55,7 +55,7 @@ On Overleaf, select `main.tex` and pdfLaTeX.
   for a focused check of the subdirectory builds. Test the template itself in
   both directories when editing it; it is not included by `make check`.
   Check that nested root directives resolve, figures load, references settle,
-  and Biber finds the bibliography. See the
+  and BibTeX finds the bibliography. See the
   [TeXShop setup guide](CUSTOMISATION.md#texshop-homework-previews).
 
 ## Shared and Local Editor Settings
@@ -155,7 +155,42 @@ Use bold caption labels and numbers followed by a full stop, for example **Figur
 
 Replace `TUFTE PLACEHOLDER` blocks with reviewed notes; remove unused specimen assets/helpers. Cite sources with stable keys. Coordinate reordering and shared-file edits to reduce conflicts. Preserve the documented `nohyper` contents workaround unless testing a deliberate layout revision.
 
-Use bracketed numeric citations such as `[1]` in the text and a properly formatted bibliography after the main content and before the appendices. Citation keys must resolve to readable references rather than appearing as raw keys or margin footnotes.
+Use AMS bracketed numeric citations such as `[1]`, with the AMS `amsplain`
+BibTeX style and `natbib`. The bibliography follows the main content and
+precedes the appendices, alphabetised by author. Use standard BibTeX fields
+(`year`, `journal`, `address`); put persistent URLs and DOIs in `note` or
+`howpublished` because `amsplain` does not print `url` or `doi` fields.
+Citation keys must resolve to readable references rather than appearing as
+raw keys or margin footnotes.
+
+### Historical context and portraits
+
+Add concise, optional historical context at the substantive treatment of
+named or securely attributable results, definitions, propositions, and
+methods. Use `\historynote{...}` so new notes remain pending review.
+Explain the original problem, relevant date and collaborators or predecessors,
+the reason for the formulation, and a useful mathematical impact. Avoid
+repeating a biography at every later occurrence or on the formula sheet.
+Do not infer discovery from an eponym or assign an anonymous elementary
+fact to a famous person without evidence. Distinguish composition,
+communication, publication, proof, and later modern reformulation.
+
+Cite original mathematical texts, letters, or manuscripts for historical
+claims; identify later historical interpretations as such. The historical
+review and its primary evidence are different sources. Record provenance
+limits and disputed dates in `docs/history-inventory.md`.
+
+Use margin-width portraits with the shared `\historyportrait` and
+`\historyportraitpair` helpers. Single portraits fill the margin; paired
+portraits each use 49% of its width with a 2% gap, in one unbreakable row.
+Preserve native proportions without a small height cap that reduces these
+widths. Refer to each figure from its historical
+note. Retain source, creator/date when established, reproduction licence,
+and acquisition metadata in `figures/portraits/`. A university reproduction
+gallery is an image source, not proof of an original object's provenance.
+Do not substitute a similarly named person or present a later imagined
+depiction as a contemporary likeness. Keep borrowed image licences
+separate from the book's original CC BY 4.0 text.
 
 ### TikZ diagram design
 

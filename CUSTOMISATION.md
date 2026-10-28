@@ -51,9 +51,9 @@ for supported formatters and their settings.
 
 ## Bibliography-aware builds
 
-The shared settings select the `latexmk (Biber and references)` recipe for
+The shared settings select the `latexmk (BibTeX and references)` recipe for
 manual and automatic builds. It runs from the workspace root, uses
-pdfLaTeX, and lets latexmk run Biber, makeindex, and the additional LaTeX
+pdfLaTeX, and lets latexmk run BibTeX, makeindex, and the additional LaTeX
 passes needed to resolve citations and references.
 
 `latex-workshop.latex.build.enableMagicComments` is set to `false` so a
@@ -77,7 +77,7 @@ machine-specific executable paths.
 
 Open `problems/hwNN.tex` in TeXShop and choose **Typeset** (`Cmd-T`). Each
 homework is a complete document and selects the `pdflatexmk` engine, which
-runs pdfLaTeX, Biber when needed, and the passes needed for references.
+runs pdfLaTeX, BibTeX when needed, and the passes needed for references.
 The PDF appears beside the source, for example `problems/hw05.pdf`.
 
 You can also typeset while editing a nested `problem.tex` or `solution.tex`.

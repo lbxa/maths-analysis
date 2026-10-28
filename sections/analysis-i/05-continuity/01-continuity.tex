@@ -44,6 +44,12 @@ point of $I$, the two-sided limit exists exactly when both one-sided
 limits exist and have the same value.}
 
 \begin{definition}[Continuity]
+  \historynote{Cauchy described continuity through infinitesimal
+  increments in 1821; Heine's 1872 presentation gives the later
+  quantified framework~\cite[ch.~II]{Cauchy1821}\cite{Heine1872}.
+  The modern epsilon--delta statement separates a point, an output
+  tolerance, and a permitted input change. This precision made
+  discontinuous functions and rigorous limiting arguments manageable.}
   \label{thm:analysis-i:continuity-at-a-point}
   The function $f$ is \emph{continuous at} $c\in I$ if
   \[
@@ -192,6 +198,11 @@ the domain of the function, including from only one side at an endpoint.
 \end{example}
 
 \begin{example}[The Dirichlet function]
+  \historynote{Dirichlet's 1829 discussion of trigonometric
+  representation includes the rational/irrational distinction
+  ~\cite{Dirichlet1829}. Such examples force a broader concept of
+  function than a single familiar analytic formula. This one shows
+  how dense interwoven sets can prevent continuity everywhere.}
   \label{thm:analysis-i:dirichlet-function}
   The \emph{Dirichlet function} is
   \[
@@ -212,6 +223,14 @@ the domain of the function, including from only one side at an endpoint.
 \end{example}
 
 \begin{example}[Thomae's function]
+  \historynote{Thomae's 1875 book on definite integrals uses a
+  rational-denominator example to investigate discontinuity
+  ~\cite{Thomae1875}. Its values become small as denominators grow.
+  This separates the density of the discontinuity set from its effect
+  on continuity at an irrational point, and motivates finer
+  integrability criteria. See \autoref{fig:portrait:dirichlet-thomae}.}
+\historyportraitpair{dirichlet}{Lejeune Dirichlet}{PortraitDirichlet}{thomae}{Johannes Thomae}{PortraitThomae}{dirichlet-thomae}
+
   \label{thm:analysis-i:thomae-function}
   \emph{Thomae's function}, also called the \emph{popcorn function}, is
   \[

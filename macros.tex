@@ -13,6 +13,35 @@
 }{\par}
 \newcommand{\pendingreviewtext}[1]{\textcolor{pendingreviewcolor}{#1}}
 
+% Optional historical context stays in the margin and awaits author review.
+% Use once at the substantive treatment; subsequent mentions link back.
+\newcommand{\historynote}[1]{%
+  \marginnote{\pendingreviewtext{#1}}%
+}
+% Historical reproductions use the available margin width at native proportions.
+% Credits and original-object metadata live in the cited record and ledger.
+\newcommand{\historyportrait}[3]{%
+  \begin{marginfigure}
+    \centering
+    \includegraphics[width=\linewidth,keepaspectratio]{portraits/#1.jpg}
+    \caption[#2.]{\pendingreviewtext{#2.~\cite{#3,BookofproofsPortraits}}}
+    \label{fig:portrait:#1}
+  \end{marginfigure}%
+}
+\newcommand{\historyportraitpair}[7]{%
+  \begin{marginfigure}
+    \centering
+    \makebox[\linewidth][c]{%
+      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#1.jpg}%
+      \hspace{0.02\linewidth}%
+      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#4.jpg}%
+    }
+    \caption[#2 and #5.]{\pendingreviewtext{#2 (left) and #5 (right).
+      Portrait sources~\cite{#3,#6,BookofproofsPortraits}.}}
+    \label{fig:portrait:#7}
+  \end{marginfigure}%
+}
+
 % One convention for named, linked cross-references in every document.
 \renewcommand*{\figureautorefname}{Figure}
 \renewcommand*{\tableautorefname}{Table}

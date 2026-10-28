@@ -11,6 +11,8 @@ records the constraint on the syllabus structure.
 
 ### 2026-10-27
 
+- Add pending historical margin context and compact credited portraits at the substantive topic treatments. Keep the syllabus order and mathematical statement/proof status; see the [book-wide history inventory](../../../docs/history-inventory.md) and [portrait ledger](../../../figures/portraits/README.md).
+
 - Present §1.12 as a synthesis of the algebraic/transcendental classification in §1.3 and the root construction in §1.11. Link the earlier classification and cardinality proposition directly, and explain how the nested boxes and equalities express the same distinction; preserve the syllabus order and the closing overview's position.
 - The author approved the Euclid's lemma passage in §1.2, including its proof, consequences, and historical and application margin notes. Remove its review wrappers while preserving the text and references.
 - Keep Euclid's original Book VII statement and the connection to unique prime factorisation in optional margin notes beside the lemma; link its power-divisibility consequence to the later irrationality arguments while retaining every necessary proof step in the body.

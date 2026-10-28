@@ -6,6 +6,26 @@ indicated. Build scripts and typesetting infrastructure remain under the
 [Apache License, Version 2.0](LICENSE). The following notices identify
 third-party material, its terms, and source credits.
 
+## Historical portrait reproductions
+
+The 27 JPEG files in `figures/portraits/` are unmodified reproductions
+obtained from the [Bookofproofs portrait collection](https://github.com/bookofproofs/bookofproofs.github.io/tree/c81f01462158ad7cdd2ea0c9b5090c674c635588/_sources/_assets/images/portraits),
+revision `c81f01462158ad7cdd2ea0c9b5090c674c635588`.
+Credit: Bookofproofs contributors and the image makers identified by the
+linked collection records. The repository places `_sources` under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), except
+where otherwise noted; retain its [licence notice](https://github.com/bookofproofs/bookofproofs.github.io/blob/c81f01462158ad7cdd2ea0c9b5090c674c635588/LICENSE.md).
+These reproductions are not relicensed under the book's CC BY 4.0 licence.
+Only filenames and display sizes change; no retouching or colourisation
+has been applied here.
+
+The [portrait ledger](figures/portraits/README.md) records university
+image galleries, supplementary custodian records, and unresolved original
+creator/date information. `figures/portraits/sources.json` records exact
+download URLs and SHA-256 hashes. A reproduction's presence in a modern
+gallery does not establish its original object's provenance or a new
+copyright in an underlying public-domain work.
+
 ## Tufte-LaTeX specimen material
 
 Source: [Tufte-LaTeX](https://github.com/Tufte-LaTeX/tufte-latex), including its

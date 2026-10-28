@@ -2,36 +2,24 @@
 \section{L'H\^opital's rules}
 \label{sec:analysis-i:lhopital-rules}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 908--934.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-The \docclsoptdef{bidi} option loads the \docpkg{bidi} package which is used with
-\tXeLaTeX\ to typeset bi-directional text.  Since the \docpkg{bidi}
-package needs to be loaded before the sidenotes and cite commands are defined,
-it can't be loaded in the document preamble.
+\begin{pendingreview}
+L'H\^opital's rules resolve certain indeterminate quotients by comparing
+derivatives. Their hypotheses will be stated with the differentiation
+material.
+\historynote{On 17 March 1694 the marquis de L'H\^opital offered
+Johann Bernoulli a retainer of 300 French livres and requested
+exclusive communication of discoveries~\cite{LHopital1694Letter}.
+The correspondence, reviewed by Truesdell, supports Bernoulli's
+mathematical contribution~\cite{Truesdell1958}. Financial need is
+part of that historical interpretation, rather than a clause
+proving his motive. See \autoref{fig:portrait:lhopital-bernoulli}.}
+\historyportraitpair{de-lhopital}{Guillaume de L'H\^opital}{PortraitDeLHopital}{bernoulli-johann}{Johann Bernoulli}{PortraitBernoulliJohann}{lhopital-bernoulli}
 
-The \docclsoptdef{debug} option causes the \TL classes to output debug
-information to the log file which is useful in troubleshooting bugs.  It will
-also cause the graphics to be replaced by outlines.
-
-The \docclsoptdef{nofonts} option prevents the \TL classes from
-automatically loading the Palatino and Helvetica typefaces.  You should use
-this option if you wish to load your own fonts.  If you're using \tXeLaTeX, this
-option is implied (\ie, the Palatino and Helvetica fonts aren't loaded if you
-use \tXeLaTeX).  
-
-The \docclsoptdef{nols} option inhibits the letterspacing code.  The \TL\
-classes try to load the appropriate letterspacing package (either pdf\TeX's
-\docpkg{letterspace} package or the \docpkg{soul} package).  If you're using
-\tXeLaTeX\ with \docpkg{fontenc}, however, you should configure your own
-letterspacing.  
-
-The \docclsoptdef{notitlepage} option causes \doccmd{maketitle} to generate a title
-block instead of a title page.  The \doccls{book} class defaults to a title
-page and the \doccls{handout} class defaults to the title block.  There is an
-analogous \docclsoptdef{titlepage} option that forces \doccmd{maketitle} to
-generate a full title page instead of the title block.
-
-\lipsum[3]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\historynote{The rule supplied by Johann Bernoulli appeared in
+L'H\^opital's 1696 textbook~\cite{Truesdell1958},
+section IX, article 163. Its preface acknowledges a special debt
+to Bernoulli~\cite{LHopital1696}. Patronage and textbook publication
+help explain the familiar name. The episode distinguishes discovering
+mathematics from teaching and disseminating it; the rule became a
+standard tool for evaluating limits.}
+\end{pendingreview}
