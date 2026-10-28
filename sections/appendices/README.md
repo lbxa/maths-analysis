@@ -25,6 +25,13 @@ change the homework placement map or reproduce the exercise solutions.
 
 ## Changelog
 
+### 2026-10-28
+
+- Move all 42 solution links to italic text at the ends of the original
+  exercises in the main body. Keep appendix restatements free of these
+  links and retain their linked exercise numbers, complete statements,
+  stable labels, and existing order.
+
 ### 2026-10-27
 
 - The author approved the complete formula sheet, including the proof reminders and background identities. Remove all review wrappers from the shared sheet so both the standalone version and book appendix render in normal black text.

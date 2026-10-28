@@ -141,13 +141,14 @@ its normal section-based exercise numbering, so use the stable labels below
 for cross-references rather than copying printed exercise or page numbers.
 The standalone handouts retain their original question order and numbering.
 The stable key in each row gives the exercise label `ex:<key>` and the
-solution label `sol:<key>`. Each problem's `\solutionlink{<key>}` supplies an
-unnumbered margin link to its solution's page. The appendix's
+solution label `sol:<key>`. Each problem's `\solutionlink{<key>}` appends an
+italic link to its solution's page at the end of the exercise in the main
+body. The link is suppressed in handouts. The appendix's
 `\solutionheading{<key>}` selects the original book exercise number.
 The following `restatedproblem` environment uses the same bold, inline
 exercise label as the main text, with the number linked back to the original.
 It inputs the complete problem body while suppressing duplicate exercise
-numbering, labels, and margin links. The shared solution follows immediately
+numbering, labels, and solution links. The shared solution follows immediately
 after the restated problem.
 
 | Homework question / problem source | Content assessed | Book section and placement | Appendix order / solution source | Stable key | Status |
@@ -282,7 +283,7 @@ directives and path setup for both supported working directories.
 ## Build the notes
 
 Use a LaTeX installation with pdfLaTeX, Tufte-LaTeX, hyperref, aliascnt,
-caption, marginfix, zref-savepos, needspace, biblatex, Biber, latexmk, and
+caption, marginfix, needspace, biblatex, Biber, latexmk, and
 makeindex, plus Make. The project has been built with TeX Live 2025.
 
 From the repository root:
@@ -387,6 +388,9 @@ bibliography. Publication details and links use structured BibLaTeX metadata.
 
 ### 2026-10-28
 
+- Append all 42 exercise solution links in italic text at the ends of the
+  exercises in the main body. Remove their former margin positioning code;
+  retain link suppression in handouts and appendix restatements.
 - Merge the new citation style from `main`, retaining historical annotations
   and the larger portrait layout. Use the shared alphabetic AMS/Biber setup
   and structured source metadata in both the book and handouts.

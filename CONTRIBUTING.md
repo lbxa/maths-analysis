@@ -90,6 +90,11 @@ for ordinary and full-width figures, so their margin captions do not push
 down the main text.
 Do not use numbered `\sidenote` or `\footnote` commands for these notes.
 
+Place each shared problem's `\solutionlink{hwNN:topic}` immediately before
+`\end{exercise}`, after the complete statement and any hints. It appends an
+italic solution link in the main body and is suppressed in handouts and
+appendix restatements.
+
 Add source metadata to `bibliography.bib`. Citations use bracketed
 author-based labels such as `[Wal17]` in the main text, for example
 `theory~\cite{Waldschmidt2017}.` Use
