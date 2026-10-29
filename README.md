@@ -388,16 +388,24 @@ bibliography. Publication details and links use structured BibLaTeX metadata.
 
 ### 2026-10-28
 
+- Treat historical context as part of learning mathematics: brief margin
+  notes should explain the original problem, chronology, peers or
+  predecessors, and fields influenced so readers understand the circumstances
+  of a result's creation. Cite primary evidence for attribution and portrait
+  sources, distinguishing documented provenance from later reproduction;
+  anecdotes and eponyms alone do not establish discovery.
 - Append all 42 exercise solution links in italic text at the ends of the
   exercises in the main body. Remove their former margin positioning code;
-  retain link suppression in handouts and appendix restatements.
+  retain link suppression in handouts and appendix restatements, with the
+  rationale recorded in the [appendix changelog](sections/appendices/README.md#changelog).
 - Merge the new citation style from `main`, retaining historical annotations
   and the larger portrait layout. Use the shared alphabetic AMS/Biber setup
   and structured source metadata in both the book and handouts.
 - Enlarge single historical portraits to the full margin width and paired
-  portraits to 49% each with a 2% gap. Remove the small height caps and retain
-  native proportions. Keep specimen table captions and sample prose in the
-  main column so they cannot overlap the enlarged portraits.
+  portraits to 49% each with a 2% gap, retaining native proportions without
+  small height caps so readers can recognise the faces beside the names.
+  Keep specimen table captions and sample prose in the main column so they
+  cannot overlap the enlarged portraits.
 
 - Match bibliography entries to the author's [reference paper](https://mntruell.com/math.pdf), retaining alphabetic labels while using author initials, upright article titles, italic journal and book titles, and `volume(issue):pages, year` details. Repeat author names, separate grouped citations with commas, and keep DOI/URL links and access dates consistent in the book and handouts. This refines the initial AMS entry typography recorded below.
 

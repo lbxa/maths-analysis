@@ -28,9 +28,11 @@ change the homework placement map or reproduce the exercise solutions.
 ### 2026-10-28
 
 - Move all 42 solution links to italic text at the ends of the original
-  exercises in the main body. Keep appendix restatements free of these
-  links and retain their linked exercise numbers, complete statements,
-  stable labels, and existing order.
+  exercises in the main body because growing margin content displaces
+  navigation links and separates them from their exercises. Append each
+  link after the complete statement and any hints; keep appendix
+  restatements free of these links while retaining linked exercise numbers,
+  complete statements, stable labels, and existing order.
 
 ### 2026-10-27
 
