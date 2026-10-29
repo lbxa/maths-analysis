@@ -407,7 +407,17 @@ bibliography. Publication details and links use structured BibLaTeX metadata.
   Keep specimen table captions and sample prose in the main column so they
   cannot overlap the enlarged portraits.
 
-- Match bibliography entries to the author's [reference paper](https://mntruell.com/math.pdf), retaining alphabetic labels while using author initials, upright article titles, italic journal and book titles, and `volume(issue):pages, year` details. Repeat author names, separate grouped citations with commas, and keep DOI/URL links and access dates consistent in the book and handouts. This refines the initial AMS entry typography recorded below.
+- Use the alphabetic AMS variant, with author/year labels such as `[Can83]`
+  and `[Rod20]`, following the author's [reference paper](https://mntruell.com/math.pdf).
+  The purpose is to identify sources while reading, so preserve this label
+  choice when changing bibliography packages or entry typography.
+- Match that paper's entry typography with author initials, upright article
+  and webpage titles, italic journal and book titles, and
+  `volume(issue):pages, year` details, refining the initial typography below.
+  Keep label generation, repeated author names, comma-separated citation
+  groups, and DOI/URL formatting in the [shared style](styles/README.md),
+  using stable keys and structured metadata so the book and handouts stay
+  consistent without manually typed labels or publication details.
 
 ### 2026-10-27
 
