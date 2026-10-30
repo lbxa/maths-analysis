@@ -254,7 +254,7 @@ of the first finished version. Check the rendered result before presenting it.
 
 ## Validation Guidelines
 
-Run `make check` after edits. Inspect affected PDFs for margin collisions, equation overflow, contents numbering, and missing references or citations. Verify that every figure in an edited document is referenced in the body text and that all figure numbers resolve. Read each proof without its margin notes to check that no essential reasoning is missing from the body. Review mathematical correctness separately. No test suite, coverage threshold, formatter, or CI is configured.
+Run `make check` after edits. Inspect affected PDFs for margin collisions, equation overflow, contents numbering, and missing references or citations. Verify that every figure in an edited document is referenced in the body text and that all figure numbers resolve. Read each proof without its margin notes to check that no essential reasoning is missing from the body. Review mathematical correctness separately. No test suite, coverage threshold, or formatter is configured. The GitHub Actions workflow `.github/workflows/publish-book.yml` builds and publishes versioned PDFs of the main book on pushes to `main`.
 
 ## Commits & Pull Requests
 

@@ -1,0 +1,99 @@
+name: Publish book PDF
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build versioned book
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      title: ${{ steps.book.outputs.title }}
+      version: ${{ steps.book.outputs.version }}
+      stem: ${{ steps.book.outputs.stem }}
+    steps:
+      - name: Check out book sources
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Install LaTeX dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            latexmk biber texlive-bibtex-extra texlive-fonts-recommended \
+            texlive-latex-extra texlive-pictures texlive-science
+
+      - name: Build the main book
+        run: make book
+
+      - name: Name the PDF using the book title and build version
+        id: book
+        shell: python
+        run: |
+          import os
+          from pathlib import Path
+          import re
+          import shutil
+
+          source = Path("main.tex").read_text(encoding="utf-8")
+          match = re.search(r"^\\title\{([^{}\n]+)\}", source, re.MULTILINE)
+          if match is None:
+              raise SystemExit("main.tex must define a plain-text \\title{...}")
+          title = match.group(1)
+          slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+          version = f"v{os.environ['GITHUB_RUN_NUMBER']}"
+          stem = f"{slug}-{version}"
+          Path("build/release").mkdir(parents=True, exist_ok=True)
+          shutil.copyfile("build/main.pdf", f"build/release/{stem}.pdf")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"title={title}\nversion={version}\nstem={stem}\n")
+
+      - name: Upload versioned PDF artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: ${{ steps.book.outputs.stem }}
+          path: build/release/${{ steps.book.outputs.stem }}.pdf
+          if-no-files-found: error
+          retention-days: 90
+          overwrite: true
+
+  publish:
+    name: Publish GitHub Release
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Download the built PDF
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: ${{ needs.build.outputs.stem }}
+          path: release
+
+      - name: Publish the versioned PDF
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BOOK_TITLE: ${{ needs.build.outputs.title }}
+          VERSION: ${{ needs.build.outputs.version }}
+          PDF_STEM: ${{ needs.build.outputs.stem }}
+        run: |
+          if gh release view "$VERSION" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$VERSION" "release/$PDF_STEM.pdf" \
+              --repo "$GITHUB_REPOSITORY" --clobber
+          else
+            printf 'Built from commit %s on main.\n\nWorkflow run: %s/%s/actions/runs/%s\n' \
+              "$GITHUB_SHA" "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" \
+              > release-notes.md
+            gh release create "$VERSION" "release/$PDF_STEM.pdf" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$BOOK_TITLE $VERSION" \
+              --notes-file release-notes.md
+          fi

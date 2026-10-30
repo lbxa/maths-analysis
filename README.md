@@ -19,6 +19,7 @@ Analysis II is reserved for a later course and is currently excluded from the bo
 - [Repository structure](#repository-structure)
 - [Homework placement map](#homework-placement-map)
 - [Build the notes](#build-the-notes)
+- [Published PDFs](#published-pdfs)
 - [Local customisation](#local-customisation)
 - [Contributing](#contributing)
 - [Historical context and portraits](#historical-context-and-portraits)
@@ -331,6 +332,28 @@ For Overleaf, upload the repository sources, select `main.tex` as the main
 document, and use pdfLaTeX. Run Make commands from the repository root;
 standalone homework files also support compilation from `problems/`.
 
+## Published PDFs
+
+The [Publish book PDF workflow](.github/workflows/publish-book.yml) runs on
+every push to `main`, including pull request merges. It installs the LaTeX
+dependencies and runs `make book`, including the bibliography and index passes.
+Only the main book is published.
+
+Each successful build publishes a [GitHub Release](https://github.com/lbxa/maths-analysis/releases)
+with an automatically numbered version (`v1`, `v2`, and so on, using the
+workflow run number). Failed runs can leave gaps in this sequence. The release
+tag points to the exact commit used to build the book, and its title includes
+the book title and version.
+
+The PDF filename is derived from `\title{...}` in `main.tex`, for example
+`introduction-to-mathematical-analysis-v1.pdf`. The same PDF is available as
+an artifact on the workflow run for 90 days; the release asset remains
+available after that artifact expires. Re-running a workflow keeps its version
+and replaces that version's artifact and release asset.
+
+Publication uses the built-in `GITHUB_TOKEN`, with `contents: write` granted
+only to the release job. No personal access token or extra secret is needed.
+
 ## Local customisation
 
 See [CUSTOMISATION.md](CUSTOMISATION.md) for TeXShop and LaTeX Workshop setup.
@@ -385,6 +408,12 @@ with Biber-generated author/year labels and an author/year/title-ordered
 bibliography. Publication details and links use structured BibLaTeX metadata.
 
 ## Changelog
+
+### 2026-10-30
+
+- Publish the main book as a versioned PDF through GitHub Actions whenever
+  changes land on `main`. Derive the PDF filename from the book title and
+  retain each version in GitHub Releases and as a workflow artifact.
 
 ### 2026-10-28
 
