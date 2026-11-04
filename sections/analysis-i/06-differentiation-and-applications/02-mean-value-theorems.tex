@@ -2,24 +2,170 @@
 \section{Mean value theorems}
 \label{sec:analysis-i:mean-value-theorems}
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 837--852.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-In addition to the new float types, there is a \docenvdef{fullwidth}
-environment that stretches across the main text block and the sidenotes
-area.
+% Source: images/LEC06/IMG_9354--IMG_9356.
+\begin{theorem}[Rolle's theorem]
+  \label{thm:analysis-i:rolle}
+  Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$,
+  \pendingreviewtext{where $a<b$}. If $f(a)=f(b)$, then there exists
+  $c\in(a,b)$ such that $f'(c)=0$.
+\end{theorem}
+\historynote{Rolle's 1691 \emph{D\'emonstration} concerns solving
+polynomial equations~\cite{Rolle1691}. The formulation here is a modern
+statement for differentiable functions, not a verbatim seventeenth-century
+theorem. Equal endpoint heights force a stationary point, making this a
+useful bridge from extrema to mean-value arguments.}
 
-\begin{Verbatim}
-\begin{fullwidth}
-Lorem ipsum dolor sit amet...
-\end{fullwidth}
-\end{Verbatim}
+\begin{pendingreview}
+\begin{proof}
+  If $f$ is constant, every interior point has derivative zero.
+  Otherwise, by \autoref{thm:analysis-i:extreme-value}, $f$ attains a
+  maximum and a minimum. Since the endpoint values agree and $f$ is
+  nonconstant, at least one of these extrema is attained at an interior
+  point $c$. Then \autoref{thm:analysis-i:interior-extremum} gives
+  $f'(c)=0$.
+\end{proof}
+\end{pendingreview}
 
-% Keep the rendered specimen inside the text column beside the portrait.
-\begingroup
-\small\itshape\lipsum[1]
-\par\endgroup
+\begin{theorem}[Mean value theorem]
+  \label{thm:analysis-i:mean-value}
+  \pendingreviewtext{Let $a<b$. Suppose $f$ is continuous on $[a,b]$
+  and differentiable on $(a,b)$.} There exists $c\in(a,b)$ such that
+  \[
+    f'(c)=\frac{f(b)-f(a)}{b-a}.
+  \]
+\end{theorem}
+\historynote{Cauchy's 1823 \emph{R\'esum\'e des le\c cons} develops
+differential calculus through derivatives and finite
+increments~\cite{Cauchy1823}. The mean-value method relates a finite
+change to a local slope, turning derivative information into bounds and
+monotonicity. This citation documents a historical treatment, without
+claiming sole discovery of the modern formulation.}
 
-\lipsum[7]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{proof}
+  Subtract the secant line by defining
+  \[
+    H(t)=f(t)-f(a)-\frac{f(b)-f(a)}{b-a}(t-a).
+  \]
+  This function is continuous on $[a,b]$, differentiable on $(a,b)$,
+  and satisfies $H(a)=H(b)=0$. By \autoref{thm:analysis-i:rolle}, some
+  $c\in(a,b)$ satisfies $H'(c)=0$. Therefore
+  \[
+    0=f'(c)-\frac{f(b)-f(a)}{b-a},
+  \]
+  which is the required equality.
+\end{proof}
+The geometry of both results is shown in
+\autoref{fig:analysis-i:mean-value-geometry}.
+\begin{figure*}
+  \centering
+  \input{figures/differentiation/mean-value-geometry}
+  \caption[Rolle and mean-value geometry.]{\pendingreviewtext{On the
+    left, equal endpoint heights give a horizontal tangent. On the right,
+    the tangent at $c$ is parallel to the secant through the endpoints.
+    These are schematic examples of the two theorems.}}
+  \label{fig:analysis-i:mean-value-geometry}
+\end{figure*}
+
+\subsection{An average-slope interpretation}
+% IMG_9354's integration picture motivates MVT; it is not its proof.
+\begin{pendingreview}
+If $f'$ is continuous on $[a,b]$, the fundamental theorem of calculus,
+assumed here and reserved for
+\autoref{sec:analysis-i:fundamental-theorem-of-calculus}, gives
+\[
+  \frac1{b-a}\int_a^b f'(x)\,dx=\frac{f(b)-f(a)}{b-a}.
+\]
+Thus the mean value theorem says that this average slope is attained
+at an interior point. The continuity of $f'$ is an additional hypothesis
+for this integral interpretation; the mean value theorem itself only
+requires differentiability on the open interval. A schematic illustration
+of average height appears in
+\autoref{fig:analysis-i:average-height}.
+\end{pendingreview}
+\begin{marginfigure}
+  \centering
+  \input{figures/differentiation/average-height}
+  \caption[Average height of a continuous graph.]{\pendingreviewtext{A
+    schematic continuous function $\phi$ and its average height
+    $\overline\phi=(b-a)^{-1}\int_a^b\phi(x)\,dx$ (dashed).}}
+  \label{fig:analysis-i:average-height}
+\end{marginfigure}
+
+\subsection{Derivative signs and monotonicity}
+\begin{corollary}
+  \label{thm:analysis-i:derivative-monotonicity}
+  \pendingreviewtext{Let $f$ be differentiable on an open interval $I$.}
+  If $f'(x)\ge0$ for every $x\in I$, then $f$ is nondecreasing on $I$.
+  \pendingreviewtext{If $f'(x)>0$ everywhere, it is strictly increasing.
+  The analogous statements with reversed inequalities also hold.}
+\end{corollary}
+\begin{pendingreview}
+\begin{proof}
+  For $x_1<x_2$ in $I$, differentiability implies continuity on
+  $[x_1,x_2]$. \autoref{thm:analysis-i:mean-value} gives a $c\in(x_1,x_2)$ with
+  $f(x_2)-f(x_1)=f'(c)(x_2-x_1)$. This difference is nonnegative when
+  $f'\ge0$, and positive when $f'>0$. Apply the same argument to $-f$
+  for the reversed inequalities.
+\end{proof}
+\end{pendingreview}
+% IMG_9354's nondecreasing shorthand mixes strict and non-strict signs.
+
+\begin{example}[Increasing exponential approximants]
+  \label{ex:analysis-i:increasing-euler-approximants}
+  Consider $F(x)=(1+1/x)^x$ for $x\ge1$. To study its increase, put
+  \[
+    H(x)=\ln F(x)=x\ln(1+1/x).
+  \]
+  The differentiation rules give
+  \[
+    H'(x)=\ln(1+1/x)-\frac1{x+1}.
+  \]
+  % IMG_9355 stops here with "Finish off later".
+  \begin{pendingreview}
+  To determine its sign, set
+  $\psi(u)=\ln(1+u)-u/(1+u)$ for $u\ge0$.
+  Then $\psi(0)=0$ and $\psi'(u)=u/(1+u)^2>0$ when $u>0$.
+  Applying \autoref{thm:analysis-i:mean-value} on $[0,u]$ gives
+  $\psi(u)>0$ for $u>0$.
+  Consequently $H'(x)=\psi(1/x)>0$, so $H$ is strictly increasing.
+  Since the exponential is increasing, so is $F=e^H$.
+  \end{pendingreview}
+\end{example}
+
+\subsection{The extended mean value theorem}
+\begin{theorem}[Cauchy's mean value theorem]
+  \label{thm:analysis-i:cauchy-mean-value}
+  \pendingreviewtext{Let $a<b$, and suppose $f$ and $g$ are continuous
+  on $[a,b]$ and differentiable on $(a,b)$.} There exists $c\in(a,b)$
+  such that
+  \[
+    f'(c)\bigl(g(b)-g(a)\bigr)
+      =g'(c)\bigl(f(b)-f(a)\bigr).
+  \]
+\end{theorem}
+\pendingreviewtext{Applying the ordinary mean value theorem separately
+to $f$ and $g$ gives two possibly different points. It does not show that
+they coincide. The extended theorem asserts a single common point; its
+proof uses one auxiliary function.}
+% IMG_9355 incorrectly identifies the two separate MVT points. IMG_9356
+% leaves the extended theorem's proof unfinished. The proof below is an
+% editorial addition requested by the author.
+\begin{pendingreview}
+\begin{proof}
+  Define
+  \[
+    H(t)=\bigl(g(b)-g(a)\bigr)\bigl(f(t)-f(a)\bigr)
+      -\bigl(f(b)-f(a)\bigr)\bigl(g(t)-g(a)\bigr).
+  \]
+  By the hypotheses on $f$ and $g$, the function $H$ is continuous on
+  $[a,b]$ and differentiable on $(a,b)$. Also, $H(a)=H(b)=0$.
+  Therefore \autoref{thm:analysis-i:rolle} supplies a point $c\in(a,b)$
+  with $H'(c)=0$. Differentiating gives
+  \[
+    \bigl(g(b)-g(a)\bigr)f'(c)
+      -\bigl(f(b)-f(a)\bigr)g'(c)=0,
+  \]
+  which is the required identity. No division by an endpoint difference
+  is needed, so the argument also covers zero endpoint differences.
+\end{proof}
+\end{pendingreview}

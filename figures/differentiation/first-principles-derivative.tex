@@ -1,0 +1,46 @@
+% A concrete secant-to-tangent construction for f(x)=x^2/2 at x=1.
+% Equal axis units preserve the slope geometry; all strokes inherit 0.5pt.
+\begin{tikzpicture}[interval diagram,x=1.2cm,y=1.2cm]
+  \begin{scope}
+    \node at (1.15,3.25) {A finite step};
+    \draw[->] (-.1,0)--(2.45,0) node[right=4pt] {$x$};
+    \draw[->] (0,-.1)--(0,2.65) node[above=4pt] {$y$};
+    \draw[->,domain=0:2.22,samples=60] plot (\x,{.5*\x*\x});
+    \draw[gray] (1,.5)--(2,2);
+    \draw[gray,dashed] (1,0)--(1,.5);
+    \draw[gray,dashed] (2,0)--(2,2);
+    \draw[gray,dashed] (1,.5)--(2,.5);
+    \node[below=6pt] at (1.5,.5) {$h$};
+    \node[right=6pt] at (2,1.25) {$\Delta f$};
+    \fill (0,0) circle[radius=1.6pt];
+    \fill (1,.5) circle[radius=1.6pt];
+    \fill (2,2) circle[radius=1.6pt];
+    \node[below left=4pt] at (0,0) {$0$};
+    \node[below=6pt] at (1,0) {$1$};
+    \node[below=6pt] at (2,0) {$1+h$};
+    \node[above left=6pt] at (1,.5) {$P$};
+    \node[above left=6pt] at (2,2) {$Q_h$};
+    \node at (1.2,-.9) {$\displaystyle\frac{\Delta f}{h}=1+\frac h2$};
+  \end{scope}
+  \begin{scope}[xshift=5cm]
+    \node at (1.15,3.25) {Approaching the tangent};
+    \draw[->] (-.1,0)--(2.45,0) node[right=4pt] {$x$};
+    \draw[->] (0,-.1)--(0,2.65) node[above=4pt] {$y$};
+    \foreach \h in {1,.5,.25} {
+      \draw[gray,domain=.77:2.22]
+        plot (\x,{.5+(1+.5*\h)*(\x-1)});
+      \fill[gray] ({1+\h},{.5*(1+\h)^2}) circle[radius=1.6pt];
+    }
+    \draw[dashed] (.67,.17)--(2.22,1.72);
+    \draw[->,domain=0:2.22,samples=60] plot (\x,{.5*\x*\x});
+    \fill (0,0) circle[radius=1.6pt];
+    \fill (1,.5) circle[radius=1.6pt];
+    \node[below left=4pt] at (0,0) {$0$};
+    \node[below=6pt] at (1,0) {$1$};
+    \node[above left=6pt] at (1,.5) {$P$};
+    \node[above left=6pt] at (2,2) {$Q_h$};
+    \node at (1.2,-.9)
+      {$\displaystyle\frac{\Delta f}{h}\longrightarrow1
+        \quad(h\to0^+)$};
+  \end{scope}
+\end{tikzpicture}

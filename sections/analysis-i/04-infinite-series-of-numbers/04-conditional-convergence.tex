@@ -59,3 +59,76 @@ In particular, taking $s=1$ gives the alternating harmonic series
 It converges by \autoref{ex:analysis-i:alternating-power-series}, but
 its absolute values form the divergent harmonic series. It is therefore
 conditionally convergent.
+
+\subsection{The Cauchy product}
+\historynote{Cauchy's 1821 \emph{Cours d'analyse} treats multiplication
+of series under convergence of their absolute values~\cite[ch.~VI]{Cauchy1821}.
+The problem is to justify collecting infinitely many pairwise products
+into a new single series. This supplies the coefficient rule used in
+power-series multiplication, including the exponential addition law.}
+% Editorial addition authorised by the HW06 topic-coverage request.
+\begin{pendingreview}
+Multiplying finite sums pairs every term from one sum with every term
+from the other. For infinite sums we must also justify how the resulting
+terms are grouped.
+
+\begin{definition}[Cauchy product]
+  \label{thm:analysis-i:cauchy-product}
+  The \emph{Cauchy product} of $\sum_{n=0}^{\infty}a_n$ and
+  $\sum_{n=0}^{\infty}b_n$ is $\sum_{n=0}^{\infty}c_n$, where
+  \[
+    c_n=\sum_{k=0}^{n}a_kb_{n-k}.
+  \]
+\end{definition}
+The coefficient $c_n$ collects all pairs whose indices add to $n$.
+The first terms are
+\[
+  c_0=a_0b_0,\qquad c_1=a_0b_1+a_1b_0,\qquad
+  c_2=a_0b_2+a_1b_1+a_2b_0.
+\]
+
+\begin{theorem}[Product of absolutely convergent series]
+  \label{thm:analysis-i:absolute-cauchy-product}
+  If $\sum a_n=A$ and $\sum b_n=B$ converge absolutely, their Cauchy
+  product converges absolutely and
+  \[
+    \sum_{n=0}^{\infty}\sum_{k=0}^{n}a_kb_{n-k}=AB.
+  \]
+\end{theorem}
+\begin{proof}
+  Put $U=\sum_{n=0}^{\infty}|a_n|$ and
+  $V=\sum_{n=0}^{\infty}|b_n|$. For each $N$,
+  \[
+    \sum_{n=0}^{N}|c_n|
+      \le\sum_{i+j\le N}|a_i|\,|b_j|\le UV.
+  \]
+  These absolute partial sums increase and are bounded, so they
+  converge by \autoref{thm:analysis-i:monotone-convergence}.
+
+  Set $A_N=\sum_{i=0}^{N}a_i$, $B_N=\sum_{j=0}^{N}b_j$, and
+  $C_N=\sum_{n=0}^{N}c_n$. The finite product $A_NB_N$ includes the
+  square of index pairs $0\le i,j\le N$, whereas $C_N$ includes the
+  triangle $i+j\le N$. Every pair in their difference has
+  $i>N/2$ or $j>N/2$. Consequently,
+  \[
+    |A_NB_N-C_N|
+      \le V\sum_{i>\lfloor N/2\rfloor}|a_i|
+        +U\sum_{j>\lfloor N/2\rfloor}|b_j|
+      \longrightarrow0.
+  \]
+  Since $A_NB_N\to AB$ by the product law for limits, $C_N\to AB$.
+\end{proof}
+
+Convergence of both factors alone is insufficient. To see the danger,
+take $a_n=b_n=(-1)^n/\sqrt{n+1}$. Each series converges by
+\autoref{ex:analysis-i:alternating-power-series}, after changing the
+starting index and sign, but
+\[
+  |c_n|=\sum_{k=0}^{n}\frac1{\sqrt{(k+1)(n-k+1)}}
+    \ge\frac{2(n+1)}{n+2}\ge1.
+\]
+The estimate follows from
+$(k+1)(n-k+1)\le((n+2)/2)^2$. Thus the product terms do not tend to
+zero and the product series diverges. Absolute convergence is a
+sufficient hypothesis that makes the preceding multiplication safe.
+\end{pendingreview}

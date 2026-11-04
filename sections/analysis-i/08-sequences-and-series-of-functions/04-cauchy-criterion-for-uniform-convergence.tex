@@ -2,4 +2,114 @@
 \section{Cauchy criterion for uniform convergence}
 \label{sec:analysis-i:cauchy-criterion-for-uniform-convergence}
 
-% Reserved for supplied material on the uniform Cauchy criterion.
+% Editorial completion authorised by the HW06 topic-coverage request.
+\begin{pendingreview}
+The Cauchy criterion tests convergence without first identifying the
+limit. For functions, the comparisons must hold at every input with
+the same index threshold.
+
+\begin{definition}[Uniformly Cauchy sequence]
+  \label{thm:analysis-i:uniformly-cauchy}
+  A sequence $f_n:D\to\R$ is \emph{uniformly Cauchy} if
+  \[
+    \begin{gathered}
+      \forall\varepsilon>0\quad\exists N\in\N\\
+      \forall m,n\ge N\quad\forall x\in D\quad
+      |f_m(x)-f_n(x)|<\varepsilon.
+    \end{gathered}
+  \]
+\end{definition}
+
+\begin{theorem}[Uniform Cauchy criterion]
+  \label{thm:analysis-i:uniform-cauchy-criterion}
+  A sequence of real-valued functions on $D$ converges uniformly if
+  and only if it is uniformly Cauchy.
+\end{theorem}
+\begin{proof}
+  If $f_n\to f$ uniformly, choose $N$ so that
+  $|f_n(x)-f(x)|<\varepsilon/2$ for every $n\ge N$ and $x\in D$.
+  Then the triangle inequality gives
+  $|f_m(x)-f_n(x)|<\varepsilon$ for all $m,n\ge N$ and $x\in D$.
+
+  Conversely, suppose $(f_n)$ is uniformly Cauchy. At each fixed $x$,
+  the sequence $(f_n(x))$ is Cauchy in $\R$, so completeness gives a
+  finite limit $f(x)$. Given $\varepsilon>0$, choose $N$ from the
+  uniform Cauchy property with tolerance $\varepsilon/2$. For fixed
+  $n\ge N$ and $x\in D$, let $m\to\infty$ in that estimate to get
+  \[
+    |f(x)-f_n(x)|\le\frac{\varepsilon}{2}<\varepsilon.
+  \]
+  The index $N$ is independent of $x$, which proves uniform convergence.
+\end{proof}
+
+For a sequence in $C[a,b]$, the condition is precisely that
+$\|f_m-f_n\|_\infty\to0$ as $m,n\to\infty$. The limit belongs to
+$C[a,b]$ by \autoref{thm:analysis-i:uniform-limit-continuity}.
+Thus Cauchy sequences for the supremum norm have limits in this same
+normed space.
+
+\subsection{The criterion for a series}
+Apply \autoref{thm:analysis-i:uniform-cauchy-criterion} to the partial
+sums in \autoref{thm:analysis-i:function-series}. The series
+$\sum_{n=0}^{\infty}f_n$ converges uniformly on $D$ exactly when
+\[
+  \begin{gathered}
+    \forall\varepsilon>0\quad\exists N\in\N\\
+    \forall m>n\ge N\quad\forall x\in D\quad
+    \left|\sum_{k=n+1}^{m}f_k(x)\right|<\varepsilon.
+  \end{gathered}
+\]
+The small quantity is the sum of a whole tail, rather than just one
+term of the series.
+
+\subsection{The Weierstrass majorant test}
+\begin{theorem}[Weierstrass $M$-test]
+  \label{thm:analysis-i:weierstrass-m-test}
+  Suppose $f_n:D\to\R$ and there are numbers $M_n\ge0$ such that
+  \[
+    \forall x\in D\quad |f_n(x)|\le M_n,\qquad
+    \sum_{n=0}^{\infty}M_n<\infty.
+  \]
+  Then both $\sum f_n$ and $\sum |f_n|$ converge uniformly on $D$.
+  In particular, $\sum f_n(x)$ converges absolutely at every input.
+  Writing $S=\sum f_n$ and $S_N=\sum_{n=0}^N f_n$, we have
+  \[
+    \forall x\in D\quad
+    |S(x)-S_N(x)|\le\sum_{n=N+1}^{\infty}M_n.
+  \]
+\end{theorem}
+\begin{proof}
+  The convergent numerical series $\sum M_n$ has arbitrarily small
+  tails. For $m>n$ and every $x\in D$,
+  \[
+    \left|\sum_{k=n+1}^{m}f_k(x)\right|
+      \le\sum_{k=n+1}^{m}|f_k(x)|
+      \le\sum_{k=n+1}^{m}M_k.
+  \]
+  The same estimate holds with $f_k$ replaced by $|f_k|$. The uniform
+  Cauchy criterion therefore proves both uniform-convergence claims.
+  Letting $m\to\infty$ in the estimate with $n=N$ gives the stated
+  remainder bound. Absolute convergence at each input also follows
+  from comparison with $\sum M_n$.
+\end{proof}
+
+The majorant $M_n$ must be independent of $x$ on the whole domain under
+consideration. Once it is found, a numerical tail estimate controls all
+functional errors at once. If every $f_n$ is continuous on $[a,b]$,
+its partial sums are continuous; the sum is then continuous by
+\autoref{thm:analysis-i:uniform-limit-continuity}.
+
+\begin{example}[A uniform geometric tail]
+  For $0<r<1$ and $x\in[-r,r]$, we have $|x^n|\le r^n$. The $M$-test
+  proves absolute and uniform convergence of $\sum_{n=0}^{\infty}x^n$
+  there, with the explicit estimate
+  \[
+    \left|\frac1{1-x}-\sum_{n=0}^{N}x^n\right|
+      \le\frac{r^{N+1}}{1-r}.
+  \]
+  On the larger interval $(-1,1)$ the series is pointwise absolutely
+  convergent but is not uniformly convergent. Uniform convergence
+  would force $x^n$ to tend uniformly to zero, whereas
+  $\sup_{|x|<1}|x^n|=1$ for every $n$.
+\end{example}
+\end{pendingreview}

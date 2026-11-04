@@ -97,6 +97,16 @@ In reader-facing prose, headings, captions, and front matter, describe
 mathematical topics and refer to chapters or sections. Preserve necessary
 statements about assumptions, omitted proofs, and prerequisite dependencies.
 
+Write the mathematical exposition as a self-contained book. Do not refer
+readers to unpublished class discussions or handwritten lecture notes with
+phrases such as "the lecture explains", "the notes state", or "as we did in
+class", and do not cite those notes as if they were a published source.
+Credit Professor Yisong Yang of NYU Courant in the acknowledgements instead.
+Keep original classroom wording and source provenance in non-rendered TeX
+comments and internal README records. Retain explicit assumptions and proof
+omissions in mathematical terms, and preserve citations to identifiable,
+retrievable published sources, including external published lecture notes.
+
 Present imported lecture questions and tasks as examples with mathematical
 titles, using the shared `example` environment rather than headings such as
 "A question from the lecture". Give the working needed to make the example

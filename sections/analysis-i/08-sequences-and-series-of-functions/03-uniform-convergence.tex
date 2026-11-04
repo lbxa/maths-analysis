@@ -6,7 +6,9 @@ needed stronger convergence hypotheses. He returned to the question
 in 1853~\cite[ch.~VI]{Cauchy1821}\cite{Cauchy1853}.
 The modern uniform requirement supplies one error bound for every
 point, exactly what the continuity-preservation proof below needs.
-This distinction also matters when exchanging limits and integration.}
+The majorant bound in \autoref{thm:analysis-i:weierstrass-m-test} gives
+a practical way to obtain that uniform control. This distinction also
+matters when exchanging limits and integration.}
 
 % Source: LEC05/IMG_9260, independence of N from x;
 % IMG_9261, continuity of the uniform limit and epsilon/3 proof.
@@ -73,3 +75,149 @@ simultaneously for every input.
 \end{proof}
 
 \input{problems/hw05/09-pointwise-not-uniform/problem}
+
+\subsection{The normed space \texorpdfstring{$C[a,b]$}{C[a,b]}}
+\begin{pendingreview}
+The notation $C[a,b]$ denotes the continuous real-valued functions on
+$[a,b]$, where $a<b$. Pointwise addition and scalar multiplication,
+\[
+  (f+g)(x)=f(x)+g(x),\qquad (cf)(x)=cf(x),
+\]
+make this a real vector space. Continuity is preserved by these
+operations.
+
+\begin{definition}[Norm and supremum norm]
+  \label{thm:analysis-i:supremum-norm}
+  A \emph{norm} on a real vector space assigns a number $\|v\|$ to each
+  vector, with
+  \[
+    \begin{gathered}
+      \|v\|\ge0,\qquad \|v\|=0\ \Longleftrightarrow\ v=0,\\
+      \|cv\|=|c|\,\|v\|,\qquad
+      \|u+v\|\le\|u\|+\|v\|.
+    \end{gathered}
+  \]
+  A vector space equipped with a norm is a \emph{normed space}.
+  On $C[a,b]$ the \emph{supremum norm} is
+  \[
+    \|h\|_\infty=\sup_{x\in[a,b]}|h(x)|
+      =\max_{x\in[a,b]}|h(x)|.
+  \]
+\end{definition}
+
+The maximum exists and is finite by
+\autoref{thm:analysis-i:extreme-value}. Nonnegativity, definiteness,
+and homogeneity follow from the corresponding properties of absolute
+value. For the triangle inequality, every $x\in[a,b]$ satisfies
+\[
+  |f(x)+g(x)|\le |f(x)|+|g(x)|
+    \le\|f\|_\infty+\|g\|_\infty.
+\]
+Taking the maximum proves the remaining norm axiom.
+
+The distance $\|f-g\|_\infty$ is the largest vertical separation of the
+two graphs at the same input. Thus
+\[
+  f_n\longrightarrow f\text{ uniformly on }[a,b]
+  \quad\Longleftrightarrow\quad
+  \|f_n-f\|_\infty\longrightarrow0.
+\]
+For example, $f_n(x)=x/n$ on $[0,1]$ has distance $1/n$ from the zero
+function. One bound controls its error at every input.
+\end{pendingreview}
+
+\subsection{Uniform convergence and arithmetic operations}
+\begin{pendingreview}
+In the next question, membership in $C[a,b]$ is essential
+in part (i); on the entire real line a continuous function need not be
+bounded.
+\end{pendingreview}
+\input{problems/hw06/09-uniform-algebra/problem}
+
+\subsection{A further moving-input example}
+\begin{pendingreview}
+The following question belongs to the pointwise/uniform distinction.
+Its prescribed hint deliberately refers forward to
+\autoref{ex:hw06:arbitrary-base-exponential} and
+\autoref{ex:hw06:exponential-dominates-powers} in
+\autoref{sec:analysis-i:power-series}. Return to that hint after the
+exponential exercises; the alternative maximum calculation uses
+\autoref{sec:analysis-i:differentiation}.
+\end{pendingreview}
+\input{problems/hw06/07-moving-peaks/problem}
+
+\subsection{Equicontinuity}
+% Expanded editorial treatment authorised by the HW06 coverage request.
+\begin{pendingreview}
+\begin{definition}[Equicontinuity]
+  \label{thm:analysis-i:equicontinuity}
+  A family $(f_n)$ on $[a,b]$ is \emph{equicontinuous} if, for each
+  $t\in[a,b]$ and $\varepsilon>0$, there is a $\delta>0$ such that
+  \[
+    \forall n\in\N\quad\forall x\in[a,b]\quad
+    |x-t|<\delta\ \Longrightarrow\ |f_n(x)-f_n(t)|<\varepsilon.
+  \]
+  The same $\delta$ works for every $n$, although it may depend on
+  $t$ and $\varepsilon$.
+\end{definition}
+
+Individual continuity allows the choice of $\delta$ to change with
+$n$. Equicontinuity requires a shared choice. For example, the functions
+$f_n(x)=nx$ on $[0,1]$ are individually continuous but are not
+equicontinuous at zero. For any $\delta>0$, fix
+$0<x<\min\{\delta,1\}$ and then choose $n>1/x$. The input lies within
+$\delta$ of zero, but $|f_n(x)-f_n(0)|>1$.
+
+\begin{proposition}[Uniform convergence gives equicontinuity]
+  \label{thm:analysis-i:uniform-convergence-equicontinuity}
+  If a sequence in $C[a,b]$ converges uniformly, it is equicontinuous.
+\end{proposition}
+\begin{proof}
+  Its limit $f$ is continuous by
+  \autoref{thm:analysis-i:uniform-limit-continuity}. Fix $t\in[a,b]$
+  and $\varepsilon>0$. Choose $N$ so that
+  $\|f_n-f\|_\infty<\varepsilon/3$ for $n\ge N$. Continuity of $f$
+  at $t$ gives a $\delta_0>0$ for which
+  $|f(x)-f(t)|<\varepsilon/3$ when $|x-t|<\delta_0$.
+  For each of the finitely many indices $n<N$, continuity of $f_n$
+  at $t$ supplies a $\delta_n>0$ with
+  $|f_n(x)-f_n(t)|<\varepsilon$ when $|x-t|<\delta_n$.
+  Take the minimum of these positive numbers. For the early indices
+  the desired estimate is already valid; for $n\ge N$ it follows from
+  \[
+    |f_n(x)-f_n(t)|
+      \le |f_n(x)-f(x)|+|f(x)-f(t)|+|f(t)-f_n(t)|
+      <\varepsilon.
+  \]
+\end{proof}
+
+The converse fails. The constant functions $f_n(x)=(-1)^n$ are
+equicontinuous with any $\delta>0$, but do not even converge pointwise.
+
+\begin{proposition}[A shared modulus on a closed interval]
+  \label{thm:analysis-i:uniform-equicontinuity}
+  If $(f_n)$ is equicontinuous on $[a,b]$, then for every
+  $\varepsilon>0$ there is $\delta>0$ such that
+  \[
+    \begin{gathered}
+      \forall n\in\N\quad\forall x,t\in[a,b]\\
+      |x-t|<\delta\ \Longrightarrow\ |f_n(x)-f_n(t)|<\varepsilon.
+    \end{gathered}
+  \]
+  Here $\delta$ is independent of both $n$ and the base point $t$.
+\end{proposition}
+\begin{proof}
+  Otherwise there are $\varepsilon_0>0$, indices $n_k$, and points
+  $x_k,t_k\in[a,b]$ such that $|x_k-t_k|<1/k$ and
+  $|f_{n_k}(x_k)-f_{n_k}(t_k)|\ge\varepsilon_0$.
+  By \autoref{thm:analysis-i:bolzano-weierstrass}, a subsequence of
+  $(t_k)$ converges to some $t\in[a,b]$; the corresponding $(x_k)$
+  also converges to $t$. Equicontinuity at $t$, with tolerance
+  $\varepsilon_0/3$, makes both
+  $|f_{n_k}(x_k)-f_{n_k}(t)|$ and
+  $|f_{n_k}(t_k)-f_{n_k}(t)|$ smaller than $\varepsilon_0/3$
+  along the late part of that subsequence. The triangle inequality
+  contradicts their separation by at least $\varepsilon_0$.
+\end{proof}
+\end{pendingreview}
+\input{problems/hw06/08-equicontinuous-boundedness/problem}

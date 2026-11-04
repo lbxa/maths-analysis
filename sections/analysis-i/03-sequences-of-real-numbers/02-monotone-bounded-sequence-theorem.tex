@@ -40,7 +40,42 @@ to identify the limit as $e$.
   \]
 \end{proposition}
 
-We use this inequality, abbreviated AM--GM, without proof.
+% Editorial proof added at the author's request. No calculus is used.
+\begin{pendingreview}
+\begin{proof}
+  We prove the equivalent product inequality
+  \[
+    a_1\cdots a_k\le\left(\frac{a_1+\cdots+a_k}{k}\right)^k.
+  \]
+  The case $k=1$ is equality. For two positive numbers $u,v$, the
+  inequality $(u-v)^2\ge0$ gives
+  \[
+    uv\le\left(\frac{u+v}{2}\right)^2.
+  \]
+  Suppose the product inequality holds for $n$ numbers. For $2n$
+  numbers, let $U$ and $V$ be the arithmetic means of the first and
+  second groups of $n$ numbers. Apply the $n$-variable inequality to
+  each group and then the two-variable inequality to $U,V$. This gives
+  \[
+    a_1\cdots a_{2n}\le U^nV^n
+      \le\left(\frac{U+V}{2}\right)^{2n}.
+  \]
+  Since $(U+V)/2$ is the mean of all $2n$ numbers, induction proves the
+  product inequality whenever the number of terms is a power of two.
+
+  Now let $k\ge1$ be arbitrary, and put
+  $M=(a_1+\cdots+a_k)/k>0$. Choose a power of two $m\ge k$, and append
+  $m-k$ copies of $M$ to the original list. The mean of these $m$
+  numbers is still $M$, so the case just proved gives
+  \[
+    (a_1\cdots a_k)M^{m-k}\le M^m.
+  \]
+  Divide by the positive number $M^{m-k}$ and take the increasing
+  positive $k$th root to obtain the stated inequality.
+\end{proof}
+\end{pendingreview}
+
+We abbreviate this inequality as AM--GM.
 
 \begin{example}[Convergence using AM--GM]
   \label{ex:analysis-i:binomial-sequence-am-gm}

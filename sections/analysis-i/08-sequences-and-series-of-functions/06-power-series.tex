@@ -59,6 +59,48 @@ from \autoref{sec:analysis-i:comparison-tests} apply.
 
 An infinite radius means absolute convergence for every real $x$.
 
+\begin{pendingreview}
+\subsection{Computing the radius and controlling interior intervals}
+For the series $\sum c_nx^n$, set
+\[
+  L=\limsup_{n\to\infty}|c_n|^{1/n}.
+\]
+Then
+\[
+  R=\frac1L,\qquad \frac10=+\infty,\qquad \frac1{+\infty}=0.
+\]
+Indeed, for $x\ne0$ the upper limit of the $n$th roots of the terms
+is $|x|L$. A value below $1$ gives absolute convergence by
+\autoref{thm:analysis-i:root-test}. A value above $1$ gives infinitely
+many terms whose absolute values exceed a fixed geometric sequence
+with ratio greater than $1$, so the terms fail to tend to zero.
+These arguments also cover $L=0$ and $L=+\infty$.
+If the coefficients are eventually nonzero and
+$|c_{n+1}/c_n|\to\ell$, the ratio test gives the alternative formula
+$R=1/\ell$, with the same conventions. Neither formula decides the
+finite endpoints.
+
+\begin{proposition}[Uniform convergence inside the radius]
+  \label{thm:analysis-i:power-series-local-uniform}
+  If a power series has radius $R>0$, it converges absolutely and
+  uniformly on every $[-r,r]$ with $0\le r<R$. Its sum is continuous
+  on $(-R,R)$.
+\end{proposition}
+\begin{proof}
+  For $0<r<R$, set $M_n=|c_n|r^n$. The numerical series $\sum M_n$
+  converges by the radius property, and $|c_nx^n|\le M_n$ for every
+  $x\in[-r,r]$. Apply \autoref{thm:analysis-i:weierstrass-m-test}.
+  At $r=0$ only the constant term remains. Each partial sum is a
+  polynomial, hence continuous, so
+  \autoref{thm:analysis-i:uniform-limit-continuity} makes the sum
+  continuous on every such interval. Every point of $(-R,R)$ lies
+  in the interior of one of them.
+\end{proof}
+Uniform convergence on each smaller closed interval need not mean
+uniform convergence on the whole open interval. The geometric-series
+example following \autoref{thm:analysis-i:weierstrass-m-test} shows this.
+\end{pendingreview}
+
 \subsection{The geometric power series}
 
 The series $\sum_{n=0}^{\infty}x^n$ has radius $R=1$, since
@@ -67,6 +109,32 @@ for $|x|<1$. Neither endpoint is included. At $x=1$ every term is $1$;
 at $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
 terms fail to tend to zero.
 % IMG_9238's annotation R=|x| confuses the term ratio with the radius.
+
+\begin{pendingreview}
+\subsection{Algebraic and transcendental functions}
+\begin{definition}[Algebraic and transcendental functions]
+  \label{thm:analysis-i:algebraic-function}
+  A real-valued function $f$ on a nonempty open interval $I$ is
+  \emph{algebraic} if there is a nonzero polynomial $P(X,Y)$ with
+  real coefficients such that
+  \[
+    \forall x\in I\quad P(x,f(x))=0.
+  \]
+  A function for which no such polynomial exists is
+  \emph{transcendental}.
+\end{definition}
+For a polynomial function $f(x)=p(x)$, take $P(X,Y)=Y-p(X)$.
+For $f(x)=p(x)/q(x)$ on an interval where $q$ never vanishes, take
+$P(X,Y)=q(X)Y-p(X)$. The root function $f(x)=\sqrt{x}$ on $(0,\infty)$
+is algebraic because $f(x)^2-x=0$.
+
+The classification concerns a polynomial relation between input and
+output. Here the coefficients may be arbitrary real numbers. Thus even
+the constant function $f(x)=\pi$ is algebraic, using $Y-\pi=0$,
+although $\pi$ is a transcendental number over $\Q$.
+The exponential and logarithm below are transcendental functions on
+their full real domains, as we will prove after constructing them.
+\end{pendingreview}
 
 \subsection{The exponential series}
 
@@ -83,10 +151,144 @@ For fixed $x\ne0$, the absolute successive-term ratio is
 The ratio test proves absolute convergence for every such $x$.
 At $x=0$, only the constant term remains, so $E(0)=1$.
 Thus this series has infinite radius of convergence and $E_N(x)\to E(x)$
-for every fixed real $x$. The lecture identifies $E(x)$ with $e^x$;
-the properties of the exponential function are not proved by this
-convergence argument. At $x=1$ the sum is the earlier factorial-series
-definition of $e$.
+for every fixed real $x$. We write $E(x)=e^x$.
+The remaining properties follow from uniform convergence and
+series multiplication, as shown below. At $x=1$ the sum is the earlier
+factorial-series definition of $e$.
+
+\subsection{Exponential and logarithmic properties}
+\begin{pendingreview}
+\begin{theorem}[The exponential function]
+  \label{thm:analysis-i:exponential-properties}
+  The series $E(x)=\sum_{n=0}^{\infty}x^n/n!$ defines a continuous,
+  strictly increasing bijection from $\R$ onto $(0,\infty)$. It satisfies
+  \[
+    E(0)=1,\qquad E(1)=e,\qquad E(x+y)=E(x)E(y),
+  \]
+  and
+  \[
+    E(-x)=\frac1{E(x)},\qquad
+    \lim_{x\to\infty}E(x)=+\infty,\qquad
+    \lim_{x\to-\infty}E(x)=0.
+  \]
+\end{theorem}
+\begin{proof}
+  On every $[-r,r]$, the bounds $|x^n/n!|\le r^n/n!$ have a
+  convergent numerical sum by the ratio test. By
+  \autoref{thm:analysis-i:weierstrass-m-test} and
+  \autoref{thm:analysis-i:uniform-limit-continuity}, $E$ is
+  continuous there, hence on $\R$. Its values at zero and one follow
+  directly from the series and the earlier definition of $e$.
+
+  Both exponential series converge absolutely. By
+  \autoref{thm:analysis-i:absolute-cauchy-product}, their product is
+  the series whose $n$th coefficient is
+  \[
+    \sum_{k=0}^{n}\frac{x^ky^{n-k}}{k!(n-k)!}
+      =\frac1{n!}\sum_{k=0}^{n}\binom nk x^ky^{n-k}
+      =\frac{(x+y)^n}{n!}.
+  \]
+  The finite binomial theorem therefore gives $E(x)E(y)=E(x+y)$.
+  Taking $y=-x$ gives $E(x)E(-x)=1$, so neither factor is zero.
+  Also $E(x)=E(x/2)^2>0$.
+
+  If $h>0$, the series gives $E(h)\ge1+h>1$. Hence
+  $E(x+h)=E(x)E(h)>E(x)$, proving strict increase.
+  For $x\ge0$, the same bound $E(x)\ge1+x$ gives divergence to
+  $+\infty$. The reciprocal identity gives the limit zero at
+  $-\infty$. Continuity and \autoref{thm:analysis-i:intermediate-value}
+  now show that every positive value is attained, and strict increase
+  gives uniqueness.
+\end{proof}
+
+\begin{definition}[Natural logarithm and positive-base powers]
+  \label{thm:analysis-i:logarithm-real-powers}
+  The \emph{natural logarithm} is the inverse function
+  $\ln:(0,\infty)\to\R$ of $E$. We write $e^x=E(x)$, and for a
+  positive base $a$ and real exponent $r$ define
+  \[
+    a^r=E(r\ln a).
+  \]
+\end{definition}
+The inverse is continuous by
+\autoref{thm:analysis-i:continuous-inverse}, applied on closed
+subintervals of $\R$, and is strictly increasing. Its defining identities
+and endpoint limits are
+\[
+  \begin{gathered}
+    \ln(e^x)=x,\qquad e^{\ln t}=t\quad(t>0),\\
+    \ln1=0,\qquad \ln e=1,\\
+    \lim_{t\to0^+}\ln t=-\infty,\qquad
+    \lim_{t\to\infty}\ln t=+\infty.
+  \end{gathered}
+\]
+For the endpoint limits, compare $t$ with $E(A)$ for any fixed real
+$A$ and use the strict increase of the inverse.
+
+For $u,v>0$, the addition law gives
+$E(\ln u+\ln v)=uv$. Applying the inverse, and then using the
+reciprocal identity, proves
+\[
+  \ln(uv)=\ln u+\ln v,\qquad
+  \ln(u/v)=\ln u-\ln v.
+\]
+The definition of powers consequently gives, for $a,b>0$ and
+$r,s\in\R$,
+\[
+  \begin{gathered}
+    a^0=1,\qquad a^{r+s}=a^ra^s,\qquad
+    \ln(a^r)=r\ln a,\\
+    (a^r)^s=a^{rs},\qquad (ab)^r=a^rb^r.
+  \end{gathered}
+\]
+For rational $r=m/n$, the positive number $E(r\ln a)$ has $n$th
+power $a^m$, so uniqueness of positive roots identifies it with the
+earlier rational power. The real-exponent definition therefore extends
+that construction. Continuity of $E$ and $\ln$ makes $a^r$ continuous
+in each variable on its domain. As a function of $r$ it is strictly
+increasing for $a>1$, constant for $a=1$, and strictly decreasing for
+$0<a<1$, according to the sign of $\ln a$.
+
+\begin{example}[Why the exponential and logarithm are transcendental]
+  Suppose a nonzero polynomial relation held for $E$ on $\R$. Write it
+  as $\sum_{k=0}^{m}p_k(x)E(x)^k=0$, with $p_m$ a nonzero polynomial.
+  A relation with $m=0$ would already make a nonzero polynomial vanish
+  everywhere, which is impossible. For $m\ge1$, division by $E(x)^m$
+  gives
+  \[
+    p_m(x)=-\sum_{k=0}^{m-1}p_k(x)E(-(m-k)x).
+  \]
+  Each term on the right tends to zero as $x\to\infty$. Indeed, if
+  $d$ is the degree of a nonzero $p_k$, choose an integer $N>d$.
+  For $x\ge1$, there is a constant $C$ with $|p_k(x)|\le Cx^d$,
+  while the positive-term series gives, for $c=m-k>0$,
+  \[
+    E(cx)\ge\frac{(cx)^N}{N!},\qquad
+    |p_k(x)|E(-cx)\le\frac{CN!}{c^N}x^{d-N}\longrightarrow0.
+  \]
+  This would make $p_m(x)\to0$, which no nonzero polynomial can do
+  as $x\to\infty$. Thus $E$ is transcendental on $\R$.
+
+  If a nonzero polynomial $P$ satisfied $P(t,\ln t)=0$ for all $t>0$,
+  substituting $t=E(x)$ would give $P(E(x),x)=0$ for every real $x$.
+  Interchanging the two polynomial variables produces a forbidden
+  polynomial relation for $E$. Hence $\ln$ is transcendental on
+  $(0,\infty)$ as well. This concerns the whole function; for example,
+  its individual value $E(0)=1$ is rational.
+\end{example}
+
+These properties supply the exponential and logarithmic background for
+the following exercises and for the derivative calculations in
+\autoref{sec:analysis-i:differentiation}.
+\end{pendingreview}
+\input{problems/hw06/01-exponential-continuity/problem}
+\input{problems/hw06/02-arbitrary-base-exponential/problem}
+\input{problems/hw06/04-exponential-scaling/problem}
+\input{problems/hw06/05-logarithm-power-law/problem}
+
+\subsection{Exponential and logarithmic limits}
+\input{problems/hw06/03-exponential-dominates-powers/problem}
+\input{problems/hw06/06-logarithmic-boundary-limit/problem}
 
 \subsection{A family with different endpoints}
 
@@ -144,3 +346,8 @@ Use the series tests for the interior and exterior, then examine
 absolute convergence at each endpoint separately.
 
 \input{problems/hw04/07-scaled-power-series/problem}
+
+The next question composes a power series with a rational function.
+Check the domain of that rational function as well as the convergence
+interval of the series in its own variable.
+\input{problems/hw06/10-composed-power-series/problem}

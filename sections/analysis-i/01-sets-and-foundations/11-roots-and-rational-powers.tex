@@ -5,8 +5,8 @@
 \section{Roots and rational powers}
 \label{sec:analysis-i:roots-and-powers}
 
-\newthought{An inverse function needs a bijection.} In the lecture's
-notation, $\R_+=[0,\infty)$ includes zero. For $n\in\N$, we will prove
+\newthought{An inverse function needs a bijection.} We use the notation
+$\R_+=[0,\infty)$, including zero. For $n\in\N$, we will prove
 that $x\mapsto x^n$ is a bijection from $\R_+$ to itself. Only after that
 proof can we define $x^{1/n}$ as its inverse.
 
@@ -89,8 +89,8 @@ when the input moves a short distance.
 \end{proof}
 We may now define $y^{1/n}$ to be this unique nonnegative root.\marginnote{This
 proof uses completeness and an algebraic estimate. It does not require
-continuity or the intermediate value theorem, which come later in the
-course. The two perturbations rule out being below and above $y$.} The inverse
+continuity or the intermediate value theorem, developed in
+\autoref{ch:analysis-i:continuity}. The two perturbations rule out being below and above $y$.} The inverse
 is strictly increasing too. Indeed, if $u<v$ but $u^{1/n}\geq v^{1/n}$,
 taking $n$th powers contradicts $u<v$.
 
@@ -148,6 +148,8 @@ of the fraction gives the same number.
 Thus positive rational powers have a consistent meaning. At zero they
 equal zero; for $x>0$, negative rational powers can subsequently be defined
 by reciprocals. Real exponents require a further limiting construction.
+\pendingreviewtext{The exponential series supplies this extension in
+\autoref{thm:analysis-i:logarithm-real-powers}.}
 
 For the next exercise, $\Q_+$ denotes the positive rational numbers,
 and $\R_+=[0,\infty)$ as above. Its second part revisits the equivalent

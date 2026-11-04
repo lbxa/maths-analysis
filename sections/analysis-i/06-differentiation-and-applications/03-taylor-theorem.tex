@@ -11,11 +11,19 @@ This is fundamental in approximation and numerical error estimates. See \autoref
 \historyportraitpair{taylor}{Brook Taylor}{PortraitTaylor}{lagrange}{Joseph-Louis Lagrange}{PortraitLagrange}{taylor-lagrange}
 
 
-The following statement records the tool needed for the exponential
-interpretation of the factorial series. Its proof will be developed with
-the differentiation lectures.
+% Source: images/LEC06/IMG_9357. No proof of Taylor's theorem is supplied.
+\subsection{Higher derivatives}
+Successive differentiation gives $f'$, $f''$, and more generally $f^{(n)}$.
+\pendingreviewtext{Write $f^{(0)}=f$. A function belongs to $C^n[a,b]$
+when its derivatives through order $n$ exist in the interior and extend
+continuously to the endpoints.} In particular, $C^0[a,b]=C[a,b]$.
+
+\subsection{Taylor expansion and remainder}
+The following statement gives a polynomial approximation together with a
+finite error term.
 
 \begin{theorem}[Taylor's theorem with Lagrange remainder]
+  \label{thm:analysis-i:taylor-lagrange}
   Suppose $f$ has $n+1$ continuous derivatives on an interval containing
   the segment between $a$ and $x$, where $n\geq0$ and $x\ne a$.
   There is a point $\xi$ strictly between $a$ and $x$ such that
@@ -25,14 +33,55 @@ the differentiation lectures.
   \]
 \end{theorem}
 
+% Editorial proof added at the author's request; the source supplies only
+% the theorem statement. Repeated Rolle avoids an integration dependency.
+\begin{pendingreview}
+\begin{proof}
+  Let
+  \[
+    P_n(t)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(t-a)^k,
+    \qquad R=f(x)-P_n(x).
+  \]
+  Subtract a correction chosen to make the error vanish at $x$, by setting
+  \[
+    H(t)=f(t)-P_n(t)-R\frac{(t-a)^{n+1}}{(x-a)^{n+1}}.
+  \]
+  The denominator is nonzero because $x\ne a$. Differentiating the
+  polynomials gives $P_n^{(j)}(a)=f^{(j)}(a)$ for $0\le j\le n$.
+  The correction and its first $n$ derivatives vanish at $a$, so
+  \[
+    H(x)=0,\qquad H^{(j)}(a)=0\quad(0\le j\le n).
+  \]
+
+  Apply \autoref{thm:analysis-i:rolle} between $a$ and $x$ to obtain
+  a point $c_1$ with $H'(c_1)=0$. If $n\ge1$, apply it to $H'$
+  between $a$ and $c_1$, using $H'(a)=0$, to obtain $c_2$ with
+  $H''(c_2)=0$. Continuing in this way gives, after $n+1$ applications,
+  a point $\xi$ strictly between $a$ and $x$ with $H^{(n+1)}(\xi)=0$.
+  The assumed continuity of the derivatives and their differentiability
+  in the interior justify each application. This reasoning works on
+  either side of $a$ and includes $n=0$, when only one application is needed.
+
+  Since $P_n^{(n+1)}=0$, the final equality becomes
+  \[
+    0=f^{(n+1)}(\xi)-R\frac{(n+1)!}{(x-a)^{n+1}}.
+  \]
+  Solving for $R=f(x)-P_n(x)$ gives
+  \[
+    f(x)=P_n(x)+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1},
+  \]
+  as required.
+\end{proof}
+\end{pendingreview}
+
 \subsection{The factorial series and the exponential function}
 \autoref{ex:hw02:factorial-sequence} identified the supremum of the
 factorial partial sums using their series definition of $e$.
-Once the exponential function is available, Taylor's theorem gives
+Once the exponential function is available, \autoref{thm:analysis-i:taylor-lagrange} gives
 another identification of the same limit.
 
 The exponential function has value $1$ at zero, and each derivative
-equals the same continuous function. Apply Taylor's theorem about $0$
+equals the same continuous function. Apply \autoref{thm:analysis-i:taylor-lagrange} about $0$
 and evaluate at $1$ to obtain
 \[
   \exp(1)=\sum_{k=0}^{n}\frac1{k!}

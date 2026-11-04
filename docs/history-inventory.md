@@ -45,6 +45,7 @@ and later digitisation.
 | 4.2 | Ratio and root tests; power-series estimates | Cauchy 1821, chapter VI | New note distinguishes classical estimates from present limsup formulations. |
 | 4.3 | Dirichlet test | Dirichlet 1829 | New cancellation/Fourier motivation; general test statement still reserved. |
 | 4.4 | Conditional convergence; rearrangement | Riemann 1854 / published 1867, §3 | New note on order of summation and posthumous publication. |
+| 4.4 | Cauchy product | Cauchy 1821, chapter VI | Pending multiplication theorem and proof, with the absolute-value hypothesis explicit; no assertion that Cauchy discovered every form of the convolution operation. |
 | 5.1 | Continuity and function limits | Cauchy 1821; Heine 1872 | New note on formulation; no sole-inventor claim for the modern epsilon–delta definition. |
 | 5.1 | Dirichlet function | Dirichlet 1829 | New function-concept and dense-set context. |
 | 5.1 | Thomae function | Thomae 1875 | New discontinuity/integrability context. |
@@ -53,14 +54,15 @@ and later digitisation.
 | 5.3 / 6.6 | Continuous inverse; inverse function theorem | Modern course statements / reserved differentiation material | Do not conflate continuity of a monotone inverse with the differentiable inverse function theorem. No invented sole attribution. |
 | 5.4 | Uniform continuity; Heine–Cantor | Heine 1872 | New common-delta / compactness context; paired name not called a joint paper. |
 | 5.4 | Lipschitz continuity | Lipschitz 1864 | New quantitative-regularity and differential-equation context before the shared exercise. |
-| 6.1 / 7.5 | Differentiation; Newton and Leibniz; fundamental theorem | Newton 1669; Leibniz 1684 | New tangents/areas/motion context; no theft verdict or claim that modern theorem is already in either paper. |
-| 6.2 | Mean value theorems | Reserved course section | Individual Rolle/Cauchy/Lagrange theorem statements are not yet supplied. Detailed attribution remains open; not fabricated from the section heading. |
+| 6.1 / 7.5 | Differentiation; Newton and Leibniz; fundamental theorem | Newton's Waste Book, 20 May 1665, fol. 47r; Newton 1669; Leibniz 1684 | Tangents/areas/motion context, plus a primary notebook example of expansion, cancellation, and a vanishing increment; modern quotient-limit notation is not attributed to Newton. |
+| 6.2 | Rolle and mean value theorems | Rolle 1691; Cauchy 1823 | LEC06 supplies the statements and the ordinary MVT proof. Added context distinguishes Rolle's polynomial-equation text from modern differentiable formulations; no sole-discovery claim. E-rara digitisation and catalogues establish editions, not a complete priority history. The source leaves the extended proof unfinished; the author's later request supplies a pending editorial proof using Rolle's theorem. |
 | 6.3 | Taylor expansion; Lagrange remainder | Taylor 1715; Lagrange 1797 | New expansion versus finite error-bound distinction. |
 | 6.4 | Convex functions | Reserved course section | No individually named theorem yet present; no unsupported attribution to Jensen. |
 | 6.5 | L'Hôpital rule; Johann Bernoulli retainer | L'Hôpital letter of 17 March 1694; Analyse 1696, preface and §IX art.163; Truesdell 1958 | Two new notes. Use French livres, not modern British pounds; exclusive research communication, not a modern copyright-licensing claim. Financial need is identified as interpretation. |
 | 7.1 / 7.3 / 7.4 | Riemann integral, sums, criterion | Riemann, 1854 Habilitationsschrift, printed 1867, §§4–6 | New Fourier/integrability motivation, with Dedekind's posthumous editorial role. |
 | 7.2 | Upper/lower sums; Darboux integral | Darboux 1875 | New oscillation and upper/lower-bound context. |
 | 8.1 / 8.3 / 8.5 | Pointwise/uniform convergence; continuity and integration | Cauchy 1821 and 1853 | New note explains the sum-theorem issue. It does not award the whole development to one mathematician. |
+| 8.4 | Weierstrass majorant test | Cauchy 1853 supplies the earlier uniform-convergence problem, not a primary source for priority of the M-test | Modern majorant theorem and elementary proof added. Historical context links back to §8.3; no first-discovery date is assigned without verified primary evidence. |
 | 8.6 | Power series and convergence radius | Earlier Cauchy root/ratio context in §4.2 | No duplicate biography and no attribution of the present course proof to a single inventor. |
 | 9.1 / 9.2 | Fourier series; convergence | Fourier 1822; Dirichlet 1829; Riemann 1854/1867 | New heat-conduction motivation and the distinction between representation and convergence. |
 
@@ -81,6 +83,24 @@ historical sources (MacTutor and Sieg). Cantor's 1874 paper, his 1891 diagonal
 paper, the 1883 point-set paper, and his December 1873 letter are separately
 cited primary material. The naming note is a synthesis, not an assertion
 that these four originals contain every later attribution detail.
+
+The Cauchy-product attribution was checked against chapter VI of the 1821
+primary text, including its absolute-value convergence hypothesis, through
+the Wikisource transcription of the published work. The bibliography
+retains the ETH digitisation. The M-test's current name is used without
+dating its discovery. A search located later historical discussions and
+catalogues of Weierstrass's collected papers, but these were not substituted
+for a verified original passage or used to make a priority claim.
+
+The Newton notebook note quotes the Newton Project's normalized transcription
+of MS Add. 4004, folio 47r. Its editorial note 101 supplies the entry date,
+20 May 1665; the catalogue dates the whole Part 2 much more broadly,
+c. 1664–c. 1685. The diplomatic view marks damaged letters in the phrase
+rendered as “vanisheth into nothing” in the normalized edition. Both views
+show the expansion and cancellation preceding that step. Cambridge's
+manuscript-image viewer returned HTTP 403, so no facsimile inspection or
+reproduction is claimed. The modern parabola diagram is an editorial
+illustration, not a reconstruction of Newton's own drawing or notation.
 
 The 27 portraits have institutional image-source citations, exact acquisition
 URLs, hashes, and a separate reproduction licence. Original maker, date, and
@@ -106,7 +126,7 @@ specimens are excluded. An unnamed entry does not imply an unknown theorem
 has been assigned a historical discoverer. Topic-level notes can cover several
 related statements; the map above identifies the corresponding context.
 
-Count: **69 formal blocks**. Source line numbers refer to this change.
+Count: **93 formal blocks**. Source line numbers refer to the current text.
 
 | Topic source | Line | Kind | Title | Stable label |
 | --- | --- | --- | --- | --- |
@@ -117,9 +137,9 @@ Count: **69 formal blocks**. Source line numbers refer to this change.
 | [01-sets-and-foundations/02-rational-gaps.tex](../sections/analysis-i/01-sets-and-foundations/02-rational-gaps.tex) | 32 | lemma | Euclid's lemma on prime divisors | `thm:analysis-i:euclid-prime-divisors` |
 | [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 29 | theorem | Cantor | `thm:analysis-i:cantor` |
 | [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 46 | theorem | Cantor--Bernstein | `thm:analysis-i:cantor-bernstein` |
-| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 70 | theorem | Positional representation | `thm:analysis-i:positional-representation` |
-| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 107 | proposition | Unnamed | `thm:analysis-i:binary-interval-cardinality` |
-| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 418 | proposition | Unnamed | `thm:analysis-i:algebraic-transcendental-cardinalities` |
+| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 102 | theorem | Positional representation | `thm:analysis-i:positional-representation` |
+| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 139 | proposition | Unnamed | `thm:analysis-i:binary-interval-cardinality` |
+| [01-sets-and-foundations/03-power-sets-and-real-numbers.tex](../sections/analysis-i/01-sets-and-foundations/03-power-sets-and-real-numbers.tex) | 450 | proposition | Unnamed | `thm:analysis-i:algebraic-transcendental-cardinalities` |
 | [01-sets-and-foundations/04-convergence-and-iteration.tex](../sections/analysis-i/01-sets-and-foundations/04-convergence-and-iteration.tex) | 31 | proposition | Unnamed | `thm:analysis-i:absolute-value-inequalities` |
 | [01-sets-and-foundations/04-convergence-and-iteration.tex](../sections/analysis-i/01-sets-and-foundations/04-convergence-and-iteration.tex) | 51 | definition | Unnamed | `—` |
 | [01-sets-and-foundations/04-convergence-and-iteration.tex](../sections/analysis-i/01-sets-and-foundations/04-convergence-and-iteration.tex) | 71 | proposition | Unnamed | `thm:analysis-i:limit-laws` |
@@ -146,7 +166,7 @@ Count: **69 formal blocks**. Source line numbers refer to this change.
 | [03-sequences-of-real-numbers/01-convergent-sequences.tex](../sections/analysis-i/03-sequences-of-real-numbers/01-convergent-sequences.tex) | 160 | proposition | Unnamed | `thm:analysis-i:root-sequence-limits` |
 | [03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex](../sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex) | 7 | theorem | Monotone bounded sequence theorem | `thm:analysis-i:monotone-convergence` |
 | [03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex](../sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex) | 29 | proposition | Arithmetic--geometric mean inequality | `thm:analysis-i:am-gm` |
-| [03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex](../sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex) | 76 | proposition | The binomial limit | `thm:analysis-i:binomial-limit` |
+| [03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex](../sections/analysis-i/03-sequences-of-real-numbers/02-monotone-bounded-sequence-theorem.tex) | 111 | proposition | The binomial limit | `thm:analysis-i:binomial-limit` |
 | [03-sequences-of-real-numbers/03-bolzano-weierstrass-theorem.tex](../sections/analysis-i/03-sequences-of-real-numbers/03-bolzano-weierstrass-theorem.tex) | 14 | theorem | Bolzano--Weierstrass | `thm:analysis-i:bolzano-weierstrass` |
 | [03-sequences-of-real-numbers/04-upper-and-lower-limits.tex](../sections/analysis-i/03-sequences-of-real-numbers/04-upper-and-lower-limits.tex) | 66 | proposition | Unnamed | `—` |
 | [03-sequences-of-real-numbers/05-cauchy-sequences.tex](../sections/analysis-i/03-sequences-of-real-numbers/05-cauchy-sequences.tex) | 14 | definition | Unnamed | `—` |
@@ -159,12 +179,14 @@ Count: **69 formal blocks**. Source line numbers refer to this change.
 | [04-infinite-series-of-numbers/02-comparison-tests.tex](../sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex) | 91 | theorem | Ratio test | `thm:analysis-i:ratio-test` |
 | [04-infinite-series-of-numbers/02-comparison-tests.tex](../sections/analysis-i/04-infinite-series-of-numbers/02-comparison-tests.tex) | 141 | theorem | Root test | `thm:analysis-i:root-test` |
 | [04-infinite-series-of-numbers/04-conditional-convergence.tex](../sections/analysis-i/04-infinite-series-of-numbers/04-conditional-convergence.tex) | 14 | definition | Unnamed | `—` |
+| [04-infinite-series-of-numbers/04-conditional-convergence.tex](../sections/analysis-i/04-infinite-series-of-numbers/04-conditional-convergence.tex) | 75 | definition | Cauchy product | `thm:analysis-i:cauchy-product` |
+| [04-infinite-series-of-numbers/04-conditional-convergence.tex](../sections/analysis-i/04-infinite-series-of-numbers/04-conditional-convergence.tex) | 90 | theorem | Product of absolutely convergent series | `thm:analysis-i:absolute-cauchy-product` |
 | [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 15 | definition | Limit of a function | `thm:analysis-i:function-limit` |
 | [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 46 | definition | Continuity | `thm:analysis-i:continuity-at-a-point` |
 | [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 96 | proposition | Limit laws | `thm:analysis-i:function-limit-laws` |
-| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 137 | theorem | Sequential characterization of continuity | `thm:analysis-i:sequential-continuity` |
-| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 169 | definition | Indicator function | `thm:analysis-i:indicator-function` |
-| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 291 | theorem | Composition of continuous functions | `thm:analysis-i:continuous-composition` |
+| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 184 | theorem | Sequential characterization of continuity | `thm:analysis-i:sequential-continuity` |
+| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 216 | definition | Indicator function | `thm:analysis-i:indicator-function` |
+| [05-continuity/01-continuity.tex](../sections/analysis-i/05-continuity/01-continuity.tex) | 338 | theorem | Composition of continuous functions | `thm:analysis-i:continuous-composition` |
 | [05-continuity/02-extreme-value-theorem.tex](../sections/analysis-i/05-continuity/02-extreme-value-theorem.tex) | 7 | theorem | Extreme value theorem | `thm:analysis-i:extreme-value` |
 | [05-continuity/03-intermediate-value-theorem.tex](../sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex) | 14 | theorem | Intermediate value theorem | `thm:analysis-i:intermediate-value` |
 | [05-continuity/03-intermediate-value-theorem.tex](../sections/analysis-i/05-continuity/03-intermediate-value-theorem.tex) | 102 | definition | Monotone functions | `thm:analysis-i:monotone-functions` |
@@ -173,12 +195,34 @@ Count: **69 formal blocks**. Source line numbers refer to this change.
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 61 | theorem | Heine--Cantor | `thm:analysis-i:heine-cantor` |
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 149 | definition | Piecewise linear function | `—` |
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 178 | proposition | Piecewise linear approximation | `thm:analysis-i:polygonal-approximation` |
-| [06-differentiation-and-applications/03-taylor-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/03-taylor-theorem.tex) | 18 | theorem | Taylor's theorem with Lagrange remainder | `—` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 22 | definition | Derivative | `thm:analysis-i:derivative` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 91 | proposition | Differentiability implies continuity | `thm:analysis-i:differentiable-continuous` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 220 | definition | Stationary point | `thm:analysis-i:stationary-point` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 228 | proposition | Interior extrema | `thm:analysis-i:interior-extremum` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 6 | theorem | Rolle's theorem | `thm:analysis-i:rolle` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 29 | theorem | Mean value theorem | `thm:analysis-i:mean-value` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 95 | corollary | Derivative signs and monotonicity | `thm:analysis-i:derivative-monotonicity` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 136 | theorem | Cauchy's mean value theorem | `thm:analysis-i:cauchy-mean-value` |
+| [06-differentiation-and-applications/03-taylor-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/03-taylor-theorem.tex) | 25 | theorem | Taylor's theorem with Lagrange remainder | `thm:analysis-i:taylor-lagrange` |
+| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 30 | theorem | L'Hopital's rule for 0/0 | `thm:analysis-i:lhopital-zero` |
+| [06-differentiation-and-applications/06-inverse-function-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/06-inverse-function-theorem.tex) | 10 | theorem | Derivative of an inverse | `thm:analysis-i:inverse-derivative` |
 | [08-sequences-and-series-of-functions/01-sequences-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/01-sequences-of-functions.tex) | 11 | definition | Pointwise convergence | `thm:analysis-i:pointwise-convergence` |
-| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 17 | definition | Uniform convergence | `thm:analysis-i:uniform-convergence` |
-| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 43 | theorem | Uniform limits preserve continuity | `thm:analysis-i:uniform-limit-continuity` |
+| [08-sequences-and-series-of-functions/02-series-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/02-series-of-functions.tex) | 12 | definition | Series of functions | `thm:analysis-i:function-series` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 19 | definition | Uniform convergence | `thm:analysis-i:uniform-convergence` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 45 | theorem | Uniform limits preserve continuity | `thm:analysis-i:uniform-limit-continuity` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 89 | definition | Norm and supremum norm | `thm:analysis-i:supremum-norm` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 152 | definition | Equicontinuity | `thm:analysis-i:equicontinuity` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 171 | proposition | Uniform convergence gives equicontinuity | `thm:analysis-i:uniform-convergence-equicontinuity` |
+| [08-sequences-and-series-of-functions/03-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex) | 197 | proposition | A shared modulus on a closed interval | `thm:analysis-i:uniform-equicontinuity` |
+| [08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex) | 11 | definition | Uniformly Cauchy sequence | `thm:analysis-i:uniformly-cauchy` |
+| [08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex) | 23 | theorem | Uniform Cauchy criterion | `thm:analysis-i:uniform-cauchy-criterion` |
+| [08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex](../sections/analysis-i/08-sequences-and-series-of-functions/04-cauchy-criterion-for-uniform-convergence.tex) | 66 | theorem | Weierstrass M-test | `thm:analysis-i:weierstrass-m-test` |
 | [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 11 | definition | Unnamed | `—` |
 | [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 26 | proposition | Unnamed | `thm:analysis-i:power-series-radius` |
+| [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 83 | proposition | Uniform convergence inside the radius | `thm:analysis-i:power-series-local-uniform` |
+| [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 115 | definition | Algebraic and transcendental functions | `thm:analysis-i:algebraic-function` |
+| [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 161 | theorem | The exponential function | `thm:analysis-i:exponential-properties` |
+| [08-sequences-and-series-of-functions/06-power-series.tex](../sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex) | 204 | definition | Natural logarithm and positive-base powers | `thm:analysis-i:logarithm-real-powers` |
 
 ## Validation
 

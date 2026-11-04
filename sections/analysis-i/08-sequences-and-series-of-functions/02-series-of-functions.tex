@@ -2,5 +2,44 @@
 \section{Series of functions}
 \label{sec:analysis-i:series-of-functions}
 
-% Reserved syllabus section. No series-of-functions material is supplied
-% in LEC05/IMG_9260--IMG_9261; unrelated Tufte specimen removed.
+% Editorial completion authorised by the HW06 topic-coverage request.
+% This material is not a transcription of an additional lecture source.
+\begin{pendingreview}
+A series of functions is studied through its partial sums, just as a
+series of numbers is. The input remains a variable throughout the
+argument.
+
+\begin{definition}[Series of functions]
+  \label{thm:analysis-i:function-series}
+  Let $f_n:D\to\R$ for $n=0,1,2,\ldots$, and put
+  \[
+    S_N(x)=\sum_{n=0}^{N}f_n(x).
+  \]
+  The series $\sum_{n=0}^{\infty}f_n(x)$ converges \emph{pointwise} on
+  $D$ if $S_N(x)$ has a finite limit $S(x)$ for every $x\in D$.
+  It converges \emph{absolutely at $x$} if
+  $\sum_{n=0}^{\infty}|f_n(x)|<\infty$.
+\end{definition}
+
+Uniform convergence of the series means uniform convergence of the
+sequence $(S_N)$, using the definition in
+\autoref{sec:analysis-i:uniform-convergence}. Its error is the entire
+remaining tail,
+\[
+  S(x)-S_N(x)=\sum_{n=N+1}^{\infty}f_n(x).
+\]
+Uniform convergence of the individual terms $f_n$ to zero is necessary
+for uniform convergence of the series, but is insufficient by itself.
+Indeed, if $S_N\to S$ uniformly, then for $N\ge1$,
+\[
+  |f_N(x)|\le |S_N(x)-S(x)|+|S_{N-1}(x)-S(x)|,
+\]
+and both errors become uniformly small.
+For example, the constant functions $f_n(x)=1/(n+1)$ tend uniformly to
+zero on every nonempty domain, whereas their series is harmonic and
+diverges at every input.
+
+The uniform Cauchy criterion and the majorant test in
+\autoref{sec:analysis-i:cauchy-criterion-for-uniform-convergence} will
+control these tails without requiring an explicit formula for $S$.
+\end{pendingreview}

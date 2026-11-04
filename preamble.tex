@@ -42,6 +42,8 @@
 % Group sources as [Key1, Key2], as in the reference paper.
 \renewcommand*{\multicitedelim}{\addcomma\space}
 \expandafter\addbibresource\expandafter{\analysisroot/bibliography.bib}
+% Long source permalinks must wrap within the bibliography's text column.
+\usepackage{xurl}
 
 \graphicspath{{\analysisroot/figures/}}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}

@@ -4,8 +4,7 @@
 
 \begin{pendingreview}
 L'H\^opital's rules resolve certain indeterminate quotients by comparing
-derivatives. Their hypotheses will be stated with the differentiation
-material.
+derivatives.
 \historynote{On 17 March 1694 the marquis de L'H\^opital offered
 Johann Bernoulli a retainer of 300 French livres and requested
 exclusive communication of discoveries~\cite{LHopital1694Letter}.
@@ -23,3 +22,74 @@ help explain the familiar name. The episode distinguishes discovering
 mathematics from teaching and disseminating it; the rule became a
 standard tool for evaluating limits.}
 \end{pendingreview}
+
+% Source: images/LEC06/IMG_9356--IMG_9357.
+We distinguish the forms $0/0$ and $\infty/\infty$. The first
+has the following mean-value proof.
+\begin{pendingreview}
+\begin{theorem}[L'H\^opital's rule for $0/0$]
+  \label{thm:analysis-i:lhopital-zero}
+  Let $f$ and $g$ be differentiable on $(a,b)$, with $g'(x)\ne0$
+  throughout that interval. Suppose $f(x)\to0$ and $g(x)\to0$ as
+  $x\to a^+$. If
+  \[
+    \lim_{x\to a^+}\frac{f'(x)}{g'(x)}=L\in\R\cup\{-\infty,+\infty\},
+  \]
+  then $g(x)\ne0$ on $(a,b)$ and
+  \[
+    \lim_{x\to a^+}\frac{f(x)}{g(x)}=L.
+  \]
+  A corresponding left-sided statement holds.
+\end{theorem}
+\end{pendingreview}
+\begin{proof}
+  Define $f(a)=g(a)=0$, making both functions continuous at $a$.
+  \pendingreviewtext{If $g(x)=0$ at some $x\in(a,b)$, \autoref{thm:analysis-i:rolle}
+  on $[a,x]$ would give a zero of $g'$, a contradiction.}
+  For any $x\in(a,b)$, \autoref{thm:analysis-i:cauchy-mean-value}
+  supplies a point $z\in(a,x)$ for which
+  \[
+    \frac{f(x)}{g(x)}
+      =\frac{f(x)-f(a)}{g(x)-g(a)}
+      =\frac{f'(z)}{g'(z)}.
+  \]
+  \pendingreviewtext{As $x\to a^+$, the inequalities $a<z<x$ force
+  $z\to a^+$. The assumed derivative-ratio limit therefore gives the
+  asserted quotient limit, also when $L$ is infinite.}
+\end{proof}
+
+\begin{pendingreview}
+For the $\infty/\infty$ form, suppose instead that both $f(x)$ and
+$g(x)$ tend to $+\infty$, with the same differentiability and nonzero
+denominator-derivative assumptions. If $f'(x)/g'(x)$ has a limit $L$,
+the corresponding rule gives $f(x)/g(x)\to L$. This version is stated
+without proof here. Writing
+\[
+  \frac{f(x)}{g(x)}=\frac{1/g(x)}{1/f(x)}
+\]
+does turn the expression into $0/0$, but it does not by itself prove
+the rule, since differentiating these reciprocals introduces additional
+factors of $f$ and $g$.
+\end{pendingreview}
+% IMG_9356 reverses the reciprocal quotient and supplies no infinity-case
+% proof. No unprovided infinity-endpoint theorem is inferred from the sketch.
+
+\begin{example}[The limit of the exponential approximants]
+  \label{ex:analysis-i:euler-approximant-limit}
+  For $x>0$, put $t=1/x$. The logarithm of $(1+1/x)^x$ is
+  \[
+    x\ln(1+1/x)=\frac{\ln(1+t)}{t}.
+  \]
+  As $t\to0^+$, numerator and denominator tend to zero. Applying
+  \autoref{thm:analysis-i:lhopital-zero} gives
+  \[
+    \lim_{t\to0^+}\frac{\ln(1+t)}{t}
+      =\lim_{t\to0^+}\frac{1/(1+t)}{1}=1.
+  \]
+  \pendingreviewtext{Continuity of the exponential therefore yields}
+  \[
+    \lim_{x\to+\infty}(1+1/x)^x=e.
+  \]
+  The monotonicity of these approximants was established in
+  \autoref{ex:analysis-i:increasing-euler-approximants}.
+\end{example}

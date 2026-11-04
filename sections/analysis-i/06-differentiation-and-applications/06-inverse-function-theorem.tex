@@ -1,22 +1,40 @@
 % !TEX root = ../../../main.tex
 \section{Inverse function theorem}
 \label{sec:analysis-i:inverse-function-theorem}
+% Source: images/LEC06/IMG_9351--IMG_9352, inverse derivative calculation.
 
-% BEGIN TUFTE PLACEHOLDER: supplied sample, lines 935--948.
-\begingroup\sloppy
-% Replace this entire specimen block with reviewed course notes.
-The \docclsoptdef{notoc} option suppresses \TL's custom table of contents
-(\textsc{toc}) design.  The current \textsc{toc} design only shows unnumbered
-chapter titles; it doesn't show sections or subsections.  The \docclsopt{notoc}
-option will revert to \LaTeX's \textsc{toc} design.
-
-The \docclsoptdef{nohyper} option prevents the \docpkg{hyperref} package from
-being loaded.  The default is to load the \docpkg{hyperref} package and use the
-\doccmd{title} and \doccmd{author} contents as metadata for the generated
-\textsc{pdf}.
-
-\index{class options|)}
-
-\lipsum[4]
-\par\endgroup
-% END TUFTE PLACEHOLDER
+\begin{pendingreview}
+The inverse differentiation rule used for roots and logarithms is a
+one-dimensional statement. Continuity of a strictly monotone inverse was
+established in \autoref{thm:analysis-i:continuous-inverse}.
+\begin{theorem}[Derivative of an inverse]
+  \label{thm:analysis-i:inverse-derivative}
+  Let $f:I\to J$ be a continuous strictly monotone bijection between
+  open intervals, and let $g=f^{-1}$. If $f$ is differentiable at
+  $x\in I$ and $f'(x)\ne0$, then $g$ is differentiable at $y=f(x)$ and
+  \[
+    g'(y)=\frac1{f'(x)}=\frac1{f'(g(y))}.
+  \]
+\end{theorem}
+\begin{proof}
+  Restrict $f$ to a closed subinterval of $I$ containing $x$ in its
+  interior. By \autoref{thm:analysis-i:continuous-inverse} and its
+  decreasing analogue, its inverse, and hence $g$, is continuous near $y$.
+  For $k\ne0$ sufficiently small, set $h=g(y+k)-g(y)$. Injectivity
+  gives $h\ne0$, and continuity of $g$ gives $h\to0$ as $k\to0$.
+  Also $k=f(x+h)-f(x)$, so
+  \[
+    \frac{g(y+k)-g(y)}{k}
+      =\frac1{\bigl(f(x+h)-f(x)\bigr)/h}
+      \longrightarrow\frac1{f'(x)}.
+  \]
+\end{proof}
+This difference-quotient argument establishes that the inverse derivative
+exists before applying the chain rule.
+\end{pendingreview}
+Differentiating $g(f(x))=x$ now gives the identity
+\[
+  g'(f(x))f'(x)=1.
+\]
+% The pending argument fills a local justification, not a general
+% higher-dimensional inverse function theorem.

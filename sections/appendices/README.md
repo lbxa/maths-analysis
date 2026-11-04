@@ -25,6 +25,14 @@ change the homework placement map or reproduce the exercise solutions.
 
 ## Changelog
 
+### 2026-10-30
+
+- Add all ten HW06 shared statements and awaiting-solution notices in the
+  order used in Chapter 8. Preserve complete restatements and both link
+  directions; the HW04 power-series exercise moves from position 42 to 51
+  without changing its identity or approved solution. Formula-sheet content
+  and its Homework 01--04 exam scope remain unchanged.
+
 ### 2026-10-28
 
 - Move all 42 solution links to italic text at the ends of the original

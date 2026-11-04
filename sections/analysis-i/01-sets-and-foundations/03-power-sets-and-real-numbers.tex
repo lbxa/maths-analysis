@@ -60,8 +60,40 @@ the names record different contributions, rather than a joint paper. See \autore
 \historyportraitpair{cantor}{Georg Cantor}{PortraitCantor}{bernstein-felix}{Felix Bernstein}{PortraitBernsteinFelix}{cantor-bernstein}
 \historyportrait{schroder}{Ernst Schr\"oder}{PortraitSchroder}
 
-We use this set-theoretic theorem for cardinality comparisons. Its proof
-is not needed for the subsequent analysis.
+% Editorial proof added at the author's request, separate from source notes.
+\begin{pendingreview}
+\begin{proof}
+  Let $f:A\to B$ and $g:B\to A$ be injections. Start with the points of
+  $A$ that have no preimage under $g$, and repeatedly apply $g\circ f$.
+  More precisely, define
+  \[
+    A_0=A\setminus g(B),\qquad A_{n+1}=g(f(A_n))\quad(n\ge0),
+    \qquad U=\bigcup_{n=0}^{\infty}A_n.
+  \]
+  We use $f$ on $U$ and reverse $g$ on the remaining points. Define
+  \[
+    h(a)=
+    \begin{cases}
+      f(a),&a\in U,\\
+      g^{-1}(a),&a\in A\setminus U.
+    \end{cases}
+  \]
+  Here $g^{-1}$ is the inverse from $g(B)$ to $B$. This branch is
+  well-defined because $A_0\subseteq U$, so every point outside $U$
+  belongs to $g(B)$.
+
+  Each branch is injective. Their images are disjoint as well. Indeed,
+  if $a\in U$, $a'\notin U$, and $f(a)=g^{-1}(a')$, then
+  $a'=g(f(a))$. Some $A_n$ contains $a$, so $a'\in A_{n+1}\subseteq U$,
+  a contradiction. Thus $h$ is injective.
+
+  To prove surjectivity, let $b\in B$. If $g(b)\notin U$, then
+  $h(g(b))=b$. Otherwise, $g(b)\in U$ but $g(b)\notin A_0$, so
+  $g(b)\in A_{n+1}$ for some $n\ge0$. Hence $g(b)=g(f(a))$ for some
+  $a\in A_n$. Injectivity of $g$ gives $b=f(a)=h(a)$.
+  Every point of $B$ is therefore reached, and $h$ is a bijection.
+\end{proof}
+\end{pendingreview}
 
 \subsection{Digits as subsets}
 For these counting arguments, we use the usual positional representation
@@ -439,7 +471,7 @@ $m$ distinct real roots.
 \end{proof}
 
 Counting proves that transcendental numbers exist, without identifying a
-particular one. The lecture also named $e$, $\pi$, and the Liouville number
+particular one. Specific examples include $e$, $\pi$, and the Liouville number
 \[
   \ell=\sum_{n=1}^{\infty}10^{-n!}.
 \]
@@ -469,7 +501,7 @@ This is the monic case of the rational root theorem.
 
 \subsection{The Jacobian conjecture}
 \label{sec:analysis-i:jacobian-conjecture}
-This optional lecture excursion connects bijections with later calculus.
+This optional excursion connects bijections with later calculus.
 It supplies no prerequisite for the exercises above or the completeness
 arguments that follow. A map
 $F=(F_1,\ldots,F_d):\C^d\to\C^d$ is \emph{polynomial} when each

@@ -117,6 +117,53 @@ neighbourhood is chosen to fit a prescribed output neighbourhood.
 % IMG_9251 writes "iff lim g(x) != 0". The nonzero condition is sufficient
 % for this quotient law, not necessary for a quotient to have a limit.
 
+% Editorial proof added at the author's request, directly from the definition.
+\begin{pendingreview}
+\begin{proof}
+  Fix $\varepsilon>0$. For the sum, choose input neighbourhoods in which
+  $|f(x)-F|<\varepsilon/2$ and $|g(x)-G|<\varepsilon/2$.
+  Taking the smaller of their two radii ensures both estimates whenever
+  $x\in I$ and $0<|x-c|$ is smaller than that radius. Then
+  \[
+    |f(x)+g(x)-(F+G)|
+      \le |f(x)-F|+|g(x)-G|<\varepsilon.
+  \]
+  If $k=0$, the scalar-multiple rule is immediate. If $k\ne0$, choose
+  a neighbourhood in which $|f(x)-F|<\varepsilon/|k|$. Then
+  $|kf(x)-kF|<\varepsilon$. The difference rule follows by applying
+  the sum rule to $f$ and $-g$.
+
+  For the product, first restrict the neighbourhood so that
+  $|f(x)-F|<1$, which gives $|f(x)|\le |F|+1$. Shrink it further so
+  that both
+  \[
+    |g(x)-G|<\frac{\varepsilon}{2(|F|+1)},\qquad
+    |f(x)-F|<\frac{\varepsilon}{2(|G|+1)}
+  \]
+  hold. Such a common neighbourhood exists by the two assumed limits.
+  Within it,
+  \begin{align*}
+    |f(x)g(x)-FG|
+      &\le |f(x)|\,|g(x)-G|+|G|\,|f(x)-F|\\
+      &\le (|F|+1)|g(x)-G|+|G|\,|f(x)-F|\\
+      &<\varepsilon.
+  \end{align*}
+
+  Finally, suppose $G\ne0$. Choose a neighbourhood in which
+  $|g(x)-G|<|G|/2$. The reverse triangle inequality gives
+  $|g(x)|>|G|/2>0$ there, and hence
+  \[
+    \left|\frac1{g(x)}-\frac1G\right|
+      =\frac{|g(x)-G|}{|g(x)|\,|G|}
+      \le\frac{2|g(x)-G|}{|G|^2}.
+  \]
+  Shrinking the neighbourhood to also require
+  $|g(x)-G|<\varepsilon|G|^2/2$ makes this error smaller than
+  $\varepsilon$. Thus $1/g(x)\to1/G$. Apply the product rule to
+  $f$ and $1/g$ to obtain $f(x)/g(x)\to F/G$.
+\end{proof}
+\end{pendingreview}
+
 \begin{pendingreview}
 The last condition ensures that $g(x)$ is nonzero sufficiently near $c$.
 These laws show that sums, scalar multiples, and products of continuous

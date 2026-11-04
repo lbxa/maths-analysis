@@ -124,7 +124,13 @@ Retain the separate image licences and identify gaps in original provenance.
 
 State assumptions precisely, define symbols before using them, and check each
 proof step. Clearly identify unfinished arguments. Write explanations in your
-own words and credit source texts, lectures, and reused figures.
+own words and credit published source texts and reused figures. Present the
+mathematics as a self-contained book, without references to unpublished
+lectures, class discussions, or handwritten notes. Credit Professor Yisong
+Yang of NYU Courant in the acknowledgements; keep classroom wording and
+source provenance in TeX comments and internal README records. State any
+assumptions or omitted proofs directly, and retain citations to retrievable
+published sources.
 
 Preserve the established Tufte layout: italic chapter titles, chapter-level
 contents, and margin notes. Keep the class's `nohyper` option and the late

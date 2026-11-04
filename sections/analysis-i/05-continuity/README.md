@@ -7,6 +7,13 @@ Their function-sequence examples continue in Chapter 8.
 
 ## Changelog
 
+### 2026-10-30
+
+- Prove the function-limit laws directly with epsilon--delta estimates before
+  using them for continuity. Include the local product bound and the
+  nonvanishing denominator estimate in the proof body, rather than relying
+  on the later sequential characterization. Keep the addition pending review.
+
 ### 2026-10-27
 
 - Add pending historical margin context and compact credited portraits at the substantive topic treatments. Keep the syllabus order and mathematical statement/proof status; see the [book-wide history inventory](../../../docs/history-inventory.md) and [portrait ledger](../../../figures/portraits/README.md).

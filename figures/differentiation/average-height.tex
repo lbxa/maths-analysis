@@ -1,0 +1,13 @@
+% Schematic average-height sketch from LEC06/IMG_9354.
+\begin{tikzpicture}[interval diagram,x=1cm,y=1cm]
+  \draw[->] (0,0)--(4.1,0) node[right=4pt] {$x$};
+  \draw[->] (0,0)--(0,2.55) node[above=4pt] {$\phi$};
+  \draw[domain=.45:3.55,samples=100]
+    plot (\x,{1.55+.32*cos(360*(\x-.45)/1.55)});
+  \draw[gray,dashed] (.45,1.55)--(3.55,1.55);
+  \draw[gray,dashed] (.45,0)--(.45,1.87);
+  \draw[gray,dashed] (3.55,0)--(3.55,1.87);
+  \node[below=5pt] at (.45,0) {$a$};
+  \node[below=5pt] at (3.55,0) {$b$};
+  \node[above=5pt] at (2,2.05) {$\overline\phi$};
+\end{tikzpicture}

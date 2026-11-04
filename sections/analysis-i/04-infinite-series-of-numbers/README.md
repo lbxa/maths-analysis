@@ -6,6 +6,15 @@ sections remain in their original order.
 
 ## Changelog
 
+### 2026-10-30
+
+- Add the Cauchy product after conditional convergence, where the role of
+  absolute convergence can be made explicit before power-series products.
+  The pending proof compares finite triangular and square index sets;
+  a conditional-convergence counterexample shows why convergence of both
+  factors alone is insufficient. This completes an expressly requested
+  HW06 background topic without changing the syllabus or exercise order.
+
 ### 2026-10-27
 
 - Add pending historical margin context and compact credited portraits at the substantive topic treatments. Keep the syllabus order and mathematical statement/proof status; see the [book-wide history inventory](../../../docs/history-inventory.md) and [portrait ledger](../../../figures/portraits/README.md).

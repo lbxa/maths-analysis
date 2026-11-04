@@ -1,0 +1,16 @@
+% Source sketches: LEC06/IMG_9353. Equal scales and shared thin strokes.
+\begin{tikzpicture}[interval diagram,x=1cm,y=1cm]
+  \foreach \offset/\sgn/\title in {0/1/Local minimum,6/-1/Local maximum} {
+    \begin{scope}[xshift=\offset cm]
+      \draw[->] (0,0)--(4.4,0) node[right=4pt] {$x$};
+      \draw[->] (0,0)--(0,2.8) node[above=4pt] {$y$};
+      \draw[domain=.45:3.65,samples=50]
+        plot (\x,{1.5+\sgn*.38*(\x-2.05)^2});
+      \draw[gray,dashed] (2.05,0)--(2.05,1.5);
+      \draw[gray] (1.35,1.5)--(2.75,1.5);
+      \fill (2.05,1.5) circle[radius=1.6pt];
+      \node[below=5pt] at (2.05,0) {$c$};
+      \node[above=7pt] at (2.1,2.8) {\title};
+    \end{scope}
+  }
+\end{tikzpicture}

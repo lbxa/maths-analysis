@@ -1,0 +1,41 @@
+% !TEX TS-program = pdflatexmk
+% !TEX program = pdflatex
+% Source: MA-GY-6213-hw6 (2).pdf, two pages, Homework No. 6.
+% Based on the unchanged problems/template.tex.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
+\input{preamble}
+\input{macros}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+
+\title{Homework 06}
+\author[Lucas Barbosa, lc6424]{Lucas Barbosa, \texttt{lc6424}}
+\date{Due Friday, October 30, 2026}
+\begin{document}
+\maketitle
+
+\input{problems/hw06/01-exponential-continuity/problem}
+\input{problems/hw06/01-exponential-continuity/solution}
+\input{problems/hw06/02-arbitrary-base-exponential/problem}
+\input{problems/hw06/02-arbitrary-base-exponential/solution}
+\input{problems/hw06/03-exponential-dominates-powers/problem}
+\input{problems/hw06/03-exponential-dominates-powers/solution}
+\input{problems/hw06/04-exponential-scaling/problem}
+\input{problems/hw06/04-exponential-scaling/solution}
+\input{problems/hw06/05-logarithm-power-law/problem}
+\input{problems/hw06/05-logarithm-power-law/solution}
+\input{problems/hw06/06-logarithmic-boundary-limit/problem}
+\input{problems/hw06/06-logarithmic-boundary-limit/solution}
+\input{problems/hw06/07-moving-peaks/problem}
+\input{problems/hw06/07-moving-peaks/solution}
+\input{problems/hw06/08-equicontinuous-boundedness/problem}
+\input{problems/hw06/08-equicontinuous-boundedness/solution}
+\input{problems/hw06/09-uniform-algebra/problem}
+\input{problems/hw06/09-uniform-algebra/solution}
+\input{problems/hw06/10-composed-power-series/problem}
+\input{problems/hw06/10-composed-power-series/solution}
+\end{document}

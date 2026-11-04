@@ -5,6 +5,13 @@ The five syllabus section titles and their order are preserved.
 
 ## Changelog
 
+### 2026-10-30
+
+- Supply the general AM--GM proof before its binomial-sequence application,
+  using doubling to powers of two and padding with copies of the mean.
+  Keep it pending review and independent of logarithms, derivatives, and
+  the later shared two-variable exercise so the prerequisite order is preserved.
+
 ### 2026-10-27
 
 - Add pending historical margin context and compact credited portraits at the substantive topic treatments. Keep the syllabus order and mathematical statement/proof status; see the [book-wide history inventory](../../../docs/history-inventory.md) and [portrait ledger](../../../figures/portraits/README.md).
