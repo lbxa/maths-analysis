@@ -3,18 +3,13 @@
 \label{sec:analysis-i:mean-value-theorems}
 
 % Source: images/LEC06/IMG_9354--IMG_9356.
+% Rephotographed as images/LEC06/IMG_9415--IMG_9417.
 \begin{theorem}[Rolle's theorem]
   \label{thm:analysis-i:rolle}
   Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$,
   \pendingreviewtext{where $a<b$}. If $f(a)=f(b)$, then there exists
   $c\in(a,b)$ such that $f'(c)=0$.
 \end{theorem}
-\historynote{Rolle's 1691 \emph{D\'emonstration} concerns solving
-polynomial equations~\cite{Rolle1691}. The formulation here is a modern
-statement for differentiable functions, not a verbatim seventeenth-century
-theorem. Equal endpoint heights force a stationary point, making this a
-useful bridge from extrema to mean-value arguments.}
-
 \begin{pendingreview}
 \begin{proof}
   If $f$ is constant, every interior point has derivative zero.
@@ -25,6 +20,16 @@ useful bridge from extrema to mean-value arguments.}
   $f'(c)=0$.
 \end{proof}
 \end{pendingreview}
+\historynote{Rolle's 1691 \emph{D\'emonstration} concerns solving
+polynomial equations~\cite{Rolle1691}. The formulation here is a modern
+statement for differentiable functions, not a verbatim seventeenth-century
+theorem. Equal endpoint heights force a stationary point, making this a
+useful bridge from extrema to mean-value arguments.}
+
+\pendingreviewtext{The following polynomial question can be approached
+by constructing a polynomial whose derivative is $P$ and comparing its
+endpoint values. No integration theorem is required.}
+\input{problems/hw07/03-polynomial-rolle/problem}
 
 \begin{theorem}[Mean value theorem]
   \label{thm:analysis-i:mean-value}
@@ -77,7 +82,7 @@ assumed here and reserved for
 \]
 Thus the mean value theorem says that this average slope is attained
 at an interior point. The continuity of $f'$ is an additional hypothesis
-for this integral interpretation; the mean value theorem itself only
+for this integral interpretation. The mean value theorem itself only
 requires differentiability on the open interval. A schematic illustration
 of average height appears in
 \autoref{fig:analysis-i:average-height}.
@@ -110,6 +115,19 @@ of average height appears in
 \end{pendingreview}
 % IMG_9354's nondecreasing shorthand mixes strict and non-strict signs.
 
+\begin{pendingreview}
+The next exercise links the mean value theorem to Lipschitz continuity
+from \autoref{sec:analysis-i:uniform-continuity}. Its iteration also uses
+geometric-series tail bounds and the completeness of $\R$ from
+\autoref{sec:analysis-i:cauchy-sequences}.
+\end{pendingreview}
+\input{problems/hw07/01-contractive-fixed-point/problem}
+
+\pendingreviewtext{Derivative signs can also identify a sharp global
+bound on a half-line. The next question asks for both the bound and
+the equality case.}
+\input{problems/hw07/05-rational-maximum/problem}
+
 \begin{example}[Increasing exponential approximants]
   \label{ex:analysis-i:increasing-euler-approximants}
   Consider $F(x)=(1+1/x)^x$ for $x\ge1$. To study its increase, put
@@ -132,6 +150,12 @@ of average height appears in
   \end{pendingreview}
 \end{example}
 
+\pendingreviewtext{The next question changes the exponent by one.
+The corresponding limit can be studied after
+\autoref{ex:analysis-i:euler-approximant-limit}, where the logarithmic
+quotient is evaluated. Its monotonicity can already be studied here.}
+\input{problems/hw07/06-decreasing-euler-approximants/problem}
+
 \subsection{The extended mean value theorem}
 \begin{theorem}[Cauchy's mean value theorem]
   \label{thm:analysis-i:cauchy-mean-value}
@@ -145,8 +169,8 @@ of average height appears in
 \end{theorem}
 \pendingreviewtext{Applying the ordinary mean value theorem separately
 to $f$ and $g$ gives two possibly different points. It does not show that
-they coincide. The extended theorem asserts a single common point; its
-proof uses one auxiliary function.}
+they coincide. The extended theorem asserts a single common point.
+Its proof uses one auxiliary function.}
 % IMG_9355 incorrectly identifies the two separate MVT points. IMG_9356
 % leaves the extended theorem's proof unfinished. The proof below is an
 % editorial addition requested by the author.

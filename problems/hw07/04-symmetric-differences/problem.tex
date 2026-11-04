@@ -1,0 +1,23 @@
+% !TEX root = ../../hw07.tex
+% Source: MA-GY-6213-hw7 (1).pdf, page 1, Q4, (i)--(ii) and hint.
+\begingroup
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\begin{exercise}
+  \label{ex:hw07:symmetric-differences}
+  Let $f(x)$ be differentiable twice such that $f''(x)$ is also continuous.
+  \begin{enumerate}
+    \item Prove that
+      \[
+        f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x-h)}{2h}.
+      \]
+    \item Prove that
+      \[
+        f''(x)=\lim_{h\to0}
+          \frac{f(x+h)+f(x-h)-2f(x)}{h^2}.
+      \]
+  \end{enumerate}
+  (These formulas are very useful in numerical analysis. Hint: Are the
+  limits of $0/0$ type?)
+  \solutionlink{hw07:symmetric-differences}
+\end{exercise}
+\endgroup

@@ -7,6 +7,9 @@ The author's HW06 coverage request authorises pending treatments of
 function series, the normed space C[a,b], equicontinuity, the uniform
 Cauchy criterion, the M-test, and exponential/logarithmic functions.
 Uniform convergence and integration remains reserved.
+The newly supplied LEC07 pages additionally provide analytic functions,
+root multiplicity, trigonometric series, and a Bernstein-polynomial proof
+of uniform polynomial approximation, now placed at the end of §8.6.
 
 ## Homework 06 topic coverage
 
@@ -30,6 +33,31 @@ solutions. Section titles and exercise order remain unchanged.
 | Differentiability and continuity | [§6.1 Differentiation](../06-differentiation-and-applications/01-differentiation.tex) | Proof that differentiability implies continuity, with absolute value at zero showing the converse fails. |
 
 ## Changelog
+
+### 2026-11-04
+
+- Audit the new HW06 PDF against all existing shared questions. It supplies
+  the same ten statements, so preserve their identities and pending solutions.
+  The current LEC06 is still differentiation material, not the absent
+  uniform-series source. The earlier authorised coverage additions remain
+  accurately described as editorial theory awaiting review.
+- Transcribe IMG_9425--IMG_9428 into a shared §8.6 topic fragment without
+  adding or reordering syllabus sections. Distinguish analytic functions
+  from arbitrary smooth functions and from algebraic functions. A finite
+  root multiplicity requires a first nonzero series coefficient. Clarify that
+  exp(x)-1, rather than exp(x), has a simple zero at zero.
+- Complete the source's sine/cosine and complex Euler-identity prompt as a
+  worked example, with a Taylor remainder estimate and an explicit complex
+  exponential series definition. State power-series differentiation without
+  claiming its proof was supplied.
+- Preserve the supplied Bernstein argument with its partition of unity,
+  first and second moments, near/far split, uniform continuity, and boundedness.
+  Supply the finite binomial moment working and affine interval rescaling.
+  Correct the source's reversed boundedness sign and inconsistent tolerance
+  fractions. Draw the degree 2 and degree 8 approximants to an actual corner.
+- Add a historical note citing Bernstein's 1912 paper and distinguishing
+  Sergei from Felix Bernstein. The probability interpretation explains the
+  averaging proof. Keep all new text pending and preserve prior review status.
 
 ### 2026-10-30
 

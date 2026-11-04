@@ -1,13 +1,42 @@
 # Differentiation and its applications
 
-This chapter follows the six syllabus sections. The eight photographs in
-`images/LEC06/` supply differentiation, mean-value methods, Taylor's
-statement, L'Hopital's rule, and the inverse derivative calculation. The
-first photo is headed Lecture 7; retain the source identity without changing
-the mathematical chapter order. Convexity remains reserved. The Taylor
-section retains the earlier factorial-series application.
+This chapter follows the six syllabus sections. The current eight photographs
+`images/LEC06/IMG_9411`--`IMG_9418` rephotograph the differentiation pages
+previously supplied as `IMG_9350`--`IMG_9357`. The first page is headed
+Lecture 7. The nine LEC07 pages are headed Lecture 08 and continue with a
+Taylor proof, convexity, inequalities, analytic functions, and polynomial
+approximation. The latter two topics belong in §8.6. Keep these source
+identities separate from the book's chapter and section numbering.
 
 ## Changelog
+
+### 2026-11-04
+
+- Inspect every converted page and reconcile repeated LEC06 material without
+  duplicating statements, proofs, or existing figures. Retain previous
+  mathematical corrections and review status. Source provenance comments
+  identify both photo sets. All originals remain unchanged.
+- Add the newly supplied moving-centre Taylor proof alongside the existing
+  repeated-Rolle proof. Correct its telescoping derivative to denominator
+  n!, with the final remainder denominator (n+1)!. Show the quadratic
+  exponential approximation and its vertical error in a thin-stroke diagram.
+- Fill the reserved convexity section from IMG_9421--IMG_9424. State interval
+  and C^2 hypotheses, prove tangent support and the second-derivative
+  criterion, retain the extrema application, Young's inequality, and integral
+  Jensen proof. Jensen deliberately uses forward integral order/linearity
+  properties, explicitly assumed. Add a chord/graph/tangent comparison.
+- Add a concise primary-source Jensen note. Do not invent a discovery date
+  or an original publication for the source's name Young. Earlier notes
+  already cover Newton, Leibniz, Rolle, Cauchy, Taylor, Lagrange, and
+  L'Hôpital/Bernoulli, so do not duplicate their biographies.
+- Clarify general one-sided derivative notation and recall the elementary
+  trigonometric derivatives and their geometric small-angle prerequisites.
+  Keep the existing differentiation rules stated without general proofs.
+- Place ten shared HW07 statements after their tools, preserving all
+  subparts and hints. The handout keeps source order and the appendix follows
+  book order. Keep solutions awaiting work. Mark the source's missing domain
+  and limit qualifications in pending margin notes, without silently changing
+  the formulas. All new explanations and corrections remain pending review.
 
 ### 2026-10-30
 

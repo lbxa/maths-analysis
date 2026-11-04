@@ -25,6 +25,20 @@ change the homework placement map or reproduce the exercise solutions.
 
 ## Changelog
 
+### 2026-11-04
+
+- Replace the notation appendix's LaTeX error-message specimens with a pending
+  reference to symbols actually used in the book, in mathematical topic order.
+  Preserve all shared exercise identities and the two-sided formula-sheet scope.
+- Review the 42 supplied solutions. Mark new explanations at their changed
+  spans, keeping earlier approvals intact. The finite-chain uniform-continuity
+  proof now telescopes the changes directly and keeps the choice of N
+  independent of the point. The Fibonacci and polynomial-root conclusions
+  are explicit. No HW06 or HW07 solution is added.
+- Check the formula sheet's assumptions and add positive C and alpha to its
+  general error-bound index choice. The sheet's existing header already
+  specifies positive N. Replace prose semicolons without expanding exam scope.
+
 ### 2026-10-30
 
 - Add all ten HW06 shared statements and awaiting-solution notices in the

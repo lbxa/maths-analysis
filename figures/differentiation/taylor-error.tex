@@ -1,0 +1,15 @@
+\input{\analysisroot/figures/interval-styles.tex}
+\begin{tikzpicture}[interval diagram,x=3cm,y=1.1cm]
+  \draw[->] (-.08,0)--(1.17,0) node[right=5pt] {$x$};
+  \draw[->] (0,-.15)--(0,3.15) node[above=5pt] {$y$};
+  \node[below left=5pt] at (0,0) {$0$};
+  \draw[domain=0:1,samples=45] plot (\x,{exp(\x)});
+  \draw[gray,dashed,domain=0:1,samples=45] plot (\x,{1+\x+\x*\x/2});
+  \draw[gray,<->] (1,2.5)--(1,2.71828);
+  \draw[gray,dotted] (1,0)--(1,2.5);
+  \draw (1,0)--(1,-.07) node[below=5pt] {$1$};
+  \node[left=5pt] at (0,1) {$1$};
+  \fill (0,1) circle[radius=1.6pt];
+  \node[right=7pt] at (1,2.82) {$e^x$};
+  \node[right=7pt] at (1,2.3) {$P_2(x)$};
+\end{tikzpicture}

@@ -7,6 +7,16 @@ Their function-sequence examples continue in Chapter 8.
 
 ## Changelog
 
+### 2026-11-04
+
+- Check continuity, extrema, inverse continuity, and the shared-index
+  compactness proof during the book-wide editorial pass. Replace prose
+  semicolons with full sentences while preserving review status.
+- Anchor Heine's historical note and portrait after the uniform-continuity
+  proof. The earlier anchor allowed the note to overlap the comparison
+  diagram's full-width caption. Keep the note beside its substantive result
+  and preserve the paired-subsequence illustration within the proof.
+
 ### 2026-10-30
 
 - Prove the function-limit laws directly with epsilon--delta estimates before

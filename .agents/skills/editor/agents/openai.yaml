@@ -1,0 +1,6 @@
+interface:
+  display_name: "Editor"
+  short_description: "Edit the mathematics textbook for clarity and intuition"
+  default_prompt: "Use $editor to edit this material into clear, coherent textbook prose while preserving its mathematics and the book's conventions."
+policy:
+  allow_implicit_invocation: true

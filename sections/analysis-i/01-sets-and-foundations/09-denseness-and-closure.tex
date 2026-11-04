@@ -66,7 +66,7 @@ between $-1$ and $1$ are not limit points of this sequence.
     On the right, $I_n=[\alpha_n,\beta_n]$ contains the entire $n$th tail,
     including terms beyond those plotted. Its endpoints approach the two
     limit points $-1$ and $1$. The limiting interval bounds the limit
-    points; it need not consist entirely of them.}
+    points\pendingreviewtext{. It} need not consist entirely of them.}
   \label{fig:tail-bounds-and-limit-points}
 \end{figure*}
 
@@ -115,7 +115,7 @@ If $x_n\to L$, then for every $\varepsilon>0$, all sufficiently late tails
 lie in $[L-\varepsilon,L+\varepsilon]$. Their infima and suprema do too,
 which proves that both limits equal $L$. The converse is the squeeze
 argument just given.
-This is the bounded-sequence version; more general upper and lower limits
+\pendingreviewtext{This is the bounded-sequence version. More general upper and lower limits}
 are studied in \autoref{sec:analysis-i:upper-and-lower-limits}.
 
 The next exercise uses the elementary identities
@@ -149,10 +149,10 @@ entirely. The word \emph{every} in the definition is decisive.
   \centering
   \input{figures/foundations/closure-neighborhoods}
   \caption[Closure and shrinking neighborhoods.]{Schematic Venn views on
-    a number line. The solid interval and filled point form $E$; its open
+    a number line. The solid interval and filled point form $E$\pendingreviewtext{. Its} open
     endpoints are excluded. Dashed ellipses depict two shrinking
     $\varepsilon$-neighborhoods. The darker overlap in (a) persists as
-    $\varepsilon$ decreases. Set membership is read on the axis; the
+    $\varepsilon$ decreases. Set membership is read on the axis\pendingreviewtext{. The}
     ellipses add no points off the real line.}
   \label{fig:closure-neighborhoods}
 \end{figure*}
@@ -178,8 +178,8 @@ nearest endpoint misses the interval. Thus no other point enters the closure.
   Equivalently, every nonempty open interval contains a point of $E$.
 \end{definition}
 For the equivalence, apply the neighborhood condition at the midpoint of
-an open interval with radius half its length; in the other direction,
-every neighborhood is itself an open interval.
+an open interval with radius half its length\pendingreviewtext{. Conversely,
+every neighborhood is itself an open interval.}
 
 \begin{theorem}[Density of the rational numbers]
   \label{thm:analysis-i:rational-density}
@@ -205,6 +205,16 @@ The grid in \autoref{fig:rational-grid} makes the estimate visible.
 \end{marginfigure}
 In particular, choosing $m_n=\lfloor nx\rfloor$ gives an explicit rational
 sequence $m_n/n\to x$.
+
+\begin{pendingreview}
+Irrational numbers also occur in every nonempty open interval. If $a<b$,
+rational density supplies a rational $q$ with
+$a-\sqrt2<q<b-\sqrt2$. Then $q+\sqrt2\in(a,b)$ is irrational,
+since subtracting the rational number $q$ from a rational sum would
+make $\sqrt2$ rational. Thus a small neighbourhood can contain both
+types of number, a fact used in the discontinuity examples in
+\autoref{sec:analysis-i:continuity}.
+\end{pendingreview}
 
 \begin{pendingreview}
 \begin{proof}[Second proof by decimal approximation]
@@ -242,7 +252,7 @@ containing $\sqrt2$.
     endpoints $1$, $1.4$, $1.41$, and $1.414$ are rational
     truncations. Each cell has one tenth the width of the previous
     cell. The rows use different scales so every decimal step remains
-    visible; the open right endpoint is excluded.}}
+    visible. The open right endpoint is excluded.}}
   \label{fig:decimal-sqrt-two}
 \end{figure}
 
@@ -340,8 +350,9 @@ The monotone convergence theorem therefore supplies a real limit, denoted by
   e=\sum_{k=0}^{\infty}\frac1{k!}.
 \]
 An alternative formula is $e=\lim_{n\to\infty}(1+1/n)^n$.
-Its equivalence with the series formula is deferred;
-the series definition is enough for the present argument.
+\pendingreviewtext{Its equivalence with the series formula is proved in
+\autoref{thm:analysis-i:binomial-limit}. The series definition is enough
+for the present argument.}
 
 \begin{proposition}
   \label{thm:analysis-i:e-irrational}
@@ -387,7 +398,7 @@ and for the distinction between taking the supremum in $\R$ and in $\Q$.
 The next question combines countable enumeration, rational density, and
 \autoref{eq:analysis-i:geometric-sum} to construct interval covers
 of small total length. Small covering length and metric incompleteness
-describe different properties; completeness must be checked using Cauchy
+describe different properties\pendingreviewtext{. Completeness} must be checked using Cauchy
 sequences and their limits.
 
 \input{problems/hw03/05-rational-interval-cover/problem}

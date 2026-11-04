@@ -1,0 +1,24 @@
+% !TEX root = ../../hw07.tex
+% Source: MA-GY-6213-hw7 (1).pdf, page 1, Q1, (i)--(iii).
+\begingroup
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\begin{exercise}
+  \label{ex:hw07:contractive-fixed-point}
+  Let $f$ be a differentiable function over $\R$.
+  \begin{enumerate}
+    \item Show that if $f'(x)$ is a bounded function, then $f$ is a
+      Lipschitz function which satisfies
+      \[
+        |f(x)-f(y)|\le L|x-y|,\qquad x,y\in\R,
+      \]
+      where $L>0$ is a constant called the Lipschitz constant.
+    \item If the Lipschitz constant in (i) satisfies $L<1$, the function
+      is called ``contractive''. Prove that a contractive function must
+      have a fixed point $x^*$ such that $x^*=f(x^*)$.
+      (Hint: Take any $x_0\in\R$ and consider the iterative sequence
+      $x_n=f(x_{n-1})$ for $n=1,2,\ldots$.)
+    \item Show that the fixed point $x^*$ found in (ii) is unique.
+  \end{enumerate}
+  \solutionlink{hw07:contractive-fixed-point}
+\end{exercise}
+\endgroup

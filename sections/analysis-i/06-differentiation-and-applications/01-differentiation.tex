@@ -6,7 +6,7 @@
 Differentiation studies local change through the limiting slope of a
 secant line.
 \historynote{Newton's 1669 manuscript links infinite series with
-quadrature; Leibniz's 1684 paper publishes rules for differentials
+quadrature. Leibniz's 1684 paper publishes rules for differentials
 and tangents~\cite{Newton1669,Leibniz1684}. Their approaches developed
 in the seventeenth-century study of motion, areas, and tangents.
 These primary texts document distinct contributions. The modern limit
@@ -17,6 +17,7 @@ and differential equations. See \autoref{fig:portrait:leibniz}.}
 \end{pendingreview}
 % Source: images/LEC06/IMG_9350--IMG_9353. IMG_9350 is headed Lecture 7.
 % The folder's name is retained as source provenance, not a schedule claim.
+% Rephotographed as images/LEC06/IMG_9411--IMG_9414, checked 2026-11-04.
 \subsection{Difference quotients and local approximation}
 
 \begin{definition}[Derivative]
@@ -49,7 +50,7 @@ and differential equations. See \autoref{fig:portrait:leibniz}.}
     f'(1)=\lim_{h\to0}\left(1+\frac h2\right)=1.
   \]
   We cancel while $h$ is nonzero and then take the limit. The figure
-  shows positive $h$ shrinking; the same limiting slope is obtained
+  shows positive $h$ shrinking. The same limiting slope is obtained
   from negative $h$.
 \end{example}
 \end{pendingreview}
@@ -62,7 +63,7 @@ developing calculus. The limit definition used here is a later formulation.}
   \centering
   \input{figures/differentiation/first-principles-derivative}
   \caption[Secants approaching a tangent.]{\pendingreviewtext{Secants for
-    $f(x)=x^2/2$. Left, $h=1$; right, $h=1,1/2,1/4$. The grey
+    $f(x)=x^2/2$. On the left, $h=1$. On the right, $h=1,1/2,1/4$. The grey
     secants approach the dashed tangent $y=x-1/2$ as $Q_h\to P$.
     Only $x\ge0$ is shown.}}
   \label{fig:analysis-i:first-principles-derivative}
@@ -99,6 +100,14 @@ ratio is what characterises differentiability.
 \end{proof}
 \end{pendingreview}
 
+\begin{pendingreview}
+The \emph{right derivative} $f'_+(c)$ is the limit of
+$(f(c+h)-f(c))/h$ as $h\to0^+$. The \emph{left derivative} $f'_-(c)$
+uses $h\to0^-$. At an interior point the ordinary derivative exists
+exactly when both one-sided derivatives exist as finite numbers and
+are equal.
+\end{pendingreview}
+
 \begin{example}[A corner and one-sided derivatives]
   \label{ex:analysis-i:absolute-value-derivative}
   For $f(x)=|x|$, the difference quotient at zero is $|h|/h$.
@@ -112,6 +121,12 @@ ratio is what characterises differentiability.
 \end{example}
 % IMG_9351's informal subgradient aside is not a claim of ordinary
 % differentiability. Subgradients are not developed in the supplied pages.
+\begin{pendingreview}
+The next exercise combines the one-sided quotient definitions with the
+endpoint behaviour of the exponential. We use its positivity and limits
+from \autoref{thm:analysis-i:exponential-properties}.
+\end{pendingreview}
+\input{problems/hw07/02-one-sided-derivatives/problem}
 
 \subsection{Basic differentiation rules}
 Suppose $f$ and $g$ are differentiable at the relevant input, and let
@@ -155,8 +170,8 @@ differentiable at $g(x)$, the chain rule is
       =\pendingreviewtext{\frac mn x^{(m-1)/n+1/n-1}}
       =q x^{q-1}.
   \]
-  \pendingreviewtext{Negative integer powers use the reciprocal rule;
-  the case $m=0$ is the constant function. The restriction $x>0$ avoids
+  \pendingreviewtext{Negative integer powers use the reciprocal rule.
+  The case $m=0$ is the constant function. The restriction $x>0$ avoids
   the zero endpoint, where a nontrivial root has no finite derivative.}
 \end{example}
 % IMG_9352's intervening exponent algebra is incorrect; the corrected sum
@@ -169,8 +184,8 @@ These calculations use the exponential series from
 \autoref{sec:analysis-i:power-series}, the addition law in
 \autoref{thm:analysis-i:exponential-properties}, and its continuous
 inverse $\ln$ on $(0,\infty)$. The required series-and-inverse
-construction is developed in \autoref{sec:analysis-i:power-series};
-we use those properties here.
+construction is developed in \autoref{sec:analysis-i:power-series}.
+We use those properties here.
 \end{pendingreview}
 
 \begin{example}[The derivative of the exponential]
@@ -211,9 +226,30 @@ Similarly, for any $r\in\R$ and $x>0$, writing $x^r=e^{r\ln x}$ gives
 \[
   (x^r)'=e^{r\ln x}\frac r x=r x^{r-1}.
 \]
-This supplies a direct justification for real powers; approximation of
+This supplies a direct justification for real powers. Approximation of
 $r$ by rational numbers alone would not justify passing derivatives to a
 limit.
+\end{pendingreview}
+
+\pendingreviewtext{When both base and exponent vary, first express the
+positive function through its logarithm and use the chain rule.}
+\input{problems/hw07/09-self-power-derivative/problem}
+
+\begin{pendingreview}
+\subsection{Trigonometric derivatives}
+For angles in radians, the elementary small-angle limits are
+$\sin h/h\to1$ and $(\cos h-1)/h\to0$. Using these limits and the
+angle-addition identities in the difference quotients gives
+\[
+  (\sin x)'=\cos x,\qquad (\cos x)'=-\sin x.
+\]
+The quotient rule consequently gives
+\[
+  (\tan x)'=\frac1{\cos^2x}\qquad(\cos x\ne0).
+\]
+These calculations use the geometric trigonometric functions and their
+small-angle limits. Their power-series representations are given in
+\autoref{sec:analysis-i:analytic-functions}.
 \end{pendingreview}
 
 \subsection{Stationary points and local extrema}
@@ -221,8 +257,8 @@ limit.
   \label{thm:analysis-i:stationary-point}
   A point $c$ is stationary if $f$ is differentiable at $c$ and $f'(c)=0$.
 \end{definition}
-\pendingreviewtext{Here we use \emph{stationary} for this precise condition;
-some conventions also count points where the derivative is undefined as
+\pendingreviewtext{Here we use \emph{stationary} for this precise condition.
+Some conventions also count points where the derivative is undefined as
 critical points. Differentiability alone does not imply $f'(c)=0$.}
 
 \begin{proposition}[Interior extrema]

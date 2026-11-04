@@ -1,6 +1,155 @@
 % !TEX root = ../../../main.tex
 \section{Convex functions}
 \label{sec:analysis-i:convex-functions}
-% Reserved syllabus section. LEC06/IMG_9351 mentions subgradients only as
-% an informal aside. No definition or convexity development is supplied.
-% The unrelated Tufte class-option specimen has been removed.
+% Source: images/LEC07/IMG_9421--IMG_9424, headed Lecture 08.
+% Expanded hypotheses, completed arguments, and illustrations await review.
+\begin{pendingreview}
+\subsection{Curvature, chords, and tangent lines}
+\begin{definition}[Convex and concave functions]
+  \label{thm:analysis-i:convex-function}
+  A function $f:I\to\R$ on an interval is \emph{convex} if
+  \[
+    f(tx+(1-t)y)\le t f(x)+(1-t)f(y)
+    \quad(x,y\in I,\ 0\le t\le1).
+  \]
+  It is \emph{concave} when the inequality is reversed.
+\end{definition}
+The point $z=tx+(1-t)y$ lies between $x$ and $y$. Convexity says that
+the graph at $z$ lies below the chord joining the endpoint values.
+A tangent line, when it exists, lies below the graph instead.
+\autoref{fig:analysis-i:convex-chord-tangent} shows both comparisons.
+\end{pendingreview}
+\begin{figure}[htbp]
+  \centering
+  \input{figures/differentiation/convex-chord-tangent}
+  \caption[Chords above and tangents below a convex graph.]{\pendingreviewtext{
+    For $f(x)=x^2$, the chord from $x=0$ to $x=2$ lies above the graph,
+    while the tangent at $x=1$ lies below it. The vertical guides compare
+    all three heights at $z=1/2$.}}
+  \label{fig:analysis-i:convex-chord-tangent}
+\end{figure}
+\begin{pendingreview}
+\begin{proposition}[The second-derivative criterion]
+  \label{thm:analysis-i:convex-second-derivative}
+  Let $f\in C^2(I)$ on an open interval. The following are equivalent.
+  \begin{enumerate}
+    \item $f$ is convex.
+    \item $f(x)\ge f(a)+f'(a)(x-a)$ for all $a,x\in I$.
+    \item $f''(x)\ge0$ for every $x\in I$.
+  \end{enumerate}
+  Reversing the inequalities gives the concave case.
+\end{proposition}
+\begin{proof}
+  Suppose first that $f''\ge0$. By
+  \autoref{thm:analysis-i:derivative-monotonicity}, $f'$ is nondecreasing.
+  If $x>a$, the mean value theorem gives
+  $f(x)-f(a)=f'(c)(x-a)\ge f'(a)(x-a)$ for some $c\in(a,x)$.
+  If $x<a$, then $f'(c)\le f'(a)$, and multiplying by $x-a<0$
+  gives the same supporting-line inequality. Equality holds at $x=a$.
+
+  Suppose the supporting-line inequality holds and set $z=tx+(1-t)y$.
+  Apply it at $a=z$ to both $x$ and $y$, multiply by $t$ and $1-t$,
+  and add. The derivative terms cancel because
+  $t(x-z)+(1-t)(y-z)=0$. This proves convexity.
+
+  Finally, suppose $f$ is convex. For $0<s<1$, its defining inequality
+  gives
+  \[
+    \frac{f(a+s(x-a))-f(a)}s\le f(x)-f(a).
+  \]
+  Letting $s\to0^+$ yields the supporting-line inequality. Taylor's
+  theorem at $a$ then gives, for small nonzero $h$,
+  \[
+    0\le f(a+h)-f(a)-hf'(a)=\frac12 f''(\xi_h)h^2.
+  \]
+  Here $\xi_h$ lies between $a$ and $a+h$. Divide by $h^2/2$ and use
+  continuity of $f''$ to obtain $f''(a)\ge0$.
+\end{proof}
+
+\subsection{A second-derivative test for extrema}
+% IMG_9421 sketches the n=1 Taylor application without complete hypotheses.
+\begin{proposition}[The second-derivative test]
+  \label{thm:analysis-i:second-derivative-extremum}
+  Suppose $f$ is twice continuously differentiable near $a$ and
+  $f'(a)=0$. If $f''(a)>0$, then $a$ is a strict local minimum.
+  If $f''(a)<0$, it is a strict local maximum.
+\end{proposition}
+\begin{proof}
+  When $f''(a)>0$, continuity makes $f''$ positive on a neighbourhood
+  of $a$. By \autoref{thm:analysis-i:taylor-lagrange}, every sufficiently
+  close $x\ne a$ satisfies
+  \[
+    f(x)-f(a)=\frac12 f''(\xi)(x-a)^2>0.
+  \]
+  This proves the minimum assertion. Apply it to $-f$ for the maximum.
+\end{proof}
+The condition $f''(a)=0$ does not decide the issue. At zero, $x^4$
+has a minimum, $-x^4$ has a maximum, and $x^3$ has neither.
+
+\subsection{Arithmetic--geometric means and Young's inequality}
+For nonnegative $u,v$, the two-variable arithmetic--geometric mean
+inequality gives $\sqrt{uv}\le(u+v)/2$. Substituting $u=x^2$ and
+$v=y^2$ gives $xy\le(x^2+y^2)/2$ for $x,y\ge0$.
+Convexity of the exponential extends this to conjugate exponents.
+\begin{proposition}[Young's inequality]
+  \label{thm:analysis-i:young-inequality}
+  Let $p,q>1$ satisfy $1/p+1/q=1$. For $x,y\ge0$,
+  \[
+    xy\le\frac{x^p}{p}+\frac{y^q}{q}.
+  \]
+\end{proposition}
+\begin{proof}
+  For $x,y>0$, the function $E(s)=e^s$ has $E''(s)>0$, so
+  \autoref{thm:analysis-i:convex-second-derivative} makes it convex.
+  Its defining inequality with weights $1/p$ and $1/q$ gives
+  \[
+    xy=\exp\!\left(\frac{\ln(x^p)}p+\frac{\ln(y^q)}q\right)
+      \le\frac{\exp(\ln(x^p))}{p}
+        +\frac{\exp(\ln(y^q))}{q}
+      =\frac{x^p}{p}+\frac{y^q}{q}.
+  \]
+  If either variable is zero, the left side is zero and the right
+  side is nonnegative.
+\end{proof}
+% The source uses the standard name Young, without evidence of a priority
+% date or original publication. No biographical attribution is invented.
+
+\subsection{Convexity and integral averages}
+The next application uses the order and linearity properties of the
+Riemann integral, developed in
+\autoref{sec:analysis-i:integration}. We assume these properties
+for this application. Its geometric content is that a convex function
+of an average is at most the average of the convex function.
+\begin{theorem}[Jensen's inequality for integral averages]
+  \label{thm:analysis-i:jensen-integral}
+  Let $a<b$, let $f$ be continuous on $[a,b]$, and let
+  $\phi\in C^2(I)$ on an open interval containing the range of $f$.
+  Suppose $\phi''\ge0$ on $I$. Put
+  \[
+    \overline f=\frac1{b-a}\int_a^b f(x)\,dx.
+  \]
+  Then
+  \[
+    \phi(\overline f)\le\frac1{b-a}\int_a^b\phi(f(x))\,dx.
+  \]
+\end{theorem}
+\historynote{Johan Ludwig William Valdemar Jensen's 1906 paper begins
+with Cauchy's arithmetic--geometric mean argument and uses convexity
+to organise inequalities between means~\cite[pp.~175--176]{Jensen1906}.
+The historical definition starts with midpoint comparisons. The
+all-weight definition used here makes the averaging principle explicit,
+and does not require differentiability.}
+\begin{proof}
+  The extreme value theorem bounds $f$ between its minimum and maximum.
+  Integrating these bounds shows that $\overline f$ lies in the same
+  interval, hence in $I$. By
+  \autoref{thm:analysis-i:convex-second-derivative},
+  \[
+    \phi(f(x))\ge\phi(\overline f)
+      +\phi'(\overline f)(f(x)-\overline f).
+  \]
+  The functions are continuous, so these integrals exist. Integrate
+  the inequality and divide by $b-a$. The last term vanishes because
+  $\int_a^b(f(x)-\overline f)\,dx=0$, giving the result.
+\end{proof}
+\end{pendingreview}

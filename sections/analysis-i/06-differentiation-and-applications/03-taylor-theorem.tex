@@ -12,6 +12,8 @@ This is fundamental in approximation and numerical error estimates. See \autoref
 
 
 % Source: images/LEC06/IMG_9357. No proof of Taylor's theorem is supplied.
+% Rephotographed as IMG_9418. LEC07/IMG_9420--IMG_9421 supplies the
+% moving-centre proof added below, distinct from the older editorial proof.
 \subsection{Higher derivatives}
 Successive differentiation gives $f'$, $f''$, and more generally $f^{(n)}$.
 \pendingreviewtext{Write $f^{(0)}=f$. A function belongs to $C^n[a,b]$
@@ -73,6 +75,59 @@ finite error term.
   as required.
 \end{proof}
 \end{pendingreview}
+
+% Source: images/LEC07/IMG_9420--IMG_9421. This is the newly supplied
+% telescoping proof, distinct from the existing editorial Rolle iteration.
+% Correct the source's derivative factorial from (n+1)! to n!.
+\begin{pendingreview}
+\begin{proof}[A second proof using a moving centre]
+  Fix $x\ne a$ and define the Taylor error with variable centre $t$ by
+  \[
+    H(t)=f(x)-\sum_{k=0}^n\frac{f^{(k)}(t)}{k!}(x-t)^k.
+  \]
+  Differentiating each term produces two sums. Every term cancels
+  except the one containing $f^{(n+1)}$, so
+  \[
+    H'(t)=-\frac{f^{(n+1)}(t)}{n!}(x-t)^n.
+  \]
+  Also $H(x)=0$. To make equal endpoint values, put
+  \[
+    G(t)=H(t)-H(a)\frac{(x-t)^{n+1}}{(x-a)^{n+1}}.
+  \]
+  The hypotheses of \autoref{thm:analysis-i:rolle} hold between $a$
+  and $x$, and $G(a)=G(x)=0$. Thus $G'(\xi)=0$ for some $\xi$
+  strictly between these endpoints. Substituting $H'$ gives
+  \[
+    0=-\frac{f^{(n+1)}(\xi)}{n!}(x-\xi)^n
+      +H(a)\frac{(n+1)(x-\xi)^n}{(x-a)^{n+1}}.
+  \]
+  Since $\xi\ne x$, cancellation and rearrangement yield
+  \[
+    H(a)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}.
+  \]
+  The definition of $H(a)$ is exactly the required Taylor error.
+\end{proof}
+
+\subsection{A polynomial approximation with an error bound}
+If $|f^{(n+1)}(t)|\le M$ on the segment from $a$ to $x$, then
+\autoref{thm:analysis-i:taylor-lagrange} gives
+\[
+  |f(x)-P_n(x)|\le\frac{M|x-a|^{n+1}}{(n+1)!}.
+\]
+For $f(x)=e^x$ and $a=0$, the quadratic approximation is
+$P_2(x)=1+x+x^2/2$. On $[0,1]$, its error is at most $ex^3/6$.
+The vertical distance in \autoref{fig:analysis-i:taylor-error} is the
+error controlled by this bound.
+\end{pendingreview}
+\begin{figure}[htbp]
+  \centering
+  \input{figures/differentiation/taylor-error}
+  \caption[Taylor error as a vertical distance.]{\pendingreviewtext{
+    The exponential and its quadratic Taylor polynomial about zero.
+    The grey vertical segment at $x=1$ is the remainder $e-5/2$.
+    Curves are shown only on $[0,1]$.}}
+  \label{fig:analysis-i:taylor-error}
+\end{figure}
 
 \subsection{The factorial series and the exponential function}
 \autoref{ex:hw02:factorial-sequence} identified the supremum of the

@@ -1,0 +1,39 @@
+% !TEX TS-program = pdflatexmk
+% !TEX program = pdflatex
+% Source: MA-GY-6213-hw7 (1).pdf, two pages, Homework No. 7.
+% Based on the unchanged problems/template.tex.
+\documentclass[nohyper,nobib,nofonts]{tufte-handout}
+\newcommand{\analysisroot}{..}
+\IfFileExists{preamble.tex}{\renewcommand{\analysisroot}{.}}{}
+\makeatletter
+\edef\input@path{{\analysisroot/}}
+\makeatother
+\input{preamble}
+\input{macros}
+\renewcommand{\thetheorem}{\arabic{theorem}}
+\title{Homework 07}
+\author[Lucas Barbosa, lc6424]{Lucas Barbosa, \texttt{lc6424}}
+\date{Due Friday, November 6, 2026}
+\begin{document}
+\maketitle
+\input{problems/hw07/01-contractive-fixed-point/problem}
+\input{problems/hw07/01-contractive-fixed-point/solution}
+\input{problems/hw07/02-one-sided-derivatives/problem}
+\input{problems/hw07/02-one-sided-derivatives/solution}
+\input{problems/hw07/03-polynomial-rolle/problem}
+\input{problems/hw07/03-polynomial-rolle/solution}
+\input{problems/hw07/04-symmetric-differences/problem}
+\input{problems/hw07/04-symmetric-differences/solution}
+\input{problems/hw07/05-rational-maximum/problem}
+\input{problems/hw07/05-rational-maximum/solution}
+\input{problems/hw07/06-decreasing-euler-approximants/problem}
+\input{problems/hw07/06-decreasing-euler-approximants/solution}
+\input{problems/hw07/07-trigonometric-logarithmic-limits/problem}
+\input{problems/hw07/07-trigonometric-logarithmic-limits/solution}
+\input{problems/hw07/08-power-sequence-limits/problem}
+\input{problems/hw07/08-power-sequence-limits/solution}
+\input{problems/hw07/09-self-power-derivative/problem}
+\input{problems/hw07/09-self-power-derivative/solution}
+\input{problems/hw07/10-self-power-limit/problem}
+\input{problems/hw07/10-self-power-limit/solution}
+\end{document}

@@ -1,0 +1,150 @@
+% !TEX root = ../../../main.tex
+% Source: images/LEC07/IMG_9425--IMG_9428. Subtopics within syllabus §8.6.
+\subsection{Analytic functions and the multiplicity of a zero}
+\label{sec:analysis-i:analytic-functions}
+\begin{pendingreview}
+\begin{definition}[Real analytic function]
+  \label{thm:analysis-i:analytic-function}
+  A function is \emph{analytic at $a$} if, on some neighbourhood of $a$,
+  it equals a convergent power series
+  \[
+    f(x)=\sum_{k=0}^{\infty}b_k(x-a)^k.
+  \]
+  It is analytic on an open interval if this holds at every point.
+\end{definition}
+A convergent power series can be differentiated term by term at every
+point strictly inside its radius of convergence. We state this
+power-series differentiation theorem here without proof. Repeated
+application gives $b_k=f^{(k)}(a)/k!$, so an analytic function equals
+its Taylor series locally. Taylor's theorem alone does not assert this
+equality. Its remainder must tend to zero.
+
+Suppose $f(a)=0$ and its local series has a first nonzero coefficient
+$b_m$, where $m\ge1$. Factoring gives
+\[
+  f(x)=(x-a)^m g(x),\qquad
+  g(x)=\sum_{j=0}^{\infty}b_{m+j}(x-a)^j,\qquad g(a)=b_m\ne0.
+\]
+The shifted series converges on the same neighbourhood. Continuity
+makes $g$ nonzero sufficiently close to $a$, so $a$ is an isolated zero.
+The integer $m$ is its \emph{multiplicity}. If every coefficient
+vanishes, the function is zero on a neighbourhood and this argument
+does not assign a finite multiplicity.
+
+\begin{example}[A simple zero of an exponential difference]
+  The function $e^x$ never vanishes, but
+  \[
+    e^x-1=x\left(1+\frac{x}{2!}+\frac{x^2}{3!}+\cdots\right).
+  \]
+  The factor in parentheses is continuous and has value $1$ at zero.
+  Thus zero is a root of multiplicity one of $e^x-1$.
+\end{example}
+
+% Original prompt in IMG_9425: write out the analytical forms of sine and
+% cosine and derive Euler's identity. The working below completes it.
+\begin{example}[Trigonometric series and Euler's identity]
+  Taylor's theorem gives
+  \[
+    \cos x=\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{(2n)!},\qquad
+    \sin x=\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!}.
+  \]
+  Indeed, successive derivatives cycle through sine and cosine with
+  signs, and have absolute value at most one. The remainder after
+  degree $N$ is bounded by $|x|^{N+1}/(N+1)!$, which tends to zero
+  for fixed $x$ by the ratio test.
+
+  Define $e^z=\sum_{k=0}^{\infty}z^k/k!$ for $z\in\C$.
+  The ratio test applied to absolute values proves convergence.
+  Its even and odd terms can therefore be separated. Since
+  $i^{2n}=(-1)^n$ and $i^{2n+1}=i(-1)^n$, the two displayed series give
+  \[
+    e^{ix}=\cos x+i\sin x.
+  \]
+  In particular $e^{i\pi}+1=0$. No complex differentiation is used.
+\end{example}
+\end{pendingreview}
+
+\subsection{Uniform polynomial approximation}
+\label{sec:analysis-i:polynomial-approximation}
+\begin{pendingreview}
+Taylor polynomials use derivatives at one point. Uniform polynomial
+approximation asks for small error on an entire interval and requires
+only continuity, even for a function with corners.
+\begin{theorem}[Weierstrass approximation theorem]
+  \label{thm:analysis-i:weierstrass-approximation}
+  If $f\in C[a,b]$ with $a<b$, then for every $\varepsilon>0$ there
+  exists a polynomial $P$ such that
+  \[
+    \forall x\in[a,b]\quad |f(x)-P(x)|<\varepsilon.
+  \]
+\end{theorem}
+\end{pendingreview}
+\historynote{Sergei Bernstein's 1912 paper offers a proof of
+Weierstrass's theorem based on probability~\cite{Bernstein1912}.
+The weights below are binomial probabilities. They average nearby
+sampled values and concentrate around the input as $n$ grows.
+This connects uniform approximation to concentration of random
+averages. Sergei Bernstein is a different mathematician from Felix
+Bernstein of \autoref{thm:analysis-i:cantor-bernstein}.}
+\begin{pendingreview}
+\begin{proof}[Proof by Bernstein polynomials]
+  First suppose $[a,b]=[0,1]$. For $n\ge1$, define
+  \[
+    w_{n,k}(x)=\binom nk x^k(1-x)^{n-k},\qquad
+    B_nf(x)=\sum_{k=0}^n w_{n,k}(x)f(k/n).
+  \]
+  Polynomial values at endpoints use the usual constant-power convention.
+  The binomial theorem gives $w_{n,k}(x)\ge0$ and
+  $\sum_{k=0}^n w_{n,k}(x)=1$ on $[0,1]$.
+  The identities $k\binom nk=n\binom{n-1}{k-1}$ and
+  $k(k-1)\binom nk=n(n-1)\binom{n-2}{k-2}$ give
+  \[
+    \sum_{k=0}^n\frac{k}{n}w_{n,k}(x)=x,\qquad
+    \sum_{k=0}^n\left(\frac{k}{n}-x\right)^2w_{n,k}(x)
+       =\frac{x(1-x)}n\le\frac1{4n}.
+  \]
+  For the second identity, first sum $k(k-1)$ and $k$ to obtain
+  $\sum k^2w_{n,k}=n(n-1)x^2+nx$, and expand the square.
+  For $n=1$ the $k(k-1)$ terms are all zero, so the same identity holds.
+
+  By the extreme value theorem, $|f|\le M$ for some $M>0$.
+  By uniform continuity, choose $\delta>0$ such that
+  $|f(u)-f(v)|<\varepsilon/2$ whenever $|u-v|<\delta$.
+  Since the weights sum to one,
+  \[
+    |B_nf(x)-f(x)|
+      \le\sum_{k=0}^n w_{n,k}(x)|f(k/n)-f(x)|.
+  \]
+  Split the sum according to whether $|k/n-x|<\delta$ or
+  $|k/n-x|\ge\delta$. The first part is at most $\varepsilon/2$.
+  For the second part, use $|f(k/n)-f(x)|\le2M$ and
+  $1\le(k/n-x)^2/\delta^2$. Thus, for every $x\in[0,1]$,
+  \[
+    |B_nf(x)-f(x)|\le\frac{\varepsilon}{2}
+      +\frac{2M}{\delta^2}\frac{x(1-x)}n
+      \le\frac{\varepsilon}{2}+\frac{M}{2n\delta^2}.
+  \]
+  Taking $n>M/(\varepsilon\delta^2)$ makes the last expression
+  strictly less than $\varepsilon$. The choice is independent of $x$,
+  proving uniform convergence.
+
+  For a general interval, apply this construction to
+  $g(t)=f(a+(b-a)t)$ on $[0,1]$. Substituting
+  $t=(x-a)/(b-a)$ in an approximating polynomial gives a polynomial
+  in $x$ with the same error bound on $[a,b]$.
+\end{proof}
+The two mechanisms in the proof are different. Uniform continuity
+controls the error at nearby samples. The second-moment bound controls
+the total weight of distant samples. A corner can therefore be
+approximated without differentiating it, as in
+\autoref{fig:analysis-i:bernstein-approximation}.
+\end{pendingreview}
+\begin{figure}[htbp]
+  \centering
+  \input{figures/function-sequences/bernstein-approximation}
+  \caption[Bernstein approximation of a corner.]{\pendingreviewtext{
+    The function $f(x)=|2x-1|$ (black) and its Bernstein polynomials
+    of degrees $2$ and $8$ (grey). The smooth polynomials approach a
+    function that is not differentiable at $x=1/2$. Only $[0,1]$ is shown.}}
+  \label{fig:analysis-i:bernstein-approximation}
+\end{figure}

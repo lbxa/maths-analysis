@@ -26,11 +26,14 @@
   the monotone convergence theorem gives $F_n\to L$ as $n\to\infty$.
   The shifted sequences $F_{n-1}$ and $F_{n-2}$ also tend to $L$, so the
   recurrence and the limit laws give
-  \begin{align*}
-    F_n&=F_{n-1}+F_{n-2} \\
-       &\implies L=2L \\
-       &\iff L=0.
-  \end{align*}
+  \begin{pendingreview}
+  \[
+    L=\lim_{n\to\infty}F_n
+      =\lim_{n\to\infty}F_{n-1}+\lim_{n\to\infty}F_{n-2}
+      =L+L.
+  \]
+  Subtracting $L$ gives $L=0$.
+  \end{pendingreview}
   But $F_n\geq1$ for every $n\geq1$, so taking limits gives $L\geq1$.
   This contradicts $L=0$. Therefore the sequence is unbounded above.
 

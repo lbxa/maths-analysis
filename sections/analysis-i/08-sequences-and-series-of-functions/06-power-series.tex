@@ -43,7 +43,7 @@ from \autoref{sec:analysis-i:comparison-tests} apply.
 
   Let $S$ consist of the nonnegative values $r$ where the power series
   converges absolutely. This set contains $0$.
-  If $S$ is bounded above, let $R=\sup S$; otherwise let $R=+\infty$.
+  If $S$ is bounded above, let $R=\sup S$. Otherwise let $R=+\infty$.
   If $|x|<R$, there is an $r\in S$ with $|x|<r$. The preceding
   comparison then proves absolute convergence at $x$. For $R=0$
   this interior condition is empty, while convergence at zero remains.
@@ -105,8 +105,8 @@ example following \autoref{thm:analysis-i:weierstrass-m-test} shows this.
 
 The series $\sum_{n=0}^{\infty}x^n$ has radius $R=1$, since
 \autoref{sec:analysis-i:number-series} proves that it converges exactly
-for $|x|<1$. Neither endpoint is included. At $x=1$ every term is $1$;
-at $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
+for $|x|<1$. Neither endpoint is included. \pendingreviewtext{At $x=1$ every term is $1$.
+At} $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
 terms fail to tend to zero.
 % IMG_9238's annotation R=|x| confuses the term ratio with the radius.
 
@@ -273,7 +273,7 @@ $0<a<1$, according to the sign of $\ln a$.
   substituting $t=E(x)$ would give $P(E(x),x)=0$ for every real $x$.
   Interchanging the two polynomial variables produces a forbidden
   polynomial relation for $E$. Hence $\ln$ is transcendental on
-  $(0,\infty)$ as well. This concerns the whole function; for example,
+  $(0,\infty)$ as well. This concerns the whole function. For example,
   its individual value $E(0)=1$ is rational.
 \end{example}
 
@@ -321,7 +321,7 @@ for every $s\ge0$.
   \centering
   \input{figures/series/power-series-endpoints}
   \caption[Three endpoint patterns for radius one.]{All three cases have radius $1$. Open or filled endpoint
-    markers record the separate tests at $-1$ and $1$; the radius
+    markers record the separate tests at $-1$ and $1$\pendingreviewtext{. The} radius
     alone does not settle them.}
   \label{fig:power-series-endpoints}
 \end{marginfigure}
@@ -351,3 +351,5 @@ The next question composes a power series with a rational function.
 Check the domain of that rational function as well as the convergence
 interval of the series in its own variable.
 \input{problems/hw06/10-composed-power-series/problem}
+
+\input{sections/analysis-i/08-sequences-and-series-of-functions/06-analytic-and-approximation}

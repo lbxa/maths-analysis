@@ -9,6 +9,19 @@ records the constraint on the syllabus structure.
 
 ## Changelog
 
+### 2026-11-04
+
+- Review the foundation arguments and their exercise dependencies. Add the
+  short rational-translation proof of irrational density before the later
+  dense-set continuity examples. Make the binary geometric sum explicit,
+  distinguish bisection length from cardinality notation, and use automatic
+  references for both root diagrams. Keep all additions pending.
+- Restrict the Jacobian example's conclusion to its explicit inverse rather
+  than asserting an undated research status from a 2016 reference. The
+  classical formulation and its source remain as an optional excursion.
+- Retain the author's proof methods while improving the set-equality reminder,
+  the Fibonacci limit calculation, and punctuation in shared solutions.
+
 ### 2026-10-30
 
 - Prove Cantor--Bernstein by separating points generated from

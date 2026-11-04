@@ -11,7 +11,7 @@ Collaborative Tufte-style notes cover Mathematical Analysis I and II.
 - `sections/front-matter/` holds copyright, introduction, and acknowledgements; `sections/appendices/` contains notation, assumed knowledge, and the solutions chapter.
 - `problems/hwNN.tex` are standalone homework handouts using the shared preamble and macros.
 - `problems/hwNN/NN-topic/problem.tex` holds a shared exercise statement; the adjacent `solution.tex` holds its solution. Do not add an `exercises/` subdirectory.
-- `figures/` holds diagrams; `figures/template/` and `bibliography.bib` contain specimen assets and references. `build/` contains ignored generated output.
+- `figures/` holds mathematical diagrams and credited historical portraits. `bibliography.bib` holds shared references. `build/` contains ignored generated output.
 
 ## Build & Development Commands
 
