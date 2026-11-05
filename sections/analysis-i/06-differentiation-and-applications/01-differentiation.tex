@@ -100,18 +100,47 @@ ratio is what characterises differentiability.
 \end{proof}
 \end{pendingreview}
 
+\subsection{Left and right derivatives}
+
 \begin{pendingreview}
-The \emph{right derivative} $f'_+(c)$ is the limit of
-$(f(c+h)-f(c))/h$ as $h\to0^+$. The \emph{left derivative} $f'_-(c)$
-uses $h\to0^-$. At an interior point the ordinary derivative exists
+\begin{definition}[Left and right derivatives]
+  \label{thm:analysis-i:one-sided-derivatives}
+  \index{derivative!left}\index{derivative!right}
+  Let $f$ be a real-valued function defined at $c$.
+  If $f$ is also defined on $(c,c+\eta)$ for some $\eta>0$, its
+  \emph{right derivative at $c$} is
+  \[
+    f'_+(c)=\lim_{h\to0^+}\frac{f(c+h)-f(c)}{h},
+  \]
+  provided this limit exists as a finite real number.
+  If $f$ is defined on $(c-\eta,c)$ for some $\eta>0$, its
+  \emph{left derivative at $c$} is
+  \[
+    f'_-(c)=\lim_{h\to0^-}\frac{f(c+h)-f(c)}{h},
+  \]
+  provided this limit exists as a finite real number.
+\end{definition}
+
+In the right-hand limit, $h>0$, so $c+h$ approaches $c$ from the right.
+In the left-hand limit, $h<0$, so $c+h$ approaches $c$ from the left.
+The quotient keeps the signed increment $h$ in both cases.
+
+At an interior point of the domain, the ordinary derivative exists
 exactly when both one-sided derivatives exist as finite numbers and
-are equal.
+are equal. Their common value is then
+\[
+  f'(c)=f'_-(c)=f'_+(c).
+\]
+On a closed interval $[a,b]$ with $a<b$, these one-sided limits define
+the endpoint derivatives $f'_+(a)$ and $f'_-(b)$ when they exist, using
+only points in the interval.
 \end{pendingreview}
 
 \begin{example}[A corner and one-sided derivatives]
   \label{ex:analysis-i:absolute-value-derivative}
   For $f(x)=|x|$, the difference quotient at zero is $|h|/h$.
-  Consequently,
+  \pendingreviewtext{The definitions in
+  \autoref{thm:analysis-i:one-sided-derivatives} give}
   \[
     f'_+(0)=\lim_{h\to0^+}\frac{|h|}{h}=1,\qquad
     f'_-(0)=\lim_{h\to0^-}\frac{|h|}{h}=-1.

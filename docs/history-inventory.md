@@ -140,7 +140,7 @@ specimens are excluded. An unnamed entry does not imply an unknown theorem
 has been assigned a historical discoverer. Topic-level notes can cover several
 related statements; the map above identifies the corresponding context.
 
-Count: **100 formal blocks**. Source line numbers refer to the current text.
+Count: **102 formal blocks**. Source line numbers refer to the current text.
 
 | Topic source | Line | Kind | Title | Stable label |
 | --- | --- | --- | --- | --- |
@@ -211,8 +211,9 @@ Count: **100 formal blocks**. Source line numbers refer to the current text.
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 178 | proposition | Piecewise linear approximation | `thm:analysis-i:polygonal-approximation` |
 | [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 23 | definition | Derivative | `thm:analysis-i:derivative` |
 | [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 92 | proposition | Differentiability implies continuity | `thm:analysis-i:differentiable-continuous` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 256 | definition | Stationary point | `thm:analysis-i:stationary-point` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 264 | proposition | Interior extrema | `thm:analysis-i:interior-extremum` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 106 | definition | Left and right derivatives | `thm:analysis-i:one-sided-derivatives` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 285 | definition | Stationary point | `thm:analysis-i:stationary-point` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 293 | proposition | Interior extrema | `thm:analysis-i:interior-extremum` |
 | [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 7 | theorem | Rolle's theorem | `thm:analysis-i:rolle` |
 | [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 34 | theorem | Mean value theorem | `thm:analysis-i:mean-value` |
 | [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 100 | corollary | Derivative signs and monotonicity | `thm:analysis-i:derivative-monotonicity` |
@@ -224,6 +225,7 @@ Count: **100 formal blocks**. Source line numbers refer to the current text.
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 94 | proposition | Young's inequality | `thm:analysis-i:young-inequality` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 123 | theorem | Jensen's inequality for integral averages | `thm:analysis-i:jensen-integral` |
 | [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 31 | theorem | L'Hopital's rule for 0/0 | `thm:analysis-i:lhopital-zero` |
+| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 97 | proposition | Logarithmic method for power limits | `thm:analysis-i:logarithmic-power-limits` |
 | [06-differentiation-and-applications/06-inverse-function-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/06-inverse-function-theorem.tex) | 10 | theorem | Derivative of an inverse | `thm:analysis-i:inverse-derivative` |
 | [08-sequences-and-series-of-functions/01-sequences-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/01-sequences-of-functions.tex) | 11 | definition | Pointwise convergence | `thm:analysis-i:pointwise-convergence` |
 | [08-sequences-and-series-of-functions/02-series-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/02-series-of-functions.tex) | 12 | definition | Series of functions | `thm:analysis-i:function-series` |

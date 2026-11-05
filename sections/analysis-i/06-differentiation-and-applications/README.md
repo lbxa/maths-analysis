@@ -10,6 +10,23 @@ identities separate from the book's chapter and section numbering.
 
 ## Changelog
 
+### 2026-11-05
+
+- Teach the general logarithmic method for variable-power limits before
+  the existing exponential-approximant example. Distinguish passing a known
+  positive limit through ln from establishing a power limit by finding the
+  exponent's finite limit and using continuity of exp. State positivity and
+  eventual-positivity conditions, retain the forward references to §8.6,
+  and add a self-check beside HW07 Q8 without supplying its solution.
+  Keep the added proposition, proof, and explanation pending review.
+- Give left and right derivatives their own subsection and numbered
+  definition before the corner example and HW07 Q2. Display each signed
+  difference-quotient limit separately, state the one-sided domain and finite
+  limit requirements, and explain the sign of h. Retain the equal-derivatives
+  criterion at interior points and make the endpoint interpretation explicit.
+  Add index entries and link the corner example to the definition. Keep the
+  replacement pending review and preserve exercise identities and order.
+
 ### 2026-11-04
 
 - Inspect every converted page and reconcile repeated LEC06 material without

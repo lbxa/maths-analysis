@@ -75,6 +75,68 @@ factors of $f$ and $g$.
 % IMG_9356 reverses the reciprocal quotient and supplies no infinity-case
 % proof. No unprovided infinity-endpoint theorem is inferred from the sketch.
 
+\subsection{Logarithms and limits of variable powers}
+
+\begin{pendingreview}
+Taking a logarithm turns a power into a product. To recover the original
+limit, we use continuity of the exponential. The required continuity and
+positive-base power identities are developed in
+\autoref{thm:analysis-i:exponential-properties} and
+\autoref{thm:analysis-i:logarithm-real-powers}.
+
+First distinguish the two directions of this argument. If $u(x)>0$ near
+$a$ and $u(x)\to A>0$, continuity of $\ln$ on $(0,\infty)$ gives
+\[
+  \lim_{x\to a}\ln u(x)
+    =\ln\left(\lim_{x\to a}u(x)\right)=\ln A.
+\]
+The condition $A>0$ matters because $\ln0$ is not a real number.
+When the original limit is unknown, the useful direction starts by
+finding the logarithmic limit and then applying the exponential.
+
+\begin{proposition}[Logarithmic method for power limits]
+  \label{thm:analysis-i:logarithmic-power-limits}
+  Let $g$ and $h$ be real-valued functions defined near $a$, possibly
+  excluding $a$ itself, with $g(x)>0$ there. If
+  \[
+    \lim_{x\to a}h(x)\ln g(x)=L\in\R,
+  \]
+  then
+  \[
+    \lim_{x\to a}g(x)^{h(x)}=e^L.
+  \]
+\end{proposition}
+\begin{proof}
+  For each $x$ under consideration, positivity of the base gives
+  \[
+    g(x)^{h(x)}=e^{h(x)\ln g(x)}.
+  \]
+  The exponent tends to the finite real number $L$. Since the exponential
+  is continuous at $L$, we obtain
+  \[
+    \lim_{x\to a}g(x)^{h(x)}
+      =\exp\left(\lim_{x\to a}h(x)\ln g(x)\right)=e^L.
+  \]
+  Thus convergence of the logarithmic expression establishes convergence
+  of the original power.
+\end{proof}
+
+This method replaces a variable exponent by multiplication. The product
+$h(x)\ln g(x)$ can often be rewritten as a quotient and evaluated with
+limit laws or L'H\^opital's rule, after checking the rule's hypotheses.
+The same continuity argument applies to one-sided limits and limits at
+infinity.
+
+For sequences, positivity is needed only for all sufficiently large
+indices. If $u_n>0$ eventually and $v_n\ln u_n\to L\in\R$, then
+\[
+  u_n^{v_n}=\exp(v_n\ln u_n)\longrightarrow e^L.
+\]
+Finitely many initial terms do not affect the limit. We first establish
+the limit of the exponent and then use continuity to pass that limit
+inside the exponential.
+\end{pendingreview}
+
 \begin{example}[The limit of the exponential approximants]
   \label{ex:analysis-i:euler-approximant-limit}
   For $x>0$, put $t=1/x$. The logarithm of $(1+1/x)^x$ is
@@ -87,7 +149,9 @@ factors of $f$ and $g$.
     \lim_{t\to0^+}\frac{\ln(1+t)}{t}
       =\lim_{t\to0^+}\frac{1/(1+t)}{1}=1.
   \]
-  \pendingreviewtext{Continuity of the exponential therefore yields}
+  \pendingreviewtext{Applying
+  \autoref{thm:analysis-i:logarithmic-power-limits} to this logarithmic
+  limit therefore yields}
   \[
     \lim_{x\to+\infty}(1+1/x)^x=e.
   \]
@@ -108,8 +172,12 @@ Taylor's theorem supplies another route.
 logarithmic tools needed for the next limits.}
 \input{problems/hw07/07-trigonometric-logarithmic-limits/problem}
 
-\pendingreviewtext{For a positive varying base raised to a varying
-power, taking a logarithm turns the power into a product. In a sequence,
-the base only needs to be positive for all sufficiently large indices.}
 \input{problems/hw07/08-power-sequence-limits/problem}
+\begin{pendingreview}
+\newthought{Check your understanding.} Fix $x\in\R$ and denote the first
+sequence in \autoref{ex:hw07:power-sequence-limits} by $(y_n)$. For all
+sufficiently large $n$, what product do you obtain for $\ln y_n$? Rewrite
+it as a quotient suitable for a real-variable limit. Which continuity
+property will recover the limit of $y_n$ from the limit of $\ln y_n$?
+\end{pendingreview}
 \input{problems/hw07/10-self-power-limit/problem}

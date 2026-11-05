@@ -217,13 +217,13 @@ after the restated problem.
 | [HW06 Q9](problems/hw06/09-uniform-algebra/problem.tex) | Products and sums of uniformly convergent continuous functions | [§8.3 Uniform convergence](sections/analysis-i/08-sequences-and-series-of-functions/03-uniform-convergence.tex), Uniform convergence and arithmetic operations, after uniform-limit continuity and the C[a,b] norm axioms | [52](problems/hw06/09-uniform-algebra/solution.tex) | `hw06:uniform-algebra` | Included; awaiting solution |
 | [HW06 Q10](problems/hw06/10-composed-power-series/problem.tex) | Radius under rational substitution and continuity | [§8.6 Power series](sections/analysis-i/08-sequences-and-series-of-functions/06-power-series.tex), after radius examples, endpoints, and HW04 Q7 | [62](problems/hw06/10-composed-power-series/solution.tex) | `hw06:composed-power-series` | Included; awaiting solution |
 | [HW07 Q1](problems/hw07/01-contractive-fixed-point/problem.tex) | Bounded derivative, Lipschitz estimate, contraction iteration, uniqueness | [§6.2 Mean value theorems](sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex), after derivative signs, with geometric tails and Cauchy completeness recalled | [44](problems/hw07/01-contractive-fixed-point/solution.tex) | `hw07:contractive-fixed-point` | Included; awaiting solution |
-| [HW07 Q2](problems/hw07/02-one-sided-derivatives/problem.tex) | Continuity and unequal one-sided derivatives | [§6.1 Differentiation](sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex), after the corner example, with the later exponential limits explicitly assumed | [41](problems/hw07/02-one-sided-derivatives/solution.tex) | `hw07:one-sided-derivatives` | Included; awaiting solution |
+| [HW07 Q2](problems/hw07/02-one-sided-derivatives/problem.tex) | Continuity and unequal one-sided derivatives | [§6.1 Differentiation](sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex), Left and right derivatives, after the numbered definition and corner example, with the later exponential limits explicitly assumed | [41](problems/hw07/02-one-sided-derivatives/solution.tex) | `hw07:one-sided-derivatives` | Included; awaiting solution |
 | [HW07 Q3](problems/hw07/03-polynomial-rolle/problem.tex) | Polynomial primitive and Rolle's theorem | [§6.2 Mean value theorems](sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex), immediately after Rolle's proof | [43](problems/hw07/03-polynomial-rolle/solution.tex) | `hw07:polynomial-rolle` | Included; awaiting solution |
 | [HW07 Q4](problems/hw07/04-symmetric-differences/problem.tex) | Symmetric first and second differences | [§6.5 L'Hôpital's rules](sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex), exercises after the zero-quotient rule, higher derivatives, and Taylor | [47](problems/hw07/04-symmetric-differences/solution.tex) | `hw07:symmetric-differences` | Included; awaiting solution |
 | [HW07 Q5](problems/hw07/05-rational-maximum/problem.tex) | Sharp rational-function bound and equality case | [§6.2 Mean value theorems](sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex), after monotonicity and the contraction exercise | [45](problems/hw07/05-rational-maximum/solution.tex) | `hw07:rational-maximum` | Included; awaiting solution |
 | [HW07 Q6](problems/hw07/06-decreasing-euler-approximants/problem.tex) | Decreasing exponential approximants and limit | [§6.2 Mean value theorems](sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex), after increasing approximants, with a forward reference to §6.5 for the limit | [46](problems/hw07/06-decreasing-euler-approximants/solution.tex) | `hw07:decreasing-euler-approximants` | Included; awaiting solution; unspecified source domain clarified as x > 0 |
 | [HW07 Q7](problems/hw07/07-trigonometric-logarithmic-limits/problem.tex) | Trigonometric and logarithmic zero-quotient limits | [§6.5 L'Hôpital's rules](sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex), after symmetric differences and elementary derivatives | [48](problems/hw07/07-trigonometric-logarithmic-limits/solution.tex) | `hw07:trigonometric-logarithmic-limits` | Included; awaiting solution; second quotient needs a nonzero parameter |
-| [HW07 Q8](problems/hw07/08-power-sequence-limits/problem.tex) | Limits of varying-base powers via logarithms | [§6.5 L'Hôpital's rules](sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex), after the logarithmic-quotient example | [49](problems/hw07/08-power-sequence-limits/solution.tex) | `hw07:power-sequence-limits` | Included; awaiting solution |
+| [HW07 Q8](problems/hw07/08-power-sequence-limits/problem.tex) | Limits of varying-base powers via logarithms | [§6.5 L'Hôpital's rules](sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex), after the general logarithmic power-limit method and its exponential-approximant example, with a self-check immediately after the statement | [49](problems/hw07/08-power-sequence-limits/solution.tex) | `hw07:power-sequence-limits` | Included; awaiting solution |
 | [HW07 Q9](problems/hw07/09-self-power-derivative/problem.tex) | Logarithmic differentiation of x^x | [§6.1 Differentiation](sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex), after real-power derivatives and chain rule | [42](problems/hw07/09-self-power-derivative/solution.tex) | `hw07:self-power-derivative` | Included; awaiting solution |
 | [HW07 Q10](problems/hw07/10-self-power-limit/problem.tex) | Boundary limit of x^x | [§6.5 L'Hôpital's rules](sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex), after varying-base logarithmic limits | [50](problems/hw07/10-self-power-limit/solution.tex) | `hw07:self-power-limit` | Included; awaiting solution; source's x -> 0 interpreted on positive real domain |
 
@@ -461,7 +461,7 @@ and modifications made for these notes.
 
 ## Historical context and portraits
 
-The [history inventory](docs/history-inventory.md) locates all 100 substantive
+The [history inventory](docs/history-inventory.md) locates all 102 substantive
 formal statement blocks and maps the named or historical topic groups to their
 sources and editorial decisions. Brief pending margin notes explain motivating
 problems, dates, collaborators or predecessors, formulation choices, and impact.
@@ -478,6 +478,18 @@ with Biber-generated author/year labels and an author/year/title-ordered
 bibliography. Publication details and links use structured BibLaTeX metadata.
 
 ## Changelog
+
+### 2026-11-05
+
+- Explain the logarithmic method for variable-power limits in §6.5, using
+  continuity to recover the power limit from a finite limit of the exponent.
+  Keep the conditions explicit and link the general method to the existing
+  example and HW07 Q8 self-check. Preserve all shared exercise identities,
+  placements, and awaiting-solution status.
+- Promote the left and right derivative definitions to a dedicated subsection
+  and numbered definition in §6.1, with separate displayed limits and index
+  entries. Preserve the corner example and HW07 Q2 placement, and mark the
+  replacement pending review.
 
 ### 2026-11-04
 
