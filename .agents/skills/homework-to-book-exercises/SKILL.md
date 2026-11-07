@@ -1,9 +1,14 @@
 ---
 name: homework-to-book-exercises
-description: Import supplied homework PDFs or TeX into this Mathematical Analysis I and II book as shared exercises, appendix solutions, and standalone handouts. Use for assignment imports and updates, rather than lecture-note prose transcription.
+description: Import homework assignments into this Mathematical Analysis I and II book as shared exercises and standalone handouts. Use for statement imports and assignment structure. Use homework-solutions-to-book for the author's own proof drafts.
 ---
 
 # Homework to book exercises
+
+For the author's own solution drafts, use
+[homework-solutions-to-book](../homework-solutions-to-book/SKILL.md).
+It governs faithful transcription and focused mathematical repairs.
+Importing an assignment does not authorize replacing supplied proofs.
 
 Read [AGENTS.md](../../../AGENTS.md) for binding project conventions and the
 [homework placement map](../../../README.md#homework-placement-map) for current
@@ -125,7 +130,7 @@ show the stated function, labelled arrowed axes, relevant intercepts, and
 arrows on continued branches. Inspect label clearance at final margin size.
 
 Keep shared notation in `macros.tex` and preserve the `nohyper` contents
-workaround. Follow the existing numeric citation and bibliography conventions
+workaround. Follow the shared alphabetic AMS citation and bibliography conventions
 when supplied solutions cite sources.
 
 ## Synchronize records and validate

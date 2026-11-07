@@ -22,7 +22,7 @@ from \autoref{sec:analysis-i:comparison-tests} apply.
 
 % Addition awaiting author review. The source introduces
 % radii through examples; this supplies the existence assertion used above.
-\begin{pendingreview}
+
 \begin{proposition}
   \label{thm:analysis-i:power-series-radius}
   Every real power series centred at zero has a radius of convergence
@@ -55,11 +55,11 @@ from \autoref{sec:analysis-i:comparison-tests} apply.
   the required properties. Boundary behaviour when $0<R<\infty$
   still requires separate tests.
 \end{proof}
-\end{pendingreview}
+
 
 An infinite radius means absolute convergence for every real $x$.
 
-\begin{pendingreview}
+
 \subsection{Computing the radius and controlling interior intervals}
 For the series $\sum c_nx^n$, set
 \[
@@ -99,18 +99,18 @@ finite endpoints.
 Uniform convergence on each smaller closed interval need not mean
 uniform convergence on the whole open interval. The geometric-series
 example following \autoref{thm:analysis-i:weierstrass-m-test} shows this.
-\end{pendingreview}
+
 
 \subsection{The geometric power series}
 
 The series $\sum_{n=0}^{\infty}x^n$ has radius $R=1$, since
 \autoref{sec:analysis-i:number-series} proves that it converges exactly
-for $|x|<1$. Neither endpoint is included. \pendingreviewtext{At $x=1$ every term is $1$.
-At} $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
+for $|x|<1$. Neither endpoint is included. At $x=1$ every term is $1$.
+At $x=-1$ the terms alternate between $1$ and $-1$. In both cases the
 terms fail to tend to zero.
 % IMG_9238's annotation R=|x| confuses the term ratio with the radius.
 
-\begin{pendingreview}
+
 \subsection{Algebraic and transcendental functions}
 \begin{definition}[Algebraic and transcendental functions]
   \label{thm:analysis-i:algebraic-function}
@@ -134,7 +134,7 @@ the constant function $f(x)=\pi$ is algebraic, using $Y-\pi=0$,
 although $\pi$ is a transcendental number over $\Q$.
 The exponential and logarithm below are transcendental functions on
 their full real domains, as we will prove after constructing them.
-\end{pendingreview}
+
 
 \subsection{The exponential series}
 
@@ -157,7 +157,7 @@ series multiplication, as shown below. At $x=1$ the sum is the earlier
 factorial-series definition of $e$.
 
 \subsection{Exponential and logarithmic properties}
-\begin{pendingreview}
+
 \begin{theorem}[The exponential function]
   \label{thm:analysis-i:exponential-properties}
   The series $E(x)=\sum_{n=0}^{\infty}x^n/n!$ defines a continuous,
@@ -280,7 +280,7 @@ $0<a<1$, according to the sign of $\ln a$.
 These properties supply the exponential and logarithmic background for
 the following exercises and for the derivative calculations in
 \autoref{sec:analysis-i:differentiation}.
-\end{pendingreview}
+
 \input{problems/hw06/01-exponential-continuity/problem}
 \input{problems/hw06/02-arbitrary-base-exponential/problem}
 \input{problems/hw06/04-exponential-scaling/problem}
@@ -321,7 +321,7 @@ for every $s\ge0$.
   \centering
   \input{figures/series/power-series-endpoints}
   \caption[Three endpoint patterns for radius one.]{All three cases have radius $1$. Open or filled endpoint
-    markers record the separate tests at $-1$ and $1$\pendingreviewtext{. The} radius
+    markers record the separate tests at $-1$ and $1$. The radius
     alone does not settle them.}
   \label{fig:power-series-endpoints}
 \end{marginfigure}

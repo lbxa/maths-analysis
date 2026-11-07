@@ -1,2 +1,94 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q8 (i)--(ii).
+% Preserve the logarithmic transformations and differentiated quotients.
+% Replace the discrete index by a real variable only in L'Hopital calculations.
+\begin{proof}[Solution]
+  Part (i).
+  Fix $x\in\R$. For all sufficiently large $n$,
+  $1+x/n>0$, so the logarithm below is defined. We have
+  \[
+    \begin{aligned}
+      \lim_{n\to\infty}\left(1+\frac xn\right)^n
+        &=\lim_{n\to\infty}
+          e^{\ln\left((1+\frac xn)^n\right)}\\
+        &=\lim_{n\to\infty}e^{n\ln(1+\frac xn)}.
+    \end{aligned}
+  \]
+  Since the exponential function is continuous,
+  once the exponent has a finite limit, we obtain
+  \[
+    \lim_{n\to\infty}e^{n\ln(1+\frac xn)}
+      =e^{\lim_{n\to\infty}n\ln(1+\frac xn)}.
+  \]
+
+  Strictly, L'H\^opital's rule is applied to the
+  corresponding real-variable function, whose limit also determines
+  the limit along integer $n$. Write $t$ for this real variable.
+  The quotients below are of $0/0$ form as $t\to+\infty$.
+  To use the finite-endpoint rule, set $s=1/t\to0^+$. The derivative
+  ratio with respect to $s$ equals the displayed ratio with respect
+  to $t$, because the common chain-rule factor $-1/s^2$ cancels.
+
+  Solving for the limit of the exponent gives
+  \[
+    \begin{aligned}
+      \lim_{t\to+\infty}t\ln\left(1+\frac xt\right)
+        &=\lim_{t\to+\infty}
+          \frac{\ln(1+\frac xt)}{1/t}\\
+        &\overset{\mathrm{L'H}}{=}\lim_{t\to+\infty}
+          \frac{\frac{-x/t^2}{1+x/t}}{-1/t^2}\\
+        &=\lim_{t\to+\infty}\frac{x}{1+x/t}\\
+        &=x.
+    \end{aligned}
+  \]
+  The denominator derivative $-1/t^2$ is nonzero,
+  and the derivative ratio has the finite limit $x$. Restricting to
+  $t=n$ therefore gives the required exponent limit. Hence
+  \[
+    e^{\lim_{n\to\infty}n\ln(1+\frac xn)}
+      =\lim_{n\to\infty}\left(1+\frac xn\right)^n=e^x.
+  \]
+
+  For part (ii), we begin by expressing the power using the natural
+  logarithm and exponential function.
+  The base is positive for all sufficiently large
+  $n$. Since the exponential function is continuous everywhere on
+  $\R$, we may interchange it with the limit, provided the inner
+  limit exists and is finite,
+  \[
+    \begin{aligned}
+      \lim_{n\to\infty}\left(1+\sin\frac\pi n\right)^n
+        &=\lim_{n\to\infty}
+          e^{\ln\left((1+\sin\frac\pi n)^n\right)}\\
+        &=\lim_{n\to\infty}e^{n\ln(1+\sin\frac\pi n)}\\
+        &=e^{\lim_{n\to\infty}n\ln(1+\sin\frac\pi n)}.
+    \end{aligned}
+  \]
+  We now evaluate the exponent. Rewriting the product as a quotient
+  gives $0/0$ form, allowing us to apply L'H\^opital's rule.
+  \[
+    \begin{aligned}
+      \lim_{t\to+\infty}t\ln\left(1+\sin\frac\pi t\right)
+        &=\lim_{t\to+\infty}
+          \frac{\ln(1+\sin\frac\pi t)}{1/t}\\
+        &\overset{\mathrm{L'H}}{=}\lim_{t\to+\infty}
+          \frac{\frac1{1+\sin(\pi/t)}
+            \cos(\frac\pi t)(-\frac\pi{t^2})}{-1/t^2}\\
+        &=\lim_{t\to+\infty}
+          \frac{\pi\cos(\pi/t)}{1+\sin(\pi/t)}\\
+        &=\frac{\pi\cos(0)}{1+\sin(0)}\\
+        &=\pi.
+    \end{aligned}
+  \]
+  The denominator derivative is again nonzero,
+  and the derivative ratio tends to $\pi$. Taking $t=n$ gives the
+  same exponent limit for the sequence.
+  Therefore, substituting this result into the original expression,
+  \[
+    \begin{aligned}
+      \lim_{n\to\infty}\left(1+\sin\frac\pi n\right)^n
+        &=e^{\lim_{n\to\infty}n\ln(1+\sin\frac\pi n)}\\
+        &=e^\pi.
+    \end{aligned}
+  \]
+\end{proof}

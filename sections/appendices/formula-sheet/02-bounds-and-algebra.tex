@@ -36,10 +36,14 @@ Archimedean choice: for every real $M$, some $N\in\N$ has $N>M$.
   \begin{gathered}
     \lfloor x\rfloor\le x<\lfloor x\rfloor+1,\quad
     0\le x-\frac{\lfloor Nx\rfloor}{N}<\frac1N,\\
-    \sheetsum_{j=0}^{N}ar^j=a\frac{1-r^{N+1}}{1-r}\quad(r\ne1).
+    \sheetsum_{j=0}^{N}ar^j=a\frac{1-r^{N+1}}{1-r}\quad(r\ne1),\\
+    \sheetsum_{k=n}^{m}r^k
+      =\frac{r^n-r^{m+1}}{1-r}
+      =r^n\frac{1-r^{m-n+1}}{1-r}.
   \end{gathered}
 \]
-For $r=1$ the sum is $a(N+1)$.
+For the shifted sum, take integers $0\le n\le m$ and $r\ne1$.
+For $r=1$, the respective sums are $a(N+1)$ and $m-n+1$.
 With $s_N=\sum_{j=0}^N1/j!$, we have $2\le s_N<3$ and
 \[
   e=\sheetsum_{j=0}^\infty\frac1{j!},\quad
@@ -64,7 +68,7 @@ $(xy)^{1/n}=x^{1/n}y^{1/n}$,
 $x^{m/n}=(x^m)^{1/n}=(x^{1/n})^m$,
 $(x^r)^s=x^{rs}$, and $x^{r+s}=x^rx^s$.
 Negative exponents need $x>0$.
-Nonnegative roots are unique\pendingreviewtext{. Odd} power maps are increasing bijections on $\R$.
+Nonnegative roots are unique. Odd power maps are increasing bijections on $\R$.
 
 \ifdefined\standaloneformulasheet\else
 \sheetnewtonandquadratic

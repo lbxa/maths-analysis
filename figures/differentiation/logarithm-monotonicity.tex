@@ -1,0 +1,46 @@
+\input{\analysisroot/figures/interval-styles.tex}
+\begin{tikzpicture}[interval diagram,x=1.2cm,y=.9cm]
+  % All panels have identical units and the same displayed window.
+  \foreach \shift/\heading in
+    {0/Increasing,3.75/Decreasing,7.5/A peak,11.25/A valley} {
+    \begin{scope}[shift={(\shift cm,0)}]
+      \node at (0,3.9) {\heading};
+      \draw[->] (-1.15,0)--(1.25,0) node[right=4pt] {$x$};
+      \draw[->] (0,-1.5)--(0,3.2) node[above=4pt] {$y$};
+      \draw[gray,dotted] (-1.12,1)--(1.1,1);
+      \node[left=4pt] at (-1.12,1) {$1$};
+      \draw (-1,0)--(-1,-.06) node[below=5pt] {$-1$};
+      \draw (1,0)--(1,-.06) node[below=5pt] {$1$};
+    \end{scope}
+  }
+  \begin{scope}
+    \draw[<->,domain=-1.05:1.05,samples=70] plot (\x,{exp(\x)});
+    \draw[gray,dashed,<->] (-1.05,-1.05)--(1.05,1.05);
+    \node at (0,-2.05) {$f(x)=e^x$};
+    \node at (0,-2.65) {$\ln f(x)=x$};
+  \end{scope}
+  \begin{scope}[shift={(3.75cm,0)}]
+    \draw[<->,domain=-1.05:1.05,samples=70] plot (\x,{exp(-\x)});
+    \draw[gray,dashed,<->] (-1.05,1.05)--(1.05,-1.05);
+    \node at (0,-2.05) {$f(x)=e^{-x}$};
+    \node at (0,-2.65) {$\ln f(x)=-x$};
+  \end{scope}
+  \begin{scope}[shift={(7.5cm,0)}]
+    \draw[<->,domain=-1.05:1.05,samples=70] plot (\x,{exp(-\x*\x)});
+    \draw[gray,dashed,<->,domain=-1.05:1.05,samples=70]
+      plot (\x,{-\x*\x});
+    \node at (0,-2.05) {$f(x)=e^{-x^2}$};
+    \node at (0,-2.65) {$\ln f(x)=-x^2$};
+  \end{scope}
+  \begin{scope}[shift={(11.25cm,0)}]
+    \draw[<->,domain=-1.05:1.05,samples=70] plot (\x,{1+\x*\x});
+    \draw[gray,dashed,<->,domain=-1.05:1.05,samples=70]
+      plot (\x,{ln(1+\x*\x)});
+    \node at (0,-2.05) {$f(x)=1+x^2$};
+    \node at (0,-2.65) {$\ln f(x)=\ln(1+x^2)$};
+  \end{scope}
+  \draw (3.6,4.65)--(4.05,4.65);
+  \node[anchor=west] at (4.18,4.65) {$f$};
+  \draw[gray,dashed] (5.35,4.65)--(5.8,4.65);
+  \node[anchor=west] at (5.93,4.65) {$\ln f$};
+\end{tikzpicture}

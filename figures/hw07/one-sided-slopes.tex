@@ -1,0 +1,20 @@
+\input{\analysisroot/figures/interval-styles.tex}
+\begin{tikzpicture}[interval diagram,x=1.65cm,y=1.65cm]
+  \draw[->] (-1.1,0)--(1.22,0) node[right=4pt] {$x$};
+  \draw[->] (0,-.93)--(0,.52) node[above=4pt] {$y$};
+  \node[below right=5pt] at (0,0) {$0$};
+  \draw[gray,dashed] (-.86,-.86)--(-.08,-.08);
+  \node[below right=6pt] at (-.9,-.68) {$y=x$};
+  \draw[gray,dashed] (.12,0)--(1.05,0);
+  \node[below=8pt] at (.8,0) {$y=0$};
+  \draw[<-,domain=-1.03:-.025,samples=80]
+    plot (\x,{\x/(1+exp(1/\x))});
+  \draw[->,domain=.025:1.05,samples=80]
+    plot (\x,{\x*exp(-1/\x)/(1+exp(-1/\x))});
+  \fill (0,0) circle[radius=1.6pt];
+  \node[above=6pt] at (.78,{.78/(1+exp(1/.78))}) {$f$};
+  \draw (-1.02,-1.17)--(-.72,-1.17);
+  \node[anchor=west] at (-.6,-1.17) {function};
+  \draw[gray,dashed] (-1.02,-1.43)--(-.72,-1.43);
+  \node[anchor=west] at (-.6,-1.43) {one-sided tangents};
+\end{tikzpicture}

@@ -77,6 +77,15 @@ Always maintain the **Homework placement map** in [README.md](README.md#homework
 
 ## Editorial Principles
 
+For the author's supplied homework solutions, use the project
+[homework-solutions-to-book skill](.agents/skills/homework-solutions-to-book/SKILL.md).
+Preserve their proof strategy, character, tone, notation, and valid working.
+Correct mathematical errors and gaps with focused amendments. Do not substitute
+a different proof by default or merely to match the assistant's preferred style.
+Preserve expanded terms before summation notation when the author uses them
+to explain a pattern. State how to truncate a short sum rather than removing
+the expanded working.
+
 Preserve the author's style and the course's flow of topics when turning lecture notes into publishable text. Capture all supplied mathematical content, including examples and questions. Improve clarity and organization without expanding the notes into an unrelated textbook; add only the supporting explanation needed for a coherent foundation.
 
 Keep the lecturer's syllabus chapters and sections, including their titles and order, as the organising framework. Reorganise content within that framework to introduce tools before their substantial use and before exercises that require them. Keep early motivation concise and return to its proof after the prerequisites. Consult the root and relevant chapter README changelogs before structural edits, and record agreed decisions and their rationale there.

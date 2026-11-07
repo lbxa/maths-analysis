@@ -3,7 +3,7 @@
 \label{sec:analysis-i:convex-functions}
 % Source: images/LEC07/IMG_9421--IMG_9424, headed Lecture 08.
 % Expanded hypotheses, completed arguments, and illustrations await review.
-\begin{pendingreview}
+
 \subsection{Curvature, chords, and tangent lines}
 \begin{definition}[Convex and concave functions]
   \label{thm:analysis-i:convex-function}
@@ -18,17 +18,17 @@ The point $z=tx+(1-t)y$ lies between $x$ and $y$. Convexity says that
 the graph at $z$ lies below the chord joining the endpoint values.
 A tangent line, when it exists, lies below the graph instead.
 \autoref{fig:analysis-i:convex-chord-tangent} shows both comparisons.
-\end{pendingreview}
+
 \begin{figure}[htbp]
   \centering
   \input{figures/differentiation/convex-chord-tangent}
-  \caption[Chords above and tangents below a convex graph.]{\pendingreviewtext{
+  \caption[Chords above and tangents below a convex graph.]{
     For $f(x)=x^2$, the chord from $x=0$ to $x=2$ lies above the graph,
     while the tangent at $x=1$ lies below it. The vertical guides compare
-    all three heights at $z=1/2$.}}
+    all three heights at $z=1/2$.}
   \label{fig:analysis-i:convex-chord-tangent}
 \end{figure}
-\begin{pendingreview}
+
 \begin{proposition}[The second-derivative criterion]
   \label{thm:analysis-i:convex-second-derivative}
   Let $f\in C^2(I)$ on an open interval. The following are equivalent.
@@ -133,7 +133,7 @@ of an average is at most the average of the convex function.
     \phi(\overline f)\le\frac1{b-a}\int_a^b\phi(f(x))\,dx.
   \]
 \end{theorem}
-\historynote{Johan Ludwig William Valdemar Jensen's 1906 paper begins
+\historynote*{Johan Ludwig William Valdemar Jensen's 1906 paper begins
 with Cauchy's arithmetic--geometric mean argument and uses convexity
 to organise inequalities between means~\cite[pp.~175--176]{Jensen1906}.
 The historical definition starts with midpoint comparisons. The
@@ -152,4 +152,3 @@ and does not require differentiability.}
   the inequality and divide by $b-a$. The last term vanishes because
   $\int_a^b(f(x)-\overline f)\,dx=0$, giving the result.
 \end{proof}
-\end{pendingreview}

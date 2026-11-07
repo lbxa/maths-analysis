@@ -34,17 +34,17 @@ For fixed $c>0$, $a>1$, and $p>0$,
     (1+1/n)^n\to e,\qquad (1+1/n)^{1/n}\to1.
   \end{gathered}
 \]
-$r^n\to0$ for $|r|<1$\pendingreviewtext{. For} $r>1$, $r^n\to+\infty$.
+$r^n\to0$ for $|r|<1$. For $r>1$, $r^n\to+\infty$.
 For a polynomial with positive leading coefficient, $P(n)^{1/n}\to1$.
 
 \formulagroup{Monotonicity, AM--GM, and subsequences}
-A bounded increasing sequence tends to $\sup\{x_n\}$ and has infimum $x_1$\pendingreviewtext{.
-A} bounded decreasing one tends to $\inf\{x_n\}$ and has supremum $x_1$.
+A bounded increasing sequence tends to $\sup\{x_n\}$ and has infimum $x_1$.
+A bounded decreasing one tends to $\inf\{x_n\}$ and has supremum $x_1$.
 \[
   (a_1\cdots a_k)^{1/k}\le\frac{a_1+\cdots+a_k}{k}
-  \quad(a_i\ge0,\ k\in\N)\pendingreviewtext{.}
+  \quad(a_i\ge0,\ k\in\N).
 \]
-\pendingreviewtext{Equality} holds exactly when all $a_i$ agree.
+Equality holds exactly when all $a_i$ agree.
 Bounded real sequences have convergent subsequences.
 Two distinct subsequence limits rule out convergence.
 For indices $n\equiv0,1,2\pmod3$, respectively,
@@ -64,4 +64,11 @@ In $\R$, convergence is equivalent to the Cauchy condition
   \forall\varepsilon>0\ \exists N\ \forall m,n\ge N\quad
   |x_m-x_n|<\varepsilon.
 \]
+% Author-supplied geometric-tail identity and observation, 2026-11-06.
+For integers $m>n\ge1$ and $0\le L<1$,
+\[
+  \sheetsum_{k=n}^{m-1}L^k
+    =\frac{L^n-L^m}{1-L}\le\frac{L^n}{1-L}.
+\]
+The final bound no longer depends on $m$, and $L^n\to0$.
 

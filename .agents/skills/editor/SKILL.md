@@ -21,6 +21,11 @@ chapter, an assignment import, or invented solutions.
 
 ## Write the reasoning in full
 
+For supplied homework proofs, use
+[homework-solutions-to-book](../homework-solutions-to-book/SKILL.md).
+Preserve the author's strategy, tone, notation, and valid working. Apply the
+clarity standard through focused repairs instead of default proof replacement.
+
 - Use complete sentences and connected paragraphs. Avoid semicolons. Do not
   use colons in proof prose. Let equations participate in grammatical sentences.
 - Define notation, state hypotheses, and explain why a theorem applies. Spell

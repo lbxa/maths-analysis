@@ -1,2 +1,80 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q5.
+% Preserve factorisation, both sign arguments, and maximum-value calculation.
+\begin{proof}[Solution]
+  Let
+  \[
+    f(x)=\frac1{1+x}-\frac1{1+ax},
+    \qquad x\ge0,\quad a>1.
+  \]
+  To find the global maximum $x^*$ such that $f(x)\le f(x^*)$,
+  first consider $f'(x^*)=0$,
+  \[
+    \begin{aligned}
+      f'(x)&=\frac{a}{(1+ax)^2}-\frac1{(1+x)^2}\\[6pt]
+        &=\frac{a(1+x)^2-(1+ax)^2}{(1+ax)^2(1+x)^2}\\[6pt]
+        &=\frac{(a-1)(1-ax^2)}{(1+ax)^2(1+x)^2}.
+    \end{aligned}
+  \]
+  Since $a>1$ and the denominator is strictly positive for $x\ge0$,
+  the critical points satisfy
+  \[
+    \begin{aligned}
+      f'(x)=0&\iff 1-ax^2=0\\
+        &\iff x^2=\frac1a\\
+        &\iff x=\pm\frac1{\sqrt a}\\
+        &\iff x=\frac1{\sqrt a},\qquad x\ge0.
+    \end{aligned}
+  \]
+  The sign of $f'(x)$ is determined by the $(1-ax^2)$ term.
+  For $x<1/\sqrt a$,
+  \[
+    \begin{aligned}
+      0\le x<\frac1{\sqrt a}
+        &\implies 0\le x^2<\frac1a\\
+        &\implies ax^2<1\\
+        &\implies 1-ax^2>0\\
+        &\implies f'(x)>0.
+    \end{aligned}
+  \]
+  Similarly, for $x>1/\sqrt a$,
+  \[
+    \begin{aligned}
+      0<\frac1{\sqrt a}<x
+        &\implies 0<\frac1a<x^2\\
+        &\implies 1<ax^2\\
+        &\implies 1-ax^2<0\\
+        &\implies f'(x)<0.
+    \end{aligned}
+  \]
+  Since $f'(x)>0$ for $0\le x<1/\sqrt a$ and $f'(x)<0$ for
+  $x>1/\sqrt a$, the function $f$ is strictly increasing before
+  $1/\sqrt a$ and strictly decreasing afterward.
+  This follows from the mean value theorem on
+  any closed interval on either side of $1/\sqrt a$, including
+  intervals starting at $0$. The sign change is illustrated in
+  \autoref{fig:hw07:rational-maximum}.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw07/rational-maximum}
+    \caption[A unique maximum from a derivative sign change.]{%
+      The case $a=4$. The function increases up
+      to $x^*=1/2$ and decreases afterward. Its maximum is $1/3$.
+      The sign argument in the proof applies to every $a>1$.}
+    \label{fig:hw07:rational-maximum}
+  \end{marginfigure}
+  Therefore, $f$ attains its unique global maximum at
+  $x^*=1/\sqrt a$,
+  \[
+    \begin{aligned}
+      f(x)&\le f\left(\frac1{\sqrt a}\right)\\[6pt]
+        &=\frac1{1+\frac1{\sqrt a}}-
+          \frac1{1+\frac{a}{\sqrt a}}\\[6pt]
+        &=\frac{\sqrt a}{\sqrt a+1}-
+          \frac{\sqrt a}{\sqrt a+a}\\[6pt]
+        &=\frac{\sqrt a}{\sqrt a+1}-\frac1{1+\sqrt a}\\[6pt]
+        &=\frac{\sqrt a-1}{\sqrt a+1}.
+    \end{aligned}
+  \]
+  Equality holds if and only if $x=1/\sqrt a$.
+\end{proof}

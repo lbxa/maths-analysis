@@ -2,7 +2,7 @@
 % Source: images/LEC07/IMG_9425--IMG_9428. Subtopics within syllabus §8.6.
 \subsection{Analytic functions and the multiplicity of a zero}
 \label{sec:analysis-i:analytic-functions}
-\begin{pendingreview}
+
 \begin{definition}[Real analytic function]
   \label{thm:analysis-i:analytic-function}
   A function is \emph{analytic at $a$} if, on some neighbourhood of $a$,
@@ -62,11 +62,11 @@ does not assign a finite multiplicity.
   \]
   In particular $e^{i\pi}+1=0$. No complex differentiation is used.
 \end{example}
-\end{pendingreview}
+
 
 \subsection{Uniform polynomial approximation}
 \label{sec:analysis-i:polynomial-approximation}
-\begin{pendingreview}
+
 Taylor polynomials use derivatives at one point. Uniform polynomial
 approximation asks for small error on an entire interval and requires
 only continuity, even for a function with corners.
@@ -78,15 +78,15 @@ only continuity, even for a function with corners.
     \forall x\in[a,b]\quad |f(x)-P(x)|<\varepsilon.
   \]
 \end{theorem}
-\end{pendingreview}
-\historynote{Sergei Bernstein's 1912 paper offers a proof of
+
+\historynote*{Sergei Bernstein's 1912 paper offers a proof of
 Weierstrass's theorem based on probability~\cite{Bernstein1912}.
 The weights below are binomial probabilities. They average nearby
 sampled values and concentrate around the input as $n$ grows.
 This connects uniform approximation to concentration of random
 averages. Sergei Bernstein is a different mathematician from Felix
 Bernstein of \autoref{thm:analysis-i:cantor-bernstein}.}
-\begin{pendingreview}
+
 \begin{proof}[Proof by Bernstein polynomials]
   First suppose $[a,b]=[0,1]$. For $n\ge1$, define
   \[
@@ -138,13 +138,13 @@ controls the error at nearby samples. The second-moment bound controls
 the total weight of distant samples. A corner can therefore be
 approximated without differentiating it, as in
 \autoref{fig:analysis-i:bernstein-approximation}.
-\end{pendingreview}
+
 \begin{figure}[htbp]
   \centering
   \input{figures/function-sequences/bernstein-approximation}
-  \caption[Bernstein approximation of a corner.]{\pendingreviewtext{
+  \caption[Bernstein approximation of a corner.]{
     The function $f(x)=|2x-1|$ (black) and its Bernstein polynomials
     of degrees $2$ and $8$ (grey). The smooth polynomials approach a
-    function that is not differentiable at $x=1/2$. Only $[0,1]$ is shown.}}
+    function that is not differentiable at $x=1/2$. Only $[0,1]$ is shown.}
   \label{fig:analysis-i:bernstein-approximation}
 \end{figure}

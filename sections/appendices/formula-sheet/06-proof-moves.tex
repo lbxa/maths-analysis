@@ -3,7 +3,7 @@
 \section{Common proof moves}
 \label{sec:appendix:formula-sheet-proof-moves}
 \formulagroup{Sets, bijections, and enumeration}
-Chase an arbitrary element in both directions\pendingreviewtext{. Swap} $\forall,\exists$
+Chase an arbitrary element in both directions. Swap $\forall,\exists$
 when negating. For a bijection, give an inverse or show disjoint image
 pieces cover the target. For countable unions, read diagonals of an
 array of enumerations and skip repeats.
@@ -13,18 +13,18 @@ Assume a lowest-terms fraction. For $p^{1/k}$, $p$ prime, $k\ge2$,
 raise to the $k$th power and force $p$ to divide both numerator and
 denominator. For powers of transcendental $\tau$, clear denominators
 in a nontrivial rational relation to get a nonzero polynomial vanishing
-at $\tau$. Count algebraic numbers using bounded degree and coefficients\pendingreviewtext{.
-Then} $\R=\mathcal A\cup\mathcal T$ forces $\mathcal T$ uncountable.
+at $\tau$. Count algebraic numbers using bounded degree and coefficients.
+Then $\R=\mathcal A\cup\mathcal T$ forces $\mathcal T$ uncountable.
 Under CH, $\aleph_0<|\mathcal T|\le|\R|$ implies equality with $|\R|$.
 
 \formulagroup{Best bounds, epsilon choices, and cuts}
 Prove a bound first, then give witnesses within every $\varepsilon$.
 If $u>v$, take $\varepsilon=(u-v)/2$.
-If $|x_n-L|\le C/n^\alpha$ \pendingreviewtext{with $C,\alpha>0$}, choose $N>(C/\varepsilon)^{1/\alpha}$.
+If $|x_n-L|\le C/n^\alpha$ with $C,\alpha>0$, choose $N>(C/\varepsilon)^{1/\alpha}$.
 For two errors budget $\varepsilon/2$ each.
 Use $|x_m-x_n|\le|x_m-L|+|x_n-L|$ to obtain a Cauchy estimate.
 For a direct infimum cut, take $L$ as all lower bounds and
-$U=\R\setminus L$\pendingreviewtext{. Prove} separation, then use
+$U=\R\setminus L$. Prove separation, then use
 $c\le s+\varepsilon$ for every $\varepsilon>0$ to obtain $c\le s$.
 Do not invoke LUBP if the question forbids it.
 
@@ -38,12 +38,12 @@ Small covering length alone does not prove incompleteness.
 
 \formulagroup{Root uniqueness and equality conditions}
 For nonnegative expressions, raise to a common integer power and use
-uniqueness\pendingreviewtext{. For} rational exponents use a common denominator.
+uniqueness. For rational exponents use a common denominator.
 Even powers do not identify signed reals.
 $ (\sqrt a-\sqrt b)^2=a+b-2\sqrt{ab}\ge0$ proves AM--GM,
 with equality exactly at $a=b$.
-For reverse triangle, write $x=(x-y)+y$, then swap $x,y$\pendingreviewtext{.
-Equality} holds exactly when $xy\ge0$.
+For reverse triangle, write $x=(x-y)+y$, then swap $x,y$.
+Equality holds exactly when $xy\ge0$.
 
 \ifdefined\standaloneformulasheet
 \sheetnewtonandquadratic
@@ -51,7 +51,7 @@ Equality} holds exactly when $xy\ge0$.
 \formulagroup{Recurrences and fixed points}
 Simplify sums first. Prove an invariant interval by induction and
 factor $g(x)-x$ to get monotonicity. Bounded monotonicity proves
-convergence\pendingreviewtext{. Only} then solve $L=g(L)$, retaining roots compatible
+convergence. Only then solve $L=g(L)$, retaining roots compatible
 with the bounds. Positive terms alone do not imply $L>0$.
 For $g(x)=(\tfrac32x^2+2x)/(1+x^2)$,
 \[
@@ -59,15 +59,15 @@ For $g(x)=(\tfrac32x^2+2x)/(1+x^2)$,
   g(x)-x=\frac{x(2-x)(2x+1)}{2(1+x^2)}.
 \]
 The general Newton map for $x-a-1/x$ is
-$(ax^2+2x)/(1+x^2)$\pendingreviewtext{. Its} positive limiting fixed point is
+$(ax^2+2x)/(1+x^2)$. Its positive limiting fixed point is
 $(a+\sqrt{a^2+4})/2$.
 Fibonacci ratios satisfy $r_n=1+1/r_{n-1}$ for $n\ge3$
-and $1\le r_n\le2$ for $n\ge2$\pendingreviewtext{.
-If} convergent, their limit is $(1+\sqrt5)/2$.
+and $1\le r_n\le2$ for $n\ge2$.
+If convergent, their limit is $(1+\sqrt5)/2$.
 
 \formulagroup{Integer remainder, oscillation, and $n$th roots}
-If $e=p/q$, take $N\ge\max\{q,2\}$\pendingreviewtext{. Then} $N!(e-s_N)$ is an integer in $(0,1)$.
-For periodic behaviour, split indices modulo the period\pendingreviewtext{. An} infinite
+If $e=p/q$, take $N\ge\max\{q,2\}$. Then $N!(e-s_N)$ is an integer in $(0,1)$.
+For periodic behaviour, split indices modulo the period. An infinite
 subsequence contains infinitely many indices in one class.
 For $n$th roots, factor the dominant term and squeeze using
 $\max\{u,v\}\le u+v\le2\max\{u,v\}$ and $c^{1/n},n^{1/n}\to1$.
@@ -79,5 +79,5 @@ term, to get the first-omitted-term bound.
 Rationalise arbitrary real shifts rather than assuming cancellation.
 Choose $\limsup t_n<r<1$ for an eventual upper bound or
 $1<r<\liminf t_n$ for a lower bound.
-Test value $1$ is inconclusive\pendingreviewtext{. Test} power-series endpoints separately.
+Test value $1$ is inconclusive. Test power-series endpoints separately.
 Finite prefixes do not change convergence, but can change extrema and sums.

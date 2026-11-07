@@ -1,2 +1,50 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q7 (i)--(iii).
+\begin{proof}[Solution]
+  All three quotients are of $0/0$ form as
+  $x\to0$. We apply L'H\^opital's rule on both sides of zero.
+
+  For part (i),
+  \[
+    \begin{aligned}
+      \lim_{x\to0}\frac{\sin(ax)}x
+        &\overset{\mathrm{L'H}}{=}
+          \lim_{x\to0}\frac{a\cos(ax)}1\\
+        &=a\cos(0)\\
+        &=a.
+    \end{aligned}
+  \]
+
+  For part (ii), take $a\ne0$.
+  On a sufficiently small neighborhood of
+  zero, $1+ax>0$ and the denominator derivative
+  $a/(1+ax)$ is nonzero. Thus
+  \[
+    \begin{aligned}
+      \lim_{x\to0}\frac{x}{\ln(1+ax)}
+        &\overset{\mathrm{L'H}}{=}
+          \lim_{x\to0}\frac1{\frac{a}{1+ax}}\\
+        &=\lim_{x\to0}\frac{1+ax}{a}\\
+        &=\frac1a.
+    \end{aligned}
+  \]
+
+  For part (iii), applying L'H\^opital's rule twice gives
+  \[
+    \begin{aligned}
+      \lim_{x\to0}\frac{1-\cos(2x)}{\sin^2x}
+        &\overset{\mathrm{L'H}}{=}
+          \lim_{x\to0}\frac{2\sin(2x)}{2\sin x\cos x}\\
+        &\overset{\mathrm{L'H}}{=}
+          \lim_{x\to0}\frac{4\cos(2x)}
+            {2(\cos^2x-\sin^2x)}\\
+        &=\frac42\\
+        &=2.
+    \end{aligned}
+  \]
+  The intermediate quotient is again of $0/0$
+  form. The two denominator derivatives are $2\sin x\cos x$ and
+  $2(\cos^2x-\sin^2x)$. They are nonzero on a sufficiently small
+  punctured neighborhood of zero, and the final derivative ratio
+  tends to $2$, justifying both applications.
+\end{proof}

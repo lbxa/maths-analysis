@@ -1,2 +1,75 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q2 (i)--(ii).
+% Preserve the two squeeze arguments and the one-sided quotient calculations.
+\begin{proof}[Solution]
+  Part (i). Recall that continuity at $c$ is defined by
+  \[
+    \lim_{x\to c}f(x)=f(c).
+  \]
+  We want to prove that $\lim_{x\to0}f(x)=0=f(0)$. Analyzing both
+  left and right sides, where $x\to0^-$ and $x\to0^+$ respectively,
+  we have
+  \[
+    0\le\frac{x}{1+e^{1/x}}\le x
+    \qquad(x>0).
+  \]
+  By the squeeze theorem,
+  \[
+    \lim_{x\to0^+}\frac{x}{1+e^{1/x}}=0.
+  \]
+  For $x\to0^-$ the inequality is reversed,
+  \[
+    x\le\frac{x}{1+e^{1/x}}\le0,
+  \]
+  and similarly, by the squeeze theorem,
+  \[
+    \lim_{x\to0^-}\frac{x}{1+e^{1/x}}=0.
+  \]
+  Therefore, since
+  \[
+    \lim_{x\to0^-}\frac{x}{1+e^{1/x}}
+      =\lim_{x\to0^+}\frac{x}{1+e^{1/x}}=0,
+  \]
+  $f$ is continuous at $x=0$.
+
+  For part (ii), recall that to find $f_-'(0)$ and $f_+'(0)$ we
+  use the definitions of the left- and right-side derivatives,
+  \[
+    \begin{aligned}
+      f_+'(c)&=\lim_{h\to0^+}\frac{f(c+h)-f(c)}{h},\\
+      f_-'(c)&=\lim_{h\to0^-}\frac{f(c+h)-f(c)}{h}.
+    \end{aligned}
+  \]
+  \autoref{fig:hw07:one-sided-slopes} shows why
+  continuity can hold even though these two slopes differ.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw07/one-sided-slopes}
+    \caption[Continuity with unequal one-sided slopes.]{%
+      The graph meets the origin continuously. Its left tangent is
+      $y=x$, while its right tangent is $y=0$. The two limiting
+      slopes are $1$ and $0$.}
+    \label{fig:hw07:one-sided-slopes}
+  \end{marginfigure}
+  Starting with the left limit,
+  \[
+    \begin{aligned}
+      f_-'(0)
+        &=\lim_{h\to0^-}\frac{f(h)-f(0)}{h}\\
+        &=\lim_{h\to0^-}
+          \frac{\frac{h}{1+e^{1/h}}-f(0)}{h}\\
+        &=\lim_{h\to0^-}\frac{\frac{h}{1+e^{1/h}}}{h}\\
+        &=\lim_{h\to0^-}\frac1{1+e^{1/h}}.
+    \end{aligned}
+  \]
+  Since $h\to0^-$ implies $e^{1/h}\to0$, we have $f_-'(0)=1$.
+
+  Similarly, $f_+'(0)=0$, since
+  \[
+    h\to0^+
+      \quad\Longrightarrow\quad \frac1h\to+\infty
+      \quad\Longrightarrow\quad e^{1/h}\to+\infty
+      \quad\Longrightarrow\quad \frac1{1+e^{1/h}}\to0.
+  \]
+  Therefore, since $f_-'(0)\ne f_+'(0)$, $f'(0)$ is undefined.
+\end{proof}

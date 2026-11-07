@@ -23,8 +23,8 @@ and for all.
 
 Since $a$ and $b$ are finite endpoints, we consider
 an arbitrary point $x\in I$.
-\pendingreviewtext{We will connect $x_0$ to $x$ by $N$ steps, each shorter
-than $\delta$. Uniform continuity then bounds each output change by $1$.}
+We will connect $x_0$ to $x$ by $N$ steps, each shorter
+than $\delta$. Uniform continuity then bounds each output change by $1$.
 
 % a figure showing this interval
 \autoref{fig:hw05:uniform-continuity-chain} illustrates
@@ -41,13 +41,13 @@ the finite chain of small steps.
   \label{fig:hw05:uniform-continuity-chain}
 \end{marginfigure}
 
-\pendingreviewtext{Since $I\subseteq[a,b]$, taking $N$ equally spaced steps
-between $x_0$ and $x$ makes each step no longer than}
+Since $I\subseteq[a,b]$, taking $N$ equally spaced steps
+between $x_0$ and $x$ makes each step no longer than
 \[
 \dfrac{b - a}{N}.
 \]
-\pendingreviewtext{To apply the uniform-continuity bound at each step,
-choose $N$ so that}
+To apply the uniform-continuity bound at each step,
+choose $N$ so that
 \[
 \dfrac{b - a}{N} < \delta \iff \dfrac{b - a}{\delta} < N.
 \]
@@ -69,7 +69,7 @@ Uniform continuity therefore gives $|f(x_k)-f(x_{k-1})|<1$ at every
 step. This construction also works when $x\le x_0$.
 
 
-\begin{pendingreview}
+
 The output changes telescope along the chain,
 \[
   f(x)-f(x_0)=f(x_N)-f(x_0)
@@ -85,14 +85,14 @@ Taking one more triangle inequality yields
   |f(x)|\le |f(x)-f(x_0)|+|f(x_0)|<N+|f(x_0)|.
 \]
 Set $M=N+|f(x_0)|>0$.
-\end{pendingreview}
+
 Both $N$ and $x_0$ are fixed, so $M$ does not depend on $x$.
 Since $N$ and $|f(x_0)|$ are both finite, $f$ is bounded on $I$. Therefore we have
 proved that if $f$ is uniformly continuous over $I$, then it is bounded.
 
-\pendingreviewtext{For $f(x)=1/(1+x)$ on $(-1,1)$, we will prove
+For $f(x)=1/(1+x)$ on $(-1,1)$, we will prove
 continuity and unboundedness. The contrapositive of the claim will then
-rule out uniform continuity on this bounded interval.}
+rule out uniform continuity on this bounded interval.
 
 % insert diagram of the function itself with special focus on the the limit point
 % at x = -1
@@ -115,7 +115,7 @@ and $1+x>0$ on $(-1,1)$.
 The quotient of two continuous functions is continuous wherever the denominator is
 not equal to zero, so for $x \in (-1, 1)$ the function $f(x)$ is continuous.
 
-\pendingreviewtext{At the excluded left endpoint,}
+At the excluded left endpoint,
 \[
 \lim_{x \rightarrow -1^+} \dfrac{1}{1 + x} = +\infty.
 \]

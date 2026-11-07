@@ -3,8 +3,10 @@
 Scope: the current Analysis I manuscript, its named methods and examples,
 and the relevant shared exercises. Analysis II has no supplied mathematics.
 This is an inventory of this repository, **not all named mathematics**.
-New rendered passages and captions remain in the shared pending-review
-style. Existing approved Euclid material remains approved.
+The author approved all current passages and captions on 6 November 2026,
+including historical notes and portraits. Future additions use the shared
+pending-review style until approved. Mathematical omissions and source
+limitations remain explicitly recorded.
 
 The editorial aim is a short note at the substantive treatment: the problem
 being addressed, date, formulation decisions, peers or predecessors, and
@@ -45,7 +47,7 @@ and later digitisation.
 | 4.2 | Ratio and root tests; power-series estimates | Cauchy 1821, chapter VI | New note distinguishes classical estimates from present limsup formulations. |
 | 4.3 | Dirichlet test | Dirichlet 1829 | New cancellation/Fourier motivation; general test statement still reserved. |
 | 4.4 | Conditional convergence; rearrangement | Riemann 1854 / published 1867, §3 | New note on order of summation and posthumous publication. |
-| 4.4 | Cauchy product | Cauchy 1821, chapter VI | Pending multiplication theorem and proof, with the absolute-value hypothesis explicit; no assertion that Cauchy discovered every form of the convolution operation. |
+| 4.4 | Cauchy product | Cauchy 1821, chapter VI | Reviewed multiplication theorem and proof, with the absolute-value hypothesis explicit; no assertion that Cauchy discovered every form of the convolution operation. |
 | 5.1 | Continuity and function limits | Cauchy 1821; Heine 1872 | New note on formulation; no sole-inventor claim for the modern epsilon–delta definition. |
 | 5.1 | Dirichlet function | Dirichlet 1829 | New function-concept and dense-set context. |
 | 5.1 | Thomae function | Thomae 1875 | New discontinuity/integrability context. |
@@ -55,18 +57,18 @@ and later digitisation.
 | 5.4 | Uniform continuity; Heine–Cantor | Heine 1872 | New common-delta / compactness context; paired name not called a joint paper. |
 | 5.4 | Lipschitz continuity | Lipschitz 1864 | New quantitative-regularity and differential-equation context before the shared exercise. |
 | 6.1 / 7.5 | Differentiation; Newton and Leibniz; fundamental theorem | Newton's Waste Book, 20 May 1665, fol. 47r; Newton 1669; Leibniz 1684 | Tangents/areas/motion context, plus a primary notebook example of expansion, cancellation, and a vanishing increment; modern quotient-limit notation is not attributed to Newton. |
-| 6.2 | Rolle and mean value theorems | Rolle 1691; Cauchy 1823 | LEC06 supplies the statements and the ordinary MVT proof. Added context distinguishes Rolle's polynomial-equation text from modern differentiable formulations; no sole-discovery claim. E-rara digitisation and catalogues establish editions, not a complete priority history. The source leaves the extended proof unfinished; the author's later request supplies a pending editorial proof using Rolle's theorem. |
+| 6.2 | Rolle and mean value theorems | Rolle 1691; Cauchy 1823 | LEC06 supplies the statements and the ordinary MVT proof. Added context distinguishes Rolle's polynomial-equation text from modern differentiable formulations; no sole-discovery claim. E-rara digitisation and catalogues establish editions, not a complete priority history. The source leaves the extended proof unfinished; the author's later request supplies an editorial proof using Rolle's theorem, approved on 6 November 2026. |
 | 6.3 | Taylor expansion; Lagrange remainder | Taylor 1715; Lagrange 1797 | New expansion versus finite error-bound distinction. |
 | 6.4 | Convexity and Jensen's inequality | Jensen 1906, pp. 175--193 | Primary text links convexity to Cauchy's inequalities between means. The supplied integral proof uses tangent support with explicit smoothness and integration assumptions. |
 | 6.4 | Young's inequality | Standard name in supplied IMG_9423 | Mathematical proof from exp convexity supplied. No verified original Young passage or priority date is asserted. |
-| 6.5 | L'Hôpital rule; Johann Bernoulli retainer | L'Hôpital letter of 17 March 1694; Analyse 1696, preface and §IX art.163; Truesdell 1958 | Two new notes. Use French livres, not modern British pounds; exclusive research communication, not a modern copyright-licensing claim. Financial need is identified as interpretation. |
+| 6.5 | L'Hôpital rule; Johann Bernoulli retainer | L'Hôpital letter of 17 March 1694; Analyse 1696, preface and §IX art.163; Truesdell 1958 | Two notes approved on 6 November 2026. Use French livres, not modern British pounds; exclusive research communication, not a modern copyright-licensing claim. Financial need is identified as interpretation. |
 | 7.1 / 7.3 / 7.4 | Riemann integral, sums, criterion | Riemann, 1854 Habilitationsschrift, printed 1867, §§4–6 | New Fourier/integrability motivation, with Dedekind's posthumous editorial role. |
 | 7.2 | Upper/lower sums; Darboux integral | Darboux 1875 | New oscillation and upper/lower-bound context. |
 | 8.1 / 8.3 / 8.5 | Pointwise/uniform convergence; continuity and integration | Cauchy 1821 and 1853 | New note explains the sum-theorem issue. It does not award the whole development to one mathematician. |
 | 8.4 | Weierstrass majorant test | Cauchy 1853 supplies the earlier uniform-convergence problem, not a primary source for priority of the M-test | Modern majorant theorem and elementary proof added. Historical context links back to §8.3; no first-discovery date is assigned without verified primary evidence. |
 | 8.6 | Power series and convergence radius | Earlier Cauchy root/ratio context in §4.2 | No duplicate biography and no attribution of the present course proof to a single inventor. |
 | 8.6 | Analytic functions and multiplicity | Supplied IMG_9425 and modern power-series terminology | No sole-inventor claim. Distinguish convergent local series, Taylor remainder control, and a nonzero leading coefficient. |
-| 8.6 | Weierstrass approximation and Bernstein polynomials | Bernstein 1912, Kharkov 13(1):1--2 | Pending constructive proof supplied in IMG_9426--IMG_9428. Explain binomial averaging and distinguish Sergei Bernstein from Felix Bernstein. |
+| 8.6 | Weierstrass approximation and Bernstein polynomials | Bernstein 1912, Kharkov 13(1):1--2 | Reviewed constructive proof supplied in IMG_9426--IMG_9428. Explain binomial averaging and distinguish Sergei Bernstein from Felix Bernstein. |
 | 9.1 / 9.2 | Fourier series; convergence | Fourier 1822; Dirichlet 1829; Riemann 1854/1867 | New heat-conduction motivation and the distinction between representation and convergence. |
 
 ## Evidence boundaries
@@ -140,7 +142,7 @@ specimens are excluded. An unnamed entry does not imply an unknown theorem
 has been assigned a historical discoverer. Topic-level notes can cover several
 related statements; the map above identifies the corresponding context.
 
-Count: **102 formal blocks**. Source line numbers refer to the current text.
+Count: **103 formal blocks**. Source line numbers refer to the current text.
 
 | Topic source | Line | Kind | Title | Stable label |
 | --- | --- | --- | --- | --- |
@@ -209,23 +211,24 @@ Count: **102 formal blocks**. Source line numbers refer to the current text.
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 61 | theorem | Heine--Cantor | `thm:analysis-i:heine-cantor` |
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 149 | definition | Piecewise linear function | `—` |
 | [05-continuity/04-uniform-continuity.tex](../sections/analysis-i/05-continuity/04-uniform-continuity.tex) | 178 | proposition | Piecewise linear approximation | `thm:analysis-i:polygonal-approximation` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 23 | definition | Derivative | `thm:analysis-i:derivative` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 92 | proposition | Differentiability implies continuity | `thm:analysis-i:differentiable-continuous` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 106 | definition | Left and right derivatives | `thm:analysis-i:one-sided-derivatives` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 285 | definition | Stationary point | `thm:analysis-i:stationary-point` |
-| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 293 | proposition | Interior extrema | `thm:analysis-i:interior-extremum` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 21 | definition | Derivative | `thm:analysis-i:derivative` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 85 | proposition | Differentiability implies continuity | `thm:analysis-i:differentiable-continuous` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 97 | definition | Left and right derivatives | `thm:analysis-i:one-sided-derivatives` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 265 | definition | Stationary point | `thm:analysis-i:stationary-point` |
+| [06-differentiation-and-applications/01-differentiation.tex](../sections/analysis-i/06-differentiation-and-applications/01-differentiation.tex) | 273 | proposition | Interior extrema | `thm:analysis-i:interior-extremum` |
 | [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 7 | theorem | Rolle's theorem | `thm:analysis-i:rolle` |
-| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 34 | theorem | Mean value theorem | `thm:analysis-i:mean-value` |
-| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 100 | corollary | Derivative signs and monotonicity | `thm:analysis-i:derivative-monotonicity` |
-| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 160 | theorem | Cauchy's mean value theorem | `thm:analysis-i:cauchy-mean-value` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 32 | theorem | Mean value theorem | `thm:analysis-i:mean-value` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 96 | corollary | Derivative signs and monotonicity | `thm:analysis-i:derivative-monotonicity` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 145 | proposition | Logarithms preserve order and monotonicity | `thm:analysis-i:logarithmic-monotonicity` |
+| [06-differentiation-and-applications/02-mean-value-theorems.tex](../sections/analysis-i/06-differentiation-and-applications/02-mean-value-theorems.tex) | 281 | theorem | Cauchy's mean value theorem | `thm:analysis-i:cauchy-mean-value` |
 | [06-differentiation-and-applications/03-taylor-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/03-taylor-theorem.tex) | 27 | theorem | Taylor's theorem with Lagrange remainder | `thm:analysis-i:taylor-lagrange` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 8 | definition | Convex and concave functions | `thm:analysis-i:convex-function` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 32 | proposition | The second-derivative criterion | `thm:analysis-i:convex-second-derivative` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 71 | proposition | The second-derivative test | `thm:analysis-i:second-derivative-extremum` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 94 | proposition | Young's inequality | `thm:analysis-i:young-inequality` |
 | [06-differentiation-and-applications/04-convex-functions.tex](../sections/analysis-i/06-differentiation-and-applications/04-convex-functions.tex) | 123 | theorem | Jensen's inequality for integral averages | `thm:analysis-i:jensen-integral` |
-| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 31 | theorem | L'Hopital's rule for 0/0 | `thm:analysis-i:lhopital-zero` |
-| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 97 | proposition | Logarithmic method for power limits | `thm:analysis-i:logarithmic-power-limits` |
+| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 28 | theorem | L'Hopital's rule for 0/0 | `thm:analysis-i:lhopital-zero` |
+| [06-differentiation-and-applications/05-lhopital-rules.tex](../sections/analysis-i/06-differentiation-and-applications/05-lhopital-rules.tex) | 90 | proposition | Logarithmic method for power limits | `thm:analysis-i:logarithmic-power-limits` |
 | [06-differentiation-and-applications/06-inverse-function-theorem.tex](../sections/analysis-i/06-differentiation-and-applications/06-inverse-function-theorem.tex) | 10 | theorem | Derivative of an inverse | `thm:analysis-i:inverse-derivative` |
 | [08-sequences-and-series-of-functions/01-sequences-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/01-sequences-of-functions.tex) | 11 | definition | Pointwise convergence | `thm:analysis-i:pointwise-convergence` |
 | [08-sequences-and-series-of-functions/02-series-of-functions.tex](../sections/analysis-i/08-sequences-and-series-of-functions/02-series-of-functions.tex) | 12 | definition | Series of functions | `thm:analysis-i:function-series` |

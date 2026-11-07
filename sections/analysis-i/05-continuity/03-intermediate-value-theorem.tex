@@ -1,6 +1,6 @@
 % !TEX root = ../../../main.tex
 \section{Intermediate value theorem}
-\historynote{Bolzano's 1817 title announces his aim of proving the
+\historynote*{Bolzano's 1817 title announces his aim of proving the
 existence of a real root between opposite-sign values by analysis,
 without relying on a drawn curve~\cite{Bolzano1817}. The result
 therefore ties continuity to completeness. Today it underlies
@@ -26,25 +26,25 @@ existence arguments and the bracketing step in numerical root finding.}
   \]
 \end{theorem}
 
-\begin{pendingreview}
+
   The extreme value theorem supplies the endpoints of the image. The
   intermediate value theorem says there are no gaps between them.
   \autoref{fig:continuity:intermediate-crossing} shows the central idea.
   Subtracting the desired value turns the problem into finding a zero.
-\end{pendingreview}
+
 \begin{marginfigure}
   \centering
   \input{figures/continuity/intermediate-crossing}
-  \caption[A crossing of an intermediate level.]{\pendingreviewtext{Schematic
+  \caption[A crossing of an intermediate level.]{Schematic
     continuous graph. A level $y_0$ between the extreme values is reached
-    at some $x_0$. For $g=f-y_0$, that point is a zero.}}
+    at some $x_0$. For $g=f-y_0$, that point is a zero.}
   \label{fig:continuity:intermediate-crossing}
 \end{marginfigure}
 
 \begin{proof}
-  \pendingreviewtext{If $m=M$, the function is constant and the conclusion
+  If $m=M$, the function is constant and the conclusion
     follows. The endpoint values $y_0=m$ and $y_0=M$ are already attained
-    by \autoref{thm:analysis-i:extreme-value}.}
+    by \autoref{thm:analysis-i:extreme-value}.
   Suppose that $m<y_0<M$. Choose $a_1,b_1\in[a,b]$ with
   $f(a_1)=m$ and $f(b_1)=M$, and first suppose that $a_1<b_1$.
   The continuous function $g(x)=f(x)-y_0$ satisfies
@@ -52,7 +52,7 @@ existence arguments and the bracketing step in numerical root finding.}
     g(a_1)=m-y_0<0,\qquad g(b_1)=M-y_0>0.
   \]
 
-  \begin{pendingreview}
+
     Let
     \[
       S=\{x\in[a_1,b_1]\mid g(x)<0\},\qquad c=\sup S.
@@ -72,7 +72,7 @@ existence arguments and the bracketing step in numerical root finding.}
     If $b_1<a_1$, apply the same argument to $-g$ on $[b_1,a_1]$.
     Its left endpoint value is negative and its right endpoint value
     is positive, and a zero of $-g$ is also a zero of $g$.
-  \end{pendingreview}
+
 \end{proof}
 
 \subsection{Roots as an application}
@@ -80,17 +80,17 @@ existence arguments and the bracketing step in numerical root finding.}
 \begin{example}[Reaching every nonnegative value with a power]
   \label{ex:continuity:roots-by-intermediate-value}
   Let $n\in\N$ and consider $f(x)=x^n$ for $x\ge0$. This function is
-  continuous and \pendingreviewtext{strictly} increasing, with $f(0)=0$
+  continuous and strictly increasing, with $f(0)=0$
   and $f(x)\to\infty$ as $x\to\infty$.
-  \pendingreviewtext{For any $c>0$, choose $A>0$ with $A^n>c$.}
+  For any $c>0$, choose $A>0$ with $A^n>c$.
   On $[0,A]$, the function takes every value in $[0,A^n]$. Thus there
   is $b\in[0,A]$ with $b^n=c$, and $b=c^{1/n}$.
   Every nonnegative real number therefore has an $n$th root.
-  \pendingreviewtext{Strict increase gives uniqueness. This is an
+  Strict increase gives uniqueness. This is an
     alternative existence argument to
     \autoref{thm:analysis-i:positive-roots}, whose earlier proof used
     completeness directly. The present argument uses continuity of
-    $x^n$, without presupposing continuity of its inverse.}
+    $x^n$, without presupposing continuity of its inverse.
 \end{example}
 
 \input{problems/hw05/01-interval-fixed-point/problem}
@@ -98,7 +98,7 @@ existence arguments and the bracketing step in numerical root finding.}
 
 \subsection{Continuity of an inverse}
 
-\begin{pendingreview}
+
 \begin{definition}[Monotone functions]
   \label{thm:analysis-i:monotone-functions}
   A function $f:I\to\R$ is \emph{nondecreasing} if $x<y$ implies
@@ -108,12 +108,12 @@ existence arguments and the bracketing step in numerical root finding.}
   \emph{strictly increasing} and \emph{strictly decreasing} functions.
   These two cases are called \emph{strictly monotone}.
 \end{definition}
-\end{pendingreview}
+
 
 \begin{theorem}[Continuity of an increasing inverse]
   \label{thm:analysis-i:continuous-inverse}
   Let $a<b$ be real numbers and let $f:[a,b]\to\R$ be continuous and
-  \pendingreviewtext{strictly} increasing. Put $c=f(a)$ and $d=f(b)$.
+  strictly increasing. Put $c=f(a)$ and $d=f(b)$.
   Then the inverse function
   \[
     g=f^{-1}:[c,d]\longrightarrow[a,b]
@@ -121,31 +121,31 @@ existence arguments and the bracketing step in numerical root finding.}
   is continuous.
 \end{theorem}
 
-\begin{pendingreview}
+
   Strict increase makes $f$ injective, and
   \autoref{thm:analysis-i:intermediate-value} shows that its image is
   exactly $[c,d]$. Together these facts justify the existence of $g$.
   The graphs of $f$ and $g$ interchange their coordinates, as
   \autoref{fig:continuity:inverse-reflection} illustrates.
-\end{pendingreview}
+
 \begin{marginfigure}
   \centering
   \input{figures/continuity/inverse-reflection}
-  \caption[Reflecting a function to obtain its inverse.]{\pendingreviewtext{The
+  \caption[Reflecting a function to obtain its inverse.]{The
     graphs of $y=x^2$ and $y=\sqrt{x}$ for nonnegative inputs are
     reflections in $y=x$. A point $(u,v)$ on one graph corresponds to
-    $(v,u)$ on the other.}}
+    $(v,u)$ on the other.}
   \label{fig:continuity:inverse-reflection}
 \end{marginfigure}
 
 \begin{proof}
   Suppose that $g$ is not continuous at $y_0\in[c,d]$, and put
   $x_0=g(y_0)$.
-  \pendingreviewtext{By the failure of continuity, there are
-    $\varepsilon_0>0$ and points $y_n\in[c,d]$ such that}
+  By the failure of continuity, there are
+    $\varepsilon_0>0$ and points $y_n\in[c,d]$ such that
   \[
-    \pendingreviewtext{|y_n-y_0|<\frac1n,\qquad
-      |g(y_n)-x_0|\ge\varepsilon_0.}
+    |y_n-y_0|<\frac1n,\qquad
+      |g(y_n)-x_0|\ge\varepsilon_0.
   \]
   Set $x_n=g(y_n)$. Since $x_n\in[a,b]$,
   \autoref{thm:analysis-i:bolzano-weierstrass} gives a subsequence
@@ -155,18 +155,18 @@ existence arguments and the bracketing step in numerical root finding.}
   \]
   But $y_{n_k}\to y_0$, so uniqueness of limits gives
   $f(x^*)=y_0=f(x_0)$. Injectivity of $f$ then gives $x^*=x_0$.
-  \pendingreviewtext{This contradicts
+  This contradicts
     $|x_{n_k}-x_0|\ge\varepsilon_0$ for every $k$, since
-    $x_{n_k}\to x_0$.} Therefore $g$ is continuous at $y_0$.
+    $x_{n_k}\to x_0$. Therefore $g$ is continuous at $y_0$.
 \end{proof}
 
-\begin{pendingreview}
+
 The inverse of a continuous strictly decreasing function is continuous
 as well. Apply the theorem to $-f$, which is strictly increasing, and
 compose its continuous inverse with $y\mapsto-y$. Strict monotonicity
 is essential for an inverse to exist. A merely monotone function can
 take the same value at several inputs.
-\end{pendingreview}
+
 
 % IMG_9257 passes from a sequence that fails to converge to a convergent
 % subsequence without retaining a positive separation from x_0. The fixed
@@ -175,15 +175,15 @@ take the same value at several inputs.
   \label{ex:continuity:rational-powers}
   For $n\in\N$, the root function $x\mapsto x^{1/n}$ is continuous
   for $x\ge0$.
-  \pendingreviewtext{Indeed, for every $A>0$ the power map is a continuous,
+  Indeed, for every $A>0$ the power map is a continuous,
     strictly increasing bijection from $[0,A]$ onto $[0,A^n]$. Its inverse
     is continuous by \autoref{thm:analysis-i:continuous-inverse}. These
     intervals cover all nonnegative inputs, including relative
-    continuity at zero.}
+    continuity at zero.
 
-  \pendingreviewtext{For $m\in\Z$ and $n\in\N$,} the rational power
+  For $m\in\Z$ and $n\in\N$, the rational power
   $x\mapsto x^{m/n}$ is also continuous
-  \pendingreviewtext{on $(0,\infty)$. For positive $m$, it is continuous
+  on $(0,\infty)$. For positive $m$, it is continuous
     at zero as well. This follows by composing the root function with
-    the integer power function, and taking a reciprocal when $m<0$.}
+    the integer power function, and taking a reciprocal when $m<0$.
 \end{example}

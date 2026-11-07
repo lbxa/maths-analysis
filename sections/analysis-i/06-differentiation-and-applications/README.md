@@ -10,8 +10,57 @@ identities separate from the book's chapter and section numbering.
 
 ## Changelog
 
+### 2026-11-06
+
+- The author approved all remaining pending content and requested restoration
+  of HW07 Q1's expanded geometric-tail calculation. Keep the expanded terms
+  before sigma notation because they reveal the pattern, and explain how
+  to truncate short tails rather than replacing the author's working.
+- Add the author's HW07 Q1 proof to the shared solutions, preserving the
+  three-part strategy and detailed calculations. Correct continuity wording
+  and clarify constants and index cases with local pending marks. Keep the
+  geometric estimate uniform in the far index. Add a pending margin diagram
+  of alternating iterates for f(t) = 1 - t/2, illustrating shrinking steps
+  without suggesting that a contraction's iterates must be monotone.
+  All HW07 solutions are now supplied. Previous approvals are unchanged.
+- The author approved all pending content in §6.1 Differentiation,
+  §6.2 Mean value theorems, and §6.5 L'Hôpital's rules. Remove their review
+  wrappers while preserving the complete text and mathematics. Use starred
+  history-note and portrait helpers for the approved margin material.
+  Keep the unstarred helpers pending by default for all other sections.
+- Record the author's approval of all pending HW07 edits. Remove only the
+  review wrappers in the shared homework sources, including supporting
+  diagram captions and domain clarifications. Preserve the mathematics and
+  all review status on the surrounding chapter exposition.
+- Incorporate the author's HW07 Q2--Q10 solutions in the shared appendix
+  and handout files without moving their Chapter 6 exercises. Preserve
+  their arguments, notation, and intermediate calculations, adding only
+  focused repairs for theorem hypotheses, domains, and limit existence.
+  Complete Q6's missing logarithmic limit and add diagrams for unequal
+  one-sided slopes, a sharp maximum, and decreasing approximants. Keep
+  amendments pending. HW07 Q1 remains unsupplied.
+- Keep the single-paragraph interior-extremum proof pending with the inline
+  review component inside its proof environment. A block colour wrapper
+  between the proposition and proof interrupted the normal merging of their
+  vertical skips. Preserve the mathematical text and ordinary proof/QED
+  layout, without negative spacing or changes to global theorem styles.
+
 ### 2026-11-05
 
+- Explain why taking a logarithm preserves monotonicity before using it
+  for exponential approximants. Prove the order equivalence for positive
+  functions, distinguish it from derivative-based sign tests, and retain
+  extrema while allowing values and curvature to change. Add a horizontal
+  four-panel comparison with identical scales. The author approved this
+  section, its figure caption, and its application in the approximants
+  introduction. Remove their review wrappers while retaining review status
+  on the earlier approximants proof and other additions.
+- Expand the increasing-exponential-approximants example around the
+  logarithmic transformation, the full derivative calculation, and two
+  explicit mean-value arguments. Explain psi as a vertical gap and return
+  from the increase of H to the increase of F. Add a full-width, two-panel
+  diagram of the gap and the actual approximants. Keep the limit e separate
+  from the monotonicity proof and preserve the approved formulas.
 - Teach the general logarithmic method for variable-power limits before
   the existing exponential-approximant example. Distinguish passing a known
   positive limit through ln from establishing a power limit by finding the

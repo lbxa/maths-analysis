@@ -2,13 +2,13 @@
 % Retained Taylor-remainder identification from Homework 02, Question 5.
 \section{Taylor's theorem}
 \label{sec:analysis-i:taylor-theorem}
-\historynote{Taylor's \emph{Methodus incrementorum} (1715) develops
+\historynote*{Taylor's \emph{Methodus incrementorum} (1715) develops
 the expansion bearing his name~\cite{Taylor1715}. Lagrange's later
 analysis makes the finite remainder central~\cite{Lagrange1797}.
 The distinction matters: an approximating polynomial with a controlled
 error is useful even before any infinite expansion is justified.
 This is fundamental in approximation and numerical error estimates. See \autoref{fig:portrait:taylor-lagrange}.}
-\historyportraitpair{taylor}{Brook Taylor}{PortraitTaylor}{lagrange}{Joseph-Louis Lagrange}{PortraitLagrange}{taylor-lagrange}
+\historyportraitpair*{taylor}{Brook Taylor}{PortraitTaylor}{lagrange}{Joseph-Louis Lagrange}{PortraitLagrange}{taylor-lagrange}
 
 
 % Source: images/LEC06/IMG_9357. No proof of Taylor's theorem is supplied.
@@ -16,9 +16,9 @@ This is fundamental in approximation and numerical error estimates. See \autoref
 % moving-centre proof added below, distinct from the older editorial proof.
 \subsection{Higher derivatives}
 Successive differentiation gives $f'$, $f''$, and more generally $f^{(n)}$.
-\pendingreviewtext{Write $f^{(0)}=f$. A function belongs to $C^n[a,b]$
+Write $f^{(0)}=f$. A function belongs to $C^n[a,b]$
 when its derivatives through order $n$ exist in the interior and extend
-continuously to the endpoints.} In particular, $C^0[a,b]=C[a,b]$.
+continuously to the endpoints. In particular, $C^0[a,b]=C[a,b]$.
 
 \subsection{Taylor expansion and remainder}
 The following statement gives a polynomial approximation together with a
@@ -37,7 +37,7 @@ finite error term.
 
 % Editorial proof added at the author's request; the source supplies only
 % the theorem statement. Repeated Rolle avoids an integration dependency.
-\begin{pendingreview}
+
 \begin{proof}
   Let
   \[
@@ -74,12 +74,12 @@ finite error term.
   \]
   as required.
 \end{proof}
-\end{pendingreview}
+
 
 % Source: images/LEC07/IMG_9420--IMG_9421. This is the newly supplied
 % telescoping proof, distinct from the existing editorial Rolle iteration.
 % Correct the source's derivative factorial from (n+1)! to n!.
-\begin{pendingreview}
+
 \begin{proof}[A second proof using a moving centre]
   Fix $x\ne a$ and define the Taylor error with variable centre $t$ by
   \[
@@ -118,14 +118,14 @@ For $f(x)=e^x$ and $a=0$, the quadratic approximation is
 $P_2(x)=1+x+x^2/2$. On $[0,1]$, its error is at most $ex^3/6$.
 The vertical distance in \autoref{fig:analysis-i:taylor-error} is the
 error controlled by this bound.
-\end{pendingreview}
+
 \begin{figure}[htbp]
   \centering
   \input{figures/differentiation/taylor-error}
-  \caption[Taylor error as a vertical distance.]{\pendingreviewtext{
+  \caption[Taylor error as a vertical distance.]{
     The exponential and its quadratic Taylor polynomial about zero.
     The grey vertical segment at $x=1$ is the remainder $e-5/2$.
-    Curves are shown only on $[0,1]$.}}
+    Curves are shown only on $[0,1]$.}
   \label{fig:analysis-i:taylor-error}
 \end{figure}
 

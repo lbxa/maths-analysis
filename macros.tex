@@ -13,32 +13,40 @@
 }{\par}
 \newcommand{\pendingreviewtext}[1]{\textcolor{pendingreviewcolor}{#1}}
 
-% Optional historical context stays in the margin and awaits author review.
+% Unstarred historical notes and portraits await author review.
+% Use starred forms after approval, preserving the same shared layout.
+% Set approved text to black explicitly so queued margins cannot inherit
+% the review colour of neighbouring, unapproved material.
 % Use once at the substantive treatment; subsequent mentions link back.
-\newcommand{\historynote}[1]{%
-  \marginnote{\pendingreviewtext{#1}}%
+\NewDocumentCommand{\historynote}{s m}{%
+  \marginnote{\IfBooleanTF{#1}{\textcolor{black}{#2}}{\pendingreviewtext{#2}}}%
 }
 % Historical reproductions use the available margin width at native proportions.
 % Credits and original-object metadata live in the cited record and ledger.
-\newcommand{\historyportrait}[3]{%
+\NewDocumentCommand{\historyportrait}{s m m m}{%
   \begin{marginfigure}
     \centering
-    \includegraphics[width=\linewidth,keepaspectratio]{portraits/#1.jpg}
-    \caption[#2.]{\pendingreviewtext{#2.~\cite{#3,BookofproofsPortraits}}}
-    \label{fig:portrait:#1}
+    \includegraphics[width=\linewidth,keepaspectratio]{portraits/#2.jpg}
+    \caption[#3.]{\IfBooleanTF{#1}
+      {\textcolor{black}{#3.~\cite{#4,BookofproofsPortraits}}}
+      {\pendingreviewtext{#3.~\cite{#4,BookofproofsPortraits}}}}
+    \label{fig:portrait:#2}
   \end{marginfigure}%
 }
-\newcommand{\historyportraitpair}[7]{%
+\NewDocumentCommand{\historyportraitpair}{s m m m m m m m}{%
   \begin{marginfigure}
     \centering
     \makebox[\linewidth][c]{%
-      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#1.jpg}%
+      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#2.jpg}%
       \hspace{0.02\linewidth}%
-      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#4.jpg}%
+      \includegraphics[width=0.49\linewidth,keepaspectratio]{portraits/#5.jpg}%
     }
-    \caption[#2 and #5.]{\pendingreviewtext{#2 (left) and #5 (right).
-      Portrait sources~\cite{#3,#6,BookofproofsPortraits}.}}
-    \label{fig:portrait:#7}
+    \caption[#3 and #6.]{\IfBooleanTF{#1}
+      {\textcolor{black}{#3 (left) and #6 (right).
+        Portrait sources~\cite{#4,#7,BookofproofsPortraits}.}}
+      {\pendingreviewtext{#3 (left) and #6 (right).
+        Portrait sources~\cite{#4,#7,BookofproofsPortraits}.}}}
+    \label{fig:portrait:#8}
   \end{marginfigure}%
 }
 

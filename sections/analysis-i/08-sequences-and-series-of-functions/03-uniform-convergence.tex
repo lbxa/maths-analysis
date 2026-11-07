@@ -1,7 +1,7 @@
 % !TEX root = ../../../main.tex
 \section{Uniform convergence}
 \label{sec:analysis-i:uniform-convergence}
-\historynote{Cauchy's 1821 claim about sums of continuous functions
+\historynote*{Cauchy's 1821 claim about sums of continuous functions
 needed stronger convergence hypotheses. He returned to the question
 in 1853~\cite[ch.~VI]{Cauchy1821}\cite{Cauchy1853}.
 The modern uniform requirement supplies one error bound for every
@@ -29,7 +29,7 @@ simultaneously for every input.
   Here $N$ may depend on $\varepsilon$, but it is independent of $x$.
 \end{definition}
 
-\begin{pendingreview}
+
   Uniform convergence implies pointwise convergence, since its single
   choice of $N$ works at any fixed $x$. The converse need not hold.
   For the truncated powers in \autoref{ex:analysis-i:truncated-powers},
@@ -40,7 +40,7 @@ simultaneously for every input.
   for every $n$. These moving inputs prevent any one $N$ from giving
   an error below $1/2$ throughout the domain. Each fixed input still
   has the pointwise limit found earlier.
-\end{pendingreview}
+
 
 \begin{theorem}[Uniform limits preserve continuity]
   \label{thm:analysis-i:uniform-limit-continuity}
@@ -55,29 +55,29 @@ simultaneously for every input.
     |f_N(x)-f(x)|<\frac{\varepsilon}{3}.
   \]
   We now keep this index $N$ fixed.
-  \pendingreviewtext{Fix $t\in[a,b]$. Since $f_N$ is continuous at $t$,
+  Fix $t\in[a,b]$. Since $f_N$ is continuous at $t$,
     there is a $\delta>0$ such that
     $|f_N(s)-f_N(t)|<\varepsilon/3$ whenever $s\in[a,b]$ and
-    $|s-t|<\delta$.}
+    $|s-t|<\delta$.
   For such $s$, adding and subtracting the two values of $f_N$ gives
   \begin{align*}
     |f(s)-f(t)|
       &=\bigl|f(s)-f_N(s)+f_N(s)-f_N(t)+f_N(t)-f(t)\bigr|\\
       &\le |f(s)-f_N(s)|
-        \mathbin{\pendingreviewtext{+}}\pendingreviewtext{|f_N(s)-f_N(t)|}
+        \mathbin{+}|f_N(s)-f_N(t)|
         +|f_N(t)-f(t)|\\
       &<\frac{\varepsilon}{3}+\frac{\varepsilon}{3}
         +\frac{\varepsilon}{3}
        =\varepsilon.
   \end{align*}
   Thus $f$ is continuous at $t$.
-  \pendingreviewtext{Since $t$ was arbitrary, $f$ is continuous on $[a,b]$.}
+  Since $t$ was arbitrary, $f$ is continuous on $[a,b]$.
 \end{proof}
 
 \input{problems/hw05/09-pointwise-not-uniform/problem}
 
 \subsection{The normed space \texorpdfstring{$C[a,b]$}{C[a,b]}}
-\begin{pendingreview}
+
 The notation $C[a,b]$ denotes the continuous real-valued functions on
 $[a,b]$, where $a<b$. Pointwise addition and scalar multiplication,
 \[
@@ -124,18 +124,18 @@ two graphs at the same input. Thus
 \]
 For example, $f_n(x)=x/n$ on $[0,1]$ has distance $1/n$ from the zero
 function. One bound controls its error at every input.
-\end{pendingreview}
+
 
 \subsection{Uniform convergence and arithmetic operations}
-\begin{pendingreview}
+
 In the next question, membership in $C[a,b]$ is essential
 in part (i). On the entire real line a continuous function need not be
 bounded.
-\end{pendingreview}
+
 \input{problems/hw06/09-uniform-algebra/problem}
 
 \subsection{A further moving-input example}
-\begin{pendingreview}
+
 The following question belongs to the pointwise/uniform distinction.
 Its prescribed hint deliberately refers forward to
 \autoref{ex:hw06:arbitrary-base-exponential} and
@@ -143,12 +143,12 @@ Its prescribed hint deliberately refers forward to
 \autoref{sec:analysis-i:power-series}. Return to that hint after the
 exponential exercises. The alternative maximum calculation uses
 \autoref{sec:analysis-i:differentiation}.
-\end{pendingreview}
+
 \input{problems/hw06/07-moving-peaks/problem}
 
 \subsection{Equicontinuity}
 % Expanded editorial treatment authorised by the HW06 coverage request.
-\begin{pendingreview}
+
 \begin{definition}[Equicontinuity]
   \label{thm:analysis-i:equicontinuity}
   A family $(f_n)$ on $[a,b]$ is \emph{equicontinuous} if, for each
@@ -219,5 +219,5 @@ equicontinuous with any $\delta>0$, but do not even converge pointwise.
   along the late part of that subsequence. The triangle inequality
   contradicts their separation by at least $\varepsilon_0$.
 \end{proof}
-\end{pendingreview}
+
 \input{problems/hw06/08-equicontinuous-boundedness/problem}

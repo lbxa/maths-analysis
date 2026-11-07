@@ -1,2 +1,15 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q9.
+% Faithful transcription. No mathematical amendment is needed.
+\begin{proof}[Solution]
+  Let $x^x=e^{\ln(x^x)}$ for $x>0$. Then
+  \[
+    \begin{aligned}
+      (x^x)'&=\left(e^{\ln(x^x)}\right)'\\
+        &=\left(e^{x\ln x}\right)'\\
+        &=e^{\ln(x^x)}(x\ln x)'\\
+        &=x^x\left(x\times\frac1x+1\times\ln x\right)\\
+        &=x^x(1+\ln x).
+    \end{aligned}
+  \]
+\end{proof}

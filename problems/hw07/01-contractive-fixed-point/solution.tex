@@ -1,2 +1,148 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q1 (i)--(iii).
+% Preserve the MVT, explicit contraction steps, geometric-tail calculation,
+% completeness argument, and uniqueness contradiction.
+% Unify the repeated derivative-bound declaration as M. Repair the
+% continuity wording and missing index cases locally. The author requested
+% restoration of the expanded tail before its sigma notation, 2026-11-06.
+\begin{proof}[Solution]
+  Part (i). Since $f'$ is bounded, $|f'(x)|\le M$
+  for some $M\ge0$
+  and every $x\in\R$.
+  The function $f$ is differentiable over $\R$, so
+  it is continuous there.
+  Thus, we apply the mean value theorem over the interval $[y,x]$,
+  where $x,y\in\R$ and $x>y$, and choose a $c\in(y,x)$ such that
+  \[
+    f'(c)=\frac{f(x)-f(y)}{x-y}.
+  \]
+  Choose $L=M+1>0$ to satisfy $L>0$.
+  Since $|f'(c)|\le M<L$, we obtain
+  \[
+    \begin{aligned}
+      |f'(c)|=\left|\frac{f(x)-f(y)}{x-y}\right|
+        &\implies \left|\frac{f(x)-f(y)}{x-y}\right|\le L\\
+        &\implies |f(x)-f(y)|\le L|x-y|.
+    \end{aligned}
+  \]
+  If $x<y$, interchange the two inputs. If $x=y$,
+  both sides are zero. Thus the inequality holds for every
+  $x,y\in\R$.
+
+  Part (ii).
+  Take any $x_0\in\R$ and define
+  $x_{n+1}=f(x_n)$ for $n\ge0$.
+  Consider the following, where $x_0,\ldots,x_3\in\R$,
+  \[
+    \begin{aligned}
+      x_3&=f(x_2),\\
+      x_2&=f(x_1),\\
+      x_1&=f(x_0).
+    \end{aligned}
+  \]
+  Assuming a Lipschitz constant satisfying $0<L<1$ exists, we can
+  apply the inequality from part (i).
+  For this part, $L$ denotes the constant in the
+  contraction hypothesis.
+  \[
+    \begin{aligned}
+      |f(x_2)-f(x_1)|\le L|x_2-x_1|
+        &\implies |x_3-x_2|\le L|x_2-x_1|,\\
+      |f(x_1)-f(x_0)|\le L|x_1-x_0|
+        &\implies |x_2-x_1|\le L|x_1-x_0|\\
+        &\implies |x_3-x_2|\le L^2|x_1-x_0|.
+    \end{aligned}
+  \]
+  Repeated application of the contraction inequality yields
+  \[
+    |x_{n+1}-x_n|\le L^n|x_1-x_0|,
+    \qquad n\ge0.
+  \]
+  Suppose $0<L<1$. Then
+  \[
+    |x_1-x_0|\ge |x_2-x_1|\ge |x_3-x_2|,
+  \]
+  which implies that each successive step is
+  no larger than the previous one.
+  \autoref{fig:hw07:contractive-steps} illustrates
+  shrinking steps that alternate around a fixed point.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw07/contractive-steps}
+    \caption[Shrinking steps in a contraction iteration.]{%
+      For $f(t)=1-t/2$ and $x_0=0$, the filled
+      points are $x_0,x_1,x_2,x_3$. The open point is the fixed point
+      $x^*=2/3$. From top to bottom, the arrows show successive steps
+      of lengths $1$, $1/2$, and $1/4$, with alternating directions.}
+    \label{fig:hw07:contractive-steps}
+  \end{marginfigure}
+  It follows that the total distance from start to finish is less
+  than or equal to the sum of all steps,
+  \[
+    |x_3-x_0|\le |x_3-x_2|+\cdots+|x_1-x_0|.
+  \]
+  Generalizing this for arbitrary $m>n$ gives
+  the following calculation. For tails shorter than four steps, retain
+  only the increments with indices $n\le k<m$ in the expanded list.
+  \[
+    \begin{aligned}
+      |x_m-x_n|
+        &\le |x_m-x_{m-1}|+\cdots+|x_{n+3}-x_{n+2}|\\
+        &\qquad+|x_{n+2}-x_{n+1}|+|x_{n+1}-x_n|\\
+        &=\sum_{k=n}^{m-1}|x_{k+1}-x_k|\\
+        &\le\sum_{k=n}^{m-1}L^k|x_1-x_0|\\
+        &=|x_1-x_0|\sum_{k=n}^{m-1}L^k\\
+        &=|x_1-x_0|\frac{L^n-L^m}{1-L}\\
+        &\le |x_1-x_0|\frac{L^n}{1-L}
+          \qquad(L^m>0)\\
+        &=\frac{|x_1-x_0|}{1-L}L^n.
+    \end{aligned}
+  \]
+  The final bound is independent of $m$.
+  Taking the limit as $n\to\infty$, we have
+  \[
+    \lim_{n\to\infty}\frac{|x_1-x_0|}{1-L}L^n=0,
+    \qquad 0<L<1.
+  \]
+  Hence, for every $\epsilon>0$, there exists $N\in\N$ such that
+  \[
+    \frac{|x_1-x_0|}{1-L}L^n<\epsilon
+    \qquad\forall n\ge N.
+  \]
+  Consequently, for every $m>n\ge N$,
+  \[
+    |x_m-x_n|<\epsilon,
+  \]
+  establishing $(x_n)$ as a Cauchy sequence over $\R$.
+  The same bound for $m<n$ follows by interchanging
+  the indices, and $m=n$ gives zero.
+  By the Cauchy completeness theorem in $\R$, there exists
+  $x^*\in\R$ such that $x_n\to x^*$.
+  Finally, since $f$ is continuous and $x_n=f(x_{n-1})$, taking
+  $n\to\infty$ gives
+  \[
+    \begin{aligned}
+      x^*&=\lim_{n\to\infty}x_n\\
+        &=\lim_{n\to\infty}f(x_{n-1})\\
+        &=f\left(\lim_{n\to\infty}x_{n-1}\right)\\
+        &=f(x^*).
+    \end{aligned}
+  \]
+  Therefore, $x^*$ is a fixed point of $f$.
+
+  For part (iii), assume there are two distinct fixed points
+  $x^*=f(x^*)$ and $y^*=f(y^*)$. Applying the contraction inequality
+  gives
+  \[
+    \begin{aligned}
+      |f(x^*)-f(y^*)|
+        &\le L|x^*-y^*|,\qquad 0<L<1\\
+      \implies |x^*-y^*|
+        &\le L|x^*-y^*|.
+    \end{aligned}
+  \]
+  Since $x^*\ne y^*$, we have $|x^*-y^*|>0$, so we can divide both
+  sides by $|x^*-y^*|$ to give $L\ge1$, which contradicts $L<1$.
+  Therefore, two distinct fixed points cannot exist and the fixed
+  point $x^*$ is unique.
+\end{proof}

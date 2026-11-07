@@ -3,8 +3,8 @@
 \section{Infinite series}
 \label{sec:appendix:formula-sheet-series}
 \formulagroup{Partial sums, tails, and basic sums}
-$S_N=\sum_{n=1}^N a_n$\pendingreviewtext{. The notation} $\sum a_n=S$ means $S_N\to S$.
-Convergence requires $a_n\to0$\pendingreviewtext{. The} converse fails.
+$S_N=\sum_{n=1}^N a_n$. The notation $\sum a_n=S$ means $S_N\to S$.
+Convergence requires $a_n\to0$. The converse fails.
 For $a_n\ge0$, convergence is equivalent to bounded partial sums.
 The Cauchy criterion is
 \[
@@ -14,17 +14,20 @@ The Cauchy criterion is
 \[
   \begin{aligned}
     \sheetsum_{k=0}^\infty ar^k&=\frac a{1-r}\quad(|r|<1),\\
-    \sheetsum_{k=N+1}^\infty ar^k&=\frac{ar^{N+1}}{1-r}\quad(|r|<1),\\
+    \sheetsum_{k=n}^\infty r^k&=\frac{r^n}{1-r}\quad(|r|<1),\\
+    \sheetsum_{k=n}^\infty ar^k&=\frac{ar^n}{1-r}\quad(|r|<1),\\
     \sheetsum_{n=1}^N(b_n-b_{n+1})&=b_1-b_{N+1},\\
     \sheetsum_{n=1}^\infty(b_n-b_{n+1})&=b_1-B\quad(b_n\to B).
   \end{aligned}
 \]
+For geometric tails, $n$ is a nonnegative integer.
+Factor out $r^n$ so the remaining sum starts at exponent zero.
 In particular, $\sum_{n=1}^\infty1/[n(n+1)]=1$.
 
 \formulagroup{Comparison}
 $\sum n^{-p}$ converges iff $p>1$.
 For nonnegative terms, eventual $a_n\le Cb_n$ transfers convergence
-from $\sum b_n$\pendingreviewtext{. Eventual} $a_n\ge cb_n$ transfers divergence
+from $\sum b_n$. Eventual $a_n\ge cb_n$ transfers divergence
 ($C,c>0$).
 For $a_n\ge0$, $b_n>0$,
 \[
@@ -39,13 +42,13 @@ For a real shift $a>0$,
 
 \formulagroup{Ratio, root, and alternating tests}
 For eventually nonzero terms, $q_n=|a_{n+1}/a_n|$.
-Absolute convergence follows if $\limsup q_n<1$\pendingreviewtext{.
-Divergence} follows if $\liminf q_n>1$.
-For $\rho=\limsup|a_n|^{1/n}$, $\rho<1$ gives absolute convergence\pendingreviewtext{.}
+Absolute convergence follows if $\limsup q_n<1$.
+Divergence follows if $\liminf q_n>1$.
+For $\rho=\limsup|a_n|^{1/n}$, $\rho<1$ gives absolute convergence.
 $\rho>1$ gives divergence. A lower root limit $>1$ also gives divergence.
 Test value $1$ is inconclusive.
 If $a_n\downarrow0$, $\sum_{n=0}^\infty(-1)^n a_n$ converges and
 \[
   |S-S_N|\le a_{N+1},\qquad |S_m-S_n|\le a_{n+1}\quad(m>n).
 \]
-Absolute convergence implies convergence\pendingreviewtext{. Its} failure does not imply divergence.
+Absolute convergence implies convergence. Its failure does not imply divergence.

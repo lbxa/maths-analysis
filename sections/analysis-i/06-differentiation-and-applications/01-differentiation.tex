@@ -2,19 +2,17 @@
 \section{Differentiation}
 \label{sec:analysis-i:differentiation}
 
-\begin{pendingreview}
 Differentiation studies local change through the limiting slope of a
 secant line.
-\historynote{Newton's 1669 manuscript links infinite series with
+\historynote*{Newton's 1669 manuscript links infinite series with
 quadrature. Leibniz's 1684 paper publishes rules for differentials
 and tangents~\cite{Newton1669,Leibniz1684}. Their approaches developed
 in the seventeenth-century study of motion, areas, and tangents.
 These primary texts document distinct contributions. The modern limit
 definition came later. Calculus transformed mechanics
 and differential equations. See \autoref{fig:portrait:leibniz}.}
-\historyportrait{leibniz}{Gottfried Wilhelm Leibniz}{PortraitLeibniz}
+\historyportrait*{leibniz}{Gottfried Wilhelm Leibniz}{PortraitLeibniz}
 
-\end{pendingreview}
 % Source: images/LEC06/IMG_9350--IMG_9353. IMG_9350 is headed Lecture 7.
 % The folder's name is retained as source provenance, not a schedule claim.
 % Rephotographed as images/LEC06/IMG_9411--IMG_9414, checked 2026-11-04.
@@ -33,7 +31,6 @@ and differential equations. See \autoref{fig:portrait:leibniz}.}
   \]
 \end{definition}
 
-\begin{pendingreview}
 \begin{example}[A derivative from first principles]
   Fix $P=(1,f(1))$ on the graph $f(x)=x^2/2$, and let
   $Q_h=(1+h,f(1+h))$ move towards it. The secant through these points
@@ -53,8 +50,7 @@ and differential equations. See \autoref{fig:portrait:leibniz}.}
   shows positive $h$ shrinking. The same limiting slope is obtained
   from negative $h$.
 \end{example}
-\end{pendingreview}
-\historynote{In an entry dated 20 May 1665 in his \emph{Waste Book},
+\historynote*{In an entry dated 20 May 1665 in his \emph{Waste Book},
 Newton replaces $x$ by $x+o$, expands, and cancels a factor of $o$
 before saying that $o$ ``vanisheth into nothing''~\cite[fol.~47r]{NewtonWasteBook1665}.
 This is notebook evidence of working with vanishing increments while
@@ -62,10 +58,10 @@ developing calculus. The limit definition used here is a later formulation.}
 \begin{figure}[htbp]
   \centering
   \input{figures/differentiation/first-principles-derivative}
-  \caption[Secants approaching a tangent.]{\pendingreviewtext{Secants for
+  \caption[Secants approaching a tangent.]{Secants for
     $f(x)=x^2/2$. On the left, $h=1$. On the right, $h=1,1/2,1/4$. The grey
     secants approach the dashed tangent $y=x-1/2$ as $Q_h\to P$.
-    Only $x\ge0$ is shown.}}
+    Only $x\ge0$ is shown.}
   \label{fig:analysis-i:first-principles-derivative}
 \end{figure}
 
@@ -77,7 +73,6 @@ Then $e(h)\to0$ as $h\to0$, and rearranging gives
 \[
   f(x+h)-f(x)=h f'(x)+h e(h).
 \]
-\begin{pendingreview}
 The residual $r(h)=h e(h)$ satisfies $r(h)/h\to0$. Thus
 \[
   f(x+h)=f(x)+h f'(x)+o(h).
@@ -85,10 +80,8 @@ The residual $r(h)=h e(h)$ satisfies $r(h)/h\to0$. Thus
 The notation $o(h)$ expresses a smaller error than the first-order scale
 $h$. In particular the residual is also $O(h)$, but the stronger vanishing
 ratio is what characterises differentiability.
-\end{pendingreview}
 % IMG_9350 writes E(h)=O(h). The residual is h e(h)=o(h), while e(h)=o(1).
 
-\begin{pendingreview}
 \begin{proposition}[Differentiability implies continuity]
   \label{thm:analysis-i:differentiable-continuous}
   If $f$ is differentiable at $x_0$, then it is continuous at $x_0$.
@@ -98,11 +91,9 @@ ratio is what characterises differentiability.
   $f(x_0+h)-f(x_0)=h(f'(x_0)+e(h))$. The factor in parentheses has a
   finite limit and $h\to0$, so the difference tends to zero.
 \end{proof}
-\end{pendingreview}
 
 \subsection{Left and right derivatives}
 
-\begin{pendingreview}
 \begin{definition}[Left and right derivatives]
   \label{thm:analysis-i:one-sided-derivatives}
   \index{derivative!left}\index{derivative!right}
@@ -134,13 +125,12 @@ are equal. Their common value is then
 On a closed interval $[a,b]$ with $a<b$, these one-sided limits define
 the endpoint derivatives $f'_+(a)$ and $f'_-(b)$ when they exist, using
 only points in the interval.
-\end{pendingreview}
 
 \begin{example}[A corner and one-sided derivatives]
   \label{ex:analysis-i:absolute-value-derivative}
   For $f(x)=|x|$, the difference quotient at zero is $|h|/h$.
-  \pendingreviewtext{The definitions in
-  \autoref{thm:analysis-i:one-sided-derivatives} give}
+  The definitions in
+  \autoref{thm:analysis-i:one-sided-derivatives} give
   \[
     f'_+(0)=\lim_{h\to0^+}\frac{|h|}{h}=1,\qquad
     f'_-(0)=\lim_{h\to0^-}\frac{|h|}{h}=-1.
@@ -150,11 +140,9 @@ only points in the interval.
 \end{example}
 % IMG_9351's informal subgradient aside is not a claim of ordinary
 % differentiability. Subgradients are not developed in the supplied pages.
-\begin{pendingreview}
 The next exercise combines the one-sided quotient definitions with the
 endpoint behaviour of the exponential. We use its positivity and limits
 from \autoref{thm:analysis-i:exponential-properties}.
-\end{pendingreview}
 \input{problems/hw07/02-one-sided-derivatives/problem}
 
 \subsection{Basic differentiation rules}
@@ -171,7 +159,7 @@ differentiable at $g(x)$, the chain rule is
 \[
   (f\circ g)'(x)=f'(g(x))g'(x).
 \]
-\pendingreviewtext{These rules are stated here without proof.}
+These rules are stated here without proof.
 
 \begin{example}[Integer powers]
   For $n=1,2,\ldots$, the derivative of $x^n$ is $nx^{n-1}$.
@@ -196,34 +184,31 @@ differentiable at $g(x)$, the chain rule is
   \[
     \frac{d}{dx}x^q
       =m(x^{1/n})^{m-1}\frac1n x^{1/n-1}
-      =\pendingreviewtext{\frac mn x^{(m-1)/n+1/n-1}}
+      =\frac mn x^{(m-1)/n+1/n-1}
       =q x^{q-1}.
   \]
-  \pendingreviewtext{Negative integer powers use the reciprocal rule.
+  Negative integer powers use the reciprocal rule.
   The case $m=0$ is the constant function. The restriction $x>0$ avoids
-  the zero endpoint, where a nontrivial root has no finite derivative.}
+  the zero endpoint, where a nontrivial root has no finite derivative.
 \end{example}
 % IMG_9352's intervening exponent algebra is incorrect; the corrected sum
 % is (m-1)/n+1/n-1=m/n-1. Its rational-approximation suggestion alone does
 % not justify taking a limit of derivatives to handle real exponents.
 
 \subsection{Exponential, logarithmic, and real-power derivatives}
-\begin{pendingreview}
 These calculations use the exponential series from
 \autoref{sec:analysis-i:power-series}, the addition law in
 \autoref{thm:analysis-i:exponential-properties}, and its continuous
 inverse $\ln$ on $(0,\infty)$. The required series-and-inverse
 construction is developed in \autoref{sec:analysis-i:power-series}.
 We use those properties here.
-\end{pendingreview}
 
 \begin{example}[The derivative of the exponential]
   Writing $E(x)=e^x$, the addition law gives
   \[
     \frac{e^{x+h}-e^x}{h}=e^x\frac{e^h-1}{h}
-      =e^x\sum_{k=\pendingreviewtext{1}}^{\infty}\frac{h^{k-1}}{k!}.
+      =e^x\sum_{k=1}^{\infty}\frac{h^{k-1}}{k!}.
   \]
-  \begin{pendingreview}
   For $0<|h|\le1$, absolute convergence yields
   \[
     \left|\frac{e^h-1}{h}-1\right|
@@ -231,14 +216,12 @@ We use those properties here.
   \]
   This tail estimate justifies the limit of the series directly, without
   differentiating an infinite sum term by term.
-  \end{pendingreview}
   Hence $(e^x)'=e^x$.
 \end{example}
 % IMG_9353 has a lower index zero after subtracting the constant term.
 % Its question about who first found this formula is not evidence of
 % priority; the existing historical note concerns calculus more broadly.
 
-\begin{pendingreview}
 Applying the inverse derivative rule to $y=e^x$ gives
 \[
   (\ln y)'=\frac1{e^x}=\frac1y,\qquad y>0.
@@ -258,13 +241,11 @@ Similarly, for any $r\in\R$ and $x>0$, writing $x^r=e^{r\ln x}$ gives
 This supplies a direct justification for real powers. Approximation of
 $r$ by rational numbers alone would not justify passing derivatives to a
 limit.
-\end{pendingreview}
 
-\pendingreviewtext{When both base and exponent vary, first express the
-positive function through its logarithm and use the chain rule.}
+When both base and exponent vary, first express the
+positive function through its logarithm and use the chain rule.
 \input{problems/hw07/09-self-power-derivative/problem}
 
-\begin{pendingreview}
 \subsection{Trigonometric derivatives}
 For angles in radians, the elementary small-angle limits are
 $\sin h/h\to1$ and $(\cos h-1)/h\to0$. Using these limits and the
@@ -279,37 +260,34 @@ The quotient rule consequently gives
 These calculations use the geometric trigonometric functions and their
 small-angle limits. Their power-series representations are given in
 \autoref{sec:analysis-i:analytic-functions}.
-\end{pendingreview}
 
 \subsection{Stationary points and local extrema}
 \begin{definition}[Stationary point]
   \label{thm:analysis-i:stationary-point}
   A point $c$ is stationary if $f$ is differentiable at $c$ and $f'(c)=0$.
 \end{definition}
-\pendingreviewtext{Here we use \emph{stationary} for this precise condition.
+Here we use \emph{stationary} for this precise condition.
 Some conventions also count points where the derivative is undefined as
-critical points. Differentiability alone does not imply $f'(c)=0$.}
+critical points. Differentiability alone does not imply $f'(c)=0$.
 
 \begin{proposition}[Interior extrema]
   \label{thm:analysis-i:interior-extremum}
   If $f$ has a local maximum or local minimum at an interior point $c$
   of its domain and is differentiable there, then $f'(c)=0$.
 \end{proposition}
-\begin{pendingreview}
 \begin{proof}
   At a local minimum, $f(c+h)-f(c)\ge0$ for all sufficiently small $h$.
   The quotient is nonnegative for $h>0$ and nonpositive for $h<0$.
   Since both one-sided limits equal $f'(c)$, that number must be zero.
   At a local maximum the signs reverse and the same conclusion follows.
 \end{proof}
-\end{pendingreview}
 The extrema in \autoref{fig:analysis-i:local-extrema} illustrate the
 interior-point condition.
 \begin{figure*}
   \centering
   \input{figures/differentiation/local-extrema}
-  \caption[Interior stationary extrema.]{\pendingreviewtext{Schematic
+  \caption[Interior stationary extrema.]{Schematic
     differentiable local minimum and maximum. Each horizontal tangent has
-    slope zero at the marked interior point $c$.}}
+    slope zero at the marked interior point $c$.}
   \label{fig:analysis-i:local-extrema}
 \end{figure*}

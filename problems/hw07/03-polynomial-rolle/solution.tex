@@ -1,2 +1,37 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q3.
+% Retain the auxiliary primitive and the endpoint calculation.
+\begin{proof}[Solution]
+  Since $P(x)$ represents a polynomial with real coefficients,
+  \[
+    P(x)=a_0+a_1x+\cdots+a_nx^n,
+  \]
+  it is differentiable and continuous.
+  If $P(0)=P(1)$, Rolle's theorem would give a
+  point $x\in(0,1)$ with $P'(x)=0$. However, we are interested in
+  $P(x)=0$, so we can construct an auxiliary polynomial $F(x)$
+  such that $F'(x)=P(x)$.
+
+  Since $F(x)$ is a polynomial, it is continuous on $[0,1]$ and
+  differentiable on $(0,1)$. If we can establish that $F(0)=F(1)$,
+  Rolle's theorem guarantees some $x\in(0,1)$ satisfying
+  $F'(x)=0$ and therefore $P(x)=0$.
+
+  For the derivative of $F(x)$ to be equal to $P(x)$, we can select
+  terms by inverting the power rule $(x^n)'=nx^{n-1}$,
+  \[
+    F(x)=a_0x+\frac{a_1}{2}x^2+\cdots+
+      \frac{a_n}{n+1}x^{n+1}+C,\qquad C\in\R.
+  \]
+  Evaluating $F(x)$ at both endpoints gives
+  \[
+    \begin{aligned}
+      F(0)&=C,\\
+      F(1)&=\underbrace{a_0+\frac{a_1}{2}+\cdots+
+        \frac{a_n}{n+1}}_{=0}+C.
+    \end{aligned}
+  \]
+  Thus $F(0)=F(1)=C$. By Rolle's theorem, there exists
+  $x\in(0,1)$ such that $F'(x)=0$. Since $F'(x)=P(x)$, we conclude
+  that $P(x)=0$, as required.
+\end{proof}

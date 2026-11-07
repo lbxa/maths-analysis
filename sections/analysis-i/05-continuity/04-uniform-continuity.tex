@@ -6,7 +6,7 @@
 % LEC05 IMG_9252 states the property; IMG_9256 starts its proof and
 % IMG_9215 supplies the whiteboard continuation with common subsequence indices.
 % The source recalls pointwise continuity without writing uniform quantifiers.
-\begin{pendingreview}
+
 For continuity at a single point $c$, the choice of $\delta$ may depend
 on $c$ as well as $\varepsilon$. Uniform continuity asks for one
 $\delta$ that works throughout the domain.
@@ -23,7 +23,7 @@ $\delta$ that works throughout the domain.
 \autoref{fig:continuity:uniform-versus-nonuniform} compares the square
 function on two domains, keeping the output tolerance fixed at
 $\varepsilon_0=1$.
-\end{pendingreview}
+
 
 % Keep this comparison and its caption together before the theorem.
 \begin{fullwidth}
@@ -31,15 +31,15 @@ $\varepsilon_0=1$.
     \centering
     \input{figures/continuity/uniform-versus-nonuniform}
     \captionof{figure}[Uniform and nonuniform continuity.]{%
-      \pendingreviewtext{The same parabola at identical coordinate scales.
+      The same parabola at identical coordinate scales.
       Every shaded window has width $1/4$ and height $1$. On $[0,2]$,
       one input tolerance works throughout. Farther along $\R$, input
-      gaps $1/3$ and $1/6$ still give output gaps above $2$.}}
+      gaps $1/3$ and $1/6$ still give output gaps above $2$.}
     \label{fig:continuity:uniform-versus-nonuniform}
   \end{minipage}
 \end{fullwidth}
 
-\begin{pendingreview}
+
 For $f(x)=x^2$ on $[0,2]$,
 \[
   |x^2-y^2|=|x-y||x+y|\le4|x-y|,
@@ -56,7 +56,7 @@ Keep $\varepsilon_0=1$ fixed. Whatever $\delta>0$ is chosen, taking
 $n>1/\delta$ gives inputs closer than $\delta$ whose outputs are more
 than $1$ apart. This is the failure of uniform continuity. Continuity
 at each point allows the input tolerance to shrink as the point moves.
-\end{pendingreview}
+
 
 \begin{theorem}[Heine--Cantor]
   \label{thm:analysis-i:heine-cantor}
@@ -83,10 +83,10 @@ at each point allows the input tolerance to shrink as the point moves.
   \begin{marginfigure}
     \centering
     \input{figures/continuity/paired-subsequences}
-    \caption[Paired subsequences approach the same point.]{\pendingreviewtext{Schematic pairs selected with common indices.
+    \caption[Paired subsequences approach the same point.]{Schematic pairs selected with common indices.
       Their separation tends to zero. Once both subsequences converge,
       their limits must coincide. The selection continues beyond the
-      three pairs drawn.}}
+      three pairs drawn.}
     \label{fig:continuity:paired-subsequences}
   \end{marginfigure}
   Both limits belong to $[a,b]$, since every selected term lies between
@@ -105,33 +105,33 @@ at each point allows the input tolerance to shrink as the point moves.
   these differences.
 \end{proof}
 
-\historynote{Heine's 1872 \emph{Elemente der Functionenlehre}
+\historynote*{Heine's 1872 \emph{Elemente der Functionenlehre}
 establishes uniform continuity on a closed interval
 ~\cite{Heine1872}. The key advance is one input tolerance that
 works across the whole interval. This links local continuity with
 compactness and supports uniform approximation and integration.
 The paired name should not be read as a coauthored paper. See \autoref{fig:portrait:heine}.}
-\historyportrait{heine}{Eduard Heine}{PortraitHeine}
+\historyportrait*{heine}{Eduard Heine}{PortraitHeine}
 
-\begin{pendingreview}
+
 The indices in the proof matter. We first select a convergent subsequence
 of the $x_n$, then refine its indices to make the corresponding $y_n$
 converge too. We never separate the pairs. Their shrinking distance then
 forces the same limit, as \autoref{fig:continuity:paired-subsequences}
 illustrates.
-\end{pendingreview}
+
 
 \subsection{Exercises on uniform continuity}
 
 \input{problems/hw05/02-uniform-continuity-boundedness/problem}
 \input{problems/hw05/07-square-not-uniformly-continuous/problem}
-\historynote{Lipschitz's 1864 study of trigonometric expansions
+\historynote*{Lipschitz's 1864 study of trigonometric expansions
 uses a quantitative condition on changes in function values
 ~\cite{Lipschitz1864}. The linear bound in the following exercise
 is a particularly useful regularity condition. It supplies an
 explicit uniform-continuity estimate and later controls uniqueness
 and stability questions for differential equations. See \autoref{fig:portrait:lipschitz}.}
-\historyportrait{lipschitz}{Rudolf Lipschitz}{PortraitLipschitz}
+\historyportrait*{lipschitz}{Rudolf Lipschitz}{PortraitLipschitz}
 
 \input{problems/hw05/08-lipschitz-continuity/problem}
 
@@ -163,15 +163,15 @@ and the segment is given by
     +\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}(x-x_{k-1}).
 \]
 The pieces agree at the partition points, since $g(x_k)=f(x_k)$.
-\pendingreviewtext{The curved graph and its straight interpolating
-segments are shown in \autoref{fig:continuity:polygonal-approximation}.}
+The curved graph and its straight interpolating
+segments are shown in \autoref{fig:continuity:polygonal-approximation}.
 
 \begin{marginfigure}
   \centering
   \input{figures/continuity/polygonal-approximation}
-  \caption[Joining nearby function values by straight segments.]{\pendingreviewtext{The black curve is $f(x)=1+x^2/4$ on $[0,2]$.
+  \caption[Joining nearby function values by straight segments.]{The black curve is $f(x)=1+x^2/4$ on $[0,2]$.
     The two gray segments interpolate equally spaced values. Refining the
-    partition makes the whole polygonal graph close to the curve.}}
+    partition makes the whole polygonal graph close to the curve.}
   \label{fig:continuity:polygonal-approximation}
 \end{marginfigure}
 
@@ -184,7 +184,7 @@ segments are shown in \autoref{fig:continuity:polygonal-approximation}.}
   \]
 \end{proposition}
 
-\begin{pendingreview}
+
 \begin{proof}
   By \autoref{thm:analysis-i:heine-cantor}, choose $\delta>0$ so that
   points less than $\delta$ apart have function values less than
@@ -205,7 +205,7 @@ segments are shown in \autoref{fig:continuity:polygonal-approximation}.}
   \end{align*}
   The same partition works for every $x\in[a,b]$, as required.
 \end{proof}
-\end{pendingreview}
+
 
 The construction also motivates integration. A piecewise linear function
 can be treated one segment at a time, turning its integral into a finite

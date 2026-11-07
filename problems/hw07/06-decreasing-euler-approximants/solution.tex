@@ -1,2 +1,77 @@
 % !TEX root = ../../hw07.tex
-\noindent\emph{Awaiting solution.}
+% Source: author's supplied text in chat, 2026-11-06, Q6.
+% The supplied proof establishes decrease but omits the requested limit.
+% The added logarithmic limit and other amendments were approved, 2026-11-06.
+\begin{proof}[Solution]
+  To show the function
+  \[
+    f(x)=\left(1+\frac1x\right)^{x+1},
+    \qquad x>0,
+  \]
+  decreases, we can analyze the derivative of its logarithm, since
+  $\ln f(x)$ preserves the order and monotonicity of $f$.
+  The base is positive, so $f(x)>0$. Set
+  $H(x)=\ln f(x)=(x+1)\ln(1+1/x)$. Then
+  \[
+    \begin{aligned}
+      H'(x)&=\ln\left(1+\frac1x\right)
+        +(x+1)\frac1{1+\frac1x}\left(-\frac1{x^2}\right)\\
+        &=\ln\left(1+\frac1x\right)-\frac{x+1}{x^2+x}\\
+        &=\ln\left(1+\frac1x\right)-\frac1x.
+    \end{aligned}
+  \]
+  Let $\varphi(u)=\ln(1+u)-u$, where $u=1/x$ and $u>0$.
+  Since $\varphi$ is
+  continuous on $[0,u]$ and differentiable on
+  $(0,u)$, with $\varphi(0)=0$, we can apply the mean value theorem
+  to find a $\xi\in(0,u)$ such that
+  \[
+    \begin{aligned}
+      \frac{\varphi(u)-\varphi(0)}{u-0}&=\varphi'(\xi),\\
+      \varphi(u)&=u\varphi'(\xi).
+    \end{aligned}
+  \]
+  Since $\xi>0$, the derivative becomes negative,
+  \[
+    \varphi'(\xi)=\frac1{1+\xi}-1<0.
+  \]
+  A negative $\varphi'(\xi)$ implies $\varphi(u)<0$ for all $u>0$.
+  Therefore, applying
+  \[
+    H'(x)=\varphi(u)=\varphi(1/x),\qquad
+      x>0,
+  \]
+  we can conclude that $H'(x)<0$ and therefore $f$ is strictly
+  decreasing.
+  \autoref{fig:hw07:decreasing-approximants}
+  shows this decrease for $x\ge1$.
+  \begin{marginfigure}
+    \centering
+    \input{figures/hw07/decreasing-approximants}
+    \caption[Decreasing exponential approximants.]{%
+      The actual graph for $x\ge1$ descends toward $e$. The limit
+      calculation establishes the dashed level. Since $f$ is
+      strictly decreasing on $x>0$, every value remains above $e$.}
+    \label{fig:hw07:decreasing-approximants}
+  \end{marginfigure}
+
+  To find the limit, put $t=1/x$. As
+  $x\to+\infty$, we have $t\to0^+$ and
+  \[
+    H(x)
+      =\frac{\ln(1+t)}{t}+\ln(1+t).
+  \]
+  The quotient is of $0/0$ form, and its
+  denominator derivative is $1$. L'H\^opital's rule therefore gives
+  \[
+    \lim_{t\to0^+}\frac{\ln(1+t)}{t}
+      =\lim_{t\to0^+}\frac1{1+t}=1.
+  \]
+  Continuity of the logarithm also gives
+  $\ln(1+t)\to0$. Thus $H(x)\to1$, and continuity of the
+  exponential recovers the requested limit,
+  \[
+    \lim_{x\to+\infty}
+      \left(1+\frac1x\right)^{x+1}=e^1=e.
+  \]
+\end{proof}

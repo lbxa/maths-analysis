@@ -46,18 +46,18 @@ checking membership. For example,
   \qquad (A\cap B)^c=A^c\cup B^c.
 \]
 For a family $(A_i)_{i\in I}$, membership in $\bigcup_{i\in I}A_i$ means
-membership in at least one $A_i$\pendingreviewtext{. Membership} in $\bigcap_{i\in I}A_i$
+membership in at least one $A_i$. Membership in $\bigcap_{i\in I}A_i$
 means membership in every $A_i$.
 For an empty family, the union is $\varnothing$ and the intersection is
 the specified universe $U$.
 
-\historynote{Augustus De Morgan's \emph{Formal Logic} (1847) studies
+\historynote*{Augustus De Morgan's \emph{Formal Logic} (1847) studies
 negation and the interchange of logical alternatives~\cite{DeMorgan1847}.
 The set identities express the same duality through membership.
 Their name records an important expositor, rather than establishing
 that no earlier logician knew the underlying equivalences. They connect
 set algebra with mathematical logic. See \autoref{fig:portrait:de-morgan}.}
-\historyportrait{de-morgan}{Augustus De Morgan}{PortraitDeMorgan}
+\historyportrait*{de-morgan}{Augustus De Morgan}{PortraitDeMorgan}
 
 The next exercise extends De Morgan's laws to an arbitrary family.
 \input{problems/hw01/01-de-morgan/problem}
@@ -91,7 +91,7 @@ subset of $\N$, yet $n\mapsto 2n$ is a bijection between these two sets.
 \marginnote{For finite sets a proper subset has fewer elements. For infinite
 sets, containment alone does not determine whether cardinality is smaller.}
 
-\begin{pendingreview}
+
 \begin{remark}[Cardinality comparisons from functions]
   \label{thm:analysis-i:function-cardinality}
   We write $|A|\le|B|$ when there is an injection from $A$ into $B$.
@@ -123,24 +123,24 @@ sets, containment alone does not determine whether cardinality is smaller.}
   that this case needs no axiom of choice.
   \autoref{fig:function-cardinality} illustrates the three properties.
 \end{remark}
-\end{pendingreview}
+
 
 \begin{figure*}[htbp]
   \centering
   \input{figures/foundations/function-cardinality}
-  \caption[How functions compare set sizes.]{\pendingreviewtext{Arrows
+  \caption[How functions compare set sizes.]{Arrows
     show the function $f$. Shading marks the image $f(A)$, the outputs
     actually reached. These finite examples distinguish unused outputs,
-    shared outputs, and a reversible pairing.}}
+    shared outputs, and a reversible pairing.}
   \label{fig:function-cardinality}
 \end{figure*}
 
-\begin{pendingreview}
+
 The inequalities need not be strict. In the even-integer example above,
 both domain and codomain are $\N$, although the odd outputs are missed.
 Equal cardinalities describe the two sets. They do not make every
 function between those sets bijective.
-\end{pendingreview}
+
 
 \subsection{Induction and the least natural number}
 Mathematical induction proves a statement $P(n)$ for every $n\in\N$ by
@@ -224,7 +224,7 @@ Since $\N\subseteq\Q$, it is infinite, and therefore
 \[
   |\Q|=|\N|=\aleph_0.
 \]
-\pendingreviewtext{The encoding is a map into pairs of integers. It does not assert that}
+The encoding is a map into pairs of integers. It does not assert that
 rational numbers themselves are a subset of $\N$.
 
 \subsection{Exercise on enumeration}

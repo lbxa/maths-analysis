@@ -1,0 +1,19 @@
+\input{\analysisroot/figures/interval-styles.tex}
+\begin{tikzpicture}[interval diagram,x=.42cm,y=1cm]
+  \draw[->] (0,0)--(8.8,0) node[right=4pt] {$x$};
+  \draw[->] (0,0)--(0,4.5) node[above=4pt] {$y$};
+  \node[below left=5pt] at (0,0) {$0$};
+  \draw[gray,dashed] (0,{exp(1)})--(8.4,{exp(1)});
+  \node[left=5pt] at (0,{exp(1)}) {$e$};
+  \draw (0,4)--(-.13,4) node[left=5pt] {$4$};
+  \draw[->,domain=1:8.4,samples=90]
+    plot (\x,{exp((\x+1)*ln(1+1/\x))});
+  \foreach \n in {1,4,8} {
+    \fill (\n,{exp((\n+1)*ln(1+1/\n))}) circle[radius=1.6pt];
+    \draw (\n,0)--(\n,-.06) node[below=5pt] {$\n$};
+  }
+  \draw (.2,-.95)--(1.05,-.95);
+  \node[anchor=west] at (1.35,-.95) {$f$};
+  \draw[gray,dashed] (.2,-1.4)--(1.05,-1.4);
+  \node[anchor=west] at (1.35,-1.4) {limiting level $e$};
+\end{tikzpicture}

@@ -25,6 +25,44 @@ change the homework placement map or reproduce the exercise solutions.
 
 ## Changelog
 
+### 2026-11-06
+
+- Record approval of all remaining pending appendix and homework content.
+  Restore HW07 Q1's full expanded tail before the sum, explaining short-tail
+  truncation locally. Preserve expanded working that teaches a pattern.
+- Incorporate the author's HW07 Q1 solution in its existing shared file.
+  All ten HW07 solutions are now supplied and complete. Preserve the author's
+  working and keep only focused repairs and a new contraction diagram pending
+  review. The earlier Q2--Q10 approvals remain intact. Exercise identities,
+  complete restatements, and appendix order are unchanged.
+- Add the author's shifted-index finite geometric sum in both its difference
+  and factored forms, with integer endpoints and the r = 1 term count.
+  Generalise the infinite-tail formula from N + 1 to an arbitrary
+  nonnegative integer n, displaying both unit and scaled terms. Preserve
+  the zero-start formulas and explain factoring out r to the nth power.
+  Keep finite sums before sequences and infinite sums, with the standalone
+  sheet still limited to two pages.
+- Check the author's requested geometric-series formulas against the shared
+  formula sheet. The finite sum and infinite sum already include a general
+  first term a, covering the unit-first-term cases. Add the supplied finite
+  geometric-tail identity and its bound beside the sequence Cauchy criterion.
+  State the integer-index and ratio conditions, and retain the observation
+  that the bound is independent of m and tends to zero with n. Keep the
+  standalone sheet on two pages without duplicating existing formulas.
+- The author approved all pending HW07 edits. Restore normal text colour
+  in the supplied Q2--Q10 solutions, their diagram captions, and the domain
+  clarifications, preserving the reviewed mathematics and shared sources.
+- Add the author's HW07 Q2--Q10 supplied proofs through their existing
+  shared solutions. Preserve the author's voice and valid calculations.
+  Keep focused mathematical amendments and three diagrams pending review.
+  Complete the omitted limit in Q6 with the supplied logarithmic strategy,
+  justify the real-variable L'Hôpital applications in Q8, and take Q10's
+  limit from the right. All 62 statement/solution pairs retain their order.
+  Q1 of HW07 and all ten HW06 solutions remain awaiting the author's work.
+- Put HW07 Q7's existing nonzero-parameter qualification in the body.
+  A margin callout could land on the preceding handout page, separating
+  the necessary condition from the quotient to which it applies.
+
 ### 2026-11-04
 
 - Replace the notation appendix's LaTeX error-message specimens with a pending

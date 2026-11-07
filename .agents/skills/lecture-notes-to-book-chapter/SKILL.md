@@ -5,6 +5,10 @@ description: Incorporate supplied lecture images, scans, or PDFs into this Mathe
 
 # Lecture notes to book chapter
 
+For the author's homework proof drafts, use
+[homework-solutions-to-book](../homework-solutions-to-book/SKILL.md).
+Do not apply lecture-shorthand rewriting to their authored solutions.
+
 Treat the supplied lecture pages as authoritative. Read
 [AGENTS.md](../../../AGENTS.md), [CONTRIBUTING.md](../../../CONTRIBUTING.md),
 the [book outline](../../../README.md#book-outline), and the relevant chapter
@@ -84,7 +88,7 @@ its margin notes to confirm that the reasoning is complete.
 - Keep shared notation in `macros.tex`, two-space indentation, and explicit
   input lists. Preserve the documented `nohyper` contents workaround.
   Add source metadata to `bibliography.bib` when needed and use bracketed
-  numeric citations with readable bibliography entries before the appendices.
+  author-based AMS citations with readable bibliography entries before the appendices.
   Update acknowledgements and project records as required by `AGENTS.md`.
 
 ## Validate before finishing

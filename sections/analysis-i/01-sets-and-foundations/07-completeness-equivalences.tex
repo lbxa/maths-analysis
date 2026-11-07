@@ -19,8 +19,8 @@ actually tend to zero.
 \begin{figure*}[htbp]
   \centering
   \input{figures/foundations/completeness-cycle}
-  \caption[The six completeness implications.]{The six implications. Order properties appear at the ends\pendingreviewtext{.
-    The} middle steps pass through sequences and nested intervals.}
+  \caption[The six completeness implications.]{The six implications. Order properties appear at the ends.
+    The middle steps pass through sequences and nested intervals.}
   \label{fig:completeness-cycle}
 \end{figure*}
 
@@ -58,17 +58,17 @@ $b_n-a_n\to0$, then $a=b$ and the intersection is a singleton.
 \subsection{NIP implies BWT}
 \begin{proof}
   Let $(x_n)$ be bounded, with every term in a closed interval $I_1$ of
-  positive length \pendingreviewtext{$\ell$}. Bisect $I_1$. At least one closed half contains $x_n$
+  positive length $\ell$. Bisect $I_1$. At least one closed half contains $x_n$
   for infinitely many indices $n$. Choose such a half as $I_2$, and repeat.
   This constructs nested closed intervals $I_k$ of lengths
-  $\pendingreviewtext{\ell}/2^{k-1}$, each containing infinitely many indexed terms.
+  $\ell/2^{k-1}$, each containing infinitely many indexed terms.
   By NIP, choose $L\in\bigcap_k I_k$.
 
   Choose $n_1$ with $x_{n_1}\in I_1$. Having chosen $n_{k-1}$, choose
   $n_k>n_{k-1}$ with $x_{n_k}\in I_k$, which is possible because infinitely
   many indices qualify. Then
   \[
-    |x_{n_k}-L|\leq \pendingreviewtext{\ell}\,2^{1-k}\longrightarrow0.
+    |x_{n_k}-L|\leq \ell\,2^{1-k}\longrightarrow0.
   \]
   Thus $(x_{n_k})$ is a convergent subsequence.
 \end{proof}
@@ -110,7 +110,7 @@ The converse needs completeness.
 \begin{proof}
   Let $A,B$ be a partition as in DC, and choose $a_1\in A$, $b_1\in B$.
   At step $n$, take the midpoint $m_n=(a_n+b_n)/2$. If $m_n\in A$,
-  set $a_{n+1}=m_n$ and $b_{n+1}=b_n$\pendingreviewtext{. Otherwise} set $a_{n+1}=a_n$ and
+  set $a_{n+1}=m_n$ and $b_{n+1}=b_n$. Otherwise set $a_{n+1}=a_n$ and
   $b_{n+1}=m_n$. The intervals are nested, their endpoints remain on
   the prescribed sides, and
   \[

@@ -10,12 +10,12 @@
 \subsection{Limits and continuity at a point}
 
 Let $I\subseteq\R$ be an interval
-\pendingreviewtext{containing at least two points}, and let $f:I\to\R$.
+containing at least two points, and let $f:I\to\R$.
 
 \begin{definition}[Limit of a function]
   \label{thm:analysis-i:function-limit}
-  \pendingreviewtext{Suppose that $c$ can be approached by points of
-  $I\setminus\{c\}$.} We write
+  Suppose that $c$ can be approached by points of
+  $I\setminus\{c\}$. We write
   \[
     \lim_{x\to c}f(x)=L
   \]
@@ -26,11 +26,11 @@ Let $I\subseteq\R$ be an interval
   \]
 \end{definition}
 
-\begin{pendingreview}
+
 The condition $0<|x-c|$ excludes the point $c$ itself. The limit describes
 the values near $c$, so it does not depend on the value $f(c)$, or even
 require that $f(c)$ be defined.
-\end{pendingreview}
+
 
 The \emph{left-hand limit} and \emph{right-hand limit} are written
 \[
@@ -38,13 +38,13 @@ The \emph{left-hand limit} and \emph{right-hand limit} are written
   \qquad
   \lim_{x\to c^+}f(x)=L_+.
 \]
-\pendingreviewtext{Their definitions restrict the input condition to
+Their definitions restrict the input condition to
 $0<c-x<\delta$ and $0<x-c<\delta$, respectively. When $c$ is an interior
 point of $I$, the two-sided limit exists exactly when both one-sided
-limits exist and have the same value.}
+limits exist and have the same value.
 
 \begin{definition}[Continuity]
-  \historynote{Cauchy described continuity through infinitesimal
+  \historynote*{Cauchy described continuity through infinitesimal
   increments in 1821. Heine's 1872 presentation gives the later
   quantified framework~\cite[ch.~II]{Cauchy1821}~\cite{Heine1872}.
   The modern epsilon--delta statement separates a point, an output
@@ -55,16 +55,16 @@ limits exist and have the same value.}
   \[
     \lim_{x\to c}f(x)=f(c).
   \]
-  \pendingreviewtext{Equivalently, for every $\varepsilon>0$, there is a
-  $\delta>0$ such that}
+  Equivalently, for every $\varepsilon>0$, there is a
+  $\delta>0$ such that
   \[
-    \pendingreviewtext{x\in I,\quad |x-c|<\delta
-    \quad\Longrightarrow\quad |f(x)-f(c)|<\varepsilon.}
+    x\in I,\quad |x-c|<\delta
+    \quad\Longrightarrow\quad |f(x)-f(c)|<\varepsilon.
   \]
   It is \emph{continuous on} $I$ if it is continuous at every point of $I$.
 \end{definition}
 
-\begin{pendingreview}
+
 For $c\in I$, \emph{left continuity} and \emph{right continuity}
 mean, respectively,
 \[
@@ -78,16 +78,16 @@ Thus continuity on $[a,b]$ means ordinary continuity in $(a,b)$,
 right continuity at $a$, and left continuity at $b$.
 \autoref{fig:analysis-i:continuity-basic-neighbourhood} shows how an input
 neighbourhood is chosen to fit a prescribed output neighbourhood.
-\end{pendingreview}
+
 
 \begin{marginfigure}
   \centering
   \input{figures/continuity/continuity-basic-neighbourhood}
   \caption[Input and output neighbourhoods for continuity.]{%
-    \pendingreviewtext{A schematic continuous graph. Inputs within
+    A schematic continuous graph. Inputs within
     $\delta$ of $c$ have outputs within $\varepsilon$ of $f(c)$.
     The graph over the shaded input strip lies inside the horizontal
-    output band. The arrows measure $2\delta$ and $2\varepsilon$.}}
+    output band. The arrows measure $2\delta$ and $2\varepsilon$.}
   \label{fig:analysis-i:continuity-basic-neighbourhood}
 \end{marginfigure}
 
@@ -111,14 +111,14 @@ neighbourhood is chosen to fit a prescribed output neighbourhood.
   Also,
   \[
     \lim_{x\to c}\frac{f(x)}{g(x)}=\frac{F}{G}
-    \qquad\pendingreviewtext{\text{provided }}G\ne0.
+    \qquad\text{provided }G\ne0.
   \]
 \end{proposition}
 % IMG_9251 writes "iff lim g(x) != 0". The nonzero condition is sufficient
 % for this quotient law, not necessary for a quotient to have a limit.
 
 % Editorial proof added at the author's request, directly from the definition.
-\begin{pendingreview}
+
 \begin{proof}
   Fix $\varepsilon>0$. For the sum, choose input neighbourhoods in which
   $|f(x)-F|<\varepsilon/2$ and $|g(x)-G|<\varepsilon/2$.
@@ -162,21 +162,21 @@ neighbourhood is chosen to fit a prescribed output neighbourhood.
   $\varepsilon$. Thus $1/g(x)\to1/G$. Apply the product rule to
   $f$ and $1/g$ to obtain $f(x)/g(x)\to F/G$.
 \end{proof}
-\end{pendingreview}
 
-\begin{pendingreview}
+
+
 The last condition ensures that $g(x)$ is nonzero sufficiently near $c$.
 These laws show that sums, scalar multiples, and products of continuous
 functions are continuous. A quotient is continuous wherever its denominator
 is nonzero. In particular, constant functions and $x\mapsto x$ are
 continuous, so every polynomial is continuous.
-\end{pendingreview}
+
 
 \input{problems/hw05/06-absolute-value-continuity/problem}
 
 \subsection{Testing continuity with sequences}
 
-\begin{pendingreview}
+
 The following characterization connects the definition above with the
 sequence methods already developed. The sequences approach $c$ through
 the domain of the function, including from only one side at an endpoint.
@@ -207,7 +207,7 @@ the domain of the function, including from only one side at an endpoint.
   Thus $x_n\to c$, while $f(x_n)$ does not tend to $f(c)$. This contradicts
   the stated sequence property and proves the converse.
 \end{proof}
-\end{pendingreview}
+
 
 \input{problems/hw05/04-continuous-additive-function/problem}
 
@@ -235,17 +235,17 @@ the domain of the function, including from only one side at an endpoint.
       1,&x>a.
     \end{cases}
   \]
-  \pendingreviewtext{Its one-sided limits at $a$ are different, since}
+  Its one-sided limits at $a$ are different, since
   \[
-    \pendingreviewtext{\lim_{x\to a^-}H(x)=0,
-    \qquad \lim_{x\to a^+}H(x)=1.}
+    \lim_{x\to a^-}H(x)=0,
+    \qquad \lim_{x\to a^+}H(x)=1.
   \]
-  \pendingreviewtext{Consequently $H$ is discontinuous at $a$, although
-  it is constant near every other point and hence continuous there.}
+  Consequently $H$ is discontinuous at $a$, although
+  it is constant near every other point and hence continuous there.
 \end{example}
 
 \begin{example}[The Dirichlet function]
-  \historynote{Dirichlet's 1829 discussion of trigonometric
+  \historynote*{Dirichlet's 1829 discussion of trigonometric
   representation includes the rational/irrational distinction
   ~\cite{Dirichlet1829}. Such examples force a broader concept of
   function than a single familiar analytic formula. This one shows
@@ -261,22 +261,22 @@ the domain of the function, including from only one side at an endpoint.
   \]
   This function is nowhere continuous.
 
-  \begin{pendingreview}
+
   Every neighbourhood of a real number contains both rational and
   irrational numbers. Thus, however small the neighbourhood, the function
   takes both values $0$ and $1$. Taking $\varepsilon=1/2$ in the definition
   rules out continuity at every point.
-  \end{pendingreview}
+
 \end{example}
 
 \begin{example}[Thomae's function]
-  \historynote{Thomae's 1875 book on definite integrals uses a
+  \historynote*{Thomae's 1875 book on definite integrals uses a
   rational-denominator example to investigate discontinuity
   ~\cite{Thomae1875}. Its values become small as denominators grow.
   This separates the density of the discontinuity set from its effect
   on continuity at an irrational point, and motivates finer
   integrability criteria. See \autoref{fig:portrait:dirichlet-thomae}.}
-\historyportraitpair{dirichlet}{Lejeune Dirichlet}{PortraitDirichlet}{thomae}{Johannes Thomae}{PortraitThomae}{dirichlet-thomae}
+\historyportraitpair*{dirichlet}{Lejeune Dirichlet}{PortraitDirichlet}{thomae}{Johannes Thomae}{PortraitThomae}{dirichlet-thomae}
 
   \label{thm:analysis-i:thomae-function}
   \emph{Thomae's function}, also called the \emph{popcorn function}, is
@@ -287,15 +287,15 @@ the domain of the function, including from only one side at an endpoint.
       \dfrac1q,&x=\dfrac pq\in\Q.
     \end{cases}
   \]
-  \pendingreviewtext{In the rational case, the fraction is written in
-  lowest terms, with $p\in\Z$, $q\in\N$, and $q>0$.}
+  In the rational case, the fraction is written in
+  lowest terms, with $p\in\Z$, $q\in\N$, and $q>0$.
   In particular, $T(0)=1$.
 
   The function $T$ is discontinuous at every rational point.
-  \pendingreviewtext{Indeed, if $c=p/q$ is rational in lowest terms,
+  Indeed, if $c=p/q$ is rational in lowest terms,
   then $T(c)=1/q>0$. Choose irrational numbers $x_n\to c$.
   Since $T(x_n)=0$ for every $n$, the sequential characterization
-  rules out continuity at $c$.}
+  rules out continuity at $c$.
 
   The function $T$ is continuous at every irrational point $c$.
   For a sequence of rational numbers $r_k=p_k/q_k\to c$, the denominators
@@ -304,7 +304,7 @@ the domain of the function, including from only one side at an endpoint.
     T(r_k)=\frac1{q_k}\longrightarrow0=T(c).
   \]
 
-  \begin{pendingreview}
+
   To justify the assertion about denominators, fix $M\in\N$.
   The convergent sequence $(r_k)$ eventually lies in $[c-1,c+1]$.
   Only finitely many reduced fractions in this interval have denominator
@@ -318,17 +318,17 @@ the domain of the function, including from only one side at an endpoint.
   \autoref{thm:analysis-i:sequential-continuity} proves continuity at $c$.
   \autoref{fig:analysis-i:continuity-basic-thomae} illustrates why only
   finitely many large values need to be avoided near $c$.
-  \end{pendingreview}
+
 \end{example}
 
 \begin{marginfigure}
   \centering
   \input{figures/continuity/continuity-basic-thomae}
   \caption[Selected values of Thomae's function.]{%
-    \pendingreviewtext{Selected values of $T$ on $[0,1]$. Dots show all
+    Selected values of $T$ on $[0,1]$. Dots show all
     reduced fractions with denominator at most $8$. Larger denominators
     give smaller heights. Irrational inputs have value $0$. The finite
-    drawing shows only part of the graph.}}
+    drawing shows only part of the graph.}
   \label{fig:analysis-i:continuity-basic-thomae}
 \end{marginfigure}
 
@@ -337,7 +337,7 @@ the domain of the function, including from only one side at an endpoint.
 % Source: images/LEC05/IMG_9258.jpg, paragraph headed "Composition".
 \begin{theorem}[Composition of continuous functions]
   \label{thm:analysis-i:continuous-composition}
-  \pendingreviewtext{Let $f:I\to\R$ and $g:J\to\R$, where $f(I)\subseteq J$.}
+  Let $f:I\to\R$ and $g:J\to\R$, where $f(I)\subseteq J$.
   If $f$ is continuous at $c$ and $g$ is continuous at $f(c)$, then
   $g\circ f$ is continuous at $c$, where
   \[
@@ -345,13 +345,13 @@ the domain of the function, including from only one side at an endpoint.
   \]
 \end{theorem}
 
-\begin{pendingreview}
+
 \begin{proof}
   If $x_n\to c$ with $x_n\in I$, continuity of $f$ gives
   $f(x_n)\to f(c)$. These values lie in $J$, so continuity of $g$ gives
   $g(f(x_n))\to g(f(c))$. Apply
   \autoref{thm:analysis-i:sequential-continuity} to $g\circ f$.
 \end{proof}
-\end{pendingreview}
+
 
 \input{problems/hw05/05-composition-continuity/problem}

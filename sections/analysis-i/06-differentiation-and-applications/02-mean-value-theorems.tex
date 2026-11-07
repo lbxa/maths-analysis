@@ -7,10 +7,9 @@
 \begin{theorem}[Rolle's theorem]
   \label{thm:analysis-i:rolle}
   Let $f$ be continuous on $[a,b]$ and differentiable on $(a,b)$,
-  \pendingreviewtext{where $a<b$}. If $f(a)=f(b)$, then there exists
+  where $a<b$. If $f(a)=f(b)$, then there exists
   $c\in(a,b)$ such that $f'(c)=0$.
 \end{theorem}
-\begin{pendingreview}
 \begin{proof}
   If $f$ is constant, every interior point has derivative zero.
   Otherwise, by \autoref{thm:analysis-i:extreme-value}, $f$ attains a
@@ -19,27 +18,26 @@
   point $c$. Then \autoref{thm:analysis-i:interior-extremum} gives
   $f'(c)=0$.
 \end{proof}
-\end{pendingreview}
-\historynote{Rolle's 1691 \emph{D\'emonstration} concerns solving
+\historynote*{Rolle's 1691 \emph{D\'emonstration} concerns solving
 polynomial equations~\cite{Rolle1691}. The formulation here is a modern
 statement for differentiable functions, not a verbatim seventeenth-century
 theorem. Equal endpoint heights force a stationary point, making this a
 useful bridge from extrema to mean-value arguments.}
 
-\pendingreviewtext{The following polynomial question can be approached
+The following polynomial question can be approached
 by constructing a polynomial whose derivative is $P$ and comparing its
-endpoint values. No integration theorem is required.}
+endpoint values. No integration theorem is required.
 \input{problems/hw07/03-polynomial-rolle/problem}
 
 \begin{theorem}[Mean value theorem]
   \label{thm:analysis-i:mean-value}
-  \pendingreviewtext{Let $a<b$. Suppose $f$ is continuous on $[a,b]$
-  and differentiable on $(a,b)$.} There exists $c\in(a,b)$ such that
+  Let $a<b$. Suppose $f$ is continuous on $[a,b]$
+  and differentiable on $(a,b)$. There exists $c\in(a,b)$ such that
   \[
     f'(c)=\frac{f(b)-f(a)}{b-a}.
   \]
 \end{theorem}
-\historynote{Cauchy's 1823 \emph{R\'esum\'e des le\c cons} develops
+\historynote*{Cauchy's 1823 \emph{R\'esum\'e des le\c cons} develops
 differential calculus through derivatives and finite
 increments~\cite{Cauchy1823}. The mean-value method relates a finite
 change to a local slope, turning derivative information into bounds and
@@ -64,16 +62,15 @@ The geometry of both results is shown in
 \begin{figure*}
   \centering
   \input{figures/differentiation/mean-value-geometry}
-  \caption[Rolle and mean-value geometry.]{\pendingreviewtext{On the
+  \caption[Rolle and mean-value geometry.]{On the
     left, equal endpoint heights give a horizontal tangent. On the right,
     the tangent at $c$ is parallel to the secant through the endpoints.
-    These are schematic examples of the two theorems.}}
+    These are schematic examples of the two theorems.}
   \label{fig:analysis-i:mean-value-geometry}
 \end{figure*}
 
 \subsection{An average-slope interpretation}
 % IMG_9354's integration picture motivates MVT; it is not its proof.
-\begin{pendingreview}
 If $f'$ is continuous on $[a,b]$, the fundamental theorem of calculus,
 assumed here and reserved for
 \autoref{sec:analysis-i:fundamental-theorem-of-calculus}, gives
@@ -86,25 +83,23 @@ for this integral interpretation. The mean value theorem itself only
 requires differentiability on the open interval. A schematic illustration
 of average height appears in
 \autoref{fig:analysis-i:average-height}.
-\end{pendingreview}
 \begin{marginfigure}
   \centering
   \input{figures/differentiation/average-height}
-  \caption[Average height of a continuous graph.]{\pendingreviewtext{A
+  \caption[Average height of a continuous graph.]{A
     schematic continuous function $\phi$ and its average height
-    $\overline\phi=(b-a)^{-1}\int_a^b\phi(x)\,dx$ (dashed).}}
+    $\overline\phi=(b-a)^{-1}\int_a^b\phi(x)\,dx$ (dashed).}
   \label{fig:analysis-i:average-height}
 \end{marginfigure}
 
 \subsection{Derivative signs and monotonicity}
 \begin{corollary}
   \label{thm:analysis-i:derivative-monotonicity}
-  \pendingreviewtext{Let $f$ be differentiable on an open interval $I$.}
+  Let $f$ be differentiable on an open interval $I$.
   If $f'(x)\ge0$ for every $x\in I$, then $f$ is nondecreasing on $I$.
-  \pendingreviewtext{If $f'(x)>0$ everywhere, it is strictly increasing.
-  The analogous statements with reversed inequalities also hold.}
+  If $f'(x)>0$ everywhere, it is strictly increasing.
+  The analogous statements with reversed inequalities also hold.
 \end{corollary}
-\begin{pendingreview}
 \begin{proof}
   For $x_1<x_2$ in $I$, differentiability implies continuity on
   $[x_1,x_2]$. \autoref{thm:analysis-i:mean-value} gives a $c\in(x_1,x_2)$ with
@@ -112,69 +107,194 @@ of average height appears in
   $f'\ge0$, and positive when $f'>0$. Apply the same argument to $-f$
   for the reversed inequalities.
 \end{proof}
-\end{pendingreview}
 % IMG_9354's nondecreasing shorthand mixes strict and non-strict signs.
 
-\begin{pendingreview}
 The next exercise links the mean value theorem to Lipschitz continuity
 from \autoref{sec:analysis-i:uniform-continuity}. Its iteration also uses
 geometric-series tail bounds and the completeness of $\R$ from
 \autoref{sec:analysis-i:cauchy-sequences}.
-\end{pendingreview}
 \input{problems/hw07/01-contractive-fixed-point/problem}
 
-\pendingreviewtext{Derivative signs can also identify a sharp global
+Derivative signs can also identify a sharp global
 bound on a half-line. The next question asks for both the bound and
-the equality case.}
+the equality case.
 \input{problems/hw07/05-rational-maximum/problem}
+
+\subsection{Why logarithms preserve monotonicity}
+
+For a positive function, taking a logarithm changes the heights of its
+graph while preserving the order of those heights. This is why its
+logarithm can serve as a proxy for studying increase and decrease.
+The essential property is that $\ln$ is strictly increasing on
+$(0,\infty)$. The exponential and logarithm used here are constructed
+in \autoref{thm:analysis-i:exponential-properties} and
+\autoref{thm:analysis-i:logarithm-real-powers}.
+
+\begin{figure*}[htbp]
+  \centering
+  \input{figures/differentiation/logarithm-monotonicity}
+  \caption[Logarithms preserve order.]{Solid curves
+    are $f$ and dashed curves are $\ln f$, on identical coordinate
+    scales. Dotted guides mark $y=1$. The logarithm preserves increase,
+    decrease, and the inputs at peaks and valleys. Values and curvature
+    can change. Only a window of each graph is shown.}
+  \label{fig:analysis-i:logarithm-monotonicity}
+\end{figure*}
+
+\Needspace{13\baselineskip}
+\begin{proposition}[Logarithms preserve order and monotonicity]
+  \label{thm:analysis-i:logarithmic-monotonicity}
+  Let $f:I\to(0,\infty)$, where $I$ is an interval, and put
+  $H(x)=\ln(f(x))$. For any $s,t\in I$,
+  \[
+    f(s)<f(t)\quad\Longleftrightarrow\quad H(s)<H(t).
+  \]
+  The same equivalence holds with $\le$ or $=$. Consequently, $f$
+  and $H$ are increasing or decreasing on exactly the same intervals,
+  with the same strict or non-strict sense. They also attain local
+  and global maxima and minima at the same inputs.
+\end{proposition}
+\begin{proof}
+  First take $0<a<b$. The logarithm is continuous on $[a,b]$ and
+  differentiable on $(a,b)$. The mean value theorem gives some
+  $\xi\in(a,b)$ with
+  \[
+    \ln b-\ln a=\frac{b-a}{\xi}>0.
+  \]
+  Thus $\ln$ preserves strict inequalities between positive values.
+  Conversely, if $H(s)<H(t)$, strict increase of the exponential gives
+  $f(s)=e^{H(s)}<e^{H(t)}=f(t)$. Its inverse identities also preserve
+  equality, so the non-strict comparison follows.
+
+  Applying these comparisons to every pair $s<t$ proves the
+  monotonicity statements. Applying them to the comparison of one
+  value with all nearby values, or all values in $I$, proves the
+  statements about extrema.
+\end{proof}
+
+When $f$ is differentiable, the chain rule gives a second way to see
+the connection,
+\[
+  H'(x)=\frac{f'(x)}{f(x)}.
+\]
+Since $f(x)>0$, the derivatives $H'(x)$ and $f'(x)$ have the same sign
+and vanish at the same inputs. A simpler formula for $H'$ can therefore
+settle the sign of $f'$ without differentiating a complicated power
+directly. For example, if $f(x)=g(x)^{h(x)}$ with $g(x)>0$, then
+\[
+  H(x)=h(x)\ln g(x).
+\]
+The exponent has become a factor.
+
+\autoref{fig:analysis-i:logarithm-monotonicity} compares four positive
+functions with their logarithms using matching axes and identical scales.
+Each point $(x,f(x))$ becomes $(x,\ln(f(x)))$. The input stays fixed
+while the vertical coordinate changes. The slope $1/y$ of the logarithm
+compresses differences between large positive outputs and magnifies
+differences between outputs close to zero.
+The increasing and decreasing examples retain their direction.
+The other two retain their peak and valley at $x=0$.
+The heights change, and curvature need not be preserved.
+In particular, $f(x)=1$ becomes $H(x)=0$, while $0<f(x)<1$ gives
+$H(x)<0$. A negative logarithm is allowed. It is the argument of
+the logarithm that must be positive throughout the interval.
 
 \begin{example}[Increasing exponential approximants]
   \label{ex:analysis-i:increasing-euler-approximants}
-  Consider $F(x)=(1+1/x)^x$ for $x\ge1$. To study its increase, put
+  Consider $F(x)=(1+1/x)^x$ for $x\ge1$. We will
+  show that $F$ is strictly increasing. Since $F>0$,
+  \autoref{thm:analysis-i:logarithmic-monotonicity} lets us study its
+  logarithm with exactly the same monotonicity. Taking the logarithm
+  also turns the varying exponent into a product. Put
   \[
     H(x)=\ln F(x)=x\ln(1+1/x).
   \]
-  The differentiation rules give
+  The left panel of \autoref{fig:analysis-i:increasing-euler-approximants}
+  shows the positive gap that will control the derivative. The right
+  panel illustrates the resulting increase of $F$.
+  \begin{figure*}[htbp]
+    \centering
+    \input{figures/differentiation/increasing-euler-approximants}
+    \caption[The gap behind increasing approximants.]{%
+      The shaded gap on the left is
+      $\psi(u)=\ln(1+u)-u/(1+u)$, with $u_0=4/5$ marked.
+      Its positivity gives $H'(x)=\psi(1/x)>0$.
+      The right panel shows the actual graph of $F$, with selected
+      integer inputs marked. The dashed level is $e$, whose role as
+      the limit is proved in
+      \autoref{ex:analysis-i:euler-approximant-limit}.}
+    \label{fig:analysis-i:increasing-euler-approximants}
+  \end{figure*}
+  \begin{proof}
+  The product and chain rules give the first line below. The second
+  uses $x/[x^2(1+1/x)]=1/(x+1)$.
   \[
-    H'(x)=\ln(1+1/x)-\frac1{x+1}.
+    \begin{aligned}
+      H'(x)&=\ln(1+1/x)
+        +x\frac{1}{1+1/x}\left(-\frac1{x^2}\right)\\
+        &=\ln(1+1/x)-\frac1{x+1}.
+    \end{aligned}
   \]
   % IMG_9355 stops here with "Finish off later".
-  \begin{pendingreview}
-  To determine its sign, set
-  $\psi(u)=\ln(1+u)-u/(1+u)$ for $u\ge0$.
-  Then $\psi(0)=0$ and $\psi'(u)=u/(1+u)^2>0$ when $u>0$.
-  Applying \autoref{thm:analysis-i:mean-value} on $[0,u]$ gives
-  $\psi(u)>0$ for $u>0$.
-  Consequently $H'(x)=\psi(1/x)>0$, so $H$ is strictly increasing.
-  Since the exponential is increasing, so is $F=e^H$.
-  \end{pendingreview}
+  The sign depends on which of the two positive terms is larger.
+  Write $u=1/x$, so $1/(x+1)=u/(1+u)$, and define
+  \[
+    \psi(u)=\ln(1+u)-\frac{u}{1+u},\qquad u\ge0.
+  \]
+  Thus $H'(x)=\psi(1/x)$. Geometrically, $\psi(u)$ is the vertical
+  gap between the two curves in the left panel.
+
+  The gap is zero at $u=0$. For $u>0$, its derivative is
+  \[
+    \psi'(u)=\frac1{1+u}-\frac1{(1+u)^2}
+      =\frac{u}{(1+u)^2}>0.
+  \]
+  To turn this derivative information into a strict inequality, fix
+  $u>0$. The function $\psi$ is continuous on $[0,u]$ and differentiable
+  on $(0,u)$. By \autoref{thm:analysis-i:mean-value}, some
+  $\xi\in(0,u)$ satisfies
+  \[
+    \psi(u)-\psi(0)=u\psi'(\xi)
+      =\frac{u\xi}{(1+\xi)^2}>0.
+  \]
+  Thus $\psi(u)>0$ for $u>0$. Taking $u=1/x$ shows that
+  $H'(x)=\psi(1/x)>0$ for $x>1$.
+
+  Finally, take $1\le s<t$. The function $H$ is continuous on $[s,t]$
+  and differentiable on $(s,t)$. The mean value theorem gives
+  $H(t)-H(s)=H'(c)(t-s)>0$ for some $c\in(s,t)$.
+  Since the exponential is strictly increasing, the following comparison
+  proves that $F$ is strictly increasing on $[1,\infty)$.
+  \[
+    F(s)=e^{H(s)}<e^{H(t)}=F(t). \qedhere
+  \]
+  \end{proof}
 \end{example}
 
-\pendingreviewtext{The next question changes the exponent by one.
+The next question changes the exponent by one.
 The corresponding limit can be studied after
 \autoref{ex:analysis-i:euler-approximant-limit}, where the logarithmic
-quotient is evaluated. Its monotonicity can already be studied here.}
+quotient is evaluated. Its monotonicity can already be studied here.
 \input{problems/hw07/06-decreasing-euler-approximants/problem}
 
 \subsection{The extended mean value theorem}
 \begin{theorem}[Cauchy's mean value theorem]
   \label{thm:analysis-i:cauchy-mean-value}
-  \pendingreviewtext{Let $a<b$, and suppose $f$ and $g$ are continuous
-  on $[a,b]$ and differentiable on $(a,b)$.} There exists $c\in(a,b)$
+  Let $a<b$, and suppose $f$ and $g$ are continuous
+  on $[a,b]$ and differentiable on $(a,b)$. There exists $c\in(a,b)$
   such that
   \[
     f'(c)\bigl(g(b)-g(a)\bigr)
       =g'(c)\bigl(f(b)-f(a)\bigr).
   \]
 \end{theorem}
-\pendingreviewtext{Applying the ordinary mean value theorem separately
+Applying the ordinary mean value theorem separately
 to $f$ and $g$ gives two possibly different points. It does not show that
 they coincide. The extended theorem asserts a single common point.
-Its proof uses one auxiliary function.}
+Its proof uses one auxiliary function.
 % IMG_9355 incorrectly identifies the two separate MVT points. IMG_9356
 % leaves the extended theorem's proof unfinished. The proof below is an
 % editorial addition requested by the author.
-\begin{pendingreview}
 \begin{proof}
   Define
   \[
@@ -192,4 +312,3 @@ Its proof uses one auxiliary function.}
   which is the required identity. No division by an endpoint difference
   is needed, so the argument also covers zero endpoint differences.
 \end{proof}
-\end{pendingreview}

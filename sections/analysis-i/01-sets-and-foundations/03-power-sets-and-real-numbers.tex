@@ -19,7 +19,7 @@ The smallest case distinguishes the empty set from the set containing it.
 \input{problems/hw01/02-power-set/problem}
 
 Cantor's theorem extends the strict increase in size to every set.
-\historynote{Cantor's 1874 paper separated countable algebraic numbers
+\historynote*{Cantor's 1874 paper separated countable algebraic numbers
 from the uncountable real line. His later diagonal argument, in the
 volume dated 1891, gives the general obstruction behind the power-set
 theorem~\cite{Cantor1874,Cantor1891}. This changed infinity from a single
@@ -45,23 +45,23 @@ $|X|<|\mathcal P(X)|$. In particular, $\mathcal P(\N)$ is uncountable.
 
 \begin{theorem}[Cantor--Bernstein]
   \label{thm:analysis-i:cantor-bernstein}
-  \marginnote{\pendingreviewtext{Also called the
+  \marginnote{Also called the
   \emph{Cantor--Schr\"oder--Bernstein theorem}. Injections both ways give
-  a perfect pairing. They need not be inverses.}}
+  a perfect pairing. They need not be inverses.}
   If there are injections $A\to B$ and $B\to A$, then there is a
   bijection $A\to B$.
 \end{theorem}
-\historynote{Cantor posed the comparison problem. Bernstein supplied
+\historynote*{Cantor posed the comparison problem. Bernstein supplied
 a correct proof in 1897, published by Borel in 1898. Schr\"oder's
 published argument contained a gap. Dedekind had an earlier, unpublished
 proof in 1887~\cite{MacTutorBernstein,Sieg2019CantorBernstein}.
 The theorem makes two injections sufficient for comparing infinite sizes.
 The names record different contributions, rather than a joint paper. See \autoref{fig:portrait:cantor-bernstein} and \autoref{fig:portrait:schroder}.}
-\historyportraitpair{cantor}{Georg Cantor}{PortraitCantor}{bernstein-felix}{Felix Bernstein}{PortraitBernsteinFelix}{cantor-bernstein}
-\historyportrait{schroder}{Ernst Schr\"oder}{PortraitSchroder}
+\historyportraitpair*{cantor}{Georg Cantor}{PortraitCantor}{bernstein-felix}{Felix Bernstein}{PortraitBernsteinFelix}{cantor-bernstein}
+\historyportrait*{schroder}{Ernst Schr\"oder}{PortraitSchroder}
 
 % Editorial proof added at the author's request, separate from source notes.
-\begin{pendingreview}
+
 \begin{proof}
   Let $f:A\to B$ and $g:B\to A$ be injections. Start with the points of
   $A$ that have no preimage under $g$, and repeatedly apply $g\circ f$.
@@ -93,7 +93,7 @@ The names record different contributions, rather than a joint paper. See \autore
   $a\in A_n$. Injectivity of $g$ gives $b=f(a)=h(a)$.
   Every point of $B$ is therefore reached, and $h$ is a bijection.
 \end{proof}
-\end{pendingreview}
+
 
 \subsection{Digits as subsets}
 For these counting arguments, we use the usual positional representation
@@ -125,16 +125,16 @@ More generally, a base-$b$ expansion of a number in $[0,1]$ has the form
   \qquad a_k\in\{0,1,\ldots,b-1\},\quad b\geq2.
 \]
 Successively subdividing an interval into $b$ equal parts supplies these
-digits\pendingreviewtext{. The} remaining interval has length $b^{-n}$ after $n$ steps.
+digits. The remaining interval has length $b^{-n}$ after $n$ steps.
 
-\begin{pendingreview}
+
 A binary sequence $(b_1,b_2,\ldots)$ records a subset of $\N$ by putting
 $n$ in the subset exactly when $b_n=1$. Thus
 \[
   |\{0,1\}^{\N}|=|\mathcal P(\N)|=2^{|\N|}=2^{\aleph_0}.
 \]
 Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
-\end{pendingreview}
+
 
 \begin{proposition}
   \label{thm:analysis-i:binary-interval-cardinality}
@@ -147,27 +147,27 @@ Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
   Fix $x\in[0,1]$. Bisect $I_0=[0,1]$, recording $0$ if we keep its
   left half and $1$ if we keep its right half. At each stage keep a
   half containing $x$ and repeat.
-  \pendingreviewtext{When $x$ is the shared midpoint, choose the right
-  half. This makes the choice unique.}
+  When $x$ is the shared midpoint, choose the right
+  half. This makes the choice unique.
   After $n$ halvings, the chosen interval $I_n$ has length
   \[
     \operatorname{length}(I_n)
       =\underbrace{\frac12\cdot\frac12\cdots\frac12}_{n\text{ factors}}
       =\frac1{2^n},
   \]
-  and $x$ has been assigned an \pendingreviewtext{infinite} binary
+  and $x$ has been assigned an infinite binary
   sequence $(b_1,b_2,\ldots)$.
-  \pendingreviewtext{\autoref{fig:binary-interval-halving} shows one such
-  sequence of choices.}
+  \autoref{fig:binary-interval-halving} shows one such
+  sequence of choices.
 
   \begin{figure}[htbp]
     \centering
     \input{figures/foundations/binary-interval-halving}
-    \caption[Encoding a point by interval halving.]{\pendingreviewtext{A
+    \caption[Encoding a point by interval halving.]{A
       schematic point $x$ remains in each chosen closed interval.
       Recording left as $0$ and right as $1$ gives the prefix $0111$.
       The intervals continue to shrink. The displayed rows are not
-      a final interval.}}
+      a final interval.}
     \label{fig:binary-interval-halving}
   \end{figure}
 
@@ -183,8 +183,8 @@ Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
     (b_1,b_2,\ldots)\longmapsto
     0.b_1b_2\ldots{}_2=\sum_{n=1}^{\infty}\frac{b_n}{2^n}.
   \]
-  \pendingreviewtext{The evaluation exists by
-  \autoref{thm:analysis-i:positional-representation}.}
+  The evaluation exists by
+  \autoref{thm:analysis-i:positional-representation}.
   For example, $0.1011\ldots{}_2=1/2+1/8+1/16+\cdots$.
   This map need not be injective, since
   \[
@@ -193,24 +193,24 @@ Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
       =\frac{1/4}{1-1/2}=\frac12
       =0.1000\ldots{}_2.
   \]
-  Also $0.1111\ldots{}_2=\pendingreviewtext{1/2+1/4+1/8+\cdots}=1$. Thus different binary
+  Also $0.1111\ldots{}_2=1/2+1/4+1/8+\cdots=1$. Thus different binary
   sequences can represent the same real number.
 
-  \begin{pendingreview}
+
   Geometrically, the closed halves touch at their common midpoint.
   The intervals with prefixes $0,01,011,\ldots$ and $1,10,100,\ldots$
   shrink onto $1/2$ from opposite sides. Each path determines one point,
   but two different paths can determine the same point. Choosing one
   code for each real number makes the earlier encoding injective.
   It does not make evaluation of \emph{all} binary sequences injective.
-  \end{pendingreview}
+
 
   Instead, use ternary digits $0$ and $2$ to encode a subset
   $A\subseteq\N$ by
   \[
     t_A=\sum_{k\in A}\frac{2}{3^k}\in[0,1].
   \]
-  \begin{pendingreview}
+
   To see why this helps, divide $[0,1]$ into thirds, remove the
   \emph{open} middle third, and retain the two closed outer thirds.
   Repeat this operation inside every interval retained. Let $E_n$
@@ -221,24 +221,24 @@ Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
   \]
   \autoref{fig:separated-interval-codes} shows the first stages of this
   construction. The gaps separate the retained intervals at every stage.
-  \end{pendingreview}
+
 
   \begin{figure}[htbp]
     \centering
     \input{figures/foundations/separated-interval-codes}
-    \caption[Retaining the closed outer thirds.]{\pendingreviewtext{Remove
+    \caption[Retaining the closed outer thirds.]{Remove
       the open middle third of every remaining interval. Filled endpoints
       stay in the set, while gaps separate the two choices. Record the
       left choice as $0$ and the right as $2$ at every stage. The
-      construction continues indefinitely.}}
+      construction continues indefinitely.}
     \label{fig:separated-interval-codes}
   \end{figure}
 
-  \begin{pendingreview}
+
   A left choice records the ternary digit $0$ and a right choice the
   digit $2$. Now different children are separated by a gap rather than
   sharing a boundary.
-  \end{pendingreview}
+
 
   \begin{samepage}
   The corresponding expansions are separated more widely. In particular,
@@ -257,26 +257,26 @@ Here $\{0,1\}^{\N}$ denotes all infinite sequences of zeros and ones.
   \]
   If $A$ and $B$ first differ at position $j$, their contribution there
   differs by $2/3^j$, which is larger than this entire tail.
-  \begin{pendingreview}
+
   Even if every later digit opposes that difference, it follows that
   \[
     |t_A-t_B|\ge\frac2{3^j}-\frac1{3^j}
       =\frac1{3^j}>0.
   \]
   Thus $A\mapsto t_A$ is injective, and $2^{|\N|}\le|[0,1]|$.
-  \end{pendingreview}
+
   The Cantor--Bernstein theorem now gives
   $|[0,1]|=2^{|\N|}$.
 \end{proof}
 
-\begin{pendingreview}
+
 The points that survive every removal form the \emph{middle-thirds
 Cantor set}, denoted here by $\mathcal K$.
-\marginnote{\pendingreviewtext{Georg Cantor described this set in
+\marginnote{Georg Cantor described this set in
 1883~\cite{Cantor1883PointSets}. Related constructions had appeared in
 Henry J. S. Smith's 1875 work on integration~\cite{Smith1875}.
-} See \autoref{fig:portrait:smith}.}
-\historyportrait{smith}{Henry John Stephen Smith}{PortraitSmith}
+ See \autoref{fig:portrait:smith}.}
+\historyportrait*{smith}{Henry John Stephen Smith}{PortraitSmith}
 
 In terms of the retained stages,
 \[
@@ -293,19 +293,19 @@ Thus all binary sequences are represented once in $\mathcal K$, giving
 \[
   |\mathcal K|=2^{\aleph_0}=|[0,1]|.
 \]
-\marginnote{\pendingreviewtext{After $n$ steps there are $2^n$ intervals
+\marginnote{After $n$ steps there are $2^n$ intervals
 of length $3^{-n}$, with total length $(2/3)^n\to0$. Yet their common
 surviving set has continuum cardinality. Counting points and measuring
-length are different notions of size.}}
+length are different notions of size.}
 The gaps preserve distinct codes while still leaving as many points as
 the whole interval.
-\end{pendingreview}
+
 
 \subsection{From the unit interval to the real line}
 
-\pendingreviewtext{For the next explicit map, we use the usual strict
+For the next explicit map, we use the usual strict
 monotonicity of the exponential and its inverse relation with the
-natural logarithm as elementary background.}
+natural logarithm as elementary background.
 
 \begin{example}[The sigmoid bijection]
   \label{ex:analysis-i:sigmoid-bijection}
@@ -318,18 +318,18 @@ natural logarithm as elementary background.}
     \centering
     \input{figures/foundations/cardinality-sigmoid}
     \caption[A bijection from the real line to an open interval.]{%
-      \pendingreviewtext{The sigmoid $\sigma(x)=1/(1+e^{-x})$ passes
+      The sigmoid $\sigma(x)=1/(1+e^{-x})$ passes
       through $(0,1/2)$ and approaches $0$ and $1$ without attaining
-      either value.}}
+      either value.}
     \label{fig:cardinality-sigmoid}
   \end{marginfigure}
 
   The function is strictly increasing and therefore injective.
-  \pendingreviewtext{Indeed, if $x_1<x_2$, then
+  Indeed, if $x_1<x_2$, then
   $e^{-x_1}>e^{-x_2}>0$, so
-  $1/(1+e^{-x_1})<1/(1+e^{-x_2})$.}
-  \pendingreviewtext{Its shape is shown in
-  \autoref{fig:cardinality-sigmoid}.}
+  $1/(1+e^{-x_1})<1/(1+e^{-x_2})$.
+  Its shape is shown in
+  \autoref{fig:cardinality-sigmoid}.
 
   For surjectivity, let $0<y<1$ and solve
   \begin{align*}
@@ -342,12 +342,12 @@ natural logarithm as elementary background.}
   $|\R|=|(0,1)|$.
 \end{example}
 
-\begin{pendingreview}
+
 The next exercise asks for a bijection in the opposite direction.
 Inverting $\sigma$ gives one construction. Another uses the elementary
 fact that $\tan$ maps $(-\pi/2,\pi/2)$ bijectively onto $\R$, with
 inverse $\arctan$.
-\end{pendingreview}
+
 \input{problems/hw01/04-interval-to-reals/problem}
 
 \begin{example}[Freeing two places in an interval]
@@ -356,8 +356,8 @@ inverse $\arctan$.
   Sending each $1/n$ to $1/(n+2)$ shifts the sequence and frees the
   places $1/2$ and $1/3$. Put the two endpoints there and leave all
   other points fixed.
-  \pendingreviewtext{\autoref{fig:endpoint-shift} shows the two infinite
-  chains that make this shift possible.}
+  \autoref{fig:endpoint-shift} shows the two infinite
+  chains that make this shift possible.
 
   Explicitly, define $h:[0,1]\to(0,1)$ by
   \[
@@ -372,24 +372,24 @@ inverse $\arctan$.
   \begin{marginfigure}
     \centering
     \input{figures/foundations/endpoint-shift}
-    \caption[Making room for two endpoints.]{\pendingreviewtext{Each arrow
+    \caption[Making room for two endpoints.]{Each arrow
       applies $h$. Shifting the even- and odd-denominator chains makes room
       for $0$ and $1$ at $1/2$ and $1/3$. Every other interior point stays
-      fixed.}}
+      fixed.}
     \label{fig:endpoint-shift}
   \end{marginfigure}
 
-  \begin{pendingreview}
+
   The endpoints and the points $1/n$ for $n\ge2$ map bijectively onto
   the reciprocal sequence. Every other point of $(0,1)$ is fixed and
   lies outside that sequence. These two parts have disjoint images
   and exhaust the target.
-  \end{pendingreview}
+
   Thus $h$ is bijective and $|[0,1]|=|(0,1)|$.
 \end{example}
 
-\pendingreviewtext{Reversing the construction in
-\autoref{ex:analysis-i:endpoint-shift} gives the bijection requested next.}
+Reversing the construction in
+\autoref{ex:analysis-i:endpoint-shift} gives the bijection requested next.
 \input{problems/hw01/05-open-to-closed-interval/problem}
 
 Combining $|\R|=|(0,1)|$ and $|(0,1)|=|[0,1]|$ with
@@ -397,21 +397,21 @@ Combining $|\R|=|(0,1)|$ and $|(0,1)|=|[0,1]|$ with
 \[
   |\R|=|[0,1]|=2^{|\N|}=2^{\aleph_0}=:\mathfrak c.
 \]
-\pendingreviewtext{There is also an algebraic comparison that avoids
-the exponential and logarithm.}
+There is also an algebraic comparison that avoids
+the exponential and logarithm.
 The function $x\mapsto\tfrac12(1+x/(1+|x|))$ injects $\R$ into $(0,1)$.
 To see injectivity, $x/(1+|x|)$ is strictly increasing on each side of zero
 by cross multiplication, and has the sign of $x$. Together with the
-inclusion $[0,1]\subseteq\R$, \pendingreviewtext{Cantor--Bernstein
-gives the same comparison $|\R|=|[0,1]|$.}
+inclusion $[0,1]\subseteq\R$, Cantor--Bernstein
+gives the same comparison $|\R|=|[0,1]|$.
 \marginnote{The \emph{continuum hypothesis} is the additional
 assertion that there is no cardinality strictly between $\aleph_0$ and
 $\mathfrak c$. The identity $|\R|=2^{\aleph_0}$ does not assume that hypothesis.}
 
-\begin{pendingreview}
+
 \subsection{From an interval to a square}
 The next exercise extends the digit-encoding idea to a pair of points.
-\end{pendingreview}
+
 Here $\aleph$ denotes $|\R|=\mathfrak c$.
 For the square, use the unique decimal expansions from
 \autoref{thm:analysis-i:positional-representation} and injections in
@@ -421,7 +421,7 @@ both directions. None of these exercises requires a continuity proof.
 
 \subsection{Algebraic and transcendental numbers}
 \label{sec:analysis-i:algebraic-transcendental}
-\historynote{Cantor sent Dedekind a proposed uncountability argument
+\historynote*{Cantor sent Dedekind a proposed uncountability argument
 on 7 December 1873~\cite{CantorDedekind1873}. The 1874 paper then
 contrasts the algebraic numbers with the real continuum
 ~\cite{Cantor1874}. The correspondence documents an exchange of
@@ -431,9 +431,9 @@ A polynomial is a finite sum $a_0+a_1X+\cdots+a_mX^m$.
 If $a_m\ne0$, its degree is $m$.
 A real number is \emph{algebraic} if it is a root of a nonzero polynomial
 with rational coefficients. It is \emph{transcendental} otherwise.
-\marginnote{\pendingreviewtext{\autoref{sec:analysis-i:number-systems}
+\marginnote{\autoref{sec:analysis-i:number-systems}
 brings these sets together in a nesting diagram and compares their sizes
-with the natural, rational, real, and complex numbers.}}
+with the natural, rational, real, and complex numbers.}
 For instance, $\sqrt{2}$ is algebraic because it satisfies $x^2-2=0$.
 Rational numbers are algebraic as well, since $p/q$ satisfies $qx-p=0$.
 Clearing denominators shows that rational and integer coefficients give
@@ -490,7 +490,7 @@ The second applies the definition of transcendence to linear independence.
 \input{problems/hw01/07-linear-independence/problem}
 
 One further algebraic fact will be useful for the recurrences that follow.
-\pendingreviewtext{By \autoref{thm:analysis-i:euclid-prime-divisors},}
+By \autoref{thm:analysis-i:euclid-prime-divisors},
 a prime dividing a product of integers divides
 at least one factor. In particular, coprime integers have coprime powers.
 If a rational number $u/v$ in lowest terms is a root of a monic integer
@@ -536,22 +536,22 @@ $F(x,y)=(x+y^2,y)$, on the real plane inside $\C^2$. Here
   \qquad \det\mathrm DF(x,y)=1.
 \]
 The inverse $G(u,v)=(u-v^2,v)$ keeps the second coordinate and undoes
-the horizontal shift. \pendingreviewtext{This supplies a polynomial inverse
+the horizontal shift. This supplies a polynomial inverse
 for this particular map. The example illustrates the classical conjecture's
-conclusion without establishing a general result}~\cite{deGoursac2016}.
+conclusion without establishing a general result~\cite{deGoursac2016}.
 \begin{figure}[htbp]
   \centering
   \input{figures/foundations/jacobian-shear}
   \caption[A polynomial shear and its inverse.]{A real slice of the
     polynomial shear $F(x,y)=(x+y^2,y)$. Horizontal grid segments stay
-    horizontal\pendingreviewtext{. Vertical} ones become parabolic arcs. The inverse
+    horizontal. Vertical ones become parabolic arcs. The inverse
     subtracts $v^2$ from the first coordinate. This example has a
     global polynomial inverse.}
   \label{fig:jacobian-shear}
 \end{figure}
 
 \newthought{Motivation.} Earlier we studied injectivity
-and surjectivity\pendingreviewtext{. A} global inverse requires both. The Jacobian determinant
+and surjectivity. A global inverse requires both. The Jacobian determinant
 tests behavior near each point, so the conjecture connects those global
 questions with local differential calculus. Requiring the inverse to be
 polynomial adds an algebraic constraint. It illustrates why the precise
