@@ -1,0 +1,459 @@
+% !TEX TS-program = pdflatexmk
+% !TEX program = pdflatex
+% Source assignment: MA-GY-6213-hw8 (1).pdf, two pages.
+% Standalone solutions requested separately from the book.
+% This document is not an input to the book or its shared exercise system.
+% Self-contained article. No project-specific inputs are required.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\R}{\mathbb{R}}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+\providecommand*{\exerciseautorefname}{Exercise}
+\def\equationautorefname~#1\null{Equation~(#1)\null}
+
+\title{Mathematical Analysis I\\Homework 8 Solutions}
+\author{Lucas Barbosa\\\texttt{Lc6424}}
+\date{}
+\hypersetup{
+  pdftitle={Mathematical Analysis I - Homework 8 Solutions},
+  pdfauthor={Lucas Barbosa, Lc6424}
+}
+
+\begin{document}
+\maketitle
+
+\begin{exercise}[Trigonometric Taylor series and Euler's formula]
+  \label{ex:standalone-hw08:trigonometric-series}
+  \textup{(a)} Obtain the Taylor series for $\sin x$ and $\cos x$ about
+  $x=0$, and prove that they represent these functions for every $x\in\R$.
+
+  \textup{(b)} Using the definition
+  \[
+    e^{ix}=\sum_{n=0}^{\infty}\frac{(ix)^n}{n!},
+  \]
+  derive Euler's formula $e^{ix}=\cos x+i\sin x$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  \textbf{(a)} The derivatives of sine and cosine repeat after four
+  differentiations. In particular, for every integer $k\ge0$,
+  \[
+    \begin{aligned}
+      \sin^{(2k)}(0)&=0,
+      &\sin^{(2k+1)}(0)&=(-1)^k,\\
+      \cos^{(2k)}(0)&=(-1)^k,
+      &\cos^{(2k+1)}(0)&=0.
+    \end{aligned}
+  \]
+  Here $\sin^{(j)}$ and $\cos^{(j)}$ denote derivatives of order $j$.
+  These values give the Taylor series
+  \begin{align}
+    \sin x
+      &=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots
+        =\sum_{k=0}^{\infty}\frac{(-1)^k x^{2k+1}}{(2k+1)!},
+      \label{eq:standalone-hw08:sine-series}\\
+    \cos x
+      &=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots
+        =\sum_{k=0}^{\infty}\frac{(-1)^k x^{2k}}{(2k)!}.
+      \label{eq:standalone-hw08:cosine-series}
+  \end{align}
+  Fix $x\in\R$. The series $\sum_{j=0}^{\infty}|x|^j/j!$ converges
+  trivially when $x=0$. For $x\ne0$, its successive term ratio is
+  $|x|/(j+1)\to0$, so it converges by the ratio test. Its terms therefore
+  tend to zero.
+
+  For either $h=\sin$ or $h=\cos$, Taylor's theorem gives
+  \[
+    h(x)=\sum_{j=0}^{N}\frac{h^{(j)}(0)}{j!}x^j+R_N(x),
+    \qquad
+    |R_N(x)|\le\frac{|x|^{N+1}}{(N+1)!}\longrightarrow0.
+  \]
+  The estimate holds because every derivative of $h$ has absolute value
+  at most $1$ on the segment joining $0$ to $x$. Thus the Taylor
+  polynomials converge to $h(x)$. Taking the odd-degree
+  polynomials for sine and the even-degree polynomials for cosine proves
+  \autoref{eq:standalone-hw08:sine-series} and
+  \autoref{eq:standalone-hw08:cosine-series} for every real $x$.
+
+  \textbf{(b)} The defining complex series is absolutely convergent
+  because $|(ix)^n/n!|=|x|^n/n!$, whose sum was shown to converge in
+  part (a). We may therefore separate the even and odd terms.
+  Since $i^{2k}=(-1)^k$ and
+  $i^{2k+1}=i(-1)^k$, we obtain
+  \[
+    \begin{aligned}
+      e^{ix}
+        &=\sum_{k=0}^{\infty}\frac{(-1)^k x^{2k}}{(2k)!}
+          +i\sum_{k=0}^{\infty}\frac{(-1)^k x^{2k+1}}{(2k+1)!}\\
+        &=\cos x+i\sin x.
+    \end{aligned}
+  \]
+  This proves Euler's formula for all $x\in\R$.
+\end{proof}
+
+\begin{exercise}[The logarithmic Taylor series]
+  \label{ex:standalone-hw08:logarithmic-series}
+  Let $f(x)=\ln(1+x)$ for $-1<x<\infty$.
+
+  \textup{(a)} Find its Taylor polynomial $P_n$ of order $n\ge1$ about
+  $0$, together with its Lagrange remainder involving $f^{(n+1)}$.
+
+  \textup{(b)} Determine the interval on which
+  $f(x)=\lim_{n\to\infty}P_n(x)$.
+
+  \textup{(c)} Obtain the Taylor series for $g(x)=\ln x$ about $x=1$,
+  using $g(x)=f(x-1)$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  \textbf{(a)} Differentiating successively gives
+  \[
+    f'(x)=\frac{1}{1+x},\qquad
+    f''(x)=-\frac{1}{(1+x)^2},\qquad
+    f'''(x)=\frac{2}{(1+x)^3}.
+  \]
+  More generally, induction on $k$ gives
+  \[
+    f^{(k)}(x)=\frac{(-1)^{k-1}(k-1)!}{(1+x)^k},
+    \qquad k\ge1.
+  \]
+  To verify the induction step, differentiating the expression for
+  $f^{(k)}$ multiplies it by $-k/(1+x)$, which gives the expression
+  with $k$ replaced by $k+1$. Since $f(0)=0$, the Taylor polynomial is
+  \begin{equation}
+    \begin{aligned}
+      P_n(x)
+        &=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots
+          +\frac{(-1)^{n-1}x^n}{n}\\
+        &=\sum_{k=1}^{n}\frac{(-1)^{k-1}x^k}{k}.
+    \end{aligned}
+    \label{eq:standalone-hw08:log-polynomial}
+  \end{equation}
+  For $n=1$ or $n=2$, the expanded expression stops at its indicated
+  degree. The function is smooth throughout $(-1,\infty)$, so Taylor's
+  theorem applies on the segment joining $0$ to any $x>-1$.
+  If $x\ne0$, there is a point $\xi_{n,x}$ strictly between $0$ and $x$
+  such that
+  \begin{equation}
+    \begin{aligned}
+      R_n(x)
+        &:=f(x)-P_n(x)\\
+        &=\frac{f^{(n+1)}(\xi_{n,x})}{(n+1)!}x^{n+1}\\
+        &=\frac{(-1)^n x^{n+1}}
+          {(n+1)(1+\xi_{n,x})^{n+1}}.
+    \end{aligned}
+    \label{eq:standalone-hw08:log-lagrange-remainder}
+  \end{equation}
+  At $x=0$, the remainder is zero.
+
+  \textbf{(b)} First suppose $0<x\le1$. Since $\xi_{n,x}>0$,
+  \autoref{eq:standalone-hw08:log-lagrange-remainder} gives
+  \[
+    |R_n(x)|\le\frac{x^{n+1}}{n+1}\le\frac{1}{n+1}\longrightarrow0.
+  \]
+  This proves convergence on $[0,1]$, including the endpoint $x=1$.
+
+  Now fix $-1<x<0$ and put $r=-x\in(0,1)$. Differentiating
+  $R_n(t)=\ln(1+t)-P_n(t)$ and using the finite geometric sum gives
+  \[
+    R_n'(t)=\frac1{1+t}-\sum_{k=0}^{n-1}(-t)^k
+      =\frac{(-t)^n}{1+t},\qquad t>-1.
+  \]
+  For $t\in[x,0]$, we have $|t|\le r$ and $1+t\ge1-r>0$, so
+  \[
+    |R_n'(t)|\le\frac{r^n}{1-r}.
+  \]
+  Since $R_n(0)=0$, the mean value theorem on $[x,0]$ now gives
+  \[
+    |R_n(x)|\le |x|\frac{r^n}{1-r}
+      =\frac{r^{n+1}}{1-r}\longrightarrow0.
+  \]
+  The limit follows because $r$ is fixed and less than $1$. Thus the
+  Taylor polynomials converge to $f(x)$ for every $x\in(-1,0)$ as well.
+
+  To determine the full interval, consider the series terms outside it.
+  If $x>1$, let $c_n=x^n/n$. Then
+  \[
+    \frac{c_{n+1}}{c_n}=x\frac{n}{n+1}\longrightarrow x>1.
+  \]
+  Choose a number $q$ with $1<q<x$. For all sufficiently large $n$,
+  $c_{n+1}\ge q c_n$, so $c_n$ does not tend to zero. The Taylor series
+  cannot converge there. At $x=-1$, its partial sums are
+  $P_n(-1)=-\sum_{k=1}^{n}1/k$, which diverge to $-\infty$.
+  For $x<-1$, the term magnitudes also fail to tend to zero, by the same
+  ratio argument with $|x|$ in place of $x$. Thus the exact interval is
+  \[
+    \ln(1+x)=\sum_{k=1}^{\infty}\frac{(-1)^{k-1}x^k}{k},
+    \qquad -1<x\le1.
+  \]
+
+  \textbf{(c)} Substitute $x-1$ for the argument in the preceding
+  identity. Since $-1<x-1\le1$ is equivalent to $0<x\le2$, we obtain
+  \[
+    \begin{aligned}
+      \ln x
+        &=(x-1)-\frac{(x-1)^2}{2}+\frac{(x-1)^3}{3}-\cdots\\
+        &=\sum_{k=1}^{\infty}\frac{(-1)^{k-1}(x-1)^k}{k},
+        \qquad 0<x\le2.
+    \end{aligned}
+  \]
+  This is the Taylor series about $1$, with radius of convergence $1$
+  and interval of convergence $(0,2]$.
+\end{proof}
+
+\begin{exercise}[Vanishing derivatives]
+  \label{ex:standalone-hw08:vanishing-derivatives}
+  Let $n\ge1$ and let $f$ be $n$ times differentiable on an open interval
+  $I$. Suppose there is $a\in I$ such that
+  \[
+    f(a)=f'(a)=\cdots=f^{(n-1)}(a)=0.
+  \]
+  Prove that $f$ is identically zero on $I$ if $f^{(n)}=0$ throughout $I$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  Each derivative of order less than $n$ is differentiable, hence
+  continuous, and $f^{(n)}=0$ is continuous as well. Thus $f$ has $n$
+  continuous derivatives on $I$.
+
+  Fix $x\in I$ with $x\ne a$. The segment joining $a$ to $x$ lies in
+  $I$, so Taylor's theorem of order $n-1$ about $a$ gives a point
+  $\xi$ strictly between $a$ and $x$ such that
+  \[
+    f(x)=\sum_{k=0}^{n-1}\frac{f^{(k)}(a)}{k!}(x-a)^k
+      +\frac{f^{(n)}(\xi)}{n!}(x-a)^n=0.
+  \]
+  Every term is zero by the hypotheses. Since $f(a)=0$ as well,
+  $f$ vanishes throughout $I$.
+\end{proof}
+
+\begin{exercise}[Jensen's inequality for finite averages]
+  \label{ex:standalone-hw08:jensen}
+  Let $f$ be twice differentiable on an open interval $I$, with
+  $f''(x)\ge0$ for every $x\in I$. Prove that
+  \[
+    f(p_1x_1+\cdots+p_nx_n)
+      \le p_1f(x_1)+\cdots+p_nf(x_n)
+  \]
+  whenever $p_1,\ldots,p_n\in[0,1]$, $\sum_{j=1}^{n}p_j=1$, and
+  $x_1,\ldots,x_n\in I$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  The condition on $f''$ makes $f'$ nondecreasing. Indeed, if $u<v$
+  lie in $I$, the mean value theorem applied to $f'$ on $[u,v]$ gives
+  some $c\in(u,v)$ for which
+  \[
+    f'(v)-f'(u)=f''(c)(v-u)\ge0.
+  \]
+  The theorem applies because $f'$ is differentiable on $I$ and hence
+  continuous on $[u,v]$.
+
+  Set $m=\sum_{j=1}^{n}p_jx_j$. Since the weights are nonnegative and
+  sum to $1$,
+  \[
+    \min_{1\le j\le n}x_j\le m\le\max_{1\le j\le n}x_j.
+  \]
+  Both endpoints belong to $I$, and $I$ is an interval, so $m\in I$.
+  We will compare the value of $f$ at each $x_j$ with the tangent line
+  at this common point $m$.
+
+  For any $x\in I$ with $x>m$, the mean value theorem gives
+  $f(x)-f(m)=f'(c)(x-m)$ for some $c\in(m,x)$. As $f'$ is
+  nondecreasing, $f'(c)\ge f'(m)$, and multiplication by $x-m>0$
+  gives $f(x)-f(m)\ge f'(m)(x-m)$. If $x<m$, the same theorem gives
+  a point $c\in(x,m)$. Now $f'(c)\le f'(m)$, and multiplication by
+  $x-m<0$ reverses this inequality, giving the same conclusion.
+  Equality holds when $x=m$. Thus, for every $x\in I$,
+  \begin{equation}
+    f(x)\ge f(m)+f'(m)(x-m).
+    \label{eq:standalone-hw08:tangent-support}
+  \end{equation}
+
+  Apply \autoref{eq:standalone-hw08:tangent-support} with $x=x_j$,
+  multiply by $p_j\ge0$, and sum over $j$. We obtain
+  \[
+    \begin{aligned}
+      \sum_{j=1}^{n}p_jf(x_j)
+        &\ge\sum_{j=1}^{n}p_jf(m)
+          +f'(m)\sum_{j=1}^{n}p_j(x_j-m)\\
+        &=f(m)+f'(m)\left(\sum_{j=1}^{n}p_jx_j
+          -m\sum_{j=1}^{n}p_j\right)\\
+        &=f(m).
+    \end{aligned}
+  \]
+  Substituting the definition of $m$ proves the required inequality,
+  including cases in which some weights are zero.
+\end{proof}
+
+\begin{exercise}[Generalized Young's inequality]
+  \label{ex:standalone-hw08:young}
+  Use \autoref{ex:standalone-hw08:jensen} and the exponential function
+  to prove
+  \[
+    x_1\cdots x_n
+      \le\frac{x_1^{p_1}}{p_1}+\cdots+\frac{x_n^{p_n}}{p_n},
+  \]
+  where $x_1,\ldots,x_n>0$, $p_1,\ldots,p_n>1$, and
+  $\sum_{j=1}^{n}1/p_j=1$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  The weights $1/p_j$ lie in $(0,1)$ and sum to $1$. Each point
+  $p_j\ln x_j$ is defined because $x_j>0$. Since the second derivative
+  of $e^s$ is $e^s>0$ on $\R$, \autoref{ex:standalone-hw08:jensen}
+  applies to these weights and points. It gives
+  \[
+    \begin{aligned}
+      \prod_{j=1}^{n}x_j
+        &=\exp\left(\sum_{j=1}^{n}\frac1{p_j}p_j\ln x_j\right)\\
+        &\le\sum_{j=1}^{n}\frac1{p_j}\exp(p_j\ln x_j)
+          =\sum_{j=1}^{n}\frac{x_j^{p_j}}{p_j}.
+    \end{aligned}
+  \]
+  This is the required inequality.
+\end{proof}
+
+\begin{exercise}[The arithmetic--geometric mean inequality]
+  \label{ex:standalone-hw08:am-gm}
+  Use \autoref{ex:standalone-hw08:young} to prove
+  \[
+    (a_1\cdots a_n)^{1/n}\le\frac{a_1+\cdots+a_n}{n},
+    \qquad a_1,\ldots,a_n\ge0.
+  \]
+\end{exercise}
+
+\begin{proof}[Solution]
+  When $n=1$, the two sides are both $a_1$. Suppose $n\ge2$.
+  If at least one $a_j$ is zero, the product on the left is zero,
+  whereas the average on the right is nonnegative, so the inequality
+  holds.
+
+  It remains to consider $a_j>0$ for every $j$. Set
+  \[
+    x_j=a_j^{1/n},\qquad p_j=n,\qquad 1\le j\le n.
+  \]
+  Then $x_j>0$, $p_j>1$, and
+  $\sum_{j=1}^{n}1/p_j=n/n=1$. All hypotheses of
+  \autoref{ex:standalone-hw08:young} are satisfied. Applying it gives
+  \[
+    (a_1\cdots a_n)^{1/n}
+      =\prod_{j=1}^{n}a_j^{1/n}
+      \le\sum_{j=1}^{n}\frac{(a_j^{1/n})^n}{n}
+      =\frac{a_1+\cdots+a_n}{n}.
+  \]
+  Together with the zero and $n=1$ cases, this proves the inequality
+  for all the stated inputs.
+\end{proof}
+
+\begin{exercise}[A fourth Bernstein polynomial]
+  \label{ex:standalone-hw08:bernstein-reciprocal}
+  For $f(x)=1/(1+x)$ on $[0,1]$, find its fourth Bernstein polynomial
+  $P_4(x)$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  The Bernstein polynomial of order $n\ge1$ of a function $f$ on
+  $[0,1]$ is
+  \begin{equation}
+    P_n(x)=\sum_{k=0}^{n}f\left(\frac{k}{n}\right)
+      \binom{n}{k}x^k(1-x)^{n-k}.
+    \label{eq:standalone-hw08:bernstein-definition}
+  \end{equation}
+  Here the coefficients use values of $f$ at the equally spaced points
+  $k/n$. For the present function and $n=4$, these values are
+  \[
+    \begin{aligned}
+      f(0)&=1,& f\left(\frac14\right)&=\frac45,
+      &f\left(\frac12\right)&=\frac23,\\
+      f\left(\frac34\right)&=\frac47,&f(1)&=\frac12.
+    \end{aligned}
+  \]
+  The binomial coefficients for $n=4$ are $1$, $4$, $6$, $4$, and $1$.
+  Substitution in \autoref{eq:standalone-hw08:bernstein-definition} gives
+  \[
+    \begin{aligned}
+      P_4(x)
+        &=(1-x)^4+\frac{16}{5}x(1-x)^3+4x^2(1-x)^2\\
+        &\qquad+\frac{16}{7}x^3(1-x)+\frac12x^4.
+    \end{aligned}
+  \]
+  Expanding and collecting powers of $x$ gives
+  \[
+    P_4(x)=1-\frac45x+\frac25x^2-\frac4{35}x^3+\frac1{70}x^4.
+  \]
+\end{proof}
+
+\begin{exercise}[Bernstein approximation of a quadratic]
+  \label{ex:standalone-hw08:bernstein-quadratic}
+  For $f(x)=x^2$ on $[0,1]$, obtain its Bernstein polynomial $P_n$
+  explicitly and find
+  \[
+    E_n(x)=|f(x)-P_n(x)|.
+  \]
+  Prove that $E_n\to0$ uniformly on $[0,1]$.
+
+  \textit{Hint.} One may use the identities
+  \[
+    \begin{aligned}
+      \sum_{k=0}^{n}\frac{k}{n}\binom{n}{k}x^k(1-x)^{n-k}&=x,\\
+      \sum_{k=0}^{n}\left(\frac{k}{n}-x\right)^2
+        \binom{n}{k}x^k(1-x)^{n-k}&=\frac{x(1-x)}{n},
+    \end{aligned}
+  \]
+  valid for every $n\ge1$ and $x\in[0,1]$.
+\end{exercise}
+
+\begin{proof}[Solution]
+  Fix $n\ge1$ and $x\in[0,1]$, and write
+  \[
+    b_{n,k}(x)=\binom{n}{k}x^k(1-x)^{n-k}.
+  \]
+  By \autoref{eq:standalone-hw08:bernstein-definition},
+  $P_n(x)=\sum_{k=0}^{n}(k/n)^2b_{n,k}(x)$. The binomial theorem gives
+  \[
+    \sum_{k=0}^{n}b_{n,k}(x)=(x+(1-x))^n=1.
+  \]
+  Expanding the square in the second supplied identity and using the
+  first identity therefore gives
+  \[
+    \begin{aligned}
+      \frac{x(1-x)}n
+        &=\sum_{k=0}^{n}\left(\frac{k}{n}-x\right)^2b_{n,k}(x)\\
+        &=P_n(x)-2x\sum_{k=0}^{n}\frac{k}{n}b_{n,k}(x)
+          +x^2\sum_{k=0}^{n}b_{n,k}(x)\\
+        &=P_n(x)-2x^2+x^2=P_n(x)-x^2.
+    \end{aligned}
+  \]
+  Hence, for every $n\ge1$,
+  \[
+    P_n(x)=x^2+\frac{x(1-x)}{n}.
+  \]
+
+  Since $x(1-x)\ge0$ on $[0,1]$, the Bernstein polynomial lies above
+  $f$ there, and the absolute error is exactly
+  \[
+    E_n(x)=\left|x^2-\left(x^2+\frac{x(1-x)}{n}\right)\right|
+      =\frac{x(1-x)}{n}.
+  \]
+  Finally,
+  \[
+    x(1-x)=\frac14-\left(x-\frac12\right)^2\le\frac14,
+    \qquad x\in[0,1].
+  \]
+  The upper bound is attained at $x=1/2$, so
+  \[
+    \sup_{x\in[0,1]}E_n(x)=\frac1{4n}\longrightarrow0.
+  \]
+  More explicitly, given $\varepsilon>0$, choose an integer
+  $N>1/(4\varepsilon)$. For every $n\ge N$ and every $x\in[0,1]$,
+  we then have $E_n(x)\le1/(4n)\le1/(4N)<\varepsilon$.
+  This proves uniform convergence on $[0,1]$.
+\end{proof}
+
+\end{document}
